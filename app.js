@@ -17,7 +17,7 @@ let viewMode         = 'all';   // 'all' | 'favorites' | 'visited'
 let sortBy           = 'score'; // 'score' | 'flight' | 'days'
 let visitedParks     = new Set(JSON.parse(localStorage.getItem('visitedParks')   || '[]'));
 let favoritedParks   = new Set(JSON.parse(localStorage.getItem('favoritedParks') || '[]'));
-let showVisited      = true;
+let showVisited      = localStorage.getItem('showVisited') !== 'false';
 
 // ============ DOM ============
 const chipContainer = document.querySelector('.month-chips');
@@ -51,21 +51,29 @@ function closeAllMenus() {
 }
 document.addEventListener('click', closeAllMenus);
 
-// ============ Init ============
 function init() {
   renderChips();
   if (visitedToggle) {
     visitedToggle.checked = showVisited;
-    visitedToggle.addEventListener('change', () => { showVisited = visitedToggle.checked; renderParks(); });
+    visitedToggle.addEventListener('change', () => { 
+      showVisited = visitedToggle.checked; 
+      localStorage.setItem('showVisited', showVisited);
+      renderParks(); 
+    });
   }
-  const now = new Date();
-  selectMonth(now.getMonth() + 1);
+  
+  // Default to "All Parks" on load
+  viewMode = 'all';
+  selectedMonth = null;
+  document.getElementById('chip-all')?.classList.add('active');
+  renderParks();
 }
 
 // ============ Render Chips (months + special) ============
 function renderChips() {
   // Special chips first
   const specialChips = [
+    { id: 'chip-all',       label: 'All Parks',   mode: 'all' },
     { id: 'chip-favorites', label: '⭐ Favorites', mode: 'favorites' },
     { id: 'chip-visited',   label: '✓ Visited',   mode: 'visited'   },
   ];
@@ -75,6 +83,7 @@ function renderChips() {
     chip.className = 'month-chip special-chip';
     chip.textContent = label;
     chip.id = id;
+    if (viewMode === 'all' && mode === 'all' && !selectedMonth) chip.classList.add('active');
     chip.addEventListener('click', () => selectSpecialMode(mode));
     chipContainer.appendChild(chip);
   });
@@ -98,19 +107,21 @@ function renderChips() {
 }
 
 function selectSpecialMode(mode) {
-  if (viewMode === mode) {
-    // Deselect
+  // Clear all chips
+  document.querySelectorAll('.month-chip').forEach(c => c.classList.remove('active'));
+
+  if (viewMode === mode && mode !== 'all') {
+    // Deselect (if you clicked visited/favorites again)
     viewMode = 'all';
     selectedMonth = null;
+    document.getElementById('chip-all')?.classList.add('active');
   } else {
+    // Select the new mode
     viewMode = mode;
     selectedMonth = null;
+    document.getElementById(`chip-${mode}`)?.classList.add('active');
   }
-  // Update chip active states
-  document.querySelectorAll('.month-chip').forEach(c => c.classList.remove('active'));
-  if (viewMode !== 'all') {
-    document.getElementById(`chip-${viewMode}`)?.classList.add('active');
-  }
+  
   // Show/hide visited toggle
   if (toggleWrap) toggleWrap.style.display = (viewMode === 'visited') ? 'none' : '';
   renderParks();
@@ -121,7 +132,13 @@ function selectMonth(month) {
   selectedMonth = selectedMonth === month ? null : month;
   // Clear ALL chips first, then activate the right one by ID (avoids index offset from special chips)
   document.querySelectorAll('.month-chip').forEach(c => c.classList.remove('active'));
-  if (selectedMonth) document.getElementById(`chip-${selectedMonth}`)?.classList.add('active');
+  
+  if (selectedMonth) {
+    document.getElementById(`chip-${selectedMonth}`)?.classList.add('active');
+  } else {
+    document.getElementById('chip-all')?.classList.add('active');
+  }
+  
   if (toggleWrap) toggleWrap.style.display = '';
   renderParks();
 }
@@ -179,7 +196,11 @@ function renderParks() {
   let parks = [];
   let modeLabel = '';
 
-  if (viewMode === 'favorites') {
+  if (viewMode === 'all' && !selectedMonth) {
+    parks = PARKS;
+    if (!showVisited) parks = parks.filter(p => !visitedParks.has(p.name));
+    modeLabel = `${parks.length} Parks Displayed`;
+  } else if (viewMode === 'favorites') {
     parks = PARKS.filter(p => favoritedParks.has(p.name));
     modeLabel = `⭐ ${parks.length} Favorited Park${parks.length !== 1 ? 's' : ''}`;
   } else if (viewMode === 'visited') {
@@ -269,8 +290,8 @@ function renderParks() {
           <span class="info-value">${monthData.temp}</span>
         </div>
         <div class="info-item">
-          <span class="info-label">📅 Best Months</span>
-          <span class="info-value small-val">${formatBestMonths(park.bestMonths)}</span>
+          <span class="info-label">⛔ Avoid</span>
+          <span class="info-value small-val">${park.avoid && park.avoid.length ? formatBestMonths(park.avoid.map(Number)) : 'None'}</span>
         </div>
       </div>` : `
       <div class="info-grid">
@@ -279,8 +300,8 @@ function renderParks() {
           <span class="info-value small-val">${formatBestMonths(park.bestMonths)}</span>
         </div>
         <div class="info-item">
-          <span class="info-label">🚌 Transport</span>
-          <span class="info-value small-val">${park.transport}</span>
+          <span class="info-label">⛔ Avoid</span>
+          <span class="info-value small-val">${park.avoid && park.avoid.length ? formatBestMonths(park.avoid.map(Number)) : 'None'}</span>
         </div>
       </div>`}
 
@@ -289,9 +310,9 @@ function renderParks() {
           <span class="plane">✈️</span>
           <span class="airport-code">${ap.code}</span>
           ${ap.detail ? `<span class="airport-detail">${ap.detail}</span>` : ''}
+          ${park.flight ? `<span class="flight-time-inline">&bull; 🕒 ${park.flight}</span>` : ''}
         </div>
-        ${park.flight ? `<div class="flight-time-row">${park.flight}</div>` : ''}
-        ${monthData ? `<div class="transport-tag">🚌 ${park.transport}</div>` : ''}
+        ${monthData && park.transport ? `<div class="transport-tag">🚌 ${park.transport}</div>` : ''}
       </div>
     `;
 

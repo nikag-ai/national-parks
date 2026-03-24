@@ -170,10 +170,10 @@ nav#month-bar {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 20px auto 60px;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto 60px;
   padding: 0 24px;
 }
 
@@ -227,14 +227,14 @@ nav#month-bar {
 
 .park-name {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: var(--text);
   line-height: 1.1;
 }
 
 .park-state {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -821,6 +821,12 @@ footer a:hover { text-decoration: underline; }
   color: #fff !important;
   box-shadow: 0 4px 20px rgba(61,214,140,0.35) !important;
 }
+#chip-all.active {
+  background: linear-gradient(135deg, #6b7280, #9ca3af) !important;
+  border-color: transparent !important;
+  color: #1c2240 !important;
+  box-shadow: 0 4px 20px rgba(107,114,128,0.35) !important;
+}
 
 .chip-sep {
   color: rgba(255,255,255,0.15);
@@ -915,10 +921,10 @@ footer a:hover { text-decoration: underline; }
   font-size: 0.76rem;
   color: var(--text-dim);
 }
-.flight-time-row {
+.flight-time-inline {
   font-size: 0.78rem;
   color: var(--text-dim);
-  padding-left: 22px;
+  margin-left: 2px;
 }
 .transport-tag {
   font-size: 0.76rem;
