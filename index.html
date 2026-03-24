@@ -43,8 +43,16 @@
   </header>
 
   <div class="search-container">
-    <input type="text" id="park-search" class="search-input" placeholder="🔍 Search parks by name or state..." aria-label="Search parks" />
-    <button id="search-clear" class="search-clear" aria-label="Clear search">×</button>
+    <div class="start-point-wrapper">
+      <span class="start-point-label">From</span>
+      <select id="start-point" class="start-point-select" aria-label="Select starting point">
+        <option value="SFO">SFO</option>
+      </select>
+    </div>
+    <div class="search-input-wrapper">
+      <input type="text" id="park-search" class="search-input" placeholder="🔍 Search parks by name or state..." aria-label="Search parks" />
+      <button id="search-clear" class="search-clear" aria-label="Clear search">×</button>
+    </div>
   </div>
 
   <nav id="month-bar" aria-label="Month filter">

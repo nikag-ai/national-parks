@@ -88,6 +88,7 @@ document.getElementById('theme-dark')?.addEventListener('click', () => applyThem
 
 // ============ Search ============
 let searchQuery = '';
+const searchContainer = document.querySelector('.search-container');
 if (parkSearchInput) {
   parkSearchInput.addEventListener('input', (e) => {
     searchQuery = e.target.value.toLowerCase().trim();
@@ -95,6 +96,14 @@ if (parkSearchInput) {
       searchClearBtn.classList.toggle('visible', searchQuery.length > 0);
     }
     renderParks();
+  });
+
+  parkSearchInput.addEventListener('focus', () => {
+    searchContainer?.classList.add('searching');
+  });
+
+  parkSearchInput.addEventListener('blur', () => {
+    searchContainer?.classList.remove('searching');
   });
 }
 
@@ -722,7 +731,7 @@ function openModal(park) {
       <div class="modal-title-row">
         <div>
           <h2 class="modal-title">
-            ${isFavorite?'⭐ ':''}${park.name} <span class="modal-state-inline">${park.state}</span> ${isVisited?'<span class="modal-visited-tag">✓ Visited</span>':''}
+            ${isFavorite?'⭐ ':''}${park.name} <span class="modal-state-inline">${park.state}</span>
           </h2>
           <div class="modal-subtitle">
             <span class="modal-airport-inline">✈️ <strong>${ap.code}</strong> ${ap.detail}</span>
