@@ -1,6 +1,1257 @@
 // ============ National Parks Enriched Data (Monthly Granularity) ============
 const _PARKS_RAW = [
   {
+    name: "Indiana Dunes", state: "IN", bestMonths: [6, 7, 8, 9], minDays: 1, flightMinutes: 260, days: "1 Day",
+    airport: "MDW (1h) or ORD (1.5h)", flight: "~4h 20m to MDW (1 stop)", transport: "Car/Train",
+    avoid: ["11", "12", "1", "2", "3"], popularity: 60, uniqueness: 75, sfoAccessibility: 50,
+    funFacts: [
+      "The park sits on the southern tip of Lake Michigan, acting as a massive biological crossroads.",
+      "Mount Baldy is a 'living' dune, moving inland at a rate of roughly four feet per year.",
+      "You can see the Chicago skyline directly across the lake from the beaches on clear days."
+    ],
+    links: { nps: "https://www.nps.gov/indu" },
+    sunriseSunset: "Summer: 5:30 AM / 8:30 PM",
+    stargazing: { isFriendly: false, spots: "Kemil Beach", description: "Too much light pollution from Chicago and Gary, IN for true dark skies." },
+    topActivities: ["3 Dune Challenge", "West Beach", "Cowles Bog Trail", "Century of Progress Homes"],
+    dosAndDonts: [
+      { type: "do", text: "Take the South Shore Line train directly from downtown Chicago if you don't want to drive." },
+      { type: "dont", text: "Don't swim if the rip current warnings are flying. Lake Michigan pulls people under every year." }
+    ],
+    travelHacks: [
+      "The state park (which is completely surrounded by the national park) costs a separate entrance fee, but houses the famous '3 Dune Challenge'.",
+      "Hike the Cowles Bog Trail to see how the landscape transitions from swamp to forest to dunes to beach in just a few miles.",
+      "To avoid the terrible summer weekend beach crowds, go to the far eastern edge (Mt. Baldy or Central Avenue Beach)."
+    ],
+    redditPosts: [
+      { title: "Is it really a National Park?", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "It looks weird pressed up against steel mills, but the biodiversity in the bogs is insane. It's an ecologist's paradise disguised as a beach." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Hike the 9-mile Cowles Bog Trail to the secluded beach. Picnic at West Beach. Do the 3 Dune Challenge at the State Park (if willing to pay extra fee)." }
+    ],
+    monthlyData: {
+      6: { temp: "78°F / 58°F", reservations: "None", reddit: "Water is still freezing." },
+      8: { temp: "82°F / 64°F", reservations: "None", reddit: "Peak beach season, painfully crowded on weekends." },
+      9: { temp: "74°F / 55°F", reservations: "None", reddit: "Water is warmest, crowds are gone." }
+    }
+  },
+  {
+    name: "New River Gorge", state: "WV", bestMonths: [5, 6, 9, 10], minDays: 2, flightMinutes: 285, days: "2 Days",
+    airport: "CRW (1h drive)", flight: "~4h 45m to CRW (1 stop)", transport: "Car",
+    avoid: ["12", "1", "2"], popularity: 65, uniqueness: 88, sfoAccessibility: 40,
+    funFacts: [
+      "Despite its name, the New River is actually one of the oldest rivers on the North American continent.",
+      "The New River Gorge Bridge is the longest steel span in the western hemisphere and the third highest in the US.",
+      "Once a year on 'Bridge Day', the highway is closed and BASE jumpers leap 876 feet into the gorge."
+    ],
+    links: { nps: "https://www.nps.gov/neri" },
+    sunriseSunset: "Summer: 6:00 AM / 8:45 PM",
+    stargazing: { isFriendly: false, spots: "Grandview", description: "Decent skies, but the dense Appalachian tree canopy limits panoramic views." },
+    topActivities: ["Whitewater Rafting (Lower Gorge)", "Endless Wall Trail", "Bridge Walk", "Long Point Trail"],
+    dosAndDonts: [
+      { type: "do", text: "Book a commercial whitewater rafting trip. The Class IV/V rapids here are legendary." },
+      { type: "dont", text: "Don't rely on cell service down in the gorge near the river. It disappears instantly." }
+    ],
+    travelHacks: [
+      "The Bridge Walk allows you to walk on a 24-inch catwalk directly underneath the massive bridge. You are strapped into a safety cable with 800 feet of empty air below you.",
+      "Hike the Long Point Trail (3 miles RT) for the single best photo angle of the bridge and the gorge.",
+      "The gorge is deep enough that fog often completely obscures the river in the morning until the sun burns it off around 10 AM."
+    ],
+    redditPosts: [
+      { title: "Endless Wall vs Long Point?", sub: "r/hiking", url: "https://www.reddit.com/r/hiking/top/?t=all", quote: "Do both. Endless Wall puts you on the cliffs looking into the river. Long Point puts you on a rock outcropping looking directly at the bridge." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Hike Endless Wall Trail and Long Point Trail. Drive the winding Fayette Station Road down into the gorge and across the old bridge beneath the new one." },
+      { day: "Day 2", plan: "Full day guided whitewater rafting trip on the Lower New River (Class IV rapids), ending right underneath the massive bridge." }
+    ],
+    monthlyData: {
+      5: { temp: "72°F / 50°F", reservations: "Rafting required", reddit: "Spring rains mean the river is massive and raging." },
+      9: { temp: "75°F / 55°F", reservations: "Rafting / Bridge Walk", reddit: "Gauley Season begins — the hardest commercial rafting in the world." },
+      10: { temp: "65°F / 42°F", reservations: "Bridge Walk", reddit: "Peak fall colors. Bridge Day is the 3rd Saturday of Oct." }
+    }
+  },
+  {
+    name: "Mammoth Cave", state: "KY", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 240, days: "1 Day",
+    airport: "SDF (1.5h) or BNA (1.5h)", flight: "~4h to SDF/BNA (1 stop)", transport: "Car/Tour",
+    avoid: ["11", "12", "1", "2"], popularity: 55, uniqueness: 92, sfoAccessibility: 60,
+    funFacts: [
+      "It is the longest known cave system in the entire world, with over 420 miles currently mapped.",
+      "The cave served as a tuberculosis hospital in the 1840s (which ended poorly).",
+      "The cave was mined for saltpeter to make gunpowder during the War of 1812."
+    ],
+    links: { nps: "https://www.nps.gov/maca" },
+    sunriseSunset: "Summer: 5:45 AM / 8:00 PM",
+    stargazing: { isFriendly: false, spots: "Surface trails", description: "Average skies, heavily forested surface." },
+    topActivities: ["Historic Tour", "Domes and Dripstones Tour", "Wild Cave Tour", "Kayaking the Green River"],
+    dosAndDonts: [
+      { type: "do", text: "Book cave tours 3-4 weeks in advance during summer and fall." },
+      { type: "dont", text: "Don't show up in flip-flops. The stairs are extremely slippery from constant moisture and cave drip." }
+    ],
+    travelHacks: [
+      "The 'Historic Tour' takes you through massive, subway-tunnel-like dry tubes. The 'Domes and Dripstones Tour' is where you see the classic stalactites.",
+      "The cave temperature is a constant 54°F (12°C). It feels amazing in July, but you still need a jacket.",
+      "The surface park is fantastic for kayaking or canoeing on the Green River, which actually flows through the cave systems below."
+    ],
+    redditPosts: [
+      { title: "Which tour is the best?", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "Do the Historic Tour to understand the sheer, terrifying scale of the underground canyons, and Domes & Dripstones to see the pretty rocks." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Morning 'Domes and Dripstones' tour. Afternoon 'Historic Tour' (including Fat Man's Misery). Hike the sinkhole trails near the visitor center." }
+    ],
+    monthlyData: {
+      5: { temp: "78°F / 55°F (54°F inside)", reservations: "Tour tickets strictly required", reddit: "Heavy spring rains can cause lower cave closures." },
+      8: { temp: "88°F / 65°F (54°F inside)", reservations: "Tour tickets strictly required", reddit: "The 54°F cave air feels incredible against the 90-degree humidity outside." },
+      10: { temp: "72°F / 45°F (54°F inside)", reservations: "Tour tickets strictly required", reddit: "Beautiful fall surface hiking." }
+    }
+  },
+  {
+    name: "Hot Springs", state: "AR", bestMonths: [2, 3, 4, 10, 11], minDays: 1, flightMinutes: 240, days: "1 Day",
+    airport: "LIT (1h drive)", flight: "~4h to LIT (1 stop)", transport: "Car/Walk",
+    avoid: ["6", "7", "8"], popularity: 40, uniqueness: 88, sfoAccessibility: 55,
+    funFacts: [
+      "It is the oldest park managed by the NPS, actually protected by Congress in 1832 (before Yellowstone).",
+      "It is the only national park located entirely within a city.",
+      "You can legally fill up jugs of the 143°F natural thermal water at designated fountains around the city."
+    ],
+    links: { nps: "https://www.nps.gov/hosp" },
+    sunriseSunset: "Spring: 6:30 AM / 7:30 PM",
+    stargazing: { isFriendly: false, spots: "West Mountain Summit", description: "It's inside a city. Light pollution is severe." },
+    topActivities: ["Soaking at Bathhouse Row", "Fordyce Bathhouse Tour", "Garvan Woodland Gardens (nearby)", "Hot Water Cascades"],
+    dosAndDonts: [
+      { type: "do", text: "Bring empty gallon jugs. The thermal spring water is perfectly filtered right out of the mountain and safe/delicious to drink." },
+      { type: "dont", text: "Don't expect outdoor natural soaking pools in the forest. All bathing happens inside the historic indoor bathhouses." }
+    ],
+    travelHacks: [
+      "Quapaw and Buckstaff are the only two bathhouses where you can actually soak in the thermal waters today. Buckstaff offers the traditional, intensive full-service 1920s scrub." ,
+      "Superior Bathhouse Brewery is the only brewery in a US National Park, and the only in the world making beer using thermal spring water.",
+      "The Grand Promenade trail runs right behind the bathhouses and shows the actual hot water seeping out of the hillside."
+    ],
+    redditPosts: [
+      { title: "Buckstaff vs Quapaw bathhouse?", sub: "r/Arkansas", url: "https://www.reddit.com/r/Arkansas/top/?t=all", quote: "Quapaw is a modern spa with big thermal pools. Buckstaff is a historical, somewhat clinical 1920s experience where attendants scrub you with loofahs." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Hike up Hot Springs Mountain Tower for views. Tour the opulent Fordyce Bathhouse (Visitor Center). Get a traditional soak at Buckstaff. Drink beer made from spring water at Superior Brewery." }
+    ],
+    monthlyData: {
+      3: { temp: "62°F / 40°F", reservations: "Spa reservations recommended", reddit: "Perfect weather for soaking in hot water." },
+      7: { temp: "92°F / 72°F", reservations: "Spa reservations recommended", reddit: "Too hot and humid outside to enjoy 100-degree bath water." },
+      10: { temp: "74°F / 50°F", reservations: "Spa reservations recommended", reddit: "Crisp air returns, beautiful foliage on the Promenade." }
+    }
+  },
+  {
+    name: "Gateway Arch", state: "MO", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 220, days: "0.5 Days",
+    airport: "STL (20m drive/train)", flight: "~3h 40m to STL (direct)", transport: "Walk/Tram",
+    avoid: ["1", "2", "7", "8"], popularity: 80, uniqueness: 60, sfoAccessibility: 85,
+    funFacts: [
+      "It is the smallest national park in the US, covering just 91 acres.",
+      "The arch is exactly as wide as it is tall: 630 feet.",
+      "It commemorates the Louisiana Purchase and the role of St. Louis in the westward expansion of the United States."
+    ],
+    links: { nps: "https://www.nps.gov/jeff" },
+    sunriseSunset: "Spring: 6:00 AM / 7:45 PM",
+    stargazing: { isFriendly: false, spots: "None", description: "Downtown St. Louis. Severe light pollution." },
+    topActivities: ["Tram Ride to the Top", "Museum at the Gateway Arch", "Riverboat Cruise"],
+    dosAndDonts: [
+      { type: "do", text: "Reserve your tram tickets online a few weeks in advance. They sell out completely on summer weekends." },
+      { type: "dont", text: "Don't bring large bags. Airport-style security is required to enter the facility beneath the Arch." }
+    ],
+    travelHacks: [
+      "The tram cars are absolutely tiny (like 5 people crammed face-to-face in a washing machine). If you are severely claustrophobic, the 4-minute ride up will be agonizing.",
+      "The underground museum was totally renovated in 2018 and is genuinely one of the best history museums in the NPS system.",
+      "Sunset and dusk are the best times to go to the top. The Arch casts a massive shadow over the city, and the Missouri side lights up."
+    ],
+    redditPosts: [
+      { title: "Worst claustrophobia of my life", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "Nobody warned me the tram pods are barely 5 feet wide with 5 adult strangers sitting knee-to-knee while it ratchets up a curved shaft." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Morning arrival, pass security. Spend 2 hours in the underground museum. Take the noon tram to the top for views spanning 30 miles. Walk the park grounds down to the Mississippi River." }
+    ],
+    monthlyData: {
+      5: { temp: "76°F / 56°F", reservations: "Tram tickets required", reddit: "Good weather to walk the grounds." },
+      7: { temp: "90°F / 70°F", reservations: "Tram tickets required", reddit: "Oppressively hot and humid, but the underground museum and Arch are air-conditioned." },
+      10: { temp: "68°F / 48°F", reservations: "Tram tickets required", reddit: "Perfect weather for the riverboat cruise." }
+    }
+  },
+  {
+    name: "Congaree", state: "SC", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 300, days: "1 Day",
+    airport: "CAE (30m) or CLT (2h)", flight: "~5h to CAE (1 stop)", transport: "Car",
+    avoid: ["6", "7", "8"], popularity: 20, uniqueness: 82, sfoAccessibility: 50,
+    funFacts: [
+      "It protects the largest intact expanse of old-growth bottomland hardwood forest remaining in the southeastern US.",
+      "For two weeks in late spring, synchronous fireflies put on a synchronized flashing display that exists in only a few places on Earth.",
+      "The park frequently floods completely when nutrient-rich waters from the Congaree River sweep through."
+    ],
+    links: { nps: "https://www.nps.gov/cong" },
+    sunriseSunset: "Spring: 6:30 AM / 7:45 PM",
+    stargazing: { isFriendly: false, spots: "Boardwalk", description: "Dense tree canopy blocks the sky." },
+    topActivities: ["Boardwalk Loop Trail", "Canoeing Cedar Creek", "Synchronous Firefly viewing (May)"],
+    dosAndDonts: [
+      { type: "do", text: "Check the 'Mosquito Meter' at the visitor center. Levels range from 'All Clear' to 'War Zone'." },
+      { type: "dont", text: "Don't visit between June and August. The heat, humidity, and mosquitoes are genuinely unbearable." }
+    ],
+    travelHacks: [
+      "If you rent a canoe for Cedar Creek, prepare for 'tree dodging' rather than open water paddling. It's a flooded forest, so navigation requires tight turns.",
+      "The famous synchronous firefly event usually happens in mid-to-late May. The NPS now runs a strict lottery system to get tickets for the viewing nights.",
+      "Because the park relies on flooding to survive, the trails often go underwater. Always check trail conditions before arriving."
+    ],
+    redditPosts: [
+      { title: "The Mosquito Meter is accurate", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "It said 'War Zone' and it wasn't a joke. I was inhaling bugs with every breath despite deep woods OFF. Go in the winter." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Hike the 2.4-mile elevated Boardwalk Loop through the giant Loblolly Pines and Bald Cypress trees. Afternoon canoe trip down Cedar Creek through the old-growth canopy." }
+    ],
+    monthlyData: {
+      4: { temp: "76°F / 50°F", reservations: "None", reddit: "Last good month before the mosquitoes hatch." },
+      5: { temp: "84°F / 60°F", reservations: "Firefly Lottery", reddit: "Synchronous firefly event. Getting buggy and humid." },
+      11: { temp: "66°F / 42°F", reservations: "None", reddit: "Perfect hiking temperature. Zero bugs." }
+    }
+  },
+  {
+    name: "Virgin Islands", state: "VI", bestMonths: [12, 1, 2, 3, 4], minDays: 3, flightMinutes: 420, days: "3 Days",
+    airport: "STT (then ferry to St. John)", flight: "~7h to STT (1 stop)", transport: "Ferry required",
+    avoid: ["8", "9", "10"], popularity: 40, uniqueness: 95, sfoAccessibility: 30,
+    funFacts: [
+      "The park covers roughly 60% of the island of St. John.",
+      "Over 40% of the park is actually underwater, protecting coral reefs and mangrove shorelines.",
+      "Trunk Bay features a 225-yard underwater snorkeling trail with plaques describing the marine life on the sea floor."
+    ],
+    links: { nps: "https://www.nps.gov/viis" },
+    sunriseSunset: "Winter: 6:45 AM / 6:00 PM",
+    stargazing: { isFriendly: true, spots: "Any North Shore beach", description: "Excellent dark skies over the Caribbean Sea." },
+    topActivities: ["Snorkeling Trunk Bay", "Hiking Reef Bay Trail", "Maho Bay sea turtles", "Annaberg Sugar Plantation ruins"],
+    dosAndDonts: [
+      { type: "do", text: "Only use 'Reef Safe' mineral sunscreen. Chemical sunscreens are illegal in the USVI and actively enforced to protect the coral." },
+      { type: "dont", text: "Don't rent a large SUV. The mountain roads on St. John are incredibly steep, narrow, and winding, with blind hairpin turns." }
+    ],
+    travelHacks: [
+      "You fly into St. Thomas (STT), take a taxi to Red Hook, and take the passenger ferry to Cruz Bay on St. John. Renting a Jeep on St. John is easiest.",
+      "Trunk Bay is beautiful but very crowded with cruise shippers. Go to Maho Bay to swim with wild sea turtles feeding on the sea grass just 20 feet from shore.",
+      "The Reef Bay Trail descends 900 feet to the ocean, passing ancient petroglyphs and old sugar mills. The hike back up in the tropical heat is brutal."
+    ],
+    redditPosts: [
+      { title: "Maho Bay turtles are incredible", sub: "r/snorkeling", url: "https://www.reddit.com/r/snorkeling/top/?t=all", quote: "Go early in the morning before the boats arrive. I floated above 6 giant sea turtles for an hour in knee-deep water." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Ferry to St. John. Rent Jeep. Drive North Shore road immediately to Trunk Bay for early morning snorkeling on the underwater trail." },
+      { day: "Day 2", plan: "Morning hike down Reef Bay Trail, or explore Annaberg Plantation ruins. Afternoon relaxing and turtle-watching at Maho Bay." },
+      { day: "Day 3", plan: "Rent a dinghy from Cruz Bay and boat to remote beaches like Waterlemon Cay for the island's best untouched snorkeling." }
+    ],
+    monthlyData: {
+      1: { temp: "84°F / 72°F", reservations: "High season flights/hotels", reddit: "Perfect 80-degree weather every single day." },
+      4: { temp: "86°F / 74°F", reservations: "None", reddit: "Crowds thin out slightly, water is flat and clear." },
+      9: { temp: "88°F / 78°F", reservations: "None", reddit: "Peak hurricane season. Highest risk of park closures." }
+    }
+  },
+  {
+    name: "National Park of American Samoa", state: "AS", bestMonths: [6, 7, 8, 9], minDays: 3, flightMinutes: 720, days: "3 Days",
+    airport: "PPG", flight: "SFO→HNL→PPG (~12h, 1 stop)", transport: "Car/Foot",
+    avoid: ["11", "12", "1", "2", "3"], popularity: 2, uniqueness: 98, sfoAccessibility: 5,
+    funFacts: [
+      "It is the only US national park south of the Equator.",
+      "The park spans three separate islands (Tutuila, Ofu, and Ta'u) and is leased from Samoan villages.",
+      "It is home to the Flying Fox, a massive bat with a 3-foot wingspan that flies during the day."
+    ],
+    links: { nps: "https://www.nps.gov/npsa" },
+    sunriseSunset: "Summer: 6:30 AM / 6:00 PM",
+    stargazing: { isFriendly: true, spots: "Ofu Beach", description: "Isolated in the South Pacific. Stargazing is world-class if the clouds break." },
+    topActivities: ["Mount Alava Trail", "Ofu Beach Snorkeling", "Homestay program", "Pola Island Trail"],
+    dosAndDonts: [
+      { type: "do", text: "Ask permission from villagers before using beaches or crossing land (Fa'a Samoa culture is based on respect)." },
+      { type: "dont", text: "Don't plan to 'wing it'.Flights from Hawaii to Pago Pago only run twice a week. Flights to Ofu run sporadically." }
+    ],
+    travelHacks: [
+      "Getting to the main island (Tutuila) is very expensive. Getting to the outer island of Ofu (which has the pristine postcard beaches) requires a tiny plane that breaks down frequently.",
+      "The heat and humidity are oppressive year-round. Hike early. The trails are steep, muddy, and covered in slippery roots.",
+      "You don't need to look for the flying foxes — they are everywhere in the sky above the canopy, looking like pterodactyls."
+    ],
+    redditPosts: [
+      { title: "Hardest NP to get to, but the most rewarding", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "No infrastructure, no hotels on Ofu. Just you, the villagers, and the most pristine coral reef in US-controlled waters." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Arrive Pago Pago. Drive to the north shore. Hike the muddy but spectacular trail to Pola Island. Watch flying foxes." },
+      { day: "Day 2", plan: "Hike the steep Mount Alava trail (7 miles RT) offering panoramic views of Pago Pago Harbor. Visit the lower Fagasā Bay." },
+      { day: "Day 3", plan: "If logistics align, fly to Ofu. Snorkel the legendary Ofu Beach reef in complete isolation." }
+    ],
+    monthlyData: {
+      6: { temp: "86°F / 78°F", reservations: "Flights must align", reddit: "Start of the 'dry' season, though it still rains frequently." },
+      8: { temp: "84°F / 78°F", reservations: "Flights must align", reddit: "Best hiking conditions. Trade winds provide a slight breeze." },
+      1: { temp: "88°F / 78°F", reservations: "Flights must align", reddit: "Typhoon season. Oppressive heat." }
+    }
+  },
+  {
+    name: "Hawaii Volcanoes", state: "HI", bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], minDays: 2, flightMinutes: 330, days: "2 Days",
+    airport: "ITO (45m drive) or KOA (2h)", flight: "~5h 30m to KOA/ITO (direct)", transport: "Car",
+    avoid: [], popularity: 85, uniqueness: 98, sfoAccessibility: 85,
+    funFacts: [
+      "It contains two of the world's most active volcanoes: Kīlauea and Mauna Loa.",
+      "You can often safely watch a volcanic eruption here depending on Kīlauea's current mood.",
+      "The Thurston Lava Tube is a 500-year-old hardened river of lava you can walk entirely through."
+    ],
+    links: { nps: "https://www.nps.gov/havo" },
+    sunriseSunset: "Winter: 6:45 AM / 6:00 PM",
+    stargazing: { isFriendly: true, spots: "Chain of Craters Road", description: "Drive away from the summit glow. The dark lava fields provide excellent contrast to the Milky Way." },
+    topActivities: ["Crater Rim Drive", "Thurston Lava Tube", "Kīlauea Iki Trail", "Viewing the Lava Glow at night"],
+    dosAndDonts: [
+      { type: "do", text: "Return to the Halemaʻumaʻu crater overlook at night to see the red magma glow reflecting off the gas plume." },
+      { type: "dont", text: "Don't take any lava rock home. 'Pele's Curse' purportedly brings severe bad luck to thieves (and it's a federal crime)." }
+    ],
+    travelHacks: [
+      "The Kīlauea Iki trail descends 400 feet into a solidified lava lake from a 1959 eruption. Steam still vents from the cracked crust. Best hike in the park.",
+      "Drive the 18-mile Chain of Craters Road. It drops 3,700 feet from the summit down to the ocean, terminating where massive recent lava flows buried the highway.",
+      "Check the NPS app or website the day before. Eruption status changes rapidly. If surface lava is flowing, follow ranger instructions exactly."
+    ],
+    redditPosts: [
+      { title: "Kīlauea Iki is like walking on Mars", sub: "r/hiking", url: "https://www.reddit.com/r/hiking/top/?t=all", quote: "You walk across a mile-wide solid lava lake. It feels hollow in parts. Steam comes out of cracks. Pure sci-fi landscape." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Visitor Center. Hike through Thurston Lava Tube (go early to avoid crowds). Hike the 3.3-mile Kīlauea Iki loop. Return at night to see the volcanic glow." },
+      { day: "Day 2", plan: "Drive the Chain of Craters Road down to the Holei Sea Arch. Check out the ancient Puʻuloa Petroglyphs along the way." }
+    ],
+    monthlyData: {
+      1: { temp: "68°F / 50°F", reservations: "None", reddit: "Summit is chilly at 4000ft elevation. Bring a jacket." },
+      6: { temp: "72°F / 54°F", reservations: "None", reddit: "Perfect weather. Rain showers pass quickly." },
+      10: { temp: "72°F / 54°F", reservations: "None", reddit: "Good visibility for the caldera." }
+    }
+  },
+  {
+    name: "Kobuk Valley", state: "AK", bestMonths: [7, 8], minDays: 2, flightMinutes: 600, days: "2 Days",
+    airport: "OTZ (then bush plane)", flight: "~9h to OTZ (1 stop) + plane", transport: "Bush Plane/Foot",
+    avoid: ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May"], popularity: 2, uniqueness: 98, sfoAccessibility: 5,
+    funFacts: [
+      "Contains the Great Kobuk Sand Dunes, the largest active sand dunes in the Arctic, formed by grinding glaciers during the Ice Age.",
+      "Half a million caribou migrate through the park each year.",
+      "It is one of the least visited parks in the entire system, with zero roads or facilities."
+    ],
+    links: { nps: "https://www.nps.gov/kova" },
+    sunriseSunset: "Summer: 24hr Daylight",
+    stargazing: { isFriendly: false, spots: "None", description: "Constant summer sunlight." },
+    topActivities: ["Hiking the Great Kobuk Sand Dunes", "Caribou tracking", "Floating the Kobuk River"],
+    dosAndDonts: [
+      { type: "do", text: "Hire an outfitter based in Kotzebue or Bettles to drop you off and pick you up." },
+      { type: "dont", text: "Don't forget the mosquito nets. The tundra insect swarms are thick enough to block the sun." }
+    ],
+    travelHacks: [
+      "Because bush flights are wildly expensive (~$1,500/hour), many people try to combine Kobuk Valley and Gates of the Arctic into one flight loop to save money.",
+      "The sand dunes are anomalously warm in summer, often exceeding 85°F inside the Arctic Circle.",
+      "There are no designated landing strips; pilots land directly on rivers or the hard-packed sand dunes."
+    ],
+    redditPosts: [
+      { title: "Arctic sand dunes are surreal", sub: "r/WildernessBackpacking", url: "https://www.reddit.com/r/WildernessBackpacking/top/?t=all", quote: "You fly over endless spongy green tundra and suddenly see 100-foot tall Sahara-style sand dunes. Extremely bizarre microclimate." }
+    ],
+    itinerary: [
+      { day: "Day 1-2", plan: "Charter flight drops you directly on the Great Kobuk Sand Dunes. Set up camp, hike the shifting sands, and wait for bush plane pickup the next day." }
+    ],
+    monthlyData: {
+      7: { temp: "68°F / 45°F", reservations: "Charter flights required", reddit: "Warmest month, endless daylight, brutal mosquitoes." },
+      8: { temp: "55°F / 40°F", reservations: "Charter flights required", reddit: "Bugs begin to die down. Risk of early snowfall at the end of the month." }
+    }
+  },
+  {
+    name: "Black Canyon of the Gunnison", state: "CO", bestMonths: [5, 6, 9, 10], minDays: 1, flightMinutes: 135, days: "1 Day",
+    airport: "DEN (4.5h) or MTJ (20m)", flight: "~2h 15m to DEN/MTJ", transport: "Car",
+    avoid: ["11", "12", "1", "2", "3", "4"], popularity: 40, uniqueness: 90, sfoAccessibility: 50,
+    funFacts: [
+      "The canyon is so narrow and deep that some parts of the canyon floor only receive 33 minutes of sunlight a day.",
+      "The Painted Wall is the highest sheer cliff in Colorado at 2,250 feet — taller than the Empire State Building.",
+      "The Gunnison River drops an average of 96 feet per mile inside the park."
+    ],
+    links: { nps: "https://www.nps.gov/blca" },
+    sunriseSunset: "Summer: 5:45 AM / 8:30 PM",
+    stargazing: { isFriendly: true, spots: "Chasm View Nature Trail", description: "Designated Dark Sky Park. Incredible views along the unlit rim." },
+    topActivities: ["South Rim Scenic Drive", "Gunnison Point Overlook", "Painted Wall View", "East Portal Road"],
+    dosAndDonts: [
+      { type: "do", text: "Drive the East Portal Road down to the river to truly grasp the scale of the canyon." },
+      { type: "dont", text: "Don't attempt an inner canyon wilderness route unless you are an expert route-finder and rock scrambler. There are no marked trails to the bottom." }
+    ],
+    travelHacks: [
+      "The South Rim is fully paved and has the visitor center. The North Rim is reached via a long dirt road and offers spectacular, terrifyingly sheer drop-offs with no crowds.",
+      "Because the canyon is narrow, the best time for photography is late morning or mid-day when the sun actually penetrates the depths.",
+      "The inner canyon routes feature deadly poison ivy patches. Wear long pants if venturing down."
+    ],
+    redditPosts: [
+      { title: "North Rim vs South Rim?", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "South Rim is for the sweeping views and the classic Painted Wall shot. North Rim is for looking straight down 2,000 feet from an unfenced cliff edge in total silence." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Drive the South Rim Road. Stop at Gunnison Point, Chasm View, and Painted Wall. Drive the incredibly steep 16% grade East Portal Road down to the river." }
+    ],
+    monthlyData: {
+      5: { temp: "68°F / 40°F", reservations: "None", reddit: "South Rim road usually fully opens. Crisp weather." },
+      6: { temp: "80°F / 50°F", reservations: "None", reddit: "Peak season. Very dry and sunny." },
+      9: { temp: "75°F / 45°F", reservations: "None", reddit: "Scrub oak colors changing below the rim." }
+    }
+  },
+  {
+    name: "Great Sand Dunes", state: "CO", bestMonths: [5, 9, 10], minDays: 1, flightMinutes: 135, days: "1 Day",
+    airport: "DEN (4h) or COS (2.5h)", flight: "~2h 15m to DEN + 4h drive", transport: "Car",
+    avoid: ["11", "12", "1", "2", "6", "7", "8"], popularity: 50, uniqueness: 95, sfoAccessibility: 55,
+    funFacts: [
+      "The park contains the tallest sand dunes in North America, rising up to 750 feet from the floor of the San Luis Valley.",
+      "The dunes were formed by wind moving sand from the dried-out ancient Lake Alamosa into a pocket against the Sangre de Cristo Mountains.",
+      "Medano Creek experiences 'surge flow,' creating waves in the shallow water during peak runoff."
+    ],
+    links: { nps: "https://www.nps.gov/grsa" },
+    sunriseSunset: "Spring: 6:00 AM / 8:00 PM",
+    stargazing: { isFriendly: true, spots: "On the Dunes", description: "Incredible dark skies. Go out onto the dunes on a moonless night." },
+    topActivities: ["Sandboarding / Sandsledding", "Hiking High Dune", "Wading in Medano Creek", "Stargazing"],
+    dosAndDonts: [
+      { type: "do", text: "Rent sandboards BEFORE entering the park. The park visitor center does not rent them." },
+      { type: "dont", text: "Don't go onto the sand barefoot or in sandals in summer. The sand surface temperature can reach 150°F and will cause severe burns." }
+    ],
+    travelHacks: [
+      "Late May is the absolute best time to visit because Medano Creek is flowing at its peak, creating a massive beach at the base of the dunes.",
+      "If you own a robust 4WD with high clearance, lower your tire pressure and drive the primitive Medano Pass road to escape the crowds.",
+      "Hike the dunes at sunrise or sunset. Not only is the sand cool, but the low light creates incredible shadows on the ridges."
+    ],
+    redditPosts: [
+      { title: "Snow sleds do NOT work", sub: "r/coloradohikers", url: "https://www.reddit.com/r/coloradohikers/top/?t=all", quote: "Stop bringing plastic snow saucers. They won't move an inch. You need a specific wooden sandboard coated in wax." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Rent sandboards in Alamosa or Oasis. Arrive early to wade in Medano Creek. Hike up High Dune (much harder than it looks). Sandboard down. Stay for stargazing." }
+    ],
+    monthlyData: {
+      5: { temp: "65°F / 40°F", reservations: "None", reddit: "Peak surge flow for Medano Creek. Highly recommended." },
+      9: { temp: "70°F / 42°F", reservations: "None", reddit: "Perfect hiking weather, but the creek is completely dry." },
+      10: { temp: "58°F / 32°F", reservations: "None", reddit: "Crisp air, no crowds, occasionally light snow on the mountains." }
+    }
+  },
+  {
+    name: "Petrified Forest", state: "AZ", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 105, days: "1 Day",
+    airport: "PHX (3.5h drive)", flight: "~1h 45m to PHX + drive", transport: "Car",
+    avoid: ["6", "7", "8"], popularity: 45, uniqueness: 88, sfoAccessibility: 70,
+    funFacts: [
+      "The 'wood' is completely fossilized into solid quartz and weighs 160 pounds per cubic foot.",
+      "It is the only national park that protects a portion of Historic Route 66.",
+      "The park was a massive tropical rainforest 225 million years ago during the Late Triassic Period."
+    ],
+    links: { nps: "https://www.nps.gov/pefo" },
+    sunriseSunset: "Spring: 6:00 AM / 6:30 PM",
+    stargazing: { isFriendly: false, spots: "Backcountry only", description: "The park effectively closes and locks its gates at sunset. No night access without a backcountry permit." },
+    topActivities: ["Crystal Forest hike", "Blue Mesa trail", "Painted Desert Inn", "Agate Bridge"],
+    dosAndDonts: [
+      { type: "do", text: "Drive the entire 28-mile road from one entrance to the other." },
+      { type: "dont", text: "Don't steal the petrified wood. Vehicle searches are random, penalties are severe, and locals swear stolen wood brings a curse." }
+    ],
+    travelHacks: [
+      "The Blue Mesa trail is arguably the best in the park — a paved loop descending into bizarre blue and purple badlands filled with scattered stone logs.",
+      "Buy petrified wood at the massive gift shops just outside the park boundaries. That wood is legally collected from private land.",
+      "The park is strictly a day-use park with operational hours (e.g., 8am-5pm). Plan your road trip accordingly so you aren't locked out."
+    ],
+    redditPosts: [
+      { title: "Is it worth the stop off I-40?", sub: "r/roadtrip", url: "https://www.reddit.com/r/roadtrip/top/?t=all", quote: "Absolutely. It's incredibly easy to see from the car and the Blue Mesa trail feels like walking on an alien planet." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Enter North gate. View Painted Desert. Stop at Route 66 alignment. Drive south. Hike Blue Mesa, Crystal Forest, and Giant Logs behind the south visitor center." }
+    ],
+    monthlyData: {
+      3: { temp: "62°F / 32°F", reservations: "None", reddit: "Great hiking weather. High winds are common." },
+      4: { temp: "72°F / 40°F", reservations: "None", reddit: "Perfect weather. Beautiful blooming desert plants." },
+      10: { temp: "75°F / 42°F", reservations: "None", reddit: "Crisp fall air, best visibility for the Painted Desert." }
+    }
+  },
+  {
+    name: "White Sands", state: "NM", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 185, days: "1 Day",
+    airport: "ELP (1.5h drive)", flight: "~3h to ELP (1 stop)", transport: "Car",
+    avoid: ["6", "7", "8"], popularity: 60, uniqueness: 98, sfoAccessibility: 65,
+    funFacts: [
+      "It is the largest gypsum dunefield in the world, covering 275 square miles.",
+      "Unlike silica sand, gypsum sand does not absorb heat from the sun — it is always cool to the touch.",
+      "The park is surrounded by the White Sands Missile Range and occasionally closes for brief missile tests."
+    ],
+    links: { nps: "https://www.nps.gov/whsa" },
+    sunriseSunset: "Spring: 6:30 AM / 7:30 PM",
+    stargazing: { isFriendly: true, spots: "Dunes Drive", description: "Brilliant dark skies contrasting against the glowing white sand." },
+    topActivities: ["Sledding the dunes", "Alkali Flat Trail", "Sunset stroll", "Playa Trail"],
+    dosAndDonts: [
+      { type: "do", text: "Buy a plastic snow saucer and wax from the visitor center. The dunes are perfect for sledding." },
+      { type: "dont", text: "Don't hike the backcountry Alkali Flat trail in the middle of summer. Total exposure, blinding reflections, and heat exhaustion kill people here." }
+    ],
+    travelHacks: [
+      "Bring sunglasses. The white sand reflects the sun intensely and will give you a headache fast without eye protection.",
+      "Drive to the very end of Dunes Drive where the pavement ends and turns into hard-packed gypsum. It's safe for 2WD sedans and takes you to the pristine, plant-free dunes.",
+      "Always check the park website before driving out. Scheduled missile tests briefly close the highway and park."
+    ],
+    redditPosts: [
+      { title: "Navigation is harder than you think", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "The dunes constantly shift, burying footprints in minutes with a breeze. Keep the mountains in sight or use a compass so you don't get turned around." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Drive to the end of the road. Hike the first 1-2 miles of the Alkali Flat trail (look for the orange trail markers). Sled down the steepest dunes. Stay for sunset to watch the sand turn pink and purple." }
+    ],
+    monthlyData: {
+      3: { temp: "70°F / 38°F", reservations: "None", reddit: "Excellent temperatures, but spring winds can ruin visibility." },
+      4: { temp: "78°F / 45°F", reservations: "None", reddit: "Pleasant. The yucca plants begin blooming." },
+      10: { temp: "78°F / 45°F", reservations: "None", reddit: "Best time of year. Perfect temperatures, no summer monsoons, calm wind." }
+    }
+  },
+  {
+    name: "Carlsbad Caverns", state: "NM", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 185, days: "1 Day",
+    airport: "ELP (2h drive)", flight: "~3h to ELP (1 stop)", transport: "Car",
+    avoid: ["12", "1", "2"], popularity: 65, uniqueness: 95, sfoAccessibility: 60,
+    funFacts: [
+      "The 'Big Room' is the largest single cave chamber by volume in North America (almost 4000 feet long).",
+      "During summer, hundreds of thousands of Brazilian free-tailed bats erupt from the natural entrance at sunset.",
+      "The cave maintains a constant 56°F (13°C) temperature year-round."
+    ],
+    links: { nps: "https://www.nps.gov/cave" },
+    sunriseSunset: "Summer: Bat flight at Dusk",
+    stargazing: { isFriendly: false, spots: "Bat Amphitheater", description: "Most stargaze during the bat flight program, but true dark skies require moving away from the visitor center." },
+    topActivities: ["Natural Entrance Trail", "Big Room Tour", "Bat Flight Program", "King's Palace guided tour"],
+    dosAndDonts: [
+      { type: "do", text: "Reserve your timed entry ticket for the cave online well in advance. No ticket, no entry." },
+      { type: "dont", text: "Don't just take the elevator down. Walk the 1.25-mile Natural Entrance trail down 750 feet — it's the classic 'Journey to the Center of the Earth' experience." }
+    ],
+    travelHacks: [
+      "Wear closed-toe shoes with grip (the cave paths are steep and wet) and bring a light jacket (constant 56°F).",
+      "If you hate hiking, you can take the elevator directly to the Big Room. If you hike the Natural Entrance, take the elevator back UP.",
+      "The bat flight program is incredible but runs only from late May through October. No cameras or phones are allowed during the flight."
+    ],
+    redditPosts: [
+      { title: "Photos cannot do this place justice", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "The Big Room is unfathomably large. It feels like walking through the Mines of Moria. Take the natural entrance down, take the elevator up." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Morning booked entry. Hike down the steep Natural Entrance trail. Spend 2 hours walking the massive Big Room loop. Elevator up. Return at dusk for the amphitheater Bat Flight." }
+    ],
+    monthlyData: {
+      5: { temp: "85°F / 55°F (56°F inside)", reservations: "Timed Entry Required", reddit: "Bats returning. Above ground getting warm." },
+      9: { temp: "86°F / 60°F (56°F inside)", reservations: "Timed Entry Required", reddit: "Peak bat numbers. Good time to visit." },
+      10: { temp: "78°F / 50°F (56°F inside)", reservations: "Timed Entry Required", reddit: "Perfect surface weather, bats migrate south late Oct." }
+    }
+  },
+  {
+    name: "Guadalupe Mountains", state: "TX", bestMonths: [10, 11, 3, 4], minDays: 1, flightMinutes: 185, days: "1 Day",
+    airport: "ELP (1.5h drive)", flight: "~3h to ELP (1 stop)", transport: "Car",
+    avoid: ["6", "7", "8"], popularity: 30, uniqueness: 85, sfoAccessibility: 60,
+    funFacts: [
+      "Guadalupe Peak is the highest point in Texas at 8,751 feet.",
+      "The mountains are actually a massive fossilized Permian reef rising from the Chihuahuan Desert.",
+      "El Capitan, the iconic limestone cliff here, was historically used as a landmark by stagecoach drivers."
+    ],
+    links: { nps: "https://www.nps.gov/gumo" },
+    sunriseSunset: "Spring: 6:30 AM / 7:30 PM",
+    stargazing: { isFriendly: true, spots: "Pine Springs Campground", description: "Extremely remote with very dark skies." },
+    topActivities: ["Guadalupe Peak hike", "Devil's Hall trail", "McKittrick Canyon (fall colors)", "El Capitan viewpoint"],
+    dosAndDonts: [
+      { type: "do", text: "Pair this park with Carlsbad Caverns (they are only 30 minutes apart)." },
+      { type: "dont", text: "Don't underestimate the wind. Sustained 50mph winds are common, especially in spring." }
+    ],
+    travelHacks: [
+      "Most trails are completely exposed. Start the strenuous 8.4-mile hike to Guadalupe Peak at sunrise to avoid the relentless Texas heat.",
+      "McKittrick Canyon has bigtooth maples that turn bright red and yellow in late October/early November — a true desert oasis.",
+      "Cell service is virtually non-existent. Download all maps before leaving El Paso or Carlsbad."
+    ],
+    redditPosts: [
+      { title: "The wind is no joke", sub: "r/TXoutdoors", url: "https://www.reddit.com/r/TXoutdoors/top/?t=all", quote: "Got blown completely flat on my face on the approach to Guadalupe Peak. Check the mountain forecast before hiking." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Strenuous day: Hike the 8.4-mile RT 'Top of Texas' trail to Guadalupe Peak. Alternatively, moderate day: Hike the 3.8-mile Devil's Hall trail to a spectacular narrow limestone canyon." }
+    ],
+    monthlyData: {
+      3: { temp: "68°F / 40°F", reservations: "None", reddit: "Great hiking temps but famously brutal spring wind storms." },
+      4: { temp: "76°F / 48°F", reservations: "None", reddit: "Desert blooming, perfect trail temperatures." },
+      10: { temp: "75°F / 45°F", reservations: "None", reddit: "Peak visitor season for fall colors in McKittrick Canyon." }
+    }
+  },
+  {
+    name: "Theodore Roosevelt", state: "ND", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 240, days: "2 Days",
+    airport: "BIS (2h drive) or DIK (40m)", flight: "~4h to BIS (1 stop)", transport: "Car",
+    avoid: ["11", "12", "1", "2", "3"], popularity: 45, uniqueness: 88, sfoAccessibility: 40,
+    funFacts: [
+      "This is the only US national park named directly after a single person.",
+      "The park protects the badlands where Theodore Roosevelt ranched, which heavily influenced his conservationist legacy.",
+      "The park is split into three separate units: South Unit, North Unit, and Elkhorn Ranch."
+    ],
+    links: { nps: "https://www.nps.gov/thro" },
+    sunriseSunset: "Summer: 6:00 AM / 9:30 PM",
+    stargazing: { isFriendly: true, spots: "Wind Canyon Trail", description: "Excellent dark skies, especially in the remote North Unit." },
+    topActivities: ["South Unit Scenic Loop", "Bison viewing", "Wind Canyon Trail at sunset", "North Unit Scenic Drive"],
+    dosAndDonts: [
+      { type: "do", text: "Give bison extreme distance. Unlike Yellowstone, they often hang out directly on the uncrowded roads here." },
+      { type: "dont", text: "Don't try to visit the Elkhorn Ranch unit unless you have a 4WD vehicle and dry conditions." }
+    ],
+    travelHacks: [
+      "The South Unit (off I-94 at Medora) gets most of the traffic. The North Unit is an hour north but has much more dramatic canyons and river bends.",
+      "Feral horses roam the boundaries of the park, a unique sight among US national parks.",
+      "The town of Medora is essentially a wild-west theme basecamp. The famous Medora Musical runs every summer night in the outdoor amphitheater."
+    ],
+    redditPosts: [
+      { title: "Much better than Badlands NP", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "Hot take: The badlands here are greener, the bison are easier to watch without traffic jams, and the North Unit feels truly wild." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "South Unit: Drive the 36-mile scenic loop (expect bison blockades). Hike Wind Canyon at sunset overlooking the Little Missouri River." },
+      { day: "Day 2", plan: "North Unit: Drive the 14-mile scenic drive to Oxbow Overlook. Hike the Caprock Coulee loop for rugged backcountry views." }
+    ],
+    monthlyData: {
+      6: { temp: "76°F / 50°F", reservations: "None", reddit: "Incredibly green grass contrasting the grey/red badlands." },
+      7: { temp: "84°F / 55°F", reservations: "None", reddit: "Peak summer, can be hot and dry." },
+      9: { temp: "72°F / 42°F", reservations: "None", reddit: "Crisp air, cottonwoods turning gold along the river." }
+    }
+  },
+  {
+    name: "Badlands", state: "SD", bestMonths: [5, 6, 9, 10], minDays: 1, flightMinutes: 240, days: "1 Day",
+    airport: "RAP (1h drive)", flight: "~4h to RAP (1 stop)", transport: "Car",
+    avoid: ["11", "12", "1", "2"], popularity: 65, uniqueness: 90, sfoAccessibility: 55,
+    funFacts: [
+      "Contains one of the world's richest fossil beds; ancient mammals like totally extinct rhinos and saber-toothed cats are commonly found.",
+      "The badlands formations erode roughly one inch per year, which is incredibly fast for geologic processes.",
+      "The park allows 'open hiking' — you are legally permitted to hike off-trail anywhere in the park."
+    ],
+    links: { nps: "https://www.nps.gov/badl" },
+    sunriseSunset: "Summer: 5:15 AM / 8:45 PM",
+    stargazing: { isFriendly: true, spots: "Pinnacles Overlook", description: "Incredible dark skies. Ranger-led telescope programs run on summer nights." },
+    topActivities: ["Badlands Loop Road", "Notch Trail", "Pinnacles Overlook (sunset)", "Roberts Prairie Dog Town"],
+    dosAndDonts: [
+      { type: "do", text: "Hike the Notch Trail — climbing a massive wooden ladder up the canyon wall is thrilling." },
+      { type: "dont", text: "Don't attempt off-trail hiking after rain. The formations turn into a slick, cement-like mud locally dubbed 'gumbo'." }
+    ],
+    travelHacks: [
+      "Drive the unpaved Sage Creek Rim Road to see Bighorn Sheep, Bison, and Roberts Prairie Dog Town.",
+      "Photography is all about light here. Mid-day the formations look flat and washed out. At sunrise and sunset, they glow with deep reds and purples.",
+      "Watch for rattlesnakes if deciding to take advantage of the open-hike policy in the tall grass prairies."
+    ],
+    redditPosts: [
+      { title: "Wall Drug warning", sub: "r/roadtrip", url: "https://www.reddit.com/r/roadtrip/top/?t=all", quote: "You will see 500 billboards for Wall Drug. Stop for the 5-cent coffee, but know it's a giant tourist trap right outside the park." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Drive Badlands Loop Road from East to West. Hike the Door, Window, and Notch trails area. Drive Sage Creek Rim road for wildlife. Sunset at Pinnacles overlook." }
+    ],
+    monthlyData: {
+      5: { temp: "70°F / 45°F", reservations: "None", reddit: "Great temps. High chance of dramatic prairie thunderstorms." },
+      6: { temp: "80°F / 55°F", reservations: "None", reddit: "Perfect weather before the blazing heat of July sets in." },
+      9: { temp: "75°F / 48°F", reservations: "None", reddit: "Comfortable hiking weather, clear skies." }
+    }
+  },
+  {
+    name: "Wind Cave", state: "SD", bestMonths: [6, 7, 8, 9], minDays: 1, flightMinutes: 240, days: "1 Day",
+    airport: "RAP (1h drive)", flight: "~4h to RAP (1 stop)", transport: "Car/Tour",
+    avoid: ["11", "12", "1", "2"], popularity: 45, uniqueness: 88, sfoAccessibility: 55,
+    funFacts: [
+      "It is one of the longest and most complex cave systems in the world, with over 150 miles of mapped passages.",
+      "The cave features 95% of the world's known 'boxwork' — a rare, fragile honeycomb-like rock formation.",
+      "Named for barometric winds at its entrance that 'breathe' in or out depending on surface pressure."
+    ],
+    links: { nps: "https://www.nps.gov/wica" },
+    sunriseSunset: "Summer: 5:15 AM / 8:45 PM",
+    stargazing: { isFriendly: false, spots: "Prairie trails", description: "Not a major dark sky destination compared to nearby Badlands." },
+    topActivities: ["Cave Tours (Fairgrounds/Natural Entrance)", "Bison viewing on the surface", "Rankin Ridge hike"],
+    dosAndDonts: [
+      { type: "do", text: "Reserve cave tour tickets online in advance. They sell out rapidly.", },
+      { type: "dont", text: "Don't ignore the surface park. It protects one of the last remaining mixed-grass prairies in the US, full of bison and elk." }
+    ],
+    travelHacks: [
+      "Bring a jacket. The cave is a constant 54°F (12°C) regardless of how blazing hot the South Dakota summer is.",
+      "The 'Natural Entrance Tour' is the classic option and physically easier than the 'Fairgrounds Tour', but both showcase the famous boxwork.",
+      "Pair this park with Mount Rushmore and Custer State Park — they are all right next to each other."
+    ],
+    redditPosts: [
+      { title: "Boxwork vs Stalactites", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "Don't expect Carlsbad Caverns. Wind Cave is a dry cave. There are very few stalactites. It's famous for the weird, intricate boxwork geometry on the ceiling." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Check in for your reserved morning cave tour (1.5 hours). Afternoon drive through the surface park on Hwy 87 to spot bison. Hike the 1-mile Rankin Ridge trail for sweeping Black Hills views." }
+    ],
+    monthlyData: {
+      6: { temp: "75°F / 50°F", reservations: "Cave Tour Recommended", reddit: "Lush green prairie, baby bison." },
+      7: { temp: "84°F / 58°F", reservations: "Cave Tour Required", reddit: "Peak season. Tours sell out daily." },
+      9: { temp: "74°F / 48°F", reservations: "Cave Tour Recommended", reddit: "Excellent surface hiking, elk bugling season begins." }
+    }
+  },
+  {
+    name: "Voyageurs", state: "MN", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 260, days: "2 Days",
+    airport: "MSP (4.5h) or DLH (2.5h)", flight: "~4h 20m to MSP (direct)", transport: "Boat/Car",
+    avoid: ["11", "12", "1", "2", "3", "4"], popularity: 40, uniqueness: 90, sfoAccessibility: 50,
+    funFacts: [
+      "The park is nearly 40% water. You must have a boat, canoe, or kayak to truly explore it.",
+      "Named for the French-Canadian fur traders who paddled these interconnected waterways in the 1700s.",
+      "In winter, the lakes freeze solid and become massive ice roads for snowmobiles."
+    ],
+    links: { nps: "https://www.nps.gov/voya" },
+    sunriseSunset: "Summer: 5:15 AM / 9:15 PM",
+    stargazing: { isFriendly: true, spots: "Rainy Lake", description: "Designated Dark Sky Park. One of the best places in the lower 48 to see the Northern Lights." },
+    topActivities: ["Renting a Houseboat", "NPS Boat Tours to Kettle Falls", "Kayaking", "Stargazing/Aurora tracking"],
+    dosAndDonts: [
+      { type: "do", text: "Rent a boat or book an NPS guided boat tour. The visitor centers are nice, but the park is on the water." },
+      { type: "dont", text: "Don't navigate the big lakes in a small canoe on windy days. The waves get dangerously large." }
+    ],
+    travelHacks: [
+      "Houseboating is the ultimate Voyageurs experience. You can anchor almost anywhere, fish off the back, and sleep under dark skies.",
+      "Take the NPS tour to the historic Kettle Falls Hotel. It's only accessible by boat and features a bar floor severely warped from decades of use.",
+      "Prepare for serious mosquitoes and ticks in June/July. Treat clothing with Permethrin."
+    ],
+    redditPosts: [
+      { title: "Houseboating tips for beginners?", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "Use the Navionics app. The lakes are full of submerged rocks. Follow the buoys religiously or you will shear off your prop." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Rent a small motorized boat or join an NPS tour departing from Rainy Lake. Explore the water networks, hike the blind Ash River visitor center trails." },
+      { day: "Day 2", plan: "Take the boat tour to Kettle Falls. Have lunch at the historic hotel. Try paddle-boarding or kayaking in a sheltered bay." }
+    ],
+    monthlyData: {
+      6: { temp: "72°F / 50°F", reservations: "NPS Tours", reddit: "Beautiful fishing weather, brutal mosquitoes." },
+      8: { temp: "75°F / 55°F", reservations: "NPS Tours", reddit: "Water is warmest, bugs slightly better." },
+      9: { temp: "65°F / 45°F", reservations: "NPS Tours", reddit: "Bugs are gone. Fall colors emerge. High chance of Auroras." }
+    }
+  }
+,
+  {
+    name: "Mount Rainier", state: "WA", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 135, days: "2 Days",
+    airport: "SEA (2hr drive)", flight: "~2h 15m direct", transport: "Car",
+    avoid: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"], popularity: 85, uniqueness: 90, sfoAccessibility: 85,
+    funFacts: [
+      "Mount Rainier is an active stratovolcano and the most heavily glaciated peak in the contiguous US.",
+      "The mountain creates its own weather, often hiding the peak in lenticular clouds.",
+      "Paradise is famous for holding the world record for measured snowfall in a single year (93.5 feet)."
+    ],
+    links: { nps: "https://www.nps.gov/mora" },
+    sunriseSunset: "Summer: 5:15 AM / 9:00 PM",
+    stargazing: { isFriendly: true, spots: "Sunrise Point", description: "Incredible dark skies at 6,400 ft on clear summer nights." },
+    topActivities: ["Skyline Trail Hike", "Burroughs Mountain Trail", "Driving to Sunrise", "Reflection Lakes"],
+    dosAndDonts: [
+      { type: "do", text: "Secure a timed entry reservation if visiting between 7am and 3pm in summer 2026." },
+      { type: "dont", text: "Don't step off the paved trails in the alpine meadows. The wildflowers are extremely fragile." }
+    ],
+    travelHacks: [
+      "The park is massive and divided. Dedicate one day to the Paradise side (south) and one day to the Sunrise side (northeast). Don't try to cram both.",
+      "If you fail to get a timed entry permit, entering the park before 7 AM guarantees you get a parking spot at Paradise anyway.",
+      "Reflection Lakes is best photographed at dawn before the wind picks up and ruins the mirror effect."
+    ],
+    redditPosts: [
+      { title: "Skyline Trail vs Burroughs Mountain?", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "Skyline is classic Rainier with meadows and waterfalls. Burroughs gets you uncomfortably close to the actual glacial ice." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Enter via Nisqually. Stop at Narada Falls. Hike the Skyline Trail loop from Paradise visitor center to Panorama Point." },
+      { day: "Day 2", plan: "Drive to Sunrise (highest road in the park). Hike the Fremont Lookout trail or up to the Second Burroughs for face-to-face glacier views." }
+    ],
+    monthlyData: {
+      7: { temp: "70°F / 45°F", reservations: "Timed Entry Required", reddit: "Late July is peak wildflower bloom, extremely crowded." },
+      8: { temp: "72°F / 46°F", reservations: "Timed Entry Required", reddit: "Warmest month, all high trails crossable without ice axes." },
+      9: { temp: "65°F / 42°F", reservations: "None", reddit: "Crowds thin out, crisp air, occasional early snow." }
+    }
+  },
+  {
+    name: "Lassen Volcanic", state: "CA", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 0, days: "2 Days",
+    airport: "RNO (3hr) or SMF (3.5hr)", flight: "Drive from SF (~4h) or fly", transport: "Car",
+    avoid: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May"], popularity: 40, uniqueness: 88, sfoAccessibility: 80,
+    funFacts: [
+      "Lassen Volcanic is one of the few places on Earth where you can find all four types of volcanoes: plug dome, shield, cinder cone, and stratovolcano.",
+      "Lassen Peak last erupted explosively in 1915.",
+      "Bumpass Hell features boiling mud pots and steaming fumaroles without the crowds of Yellowstone."
+    ],
+    links: { nps: "https://www.nps.gov/lavo" },
+    sunriseSunset: "Summer: 5:45 AM / 8:30 PM",
+    stargazing: { isFriendly: true, spots: "Bumpass Hell parking lot, Manzanita Lake", description: "High elevation and remoteness from major cities create spectacular dark skies." },
+    topActivities: ["Hiking Lassen Peak", "Bumpass Hell Boardwalk", "Kayaking Manzanita Lake"],
+    dosAndDonts: [
+      { type: "do", text: "Check road status. The main scenic highway often doesn't open fully until mid-July." },
+      { type: "dont", text: "Don't step off the boardwalks in Bumpass Hell — the crust varies in thickness and conceals boiling acidic water." }
+    ],
+    travelHacks: [
+      "Photograph Lassen Peak reflecting in Manzanita Lake at sunset for the classic park picture.",
+      "The hike up Lassen Peak is fully exposed and essentially a steep sandbox. Start by 7 AM to beat the intense afternoon sun.",
+      "Because of the extreme winter snowpacks, if you go in June, expect most of the park to still be buried."
+    ],
+    redditPosts: [
+      { title: "Is Lassen just a smaller Yellowstone?", sub: "r/norcalhiking", url: "https://www.reddit.com/r/norcalhiking/top/?t=all", quote: "It has the hydrothermal features of Yellowstone but combined with alpine lakes and glaciated mountains. Best hidden gem in California." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Drive the main park road from south to north. Hike Bumpass Hell. Stop at Emerald Lake. Camp or stay near Manzanita Lake." },
+      { day: "Day 2", plan: "Early morning 5-mile RT hike to the summit of Lassen Peak (2,000 ft elevation gain). Afternoon kayaking on Manzanita Lake." }
+    ],
+    monthlyData: {
+      7: { temp: "80°F / 45°F", reservations: "None", reddit: "Road finally fully open. Wildflowers blooming." },
+      8: { temp: "82°F / 45°F", reservations: "None", reddit: "Peak season. Lakes are warm enough for quick dips." },
+      9: { temp: "75°F / 40°F", reservations: "None", reddit: "Perfect weather, crowds disappear." }
+    }
+  },
+  {
+    name: "Redwood", state: "CA", bestMonths: [5, 6, 7, 8, 9, 10], minDays: 2, flightMinutes: 0, days: "2 Days",
+    airport: "ACV (45m drive) or SFO (5.5h drive)", flight: "Drive from SFO (~5.5h)", transport: "Car",
+    avoid: ["Dec", "Jan", "Feb"], popularity: 70, uniqueness: 95, sfoAccessibility: 75,
+    funFacts: [
+      "The park is home to Hyperion, the tallest living tree on Earth at 380 feet.",
+      "It is co-managed by the National Park Service and California State Parks.",
+      "Endor in Star Wars: Return of the Jedi was filmed here."
+    ],
+    links: { nps: "https://www.nps.gov/redw" },
+    sunriseSunset: "Summer: 6:00 AM / 8:45 PM",
+    stargazing: { isFriendly: false, spots: "Beaches", description: "Coastal fog and massive tree canopies block most stargazing opportunities." },
+    topActivities: ["Tall Trees Grove", "Fern Canyon Hike", "Newton B. Drury Scenic Parkway", "Elk viewing"],
+    dosAndDonts: [
+      { type: "do", text: "Get a free online permit well in advance to drive to Tall Trees Grove or Gold Bluffs Beach/Fern Canyon." },
+      { type: "dont", text: "Don't depend on cell service. Download offline maps." }
+    ],
+    travelHacks: [
+      "Fern Canyon requires driving through several shallow creek crossings. Sedans usually make it in late summer, but high clearance is heavily recommended.",
+      "The Newton B. Drury Scenic Parkway is arguably better than the famous Avenue of the Giants, and is entirely within the park system.",
+      "Watch for Roosevelt Elk herds lounging directly in the grassy areas near the Prairie Creek visitor center."
+    ],
+    redditPosts: [
+      { title: "Fern canyon without wet feet?", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "Just wear water shoes or Tevas. Trying to balance on slippery logs to keep boots dry is how people get hurt. Embrace the water." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Drive Newton B. Drury Parkway. Hike the Prairie Creek and Foothill trail loop. Look for Elk. Drive to Klamath River overlook for sunset." },
+      { day: "Day 2", plan: "Morning permit-access hike to Fern Canyon. Afternoon permit-access hike down into the secretive Tall Trees Grove." }
+    ],
+    monthlyData: {
+      6: { temp: "62°F / 50°F", reservations: "Fern Canyon permit required", reddit: "Often foggy in the morning, burning off at noon." },
+      7: { temp: "65°F / 52°F", reservations: "Fern Canyon permit required", reddit: "Peak summer fog (marine layer). The forest looks best in fog." },
+      9: { temp: "66°F / 50°F", reservations: "Fern Canyon permit required", reddit: "Best weather of the year. Less fog, warmer afternoons." }
+    }
+  },
+  {
+    name: "Pinnacles", state: "CA", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 0, days: "1 Day",
+    airport: "SJC (1.5h drive) or SFO (2h drive)", flight: "Drive from SFO (~2hr)", transport: "Car",
+    avoid: ["6", "7", "8"], popularity: 60, uniqueness: 80, sfoAccessibility: 100,
+    funFacts: [
+      "The park's namesake rock formations are the remnants of an extinct volcano that was carried 195 miles north by the San Andreas Fault.",
+      "It is one of the few places in the country where the critically endangered California Condor can be seen in the wild.",
+      "There is no road connecting the east and west entrances of the park."
+    ],
+    links: { nps: "https://www.nps.gov/pinn" },
+    sunriseSunset: "Spring: 6:30 AM / 7:30 PM",
+    stargazing: { isFriendly: true, spots: "Bear Gulch Reservoir", description: "Far enough from the Bay Area to offer surprisingly good dark skies." },
+    topActivities: ["High Peaks Trail", "Bear Gulch Cave", "Balconies Cave", "Condor spotting"],
+    dosAndDonts: [
+      { type: "do", text: "Bring a headlamp. Both of the main trails pass through talus caves that are pitch black." },
+      { type: "dont", text: "Don't visit in July or August. The park regularly hits 110°F and has almost no shade." }
+    ],
+    travelHacks: [
+      "If arriving from the Bay Area, use the East Entrance. It has the main campground, visitor center, and easier access to Bear Gulch.",
+      "The 'caves' are actually talus caves (massive boulders wedged in a gorge). Check the NPS website before visiting to ensure they are open, as they close for bat breeding.",
+      "Look for California Condors near the High Peaks in the early morning riding the thermals. Their 9-foot wingspan is unmistakable."
+    ],
+    redditPosts: [
+      { title: "West vs East entrance?", sub: "r/hiking", url: "https://www.reddit.com/r/hiking/top/?t=all", quote: "West is great for a quiet day hike to the balconies. East is where everyone goes for Bear Gulch and the High Peaks loop." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Enter East side. Hike Bear Gulch Cave trail up to the Reservoir, then connect to the High Peaks trail to walk amongst the volcanic spires and spot condors." }
+    ],
+    monthlyData: {
+      3: { temp: "65°F / 40°F", reservations: "None", reddit: "Perfect hiking weather. Creeks are flowing in the caves." },
+      4: { temp: "72°F / 42°F", reservations: "None", reddit: "Peak wildflower season. Very crowded on weekends." },
+      10: { temp: "75°F / 45°F", reservations: "None", reddit: "Great fall temperatures, tarantulas emerging on trails." }
+    }
+  },
+  {
+    name: "Kings Canyon", state: "CA", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 0, days: "2 Days",
+    airport: "FAT (1.5h drive) or SFO (4h drive)", flight: "Drive from SFO (~4hr)", transport: "Car",
+    avoid: ["11", "12", "1", "2", "3"], popularity: 65, uniqueness: 88, sfoAccessibility: 85,
+    funFacts: [
+      "Kings Canyon is deeper than the Grand Canyon, plunging more than 8,200 feet from peak to river.",
+      "The General Grant Tree is officially the Nation's Christmas Tree.",
+      "A massive portion of the park is only accessible via extreme backcountry hiking (the John Muir Trail)."
+    ],
+    links: { nps: "https://www.nps.gov/seki" },
+    sunriseSunset: "Summer: 5:45 AM / 8:15 PM",
+    stargazing: { isFriendly: true, spots: "Panoramic Point", description: "Excellent high-elevation stargazing away from Central Valley light pollution." },
+    topActivities: ["Driving the Kings Canyon Scenic Byway", "General Grant Tree", "Zumwalt Meadow hike", "Roaring River Falls"],
+    dosAndDonts: [
+      { type: "do", text: "Treat Kings Canyon and Sequoia as one giant park, but allocate dedicated days to each." },
+      { type: "dont", text: "Don't expect gas stations in the canyon. Fill up before driving down Hwy 180." }
+    ],
+    travelHacks: [
+      "The scenic drive down into the canyon (Hwy 180 to Roads End) is one of the most spectacular mountain drives in America, but it closes in winter.",
+      "Visit the General Grant grove in the morning, then spend the blazing afternoon down in the canyon swimming or relaxing by the Kings River.",
+      "Muir Rock at Roads End is a flat, massive boulder extending into the river — perfect for picnicking and jumping in."
+    ],
+    redditPosts: [
+      { title: "Kings Canyon vs Sequoia", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "Sequoia is for the massive trees. Kings Canyon is for the massive granite walls and river canyon. Driving down into Cedar Grove is mind-blowing." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Explore Grant Grove. See the General Grant Tree and Panoramic Point. Drive the 30-mile Kings Canyon Scenic Byway down into the gorge." },
+      { day: "Day 2", plan: "Hike the flat, incredibly scenic Zumwalt Meadow loop. Walk to Roaring River Falls. Relax at Muir Rock." }
+    ],
+    monthlyData: {
+      6: { temp: "75°F / 45°F (Canyon is 15° hotter)", reservations: "None", reddit: "Waterfalls are roaring, road usually fully opens." },
+      7: { temp: "82°F / 50°F (Canyon is 15° hotter)", reservations: "None", reddit: "Peak season. Excellent river swimming." },
+      9: { temp: "72°F / 45°F (Canyon is 15° hotter)", reservations: "None", reddit: "Water levels drop, perfect peaceful hiking weather." }
+    }
+  },
+  {
+    name: "Sequoia", state: "CA", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 0, days: "2 Days",
+    airport: "FAT (1.5h) or SFO (4.5h)", flight: "Drive from SFO (~4.5h)", transport: "Car",
+    avoid: ["11", "12", "1", "2", "3"], popularity: 88, uniqueness: 96, sfoAccessibility: 80,
+    funFacts: [
+      "Home to the General Sherman tree, the largest living single-stem tree on Earth by volume.",
+      "Mount Whitney, the highest peak in the contiguous US, is on the park's eastern border.",
+      "The park was established in 1890, making it the second oldest US national park after Yellowstone."
+    ],
+    links: { nps: "https://www.nps.gov/seki" },
+    sunriseSunset: "Summer: 5:45 AM / 8:15 PM",
+    stargazing: { isFriendly: true, spots: "Wuksachi Lodge area", description: "Incredible views of the Milky Way through the canopy openings." },
+    topActivities: ["General Sherman Tree", "Climbing Moro Rock", "Tunnel Log", "Crescent Meadow"],
+    dosAndDonts: [
+      { type: "do", text: "Take the free park shuttle during summer weekends to avoid nightmare parking situations." },
+      { type: "dont", text: "Don't drive a huge RV up the Generals Highway from Three Rivers. The hairpins are terrifying and restricted over 22 feet." }
+    ],
+    travelHacks: [
+      "The hike up Moro Rock (350+ stone steps) gives you an aerial view of the Great Western Divide. Go at sunset.",
+      "To escape the massive crowds at General Sherman, hike the Congress Trail which takes you deeper into the giant forest among hundreds of equally impressive, silent giants.",
+      "You can drive your car through the fallen Tunnel Log on a weekday. On weekends, it's often shuttle-only access."
+    ],
+    redditPosts: [
+      { title: "Should I enter from the South (Three Rivers) or North?", sub: "r/Yosemite", url: "https://www.reddit.com/r/Yosemite/top/?t=all", quote: "The southern entrance road is incredibly winding and steep. If you get carsick, enter via the north (Kings Canyon side)." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Visit Giant Forest Museum. Hike the Congress Trail starting from General Sherman. Drive through Tunnel Log. Sunset climb up Moro Rock." },
+      { day: "Day 2", plan: "Hike around Crescent Meadow (John Muir called it the 'Gem of the Sierra'). Take a guided tour of Crystal Cave (book months ahead)." }
+    ],
+    monthlyData: {
+      6: { temp: "72°F / 45°F", reservations: "None", reddit: "Perfect weather, all roads open." },
+      7: { temp: "78°F / 50°F", reservations: "None", reddit: "Very crowded. Use shuttles." },
+      9: { temp: "70°F / 42°F", reservations: "None", reddit: "Crowds thin out, crisp mountain air." }
+    }
+  },
+  {
+    name: "Channel Islands", state: "CA", bestMonths: [7, 8, 9, 10], minDays: 1, flightMinutes: 70, days: "1 Day",
+    airport: "LAX or SBA (drive to Ventura)", flight: "~1h 10m to LAX/SBA + 1.5h drive", transport: "Ferry required",
+    avoid: ["12", "1", "2", "3"], popularity: 55, uniqueness: 92, sfoAccessibility: 60,
+    funFacts: [
+      "Often called the 'Galapagos of North America' due to 145 endemic species found nowhere else.",
+      "Santa Cruz island is home to the island fox, a tiny fox the size of a house cat.",
+      "One of the best places in the world to see blue whales in the summer."
+    ],
+    links: { nps: "https://www.nps.gov/chis", activities: "https://www.islandpackers.com" },
+    sunriseSunset: "Summer: 6:00 AM / 8:00 PM",
+    stargazing: { isFriendly: true, spots: "Any island campground", description: "Zero light pollution once the mainland fog clears, but you must be camping." },
+    topActivities: ["Kayaking sea caves on Santa Cruz", "Hiking Inspiration Point on Anacapa", "Whale watching on the ferry", "Spotting Island Foxes"],
+    dosAndDonts: [
+      { type: "do", text: "Book your ferry with Island Packers months in advance. Once boats fill up, you cannot visit the park." },
+      { type: "dont", text: "Don't bring single-use plastic bags. They are banned on the islands to protect marine life." }
+    ],
+    travelHacks: [
+      "There is no food, water, or trash cans on the islands. You must pack in everything and pack out all your trash.",
+      "Santa Cruz (Scorpion Anchorage) is the best island for a first-timer: you can hike, kayak world-class sea caves, and spot foxes all in a day trip.",
+      "Take drama-free motion sickness meds before getting on the ferry. The Santa Barbara channel crossing can be extremely rough."
+    ],
+    redditPosts: [
+      { title: "Which island to choose for a day trip?", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "Santa Cruz has the best kayaking and island foxes. Anacapa has the iconic Inspiration Point view but no beach access and aggressive seagulls." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Ferry from Ventura to Santa Cruz Island. 3-hour guided sea kayak tour through the Painted Cave. Afternoon hike to Potato Harbor. Return ferry in the evening." }
+    ],
+    monthlyData: {
+      7: { temp: "72°F / 58°F", reservations: "Ferry required", reddit: "Peak blue whale season during the crossing. Often foggy in morning." },
+      8: { temp: "75°F / 60°F", reservations: "Ferry required", reddit: "Water is warmest for snorkeling/kayaking." },
+      9: { temp: "74°F / 58°F", reservations: "Ferry required", reddit: "Fog lifts, clearest skies, perfect kayaking weather." }
+    }
+  },
+  {
+    name: "Capitol Reef", state: "UT", bestMonths: [4, 5, 9, 10], minDays: 2, flightMinutes: 100, days: "2 Days",
+    airport: "SLC (3.5hr drive)", flight: "~1h 40m direct to SLC", transport: "Car",
+    avoid: ["12", "1", "2"], popularity: 75, uniqueness: 88, sfoAccessibility: 65,
+    funFacts: [
+      "The park centers around the Waterpocket Fold, a 100-mile long 'wrinkle' in the earth's crust.",
+      "It contains historic LDS fruit orchards. When in season, you can pick and eat fruit for free while in the orchard.",
+      "Cassidy Arch is named after Butch Cassidy, who supposedly hid out in the park's canyons."
+    ],
+    links: { nps: "https://www.nps.gov/care" },
+    sunriseSunset: "Spring/Fall: 7:00 AM / 7:30 PM",
+    stargazing: { isFriendly: true, spots: "Panorama Point", description: "Designated International Dark Sky Park with incredibly dark skies." },
+    topActivities: ["Cassidy Arch hike", "Hickman Bridge hike", "Eating pie at the Gifford House", "Scenic Drive to Capitol Gorge"],
+    dosAndDonts: [
+      { type: "do", text: "Buy a local fruit pie at the historic Gifford Homestead. They sell out by noon." },
+      { type: "dont", text: "Don't skip the dirt road into Capitol Gorge at the end of the scenic drive — your sedan can handle it." }
+    ],
+    travelHacks: [
+      "This is the 'sleeper hit' of Utah's Mighty 5. Far fewer crowds than Zion or Arches, but equally incredible scenery.",
+      "The hike to Cassidy Arch is brutal but puts you standing directly on top of a massive natural arch (unlike Arches NP where you just look at them).",
+      "If you have a 4WD high-clearance vehicle, drive Cathedral Valley in the remote north of the park for the massive Temple of the Sun monoliths."
+    ],
+    redditPosts: [
+      { title: "Capitol Reef was the surprise favorite", sub: "r/hiking", url: "https://www.reddit.com/r/hiking/top/?t=all", quote: "Went to all 5 Utah parks. Capitol Reef felt like a secret. Amazing hike to Cassidy Arch and eating pie under the giant cottonwood trees." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Hike Hickman Bridge in the morning. Stop at Gifford House for pie. Drive the Scenic Drive to the end and hike the Capitol Gorge wash to the Pioneer Register." },
+      { day: "Day 2", plan: "Hike the steep, exposed trail to Cassidy Arch. Afternoon drive to Sunset Point and Goosenecks Overlook." }
+    ],
+    monthlyData: {
+      4: { temp: "62°F / 38°F", reservations: "None", reddit: "Perfect hiking weather, fruit trees blooming." },
+      5: { temp: "72°F / 45°F", reservations: "None", reddit: "Pleasant. Good time to hike the deep canyons." },
+      10: { temp: "65°F / 40°F", reservations: "None", reddit: "Fruit harvest season at the orchards (apples/peaches)." }
+    }
+  },
+  {
+    name: "Canyonlands", state: "UT", bestMonths: [4, 5, 9, 10], minDays: 2, flightMinutes: 100, days: "2 Days",
+    airport: "SLC (4hr) or Grand Junction (1.5h)", flight: "~1h 40m direct to SLC", transport: "Car",
+    avoid: ["12", "1", "2"], popularity: 80, uniqueness: 94, sfoAccessibility: 65,
+    funFacts: [
+      "The park is divided into four distinct districts separated by the Colorado and Green rivers. There are no roads connecting the districts.",
+      "The Maze district is considered one of the most remote and dangerous areas in the lower 48 states.",
+      "Island in the Sky is a giant high mesa resting on sheer sandstone cliffs over 1,000 feet above the surrounding terrain."
+    ],
+    links: { nps: "https://www.nps.gov/cany" },
+    sunriseSunset: "Spring/Fall: 7:00 AM / 7:30 PM",
+    stargazing: { isFriendly: true, spots: "Grand View Point", description: "World-class dark skies, easily accessible right near Moab." },
+    topActivities: ["Mesa Arch at sunrise", "Grand View Point overlook", "Needles District hiking (Chesler Park)", "White Rim Road (4x4)"],
+    dosAndDonts: [
+      { type: "do", text: "Wake up in the dark to see sunrise at Mesa Arch. It glows like fire as the sun hits the bottom of it." },
+      { type: "dont", text: "Don't assume you can see both Island in the Sky and The Needles in one day. They are 2 hours apart driving." }
+    ],
+    travelHacks: [
+      "Island in the Sky is the 'viewing' district (driving to overlooks). The Needles is the 'hiking' district.",
+      "Chesler Park in The Needles is a rugged 11-mile hike but often ranked as one of the best day hikes in the state of Utah.",
+      "Dead Horse Point State Park isn't part of Canyonlands, but you drive right past it to enter Island in the Sky. It's 100% worth the extra entrance fee to see."
+    ],
+    redditPosts: [
+      { title: "Chesler Park is the best hike in Utah", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "Words don't do justice to climbing through the joints and walking out into the massive grassy graben surrounded by red and white pinnacles." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Island in the Sky: Sunrise at Mesa Arch. Drive to Grand View Point. Short hike to Upheaval Dome. Sunset at nearby Dead Horse Point." },
+      { day: "Day 2", plan: "The Needles: Drive 2 hours south. Hike the strenuous 11-mile loop through the Joint Trail and Chesler Park." }
+    ],
+    monthlyData: {
+      4: { temp: "66°F / 40°F", reservations: "None", reddit: "Perfect hiking weather. Very crowded in Moab." },
+      5: { temp: "76°F / 48°F", reservations: "None", reddit: "Getting hot quickly down in the canyons." },
+      10: { temp: "68°F / 42°F", reservations: "None", reddit: "Crisp air, perfect conditions for the long Needles hikes." }
+    }
+  },
+  {
+    name: "Mesa Verde", state: "CO", bestMonths: [5, 6, 9, 10], minDays: 2, flightMinutes: 135, days: "2 Days",
+    airport: "DEN (7hr drive) or Durango (1hr)", flight: "~2h 15m to DEN + 7h drive", transport: "Car",
+    avoid: ["11", "12", "1", "2", "3", "4"], popularity: 60, uniqueness: 98, sfoAccessibility: 40,
+    funFacts: [
+      "Mesa Verde protects over 5,000 archaeological sites, including 600 cliff dwellings of the Ancestral Puebloans.",
+      "Cliff Palace is the largest cliff dwelling in North America.",
+      "The people who built these structures lived here for 700 years before abandoning them suddenly in the 1300s."
+    ],
+    links: { nps: "https://www.nps.gov/meve" },
+    sunriseSunset: "Spring/Fall: 6:45 AM / 7:30 PM",
+    stargazing: { isFriendly: true, spots: "Geologic Overlook", description: "Designated Dark Sky Park. Incredible views of the Milky Way over the canyon." },
+    topActivities: ["Cliff Palace Tour", "Balcony House Tour", "Mesa Top Loop Drive", "Step House Hike"],
+    dosAndDonts: [
+      { type: "do", text: "You must book tour tickets 14 days in advance exactly at 8 AM MDT. They sell out in minutes." },
+      { type: "dont", text: "Don't book the Balcony House tour if you are afraid of heights or small spaces — it requires climbing massive wooden ladders and crawling through a tunnel." }
+    ],
+    travelHacks: [
+      "The park entrance is at the highway, but driving to the actual cliff dwellings takes 45-60 minutes on a steep, winding mountain road. Factor that heavily into your timing.",
+      "Step House is the only cliff dwelling you can visit for free without a guide/ticket.",
+      "If you fail to get tickets, the Mesa Top Loop drive still affords spectacular views looking down into Cliff Palace and Square Tower House."
+    ],
+    redditPosts: [
+      { title: "Balcony House ladder fear", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "The 32-foot ladder is completely exposed leaning against a cliff wall. It's exhilarating but entirely serious." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Drive the 45 mins up the mesa. Drive the Mesa Top Loop to get the historical overview. Self-guided hike through Step House." },
+      { day: "Day 2", plan: "Morning booked ranger tour of Cliff Palace. Afternoon booked ranger tour of the adventurous Balcony House." }
+    ],
+    monthlyData: {
+      5: { temp: "68°F / 42°F", reservations: "Tour tickets strictly required", reddit: "Tours resume for the season. Pleasant temps." },
+      6: { temp: "80°F / 50°F", reservations: "Tour tickets strictly required", reddit: "Starts getting very hot on the exposed mesa tops." },
+      9: { temp: "72°F / 46°F", reservations: "Tour tickets strictly required", reddit: "Perfect weather for climbing the ladders." },
+      10: { temp: "60°F / 38°F", reservations: "Tour tickets strictly required", reddit: "Tours begin winding down for winter." }
+    }
+  }
+,
+  {
+    name: "Denali", state: "AK", bestMonths: [6, 7, 8], minDays: 3, flightMinutes: 420, days: "3 Days",
+    airport: "ANC (4hr drive or train)", flight: "~7h direct to ANC", transport: "NPS Bus Required",
+    avoid: ["Nov", "Dec", "Jan", "Feb"], popularity: 82, uniqueness: 95, sfoAccessibility: 40,
+    funFacts: [
+      "Denali is the highest mountain peak in North America (20,310 feet).",
+      "Only one road goes into the park, and personal vehicles are restricted past mile 15.",
+      "The park spans 6 million acres — larger than the state of New Hampshire."
+    ],
+    links: { nps: "https://www.nps.gov/dena", lodging: "https://www.reservedenali.com", activities: "https://www.reservedenali.com" },
+    sunriseSunset: "Summer: 4:30 AM / 11:30 PM (Midnight Sun)",
+    stargazing: { isFriendly: true, spots: "Wonder Lake (late August for Auroras)", description: "In mid-summer, it never gets dark enough for stars. Late August to April offers world-class Northern Lights." },
+    topActivities: ["Denali Park Road Bus Tour", "Flightseeing over the peak", "Savage River Hiking", "Sable Pass Grizzly viewing"],
+    dosAndDonts: [
+      { type: "do", text: "Book your park bus tour 6 months in advance." },
+      { type: "dont", text: "Don't expect to see the mountain — it's covered in clouds 70% of the time." }
+    ],
+    travelHacks: [
+      "The camper buses are cheaper than tour buses and allow you to get on and off anywhere along the road.",
+      "Mile 15 (Savage River) is the furthest you can drive yourself — great place for dusk wildlife spotting without a bus ticket.",
+      "Take a flightseeing tour from Talkeetna (south of the park) rather than driving all the way to the entrance if short on time."
+    ],
+    redditPosts: [
+      { title: "Is the transit bus actually better than the narrated tour?", sub: "r/alaska", url: "https://www.reddit.com/r/alaska/top/?t=all", quote: "Transit bus 100%. The drivers still talk, you can get off to hike, and nobody talks over the wildlife." },
+      { title: "The '30% club' is real — Denali is usually hidden", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "Spent 4 days there, saw the base twice, never saw the peak. It creates its own weather system." },
+      { title: "Wonder Lake campground bugs", sub: "r/camping", url: "https://www.reddit.com/r/camping/top/?t=all", quote: "The mosquitoes at Wonder Lake will carry you away. Head nets are mandatory gear, not optional." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Drive/train from Anchorage or Fairbanks. Hike the Savage Alpine Trail (2 mi RT) at the end of the public road section." },
+      { day: "Day 2", plan: "Full-day transit bus into the park interior (Eielson or Kantishna if road repairs allow). Grizzly, caribou, and wolf spotting." },
+      { day: "Day 3", plan: "Morning flightseeing tour from the park entrance or Talkeetna (add glacier landing if budget allows). Sled dog demonstration at HQ." }
+    ],
+    monthlyData: {
+      6: { temp: "55°F / 38°F", reservations: "Bus tickets required", reddit: "Bears emerging, expect mud" },
+      7: { temp: "62°F / 45°F", reservations: "Bus tickets required, peak season", reddit: "Mosquitoes are brutal, but the park is fully alive" },
+      8: { temp: "58°F / 42°F", reservations: "Bus tickets required", reddit: "Bugs die down, fall colors begin late August" }
+    }
+  },
+  {
+    name: "Glacier Bay", state: "AK", bestMonths: [6, 7, 8], minDays: 2, flightMinutes: 300, days: "2 Days",
+    airport: "JNU (short flight/ferry to Gustavus)", flight: "~5h (1 stop) to JNU", transport: "Boat/Ship",
+    avoid: ["Nov", "Dec", "Jan", "Feb"], popularity: 60, uniqueness: 90, sfoAccessibility: 30,
+    funFacts: [
+      "There are no roads to Glacier Bay; you must arrive by air or water.",
+      "Just 250 years ago, the entire bay was covered by a single massive glacier.",
+      "The park covers 3.3 million acres of rugged mountains, dynamic glaciers, and temperate rainforest."
+    ],
+    links: { nps: "https://www.nps.gov/glba", lodging: "https://www.visitglacierbay.com" },
+    sunriseSunset: "Summer: 4:00 AM / 10:30 PM",
+    stargazing: { isFriendly: false, spots: "Bartlett Cove", description: "Too much daylight in peak summer visitor months." },
+    topActivities: ["Full-day Glacier Boat Tour", "Sea Kayaking Bartlett Cove", "Whale Watching at Point Adolphus"],
+    dosAndDonts: [
+      { type: "do", text: "Take the 8-hour NPS-authorized boat tour from Bartlett Cove — it's the only way to see the tidewater glaciers." },
+      { type: "dont", text: "Don't assume you can drive there from Anchorage or Juneau." }
+    ],
+    travelHacks: [
+      "Most people see it quickly on a massive cruise ship. To actually experience it, stay at Glacier Bay Lodge in Bartlett Cove and take the small day-boat.",
+      "If flying in via Alaska Airlines summer jet service to Gustavus, sit on the right side of the plane for views of the Fairweather Range.",
+      "Point Adolphus (just outside the park edge) has some of the highest concentrations of feeding humpback whales on Earth in July."
+    ],
+    redditPosts: [
+      { title: "Cruise ship vs staying at Bartlett Cove", sub: "r/alaska", url: "https://www.reddit.com/r/alaska/top/?t=all", quote: "From a cruise ship you're 200 feet up and see one glacier for an hour. The day boat gets you eye-level with the ice and wildlife." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Arrive Gustavus via plane/ferry. Settle at Glacier Bay Lodge. Afternoon hike on the Forest Trail in Bartlett Cove." },
+      { day: "Day 2", plan: "8-hour Glacier Bay day-boat tour to the Margerie and Grand Pacific tidewater glaciers. Humpback whales, puffins, calving ice." }
+    ],
+    monthlyData: {
+      6: { temp: "55°F / 42°F", reservations: "Lodge/boat required", reddit: "Whales returning, dramatic weather" },
+      7: { temp: "58°F / 46°F", reservations: "Lodge/boat required", reddit: "Peak wildlife, bring serious rain gear" },
+      8: { temp: "57°F / 46°F", reservations: "Lodge/boat required", reddit: "Rainiest month, but glaciers look best when overcast" }
+    }
+  },
+  {
+    name: "Katmai", state: "AK", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 420, days: "2 Days",
+    airport: "ANC (then flight to King Salmon)", flight: "~7h to ANC + local hopper", transport: "Floatplane",
+    avoid: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May"], popularity: 45, uniqueness: 98, sfoAccessibility: 10,
+    funFacts: [
+      "Home to the Valley of Ten Thousand Smokes, created by the largest volcanic eruption of the 20th century (Novarupta, 1912).",
+      "Over 2,000 brown bears live in the park.",
+      "Brooks Falls is the site of Fat Bear Week, famously live-streamed worldwide."
+    ],
+    links: { nps: "https://www.nps.gov/katm", lodging: "https://www.katmailand.com" },
+    sunriseSunset: "Summer: 5:00 AM / 11:00 PM",
+    stargazing: { isFriendly: false, spots: "Brooks Camp", description: "Summer bears + midnight sun = bad stargazing." },
+    topActivities: ["Brooks Falls Bear Viewing", "Valley of 10,000 Smokes bus tour", "Fly fishing"],
+    dosAndDonts: [
+      { type: "do", text: "Book Brooks Lodge 18-24 months in advance if you want to stay overnight." },
+      { type: "dont", text: "Don't carry any food outside of designated areas. The bears literally rule this park." }
+    ],
+    travelHacks: [
+      "July is peak for salmon jumping the falls (and bears catching them in mid-air). September is peak for absolutely massive 'Fat Bears'.",
+      "Day trips from Anchorage/Homer are extremely expensive ($900-1200) and highly weather-dependent. Pack for a potential forced overnight if planes get grounded.",
+      "Take the 23-mile bus ride to the Valley of 10,000 Smokes — almost no one does it, but the barren ash landscape is mind-blowing."
+    ],
+    redditPosts: [
+      { title: "Is the day trip to Brooks Falls worth $1,000?", sub: "r/NationalParks", url: "https://www.reddit.com/r/NationalParks/top/?t=all", quote: "Yes. Standing 50 feet away on a platform while 12 grizzlies fish in a waterfall is the greatest wildlife experience in America." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Floatplane to Brooks Camp. Mandatory bear school. Spend the entire afternoon at the Brooks Falls viewing platforms watching fishing bears." },
+      { day: "Day 2", plan: "Take the 4WD bus tour to the Valley of Ten Thousand Smokes. Hike down to the Ukak River through the 1912 ash flow." }
+    ],
+    monthlyData: {
+      7: { temp: "60°F / 45°F", reservations: "Flights/Lodge strictly required", reddit: "Peak salmon run at Brooks Falls." },
+      8: { temp: "58°F / 45°F", reservations: "Flights/Lodge strictly required", reddit: "Fewer salmon, bears disperse slightly." },
+      9: { temp: "52°F / 40°F", reservations: "Flights/Lodge strictly required", reddit: "Fat bears, dying salmon, incredible fall tundra colors." }
+    }
+  },
+  {
+    name: "Lake Clark", state: "AK", bestMonths: [6, 7, 8], minDays: 2, flightMinutes: 300, days: "2 Days",
+    airport: "ANC (then floatplane)", flight: "~7h to ANC + floatplane", transport: "Floatplane",
+    avoid: ["Nov", "Dec", "Jan", "Feb"], popularity: 20, uniqueness: 85, sfoAccessibility: 10,
+    funFacts: [
+      "Lake Clark preserves the ancestral homelands of the Dena'ina people.",
+      "Contains two active volcanoes: Mount Iliamna and Mount Redoubt.",
+      "The park has zero roads and zero NPS-maintained trails."
+    ],
+    links: { nps: "https://www.nps.gov/lacl" },
+    sunriseSunset: "Summer: 4:30 AM / 11:00 PM",
+    stargazing: { isFriendly: false, spots: "Port Alsworth", description: "Not a stargazing destination due to summer daylight." },
+    topActivities: ["Bear viewing at Chinitna Bay", "Kayaking Lake Clark", "Staying at Port Alsworth"],
+    dosAndDonts: [
+      { type: "do", text: "Hire an outfitter or guide. This is true wilderness tracking." },
+      { type: "dont", text: "Don't plan this on a tight schedule. Weather delays flights constantly." }
+    ],
+    travelHacks: [
+      "Chinitna Bay in early summer (May-June) offers world-class brown bear viewing on the mudflats before the salmon run starts at Katmai.",
+      "Port Alsworth is the only real 'town' inside the park and the base for all operations. Stay at The Farm Lodge for relative luxury in the deep bush.",
+      "Richard Proenneke's cabin at Twin Lakes is iconic (Alone in the Wilderness), but requires a very expensive private floatplane charter to reach."
+    ],
+    redditPosts: [
+      { title: "Lake Clark vs Katmai for bears", sub: "r/alaska", url: "https://www.reddit.com/r/alaska/top/?t=all", quote: "Katmai is for the iconic waterfall shot. Lake Clark (Chinitna) is for seeing bears digging clams on the beach with way fewer tourists." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Bush plane from Anchorage to Port Alsworth. Kayak the turquoise waters of Lake Clark. Hike to Tanalian Falls (the only real trail)." },
+      { day: "Day 2", plan: "Flightsee over the active Redoubt and Iliamna volcanoes, or charter to Chinitna Bay for guided bear viewing." }
+    ],
+    monthlyData: {
+      6: { temp: "60°F / 40°F", reservations: "Outfitter required", reddit: "Bears on the coastal sedge meadows." },
+      7: { temp: "62°F / 45°F", reservations: "Outfitter required", reddit: "Peak summer, sockeye salmon returning." },
+      8: { temp: "60°F / 42°F", reservations: "Outfitter required", reddit: "Bears moving to streams, lots of rain." }
+    }
+  },
+  {
+    name: "Wrangell-St. Elias", state: "AK", bestMonths: [6, 7, 8], minDays: 3, flightMinutes: 420, days: "3 Days",
+    airport: "ANC (5hr drive to McCarthy)", flight: "~7h to ANC", transport: "Car/Bush Plane",
+    avoid: ["Nov", "Dec", "Jan", "Feb"], popularity: 30, uniqueness: 92, sfoAccessibility: 20,
+    funFacts: [
+      "It is the largest national park in the US — at 13.2 million acres, it's larger than Yellowstone, Yosemite, and Switzerland combined.",
+      "Contains 9 of the 16 highest peaks in the United States.",
+      "The Kennecott Copper Mine abandoned in 1938 is one of the best-preserved ghost towns in the country."
+    ],
+    links: { nps: "https://www.nps.gov/wrst" },
+    sunriseSunset: "Summer: 4:00 AM / 11:30 PM",
+    stargazing: { isFriendly: true, spots: "McCarthy", description: "Incredible dark skies starting in late August once nights return." },
+    topActivities: ["Kennecott Mill Town Tour", "Root Glacier Ice Hiking", "Flightseeing the Bagley Icefield"],
+    dosAndDonts: [
+      { type: "do", text: "Drive the McCarthy Road very slowly. Carry a full-size spare tire. It's a rugged 60-mile dirt road." },
+      { type: "dont", text: "Don't try to explore the abandoned mill buildings without joining an official NPS/concessionaire tour — it's extremely dangerous." }
+    ],
+    travelHacks: [
+      "Instead of driving the brutal McCarthy Road, take a 30-minute bush flight from Chitina via Wrangell Mountain Air. Saves your rental car and offers insane views.",
+      "Hire a guide in Kennecott to hike out onto the Root Glacier. Walking on white ice past massive blue moulins (ice caves) is spectacular.",
+      "The town of McCarthy (population ~30) is separated from parking by a footbridge. You cannot drive into the town or to the mines."
+    ],
+    redditPosts: [
+      { title: "McCarthy Road tire destruction", sub: "r/alaska", url: "https://www.reddit.com/r/alaska/top/?t=all", quote: "The road is built on an old railroad track. Old spikes still surface and shred tires. Rental companies specifically ban this road." }
+    ],
+    itinerary: [
+      { day: "Day 1", plan: "Navigate the McCarthy Road or fly in from Chitina. Cross the footbridge. Shuttle to Kennecott. Explore the lower ghost town." },
+      { day: "Day 2", plan: "Guided ice climbing or crampon hiking on the Root Glacier. Afternoon guided tour inside the 14-story Kennecott Copper Mill building." },
+      { day: "Day 3", plan: "Hike the steep Jumbo Mine Trail (3000ft gain) up the mountain for sweeping views of the Kennicott Glacier valley." }
+    ],
+    monthlyData: {
+      6: { temp: "65°F / 40°F", reservations: "McCarthy lodges required", reddit: "Perfect weather in the interior valley." },
+      7: { temp: "68°F / 45°F", reservations: "McCarthy lodges required", reddit: "Peak activity, warmest temps." },
+      8: { temp: "65°F / 40°F", reservations: "McCarthy lodges required", reddit: "Fall colors start late August, darker skies." }
+    }
+  },
+  {
+    name: "Gates of the Arctic", state: "AK", bestMonths: [7, 8], minDays: 5, flightMinutes: 600, days: "7 Days",
+    airport: "FAI (then bush plane)", flight: "~9h (1 stop) to FAI", transport: "Bush Plane/Foot",
+    avoid: ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May"], popularity: 5, uniqueness: 98, sfoAccessibility: 5,
+    funFacts: [
+      "It is the northernmost national park in the US, located entirely above the Arctic Circle.",
+      "There are no roads, no trails, and no visitor facilities within its boundaries.",
+      "It is the least visited national park, receiving roughly 10,000 visitors a year."
+    ],
+    links: { nps: "https://www.nps.gov/gaar" },
+    sunriseSunset: "Summer: Sun never sets (24hr daylight)",
+    stargazing: { isFriendly: false, spots: "Anywhere", description: "Continuous daylight in summer makes stargazing impossible." },
+    topActivities: ["Backpacking the Arrigetch Peaks", "Floating the Noatak or Kobuk rivers", "Caribou migration spotting"],
+    dosAndDonts: [
+      { type: "do", text: "Hire an experienced outfitter if you don't have extensive extreme backcountry skills." },
+      { type: "dont", text: "Don't rely on GPS alone. Compasses and topo maps are required — GPS devices routinely fail up here." }
+    ],
+    travelHacks: [
+      "Base out of Coldfoot or Bettles. You can technically 'visit' the park for cheap by driving the Dalton Highway and hiking into the boundary just off the road.",
+      "The Arrigetch Peaks are the crown jewel of the park — granite spires shooting up from the tundra. Extremely difficult access, requires float plane to circle lake drop-off.",
+      "Tussocks (grass clumps on marshy ground) make walking here miserable. Expect to cover 1-2 miles per hour max on foot."
+    ],
+    redditPosts: [
+      { title: "Any advice for backpacking Gates?", sub: "r/WildernessBackpacking", url: "https://www.reddit.com/r/WildernessBackpacking/top/?t=all", quote: "The mosquitoes are biblical. The tussocks will destroy your ankles. It is the most beautiful, unforgiving place on earth." }
+    ],
+    itinerary: [
+      { day: "Days 1-7", plan: "Fly bush plane from Bettles to a gravel bar or lake drop-off. Backpack completely off-trail navigating by map/compass through the Brooks Range, or take a 7-day guided packraft down a designated wild river." }
+    ],
+    monthlyData: {
+      7: { temp: "55°F / 40°F", reservations: "Charter flights required", reddit: "Midnight sun, massive mosquito swarms." },
+      8: { temp: "50°F / 35°F", reservations: "Charter flights required", reddit: "Bugs die off, chance of early snow by late August." }
+    }
+  }
+,
+  {
     name: "Zion",
     minDays: 2,
     flightMinutes: 75,
@@ -14,7 +1265,7 @@ const _PARKS_RAW = [
       "The 1.1-mile Zion-Mt. Carmel Tunnel was completed in 1930 and has 'windows' cut into the rock to provide views."
     ],
     airport: "LAS (2.5hr drive)",
-    flight: "~1h 15m SFO→LAS (Southwest)",
+    flight: "~1h 15m direct",
     transport: "Free shuttle (required peak season)",
     days: "3–4",
     avoid: [7, 8],
@@ -82,7 +1333,7 @@ const _PARKS_RAW = [
       "The canyon creates its own weather system, vastly differing between the rim and the river."
     ],
     airport: "PHX (3.5hr to S. Rim)",
-    flight: "~1h 45m SFO→PHX (Southwest)",
+    flight: "~1h 45m direct",
     transport: "Free shuttle system",
     days: "2–4",
     avoid: [7, 8],
@@ -150,7 +1401,7 @@ const _PARKS_RAW = [
       "Cryptobiotic soil crust living in the park is vital to the desert ecosystem."
     ],
     airport: "SLC (3.5hr drive)",
-    flight: "~1h 40m SFO→SLC (Southwest)",
+    flight: "~1h 40m direct",
     transport: "Drive to trailheads",
     days: "2–3",
     avoid: [6, 7, 8],
@@ -214,7 +1465,7 @@ const _PARKS_RAW = [
       "Yosemite was central to the creation of the national park idea, championed by John Muir."
     ],
     airport: "FAT (1.5hr drive)",
-    flight: "Drive from SFO (~3.5hr, no flight needed)",
+    flight: "Drive only (~3.5h from SF)",
     transport: "Free valley shuttle",
     days: "3–5",
     avoid: [7, 8],
@@ -279,7 +1530,7 @@ const _PARKS_RAW = [
       "The park contains 72 peaks that are over 12,000 feet in elevation."
     ],
     airport: "DEN (1.5hr drive)",
-    flight: "~2h 15m SFO→DEN (Southwest)",
+    flight: "~2h 15m direct",
     transport: "Seasonal shuttle + drive",
     days: "3–4",
     avoid: [1, 2, 3, 4],
@@ -342,7 +1593,7 @@ const _PARKS_RAW = [
       "Ruby Beach has massive sea stacks and driftwood logs the size of school buses."
     ],
     airport: "SEA (2.5hr drive)",
-    flight: "~2h 15m SFO→SEA (Southwest)",
+    flight: "~2h 15m direct",
     transport: "Drive (ecosystems spread out)",
     days: "3–5",
     avoid: [11, 12, 1, 2],
@@ -405,7 +1656,7 @@ const _PARKS_RAW = [
       "Yellowstone is larger than the states of Delaware and Rhode Island combined."
     ],
     airport: "BZN (1.5hr drive)",
-    flight: "~2h 20m SFO→SLC + shuttle (Southwest)",
+    flight: "~2h 20m + shuttle",
     transport: "Drive (vast park)",
     days: "4–6",
     avoid: [7, 8],
@@ -469,7 +1720,7 @@ const _PARKS_RAW = [
       "The lakes are impossibly stunning azure blue due to 'glacial flour' suspended in the water."
     ],
     airport: "BZN (3hr drive)",
-    flight: "~2h 30m SFO→GEG or MSO (Southwest)",
+    flight: "~2h 30m direct",
     transport: "Free seasonal shuttle",
     days: "4–6",
     avoid: [1, 2, 3, 4, 5],
@@ -532,7 +1783,7 @@ const _PARKS_RAW = [
       "It's the largest national park in the lower 48 states."
     ],
     airport: "LAS (2hr drive)",
-    flight: "~1h 15m SFO→LAS (Southwest)",
+    flight: "~1h 15m direct",
     transport: "Drive only (vast)",
     days: "2–3",
     avoid: [6, 7, 8, 9],
@@ -597,7 +1848,7 @@ const _PARKS_RAW = [
       "Sommes Sound is the only fjard (like a fjord, but smaller) on the U.S. East Coast."
     ],
     airport: "BOS (4.5hr drive)",
-    flight: "~5h SFO→BOS + 4hr drive (1 stop)",
+    flight: "~5h (1 stop)",
     transport: "Free Island Explorer shuttle",
     days: "3–4",
     avoid: [1, 2, 3],
@@ -661,7 +1912,7 @@ const _PARKS_RAW = [
       "It is one of the premier rock-climbing spots in the world with over 8,000 routes."
     ],
     airport: "ONT (1hr drive)",
-    flight: "~1h 10m SFO→LAX or ONT (Southwest)",
+    flight: "~1h 10m direct",
     transport: "Drive only",
     days: "2–3",
     avoid: [7, 8],
@@ -726,7 +1977,7 @@ const _PARKS_RAW = [
       "John D. Rockefeller Jr. secretly bought much of the land and donated it to the federal government to expand the park."
     ],
     airport: "SLC (4.5hr drive)*",
-    flight: "~2h 20m SFO→SLC + 4hr drive (Southwest)",
+    flight: "~2h 20m (1 stop)",
     transport: "Drive + seasonal shuttles",
     days: "3–5",
     avoid: [11],
@@ -789,7 +2040,7 @@ const _PARKS_RAW = [
       "It is the 'Salamander Capital of the World', home to 30 distinct species."
     ],
     airport: "TYS (1hr drive)",
-    flight: "~4h SFO→BNA + 3.5hr drive (Southwest)",
+    flight: "~4h (1 stop)",
     transport: "Drive only",
     days: "3–4",
     avoid: [7, 8],
@@ -853,7 +2104,7 @@ const _PARKS_RAW = [
       "The park has one of the densest populations of black bears in the eastern United States."
     ],
     airport: "BWI (2hr drive)",
-    flight: "~4h 45m SFO→IAD (1 stop, Southwest)",
+    flight: "~4h 45m (1 stop)",
     transport: "Drive (Skyline Dr)",
     days: "2–3",
     avoid: [1, 2, 3],
@@ -916,7 +2167,7 @@ const _PARKS_RAW = [
       "The park features dramatic elevation changes, from dense ancient rainforests to jagged icy spires."
     ],
     airport: "SEA (2.5hr drive)",
-    flight: "~2h 15m SFO→SEA + 2hr drive (Southwest)",
+    flight: "~2h 15m direct",
     transport: "Drive Hwy 20",
     days: "3–4",
     avoid: [11],
@@ -978,7 +2229,7 @@ const _PARKS_RAW = [
       "Gila woodpeckers hollow out holes in the cacti to create cool nests protected from the desert sun."
     ],
     airport: "PHX (1.5hr drive)",
-    flight: "~1h 45m SFO→TUS direct",
+    flight: "~1h 45m direct",
     transport: "Drive only",
     days: "2–3",
     avoid: [6, 7, 8, 9],
@@ -1043,7 +2294,7 @@ const _PARKS_RAW = [
       "The invasive Burmese python has decimated up to 90% of the small mammal population here."
     ],
     airport: "FLL (1hr drive)",
-    flight: "~5h SFO→FLL or MIA (1 stop, Southwest)",
+    flight: "~5h (1 stop)",
     transport: "Drive + boat tours",
     days: "2–3",
     avoid: [6, 7, 8],
@@ -1108,7 +2359,7 @@ const _PARKS_RAW = [
       "The incredibly clear air provides 100-mile visibility into three different states on a good day."
     ],
     airport: "LAS (4hr drive)",
-    flight: "~1h 15m SFO→LAS + 2.5hr drive (Southwest)",
+    flight: "~1h 15m + 2.5h drive",
     transport: "Free seasonal shuttle",
     days: "2–3",
     avoid: [12, 1, 2],
@@ -1173,7 +2424,7 @@ const _PARKS_RAW = [
       "It is one of the darkest places in the entire United States, making it a gold-tier Dark Sky Park."
     ],
     airport: "LAS (4.5hr drive)",
-    flight: "~1h 15m SFO→LAS + 4.5hr drive (Southwest)",
+    flight: "~1h 15m + 4.5h drive",
     transport: "Drive + ranger-led cave tours",
     days: "2–3",
     avoid: [12, 1, 2],
@@ -1236,7 +2487,7 @@ const _PARKS_RAW = [
       "It is incredibly pristine because there is no sediment influx. You can sometimes see 140 feet down into the water."
     ],
     airport: "PDX (3hr drive)",
-    flight: "~1h 30m SFO→RDM or MFR (Southwest)",
+    flight: "~1h 30m direct",
     transport: "Drive Rim Drive",
     days: "1–2",
     avoid: [11, 12, 1, 2, 3, 4, 5],
@@ -1298,7 +2549,7 @@ const _PARKS_RAW = [
       "Lake Superior's frigid waters preserve dozens of intact, diveable shipwrecks around the island's shores."
     ],
     airport: "CMX + ferry*",
-    flight: "~4h 20m SFO→DTW + flight/ferry (1 stop)",
+    flight: "~4h 20m (1 stop)",
     transport: "Boat & hike only",
     days: "4–7",
     avoid: [11, 12, 1, 2, 3, 4],
@@ -1361,7 +2612,7 @@ const _PARKS_RAW = [
       "It has the darkest measured night skies of any national park in the lower 48 states."
     ],
     airport: "ELP (3.5hr drive)",
-    flight: "~3h SFO→SAT + 5hr drive (Southwest)",
+    flight: "~3h (1 stop)",
     transport: "Drive only",
     days: "3–4",
     avoid: [6, 7, 8],
@@ -1427,7 +2678,7 @@ const _PARKS_RAW = [
       "It was slated to be turned into a major Miami development called 'Islandia' until conservationists saved it in 1968."
     ],
     airport: "FLL (1hr drive)",
-    flight: "~5h SFO→MIA or FLL (1 stop, Southwest)",
+    flight: "~5h (1 stop)",
     transport: "Boat required",
     days: "1–2",
     avoid: [6, 7, 8, 9, 10],
@@ -1491,7 +2742,7 @@ const _PARKS_RAW = [
       "The park is nearly 70 miles west of Key West and relies entirely on rainwater collection."
     ],
     airport: "Key West (via FLL+drive)",
-    flight: "~5h SFO→FLL + ferry/plane (1 stop)",
+    flight: "~5h (1 stop) + ferry",
     transport: "Walk + snorkel",
     days: "1",
     avoid: [6, 7, 8, 9],
@@ -1556,7 +2807,7 @@ const _PARKS_RAW = [
       "The summit features an array of astrophysics telescopes because it is above one-third of the earth's atmosphere."
     ],
     airport: "OGG (45min)",
-    flight: "~5h 30m SFO→OGG direct (Southwest)",
+    flight: "~5h 30m direct",
     transport: "Drive to summit",
     days: "1–2",
     avoid: [],
@@ -1627,7 +2878,7 @@ const _PARKS_RAW = [
       "It is a key sanctuary for Great Blue Herons, which nest in massive colonies here."
     ],
     airport: "CLE (30min drive)",
-    flight: "~4h 20m SFO→CLE (1 stop, Southwest)",
+    flight: "~4h 20m (1 stop)",
     transport: "Scenic railroad + bike trail",
     days: "1–2",
     avoid: [12, 1, 2],
@@ -1690,7 +2941,7 @@ const _PARKS_RAW = [
       "It is one of the premier locations on earth to witness orcas hunting and humpback whales bubble-net feeding."
     ],
     airport: "ANC (2.5hr drive)",
-    flight: "~7h SFO→ANC (direct or 1 stop)",
+    flight: "~7h direct",
     transport: "Boat tours + drive to Exit Glacier",
     days: "2–3",
     avoid: [10, 11, 12, 1, 2, 3, 4],
