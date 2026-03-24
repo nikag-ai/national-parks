@@ -125,7 +125,7 @@ const _PARKS_RAW = [
       { type: "dont", text: "Don't expect outdoor natural soaking pools in the forest. All bathing happens inside the historic indoor bathhouses." }
     ],
     travelHacks: [
-      "Quapaw and Buckstaff are the only two bathhouses where you can actually soak in the thermal waters today. Buckstaff offers the traditional, intensive full-service 1920s scrub." ,
+      "Quapaw and Buckstaff are the only two bathhouses where you can actually soak in the thermal waters today. Buckstaff offers the traditional, intensive full-service 1920s scrub.",
       "Superior Bathhouse Brewery is the only brewery in a US National Park, and the only in the world making beer using thermal spring water.",
       "The Grand Promenade trail runs right behind the bathhouses and shows the actual hot water seeping out of the hillside."
     ],
@@ -707,7 +707,7 @@ const _PARKS_RAW = [
       9: { temp: "65°F / 45°F", reservations: "NPS Tours", reddit: "Bugs are gone. Fall colors emerge. High chance of Auroras." }
     }
   }
-,
+  ,
   {
     name: "Mount Rainier", state: "WA", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 255, days: "2 Days",
     seasonalVerdict: { best: "August (Wildflower peak at Paradise), September (Clear skies).", avoid: "Winter (Heavy snow/mandatory chains), June (Many trails still buried)." },
@@ -1067,7 +1067,7 @@ const _PARKS_RAW = [
       10: { temp: "60°F / 38°F", reservations: "Tour tickets strictly required", reddit: "Tours begin winding down for winter." }
     }
   }
-,
+  ,
   {
     name: "Denali", state: "AK", bestMonths: [6, 7, 8], minDays: 3, flightMinutes: 660, days: "3 Days",
     seasonalVerdict: { best: "Late June - July (24hr daylight, wildlife active), Late August (Fall colors).", avoid: "Winter (Extreme cold, limited bus access, total darkness)." },
@@ -1286,7 +1286,7 @@ const _PARKS_RAW = [
       8: { temp: "50°F / 35°F", reservations: "Charter flights required", reddit: "Bugs die off, chance of early snow by late August." }
     }
   }
-,
+  ,
   {
     name: "Zion",
     seasonalVerdict: { best: "Late Spring and Fall have the best water levels for The Narrows and cool hiking air.", avoid: "Summer (Over 100°F heat, extreme flash flood risk, massive crowds)." },
@@ -1317,12 +1317,12 @@ const _PARKS_RAW = [
       { day: "Day 2", plan: "Early shuttle (6 AM) for Angels Landing or Scout Lookout (permit required for AL). Afternoon: Emerald Pools trail loop." },
       { day: "Day 3", plan: "Start Narrows hike by 7 AM before crowds and water levels rise. Rent dry suit in Springdale if early season. Afternoon: explore Springdale town." }
     ],
-    travelHacks: [ "In 2026, the park shuttle is free — arrive before 7 AM to board directly without waiting. By 9 AM lines can be 45+ minutes.", "Rent an e-bike in Springdale ($60-80/day) to entirely bypass the shuttle system and explore at your own pace.", "Book the Angels Landing permit via the day-before lottery on recreation.gov — far less competitive than the seasonal lottery. Apply every night starting one week before your hike.", "The Canyon Overlook Trail (1 mile, easy) is never crowded and gives stunning rim-level views without a permit or shuttle.", "June 7, 2026 onward: vehicle size and weight restrictions apply on Zion-Mt. Carmel Hwy. Check NPS.gov if driving a large RV or truck." ],
-    dosAndDonts: [ 
+    travelHacks: ["In 2026, the park shuttle is free — arrive before 7 AM to board directly without waiting. By 9 AM lines can be 45+ minutes.", "Rent an e-bike in Springdale ($60-80/day) to entirely bypass the shuttle system and explore at your own pace.", "Book the Angels Landing permit via the day-before lottery on recreation.gov — far less competitive than the seasonal lottery. Apply every night starting one week before your hike.", "The Canyon Overlook Trail (1 mile, easy) is never crowded and gives stunning rim-level views without a permit or shuttle.", "June 7, 2026 onward: vehicle size and weight restrictions apply on Zion-Mt. Carmel Hwy. Check NPS.gov if driving a large RV or truck."],
+    dosAndDonts: [
       { type: "do", text: "Apply for the Angels Landing permit months in advance via recreation.gov." },
-      { type: "dont", text: "Don't drive into the park mid-day; parking fills up by 8 AM." } 
+      { type: "dont", text: "Don't drive into the park mid-day; parking fills up by 8 AM." }
     ],
-        redditPosts: [
+    redditPosts: [
       { title: "First time at Zion — everything you need to know (mega-guide)", sub: "r/ZionNationalPark", url: "https://www.reddit.com/r/ZionNationalPark/top/?t=all", quote: "Get to the Narrows before 7am. After that it becomes a highway of tourists." },
       { title: "Angels Landing permit lottery — how I finally won after 6 tries", sub: "r/NationalParks", url: "https://www.reddit.com/r/ZionNationalPark/top/?t=all", quote: "Apply for the day-before lottery every single day. It\'s way less competitive than the seasonal lotteries." },
       { title: "E-bikes in Zion — completely changed my trip", sub: "r/solotravel", url: "https://www.reddit.com/r/ZionNationalPark/top/?t=all", quote: "Rented from Springdale. Zero shuttle lines. Best decision of the trip." }
@@ -1342,7 +1342,7 @@ const _PARKS_RAW = [
       10: { temp: "25°C / 77°F", reservations: "Angels Landing Permit Required. Shuttle running.", reddit: "Absolute peak conditions. Fall foliage is starting to pop along the river. Busy but worth it." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "First time at Zion — everything you need to know (mega-guide)", sub: "r/ZionNationalPark", url: "https://www.reddit.com/r/ZionNationalPark/top/?t=all", quote: "Get to the Narrows before 7am. After that it becomes a highway of tourists." },
       { title: "Angels Landing permit lottery — how I finally won after 6 tries", sub: "r/NationalParks", url: "https://www.reddit.com/r/ZionNationalPark/top/?t=all", quote: "Apply for the day-before lottery every single day. It\'s way less competitive than the seasonal lotteries." },
       { title: "E-bikes in Zion — completely changed my trip", sub: "r/solotravel", url: "https://www.reddit.com/r/ZionNationalPark/top/?t=all", quote: "Rented from Springdale. Zero shuttle lines. Best decision of the trip." }
@@ -1385,12 +1385,12 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Rim Trail walk from Mather Point to Hopi Point (3.5 mi). Visit Yavapai Geology Museum. Sunset at Hopi Point — the best in the park." },
       { day: "Day 2", plan: "Hike South Kaibab to Skeleton Point (6 mi RT, strenuous). Start no later than 6 AM. Rest your legs and ride sunset shuttle back to Hopi Point." }
     ],
-    travelHacks: [ "Pick up entrance passes in advance on recreation.gov to skip the often 30-45 minute gate line, especially on spring weekends.", "The Hermit Road is closed to private vehicles year-round. Use the free red route shuttle — the Hopi Point stop is the best sunset spot.", "The Phantom Ranch canteen sells beer and lemonade. You don't need a cabin reservation to walk down and buy one — ideal for day hikers on Bright Angel.", "Start any rim-to-river hike no later than 6 AM in spring/fall, 4 AM in summer. The heat multiplies every 1,000 feet you descend.", "Bright Angel Campground does not require a lottery — only cabin stays at Phantom Ranch do. Reserve backcountry permits separately." ],
-    dosAndDonts: [ 
+    travelHacks: ["Pick up entrance passes in advance on recreation.gov to skip the often 30-45 minute gate line, especially on spring weekends.", "The Hermit Road is closed to private vehicles year-round. Use the free red route shuttle — the Hopi Point stop is the best sunset spot.", "The Phantom Ranch canteen sells beer and lemonade. You don't need a cabin reservation to walk down and buy one — ideal for day hikers on Bright Angel.", "Start any rim-to-river hike no later than 6 AM in spring/fall, 4 AM in summer. The heat multiplies every 1,000 feet you descend.", "Bright Angel Campground does not require a lottery — only cabin stays at Phantom Ranch do. Reserve backcountry permits separately."],
+    dosAndDonts: [
       { type: "do", text: "Yield to mules on the trails — step off on the uphill side." },
-      { type: "dont", text: "Don't underestimate the hike back UP; it takes twice as long as going down." } 
+      { type: "dont", text: "Don't underestimate the hike back UP; it takes twice as long as going down." }
     ],
-        redditPosts: [
+    redditPosts: [
       { title: "STOP hiking to the river and back in one day — a ranger's plea", sub: "r/GrandCanyon", url: "https://www.reddit.com/r/GrandCanyon/top/?t=all", quote: "Every summer we have to rescue people who attempted this. The canyon kills by deception — going down feels easy." },
       { title: "Phantom Ranch reservation strategy — I figured out the lottery", sub: "r/NationalParks", url: "https://www.reddit.com/r/GrandCanyon/top/?t=all", quote: "Book exactly 15 months out and set calendar reminders. The wait list is genuinely worth joining too." },
       { title: "North Rim vs South Rim — finally did both, here's the verdict", sub: "r/hiking", url: "https://www.reddit.com/r/GrandCanyon/top/?t=all", quote: "North Rim is objectively more beautiful and has 10% of the crowds. Go in September before it closes." }
@@ -1411,7 +1411,7 @@ const _PARKS_RAW = [
       11: { temp: "Rim: 11°C | River: 19°C", reservations: "Standard Entry Fee. Hermit Road opens to private cars Dec 1.", reddit: "Cold on the rim, pristine hiking weather down below. Very quiet." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "STOP hiking to the river and back in one day — a ranger's plea", sub: "r/GrandCanyon", url: "https://www.reddit.com/r/GrandCanyon/top/?t=all", quote: "Every summer we have to rescue people who attempted this. The canyon kills by deception — going down feels easy." },
       { title: "Phantom Ranch reservation strategy — I figured out the lottery", sub: "r/NationalParks", url: "https://www.reddit.com/r/GrandCanyon/top/?t=all", quote: "Book exactly 15 months out and set calendar reminders. The wait list is genuinely worth joining too." },
       { title: "North Rim vs South Rim — finally did both, here's the verdict", sub: "r/hiking", url: "https://www.reddit.com/r/GrandCanyon/top/?t=all", quote: "North Rim is objectively more beautiful and has 10% of the crowds. Go in September before it closes." }
@@ -1454,9 +1454,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Arrive before 8 AM. Morning: Windows section and Double Arch (easy, 1 mi). Afternoon: Balanced Rock and park road photography. Sunset: Delicate Arch hike (3 mi RT, start 2.5 hrs before sunset)." },
       { day: "Day 2", plan: "Dawn at Devils Garden trailhead. Hike the full primitive loop (7.8 mi) to see Landscape Arch, Double O, Dark Angel. Fiery Furnace if permitted." }
     ],
-    travelHacks: [ "As of 2026, timed entry reservations are no longer required. Arrive before 8 AM or after 4 PM to avoid peak parking congestion at Delicate Arch trailhead.", "Fiery Furnace still requires a $10 permit per person (self-guided) or a ranger-led tour. Book on recreation.gov — they still sell out.", "Carry 4+ liters of water on any hike April through October. There is zero water on trail beyond the visitor center.", "Drive Devils Garden at dawn — the slickrock glows deep red and the parking lot hasn't filled yet. The Landscape Arch trail is best done before 9 AM.", "Check the park webcam ( nps.gov/arch) before driving in — when the parking areas are full, rangers implement temporary closures at the entrance." ],
-    dosAndDonts: [ { type: "do", text: "Stay on the trail to protect the fragile biological soil crust." } ],
-        redditPosts: [
+    travelHacks: ["As of 2026, timed entry reservations are no longer required. Arrive before 8 AM or after 4 PM to avoid peak parking congestion at Delicate Arch trailhead.", "Fiery Furnace still requires a $10 permit per person (self-guided) or a ranger-led tour. Book on recreation.gov — they still sell out.", "Carry 4+ liters of water on any hike April through October. There is zero water on trail beyond the visitor center.", "Drive Devils Garden at dawn — the slickrock glows deep red and the parking lot hasn't filled yet. The Landscape Arch trail is best done before 9 AM.", "Check the park webcam ( nps.gov/arch) before driving in — when the parking areas are full, rangers implement temporary closures at the entrance."],
+    dosAndDonts: [{ type: "do", text: "Stay on the trail to protect the fragile biological soil crust." }],
+    redditPosts: [
       { title: "Arches 2026 — no more timed entry, what that means for your trip", sub: "r/NationalParks", url: "https://www.reddit.com/r/Arches/top/?t=all", quote: "Amazing news but also means crowds will be back. Get there before 7am or stay for sunset." },
       { title: "Delicate Arch at sunrise vs sunset — which is actually better?", sub: "r/arches", url: "https://www.reddit.com/r/Arches/top/?t=all", quote: "Sunset is iconic but 200 people watch it with you. Sunrise feels like you found a secret." },
       { title: "Combining Arches with Canyonlands — perfect 4-day Moab itinerary", sub: "r/roadtrip", url: "https://www.reddit.com/r/Arches/top/?t=all", quote: "Do Arches day 1 and 3, Canyonlands day 2 (Island in the Sky). Bryce is 2.5hrs away if you want a 5th day." }
@@ -1476,7 +1476,7 @@ const _PARKS_RAW = [
       10: { temp: "23°C / 73°F", reservations: "Standard Entry Fee only. No timed entry in 2026.", reddit: "Incredible conditions. Sunsets align perfectly with Delicate Arch in October." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Arches 2026 — no more timed entry, what that means for your trip", sub: "r/NationalParks", url: "https://www.reddit.com/r/Arches/top/?t=all", quote: "Amazing news but also means crowds will be back. Get there before 7am or stay for sunset." },
       { title: "Delicate Arch at sunrise vs sunset — which is actually better?", sub: "r/arches", url: "https://www.reddit.com/r/Arches/top/?t=all", quote: "Sunset is iconic but 200 people watch it with you. Sunrise feels like you found a secret." },
       { title: "Combining Arches with Canyonlands — perfect 4-day Moab itinerary", sub: "r/roadtrip", url: "https://www.reddit.com/r/Arches/top/?t=all", quote: "Do Arches day 1 and 3, Canyonlands day 2 (Island in the Sky). Bryce is 2.5hrs away if you want a 5th day." }
@@ -1520,9 +1520,9 @@ const _PARKS_RAW = [
       { day: "Day 2", plan: "Start Mist Trail at 7 AM to Vernal Fall (3 mi RT) or push to Nevada Fall (7 mi RT). Afternoon: Glacier Point road drive, spectacular sunset." },
       { day: "Day 3", plan: "Drive Tioga Road (open June-Oct) to Tuolumne Meadows for high-country hiking. Cathedral Lakes trail (8 mi RT) is the best day hike in the park." }
     ],
-    travelHacks: [ "No vehicle reservation required in 2026, but parking still fills by 8 AM. Bring a bicycle — the 12-mile valley loop is faster and way more enjoyable than driving.", "Pay the $35 entrance fee online on recreation.gov in advance to skip the gate line. Mobile passes work at all entry points.", "Half Dome permit lottery opens in February for the full season. If you miss it, watch recreation.gov daily — cancelled permits are re-released at 7 AM each morning.", "The Mist Trail is significantly more crowded than the John Muir Trail but shares the same waterfalls. Go up Mist, down John Muir for variety with zero backtracking.", "Tioga Pass opens around Memorial Day weekend depending on snowpack. Check nps.gov/yose before planning a Tuolumne Meadows trip." ],
-    dosAndDonts: [ { type: "do", text: "Empty your car entirely of food and scented items due to bears." } ],
-        redditPosts: [
+    travelHacks: ["No vehicle reservation required in 2026, but parking still fills by 8 AM. Bring a bicycle — the 12-mile valley loop is faster and way more enjoyable than driving.", "Pay the $35 entrance fee online on recreation.gov in advance to skip the gate line. Mobile passes work at all entry points.", "Half Dome permit lottery opens in February for the full season. If you miss it, watch recreation.gov daily — cancelled permits are re-released at 7 AM each morning.", "The Mist Trail is significantly more crowded than the John Muir Trail but shares the same waterfalls. Go up Mist, down John Muir for variety with zero backtracking.", "Tioga Pass opens around Memorial Day weekend depending on snowpack. Check nps.gov/yose before planning a Tuolumne Meadows trip."],
+    dosAndDonts: [{ type: "do", text: "Empty your car entirely of food and scented items due to bears." }],
+    redditPosts: [
       { title: "Yosemite has no vehicle reservation in 2026 — tips to avoid gridlock", sub: "r/Yosemite", url: "https://www.reddit.com/r/Yosemite/top/?t=all", quote: "Park at the Valley Visitor Center lot before 8am. After that, you\'re stuck on Hwy 120 for hours." },
       { title: "Half Dome cables permit — complete guide from someone who's done it 4x", sub: "r/hiking", url: "https://www.reddit.com/r/Yosemite/top/?t=all", quote: "The cables feel scarier than they are. The pre-cables summit scramble is where people actually slip." },
       { title: "Firefall February — is it worth fighting the crowds?", sub: "r/NationalParks", url: "https://www.reddit.com/r/Yosemite/top/?t=all", quote: "It only works for about 2 weeks in mid-February when conditions align. When it works, it\'s unreal." }
@@ -1542,7 +1542,7 @@ const _PARKS_RAW = [
       10: { temp: "22°C / 72°F (Valley)", reservations: "Standard Entry Fee ($35). No vehicle reservation required in 2026.", reddit: "Crisp autumn air. No waterfalls, but beautiful yellow leaves on the valley floor." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Yosemite has no vehicle reservation in 2026 — tips to avoid gridlock", sub: "r/Yosemite", url: "https://www.reddit.com/r/Yosemite/top/?t=all", quote: "Park at the Valley Visitor Center lot before 8am. After that, you\'re stuck on Hwy 120 for hours." },
       { title: "Half Dome cables permit — complete guide from someone who's done it 4x", sub: "r/hiking", url: "https://www.reddit.com/r/Yosemite/top/?t=all", quote: "The cables feel scarier than they are. The pre-cables summit scramble is where people actually slip." },
       { title: "Firefall February — is it worth fighting the crowds?", sub: "r/NationalParks", url: "https://www.reddit.com/r/Yosemite/top/?t=all", quote: "It only works for about 2 weeks in mid-February when conditions align. When it works, it\'s unreal." }
@@ -1585,9 +1585,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Bear Lake corridor: Park or shuttle at Bear Lake lot. Hike Nymph → Dream → Emerald Lakes trail (3.6 mi, 600 ft, spectacular). Afternoon: Sprague Lake circuit (0.5 mi, wheelchair accessible)." },
       { day: "Day 2", plan: "Drive Trail Ridge Road (open late May–Oct) to the Alpine Visitor Center (12,183 ft). Wildlife: Haystack Mountain area for elk and pika. Evening: Moraine Park for elk at dusk." }
     ],
-    travelHacks: [ "In 2026, timed entry is required May 22–Oct 12 from 9 AM–2 PM ($2/vehicle). You can enter freely before 9 AM or after 2 PM — both are actually great times to be in the park.", "Bear Lake Road requires its own separate timed entry permit (5 AM–6 PM). Book it the same day as your regular permit or early morning entry becomes your best bet.", "Reserve permits on recreation.gov starting May 1 for May/June dates. Set a 7:59 AM alarm — they go live at 8 AM and sell out in minutes.", "For elk rut (mid-Sep to mid-Oct), drive Moraine Park Road before sunrise and stay in your car. Bulls are extremely aggressive during rut season.", "Trail Ridge Road summit closes in bad weather — check nps.gov/romo before driving up. The Alpine Visitor Center makes a good turnaround point if the summit is socked in." ],
-    dosAndDonts: [ { type: "do", text: "Be off exposed peaks and ridges before noon to avoid deadly summer lightning." } ],
-        redditPosts: [
+    travelHacks: ["In 2026, timed entry is required May 22–Oct 12 from 9 AM–2 PM ($2/vehicle). You can enter freely before 9 AM or after 2 PM — both are actually great times to be in the park.", "Bear Lake Road requires its own separate timed entry permit (5 AM–6 PM). Book it the same day as your regular permit or early morning entry becomes your best bet.", "Reserve permits on recreation.gov starting May 1 for May/June dates. Set a 7:59 AM alarm — they go live at 8 AM and sell out in minutes.", "For elk rut (mid-Sep to mid-Oct), drive Moraine Park Road before sunrise and stay in your car. Bulls are extremely aggressive during rut season.", "Trail Ridge Road summit closes in bad weather — check nps.gov/romo before driving up. The Alpine Visitor Center makes a good turnaround point if the summit is socked in."],
+    dosAndDonts: [{ type: "do", text: "Be off exposed peaks and ridges before noon to avoid deadly summer lightning." }],
+    redditPosts: [
       { title: "Timed Entry 2026 complete breakdown — all dates, times, and how to book", sub: "r/RockyMountainNP", url: "https://www.reddit.com/r/RockyMountainNP/top/?t=all", quote: "Bear Lake Road permit is separate and harder to get than the regular timed entry. Book both." },
       { title: "Elk rut in September — Moraine Park is absolutely incredible", sub: "r/NationalParks", url: "https://www.reddit.com/r/RockyMountainNP/top/?t=all", quote: "The bugling at dawn echoing through the valley is one of those moments that stays with you forever." },
       { title: "Trail Ridge Road — everything you should stop at (from someone who drove it 6 times)", sub: "r/roadtrip", url: "https://www.reddit.com/r/RockyMountainNP/top/?t=all", quote: "Medicine Bow curve, Forest Canyon Overlook, and the Alpine Visitor Center. Don\'t skip any of them." }
@@ -1606,7 +1606,7 @@ const _PARKS_RAW = [
       9: { temp: "19°C / 67°F", reservations: "Timed Entry Permit required 9am–2pm ($2/vehicle) from May 22. Bear Lake Road needs separate permit 5am–6pm.", reddit: "Elk Rut season! The sounds the elk make in Moraine Park are unreal. Fall colors bloom late Sep." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Timed Entry 2026 complete breakdown — all dates, times, and how to book", sub: "r/RockyMountainNP", url: "https://www.reddit.com/r/RockyMountainNP/top/?t=all", quote: "Bear Lake Road permit is separate and harder to get than the regular timed entry. Book both." },
       { title: "Elk rut in September — Moraine Park is absolutely incredible", sub: "r/NationalParks", url: "https://www.reddit.com/r/RockyMountainNP/top/?t=all", quote: "The bugling at dawn echoing through the valley is one of those moments that stays with you forever." },
       { title: "Trail Ridge Road — everything you should stop at (from someone who drove it 6 times)", sub: "r/roadtrip", url: "https://www.reddit.com/r/RockyMountainNP/top/?t=all", quote: "Medicine Bow curve, Forest Canyon Overlook, and the Alpine Visitor Center. Don\'t skip any of them." }
@@ -1649,9 +1649,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Hurricane Ridge: Visitor Center, then Hurricane Hill trail (3.2 mi RT) or wildflower meadow walk. Afternoon: Lake Crescent — Marymere Falls trail (1.8 mi) and a lakeside swim." },
       { day: "Day 2", plan: "Hoh Rain Forest: Hall of Mosses trail (0.8 mi) then Hoh River Trail (go as far as time allows — moss and Roosevelt elk). Afternoon: Ruby Beach for sea stacks at golden hour." }
     ],
-    travelHacks: [ "The park has no central hub — plan your route by ecosystem. Rainforest (Hoh), Alpine (Hurricane Ridge), and Coast (Rialto/Ruby) are each 2+ hours apart.", "Hurricane Ridge Road is open Fridays through Sundays year-round, plus daily in summer. Check nps.gov/olym before driving up — it closes for snow/ice with no warning.", "Check tide tables before visiting the coast. Hole-in-the-Wall at Rialto Beach is cut off at high tide, and Second and Third Beach have tide-dependent sea stacks.", "The Hoh Rain Forest day-use parking fills by 10 AM in summer. Get there before 8:30 AM or be prepared for a 2-hour parking queue on the access road.", "Sol Duc Hot Springs is a hidden Olympic gem that most visitors skip. The nearby Sol Duc Falls trail (1.6 mi) is one of the park's best easy hikes." ],
-    dosAndDonts: [ { type: "do", text: "Bring rain gear even in August. It's a rainforest." } ],
-        redditPosts: [
+    travelHacks: ["The park has no central hub — plan your route by ecosystem. Rainforest (Hoh), Alpine (Hurricane Ridge), and Coast (Rialto/Ruby) are each 2+ hours apart.", "Hurricane Ridge Road is open Fridays through Sundays year-round, plus daily in summer. Check nps.gov/olym before driving up — it closes for snow/ice with no warning.", "Check tide tables before visiting the coast. Hole-in-the-Wall at Rialto Beach is cut off at high tide, and Second and Third Beach have tide-dependent sea stacks.", "The Hoh Rain Forest day-use parking fills by 10 AM in summer. Get there before 8:30 AM or be prepared for a 2-hour parking queue on the access road.", "Sol Duc Hot Springs is a hidden Olympic gem that most visitors skip. The nearby Sol Duc Falls trail (1.6 mi) is one of the park's best easy hikes."],
+    dosAndDonts: [{ type: "do", text: "Bring rain gear even in August. It's a rainforest." }],
+    redditPosts: [
       { title: "Olympic is the most underrated park in the US — fight me", sub: "r/NationalParks", url: "https://www.reddit.com/r/OlympicNationalPark/top/?t=all", quote: "Three completely different ecosystems in one park. Rainforest to alpine to rugged coastline. Nothing else like it." },
       { title: "Hoh Rainforest — what to actually expect (and why everyone is speechless)", sub: "r/hiking", url: "https://www.reddit.com/r/OlympicNationalPark/top/?t=all", quote: "The Hall of Mosses trail is 0.8 miles and takes 45 minutes. You just stand there taking it in." },
       { title: "Hurricane Ridge vs Hoh vs coast — how to split your Olympic days", sub: "r/PacificNorthwest", url: "https://www.reddit.com/r/OlympicNationalPark/top/?t=all", quote: "Day 1: Hurricane Ridge at dawn. Day 2: Hoh. Day 3: Ruby Beach and Rialto. Perfect trip." }
@@ -1670,7 +1670,7 @@ const _PARKS_RAW = [
       9: { temp: "19°C / 66°F", reservations: "Standard Entry Fee.", reddit: "Shoulder season is lovely. Less traffic on Highway 101, rain begins to return." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Olympic is the most underrated park in the US — fight me", sub: "r/NationalParks", url: "https://www.reddit.com/r/OlympicNationalPark/top/?t=all", quote: "Three completely different ecosystems in one park. Rainforest to alpine to rugged coastline. Nothing else like it." },
       { title: "Hoh Rainforest — what to actually expect (and why everyone is speechless)", sub: "r/hiking", url: "https://www.reddit.com/r/OlympicNationalPark/top/?t=all", quote: "The Hall of Mosses trail is 0.8 miles and takes 45 minutes. You just stand there taking it in." },
       { title: "Hurricane Ridge vs Hoh vs coast — how to split your Olympic days", sub: "r/PacificNorthwest", url: "https://www.reddit.com/r/OlympicNationalPark/top/?t=all", quote: "Day 1: Hurricane Ridge at dawn. Day 2: Hoh. Day 3: Ruby Beach and Rialto. Perfect trip." }
@@ -1714,9 +1714,9 @@ const _PARKS_RAW = [
       { day: "Day 2", plan: "Lamar Valley from 5-8 AM for wolf and bison spotting. Grand Canyon of the Yellowstone and Artist Point. Hayden Valley wildlife drive at dusk for bison herds." },
       { day: "Day 3", plan: "Mammoth Hot Springs terraces (morning). Norris Geyser Basin (the hottest and most active). Grand Geyser eruption if GeyserTimes predicts it (erupts ~every 8-12 hours)." }
     ],
-    travelHacks: [ "Download the GeyserTimes app (free, works offline) and check eruption predictions for major geysers. Grand Geyser erupts every 8-12 hours — you can time your arrival.", "Enter from the South (Flagg Ranch) or East gates to avoid the notoriously jammed West and North entrances, especially in summer.", "Wildlife jams can stall traffic for hours — always carry binoculars, snacks, and patience. The worst jams are on Lamar Valley Road at dawn.", "Book lodges inside the park 12-13 months in advance. All Yellowstone lodges open reservations on the same date — set a calendar reminder.", "The boardwalk trails at Grand Prismatic and Midway Geyser Basin get the best aerial perspective from the Fairy Falls trailhead overlook, not the boardwalk itself (1.2 mi hike)." ],
-    dosAndDonts: [ { type: "dont", text: "DO NOT approach the bison. They are incredibly fast and dangerous." } ],
-        redditPosts: [
+    travelHacks: ["Download the GeyserTimes app (free, works offline) and check eruption predictions for major geysers. Grand Geyser erupts every 8-12 hours — you can time your arrival.", "Enter from the South (Flagg Ranch) or East gates to avoid the notoriously jammed West and North entrances, especially in summer.", "Wildlife jams can stall traffic for hours — always carry binoculars, snacks, and patience. The worst jams are on Lamar Valley Road at dawn.", "Book lodges inside the park 12-13 months in advance. All Yellowstone lodges open reservations on the same date — set a calendar reminder.", "The boardwalk trails at Grand Prismatic and Midway Geyser Basin get the best aerial perspective from the Fairy Falls trailhead overlook, not the boardwalk itself (1.2 mi hike)."],
+    dosAndDonts: [{ type: "dont", text: "DO NOT approach the bison. They are incredibly fast and dangerous." }],
+    redditPosts: [
       { title: "Yellowstone in May — everything blooms, baby bison everywhere, zero crowds", sub: "r/Yellowstone", url: "https://www.reddit.com/r/Yellowstone/top/?t=all", quote: "Called them \'red dogs\' because of the orange fur. We saw hundreds in one morning drive." },
       { title: "GeyserTimes app changed my Yellowstone trip completely", sub: "r/NationalParks", url: "https://www.reddit.com/r/Yellowstone/top/?t=all", quote: "Got Grand Geyser\'s eruption time and showed up 5 minutes early. It went off like clockwork. Use this app." },
       { title: "The bison at Yellowstone are genuinely terrifying — a reminder", sub: "r/wildlifephotography", url: "https://www.reddit.com/r/Yellowstone/top/?t=all", quote: "I watched a tourist get tossed 15 feet. From the road-side. Stay in your car or 25 yards away. Always." }
@@ -1735,7 +1735,7 @@ const _PARKS_RAW = [
       10: { temp: "10°C / 50°F", reservations: "Standard Entry Fee. Facilities begin closing.", reddit: "A huge gamble with weather, but if you hit a warm week, you have the park to yourself." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Yellowstone in May — everything blooms, baby bison everywhere, zero crowds", sub: "r/Yellowstone", url: "https://www.reddit.com/r/Yellowstone/top/?t=all", quote: "Called them \'red dogs\' because of the orange fur. We saw hundreds in one morning drive." },
       { title: "GeyserTimes app changed my Yellowstone trip completely", sub: "r/NationalParks", url: "https://www.reddit.com/r/Yellowstone/top/?t=all", quote: "Got Grand Geyser\'s eruption time and showed up 5 minutes early. It went off like clockwork. Use this app." },
       { title: "The bison at Yellowstone are genuinely terrifying — a reminder", sub: "r/wildlifephotography", url: "https://www.reddit.com/r/Yellowstone/top/?t=all", quote: "I watched a tourist get tossed 15 feet. From the road-side. Stay in your car or 25 yards away. Always." }
@@ -1748,36 +1748,6 @@ const _PARKS_RAW = [
       roadConditions: "https://www.nps.gov/yell/planyourvisit/road-conditions.htm"
     },
 
-  },
-  {
-    name: "Gateway Arch", state: "MO", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 240, days: "1 Day",
-    seasonalVerdict: { best: "April - May (Pleasant weather to walk the grounds), October (River cruise is ideal).", avoid: "Summer (Oppressively hot and humid, though the museum is air-conditioned)." },
-    airport: "STL (20m drive/train)", flight: "~3h 40m direct", transport: "Walk/Tram",
-    avoid: [1, 2, 7, 8], popularity: 80, uniqueness: 60, sfoAccessibility: 85,
-    funFacts: [
-      "The Arch is the tallest monument in the United States at 630 feet.",
-      "It was built to commemorate Thomas Jefferson's vision of the westward expansion of the United States."
-    ],
-    dosAndDonts: [
-      { type: "do", text: "Buy your tram tickets weeks in advance online." },
-      { type: "dont", text: "Don't expect a sprawling wilderness; this is an urban park." }
-    ],
-    travelHacks: [
-      "The museum underneath the Arch is completely free to enter and recently renovated."
-    ],
-    sunriseSunset: "Sunrise over the Mississippi River is beautiful, but the Arch is spectacularly lit at night.",
-    stargazing: {
-      isFriendly: false,
-      spots: "None",
-      description: "Severe urban light pollution from downtown St. Louis."
-    },
-    itinerary: [
-      { day: "Day 1", plan: "Morning arrival, pass security. Spend 2 hours in the underground museum. Take the noon tram to the top. Walk the park grounds." }
-    ],
-    monthlyData: {
-      4: { temp: "67°F / 47°F", reservations: "Tram tickets required", reddit: "Perfect weather to walk the grounds." },
-      9: { temp: "80°F / 60°F", reservations: "Tram tickets required", reddit: "Nice and mild." }
-    }
   },
   {
     name: "Glacier",
@@ -1809,9 +1779,9 @@ const _PARKS_RAW = [
       { day: "Day 2", plan: "Many Glacier: Hike to Grinnell Glacier (10.6 mi RT, 1,600 ft) or Iceberg Lake (9.6 mi RT). Both are spectacular. Many Glacier area has the most active grizzly bear habitat." },
       { day: "Day 3", plan: "Drive North Fork or Two Medicine area (far fewer crowds). Pray Lake and Lower Two Medicine Lake are stunning and often empty. Sunset at Wild Goose Island overlook." }
     ],
-    travelHacks: [ "In 2026, no vehicle reservation is needed. However, a ticketed shuttle is now required to access the Going-to-the-Sun Road corridor. Purchase shuttle tickets in advance at recreation.gov.", "Logan Pass parking has a 3-hour limit starting July 1, 2026. Take the early express shuttle instead — it gets you there before crowds with no parking stress.", "Enter before 6 AM to access the park before shuttle ticketing begins, which gives you access to Logan Pass trailheads without needing a shuttle ticket.", "Bear spray is mandatory — not optional — in Glacier. Grizzlies outnumber black bears. Buy at any park store ($45) or many Whitefish/Kalispell retailers.", "Many Glacier area (east side) has shorter shuttle queues and fewer crowds than the west side. Grinnell Glacier and Iceberg Lake trails start here." ],
-    dosAndDonts: [ { type: "do", text: "Always hike with bear spray in an accessible holster, not buried in your pack." } ],
-        redditPosts: [
+    travelHacks: ["In 2026, no vehicle reservation is needed. However, a ticketed shuttle is now required to access the Going-to-the-Sun Road corridor. Purchase shuttle tickets in advance at recreation.gov.", "Logan Pass parking has a 3-hour limit starting July 1, 2026. Take the early express shuttle instead — it gets you there before crowds with no parking stress.", "Enter before 6 AM to access the park before shuttle ticketing begins, which gives you access to Logan Pass trailheads without needing a shuttle ticket.", "Bear spray is mandatory — not optional — in Glacier. Grizzlies outnumber black bears. Buy at any park store ($45) or many Whitefish/Kalispell retailers.", "Many Glacier area (east side) has shorter shuttle queues and fewer crowds than the west side. Grinnell Glacier and Iceberg Lake trails start here."],
+    dosAndDonts: [{ type: "do", text: "Always hike with bear spray in an accessible holster, not buried in your pack." }],
+    redditPosts: [
       { title: "Highline Trail — the most beautiful hike in America, and it's not close", sub: "r/hiking", url: "https://www.reddit.com/r/GlacierNationalPark/top/?t=all", quote: "You\'re literally walking along a cliff face with the entire park below you. Goats posing for photos. Perfect." },
       { title: "Glacier 2026 — no more vehicle reservations, new shuttle explained", sub: "r/GlacierNationalPark", url: "https://www.reddit.com/r/GlacierNationalPark/top/?t=all", quote: "Take the early express shuttle to Logan Pass. Way less stressful than the old reservation system." },
       { title: "Golden larch season at Glacier — the most stunning week of the year", sub: "r/NationalParks", url: "https://www.reddit.com/r/GlacierNationalPark/top/?t=all", quote: "Late September, the western larch trees turn bright gold against the snow-dusted peaks. No photo does it justice." }
@@ -1829,7 +1799,7 @@ const _PARKS_RAW = [
       9: { temp: "18°C / 64°F", reservations: "No vehicle reservation in 2026. Logan Pass has 3-hr parking limit (from July 1). Park entry fee required.", reddit: "Vehicle reservations end mid-September! Fall colors on the western larch trees turn bright gold." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Highline Trail — the most beautiful hike in America, and it's not close", sub: "r/hiking", url: "https://www.reddit.com/r/GlacierNationalPark/top/?t=all", quote: "You\'re literally walking along a cliff face with the entire park below you. Goats posing for photos. Perfect." },
       { title: "Glacier 2026 — no more vehicle reservations, new shuttle explained", sub: "r/GlacierNationalPark", url: "https://www.reddit.com/r/GlacierNationalPark/top/?t=all", quote: "Take the early express shuttle to Logan Pass. Way less stressful than the old reservation system." },
       { title: "Golden larch season at Glacier — the most stunning week of the year", sub: "r/NationalParks", url: "https://www.reddit.com/r/GlacierNationalPark/top/?t=all", quote: "Late September, the western larch trees turn bright gold against the snow-dusted peaks. No photo does it justice." }
@@ -1872,9 +1842,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Sunrise at Zabriskie Point (5-min walk). Drive Artists Drive (9-mile one-way scenic loop, best in afternoon). Badwater Basin salt flat walk (15 min, free). Sunset at Mesquite Flat Sand Dunes." },
       { day: "Day 2", plan: "Mosaic Canyon slot canyon hike (2.2 mi RT, free, Stovepipe Wells area). Ubehebe Crater rim walk (0.5 mi). If adventurous: 4WD to Racetrack Playa sailing stones (2 hrs each way)." }
     ],
-    travelHacks: [ "Drive Artists Drive in the late afternoon (3-5 PM). The low-angle sun hits the painted hills from the west, turning them every shade of red, purple, and green.", "For the Racetrack Playa and Ubehebe Crater, fill your gas tank at Panamint Springs — it's the last gas station before a 2-3 hour drive on washboard dirt road.", "Mesquite Flat Sand Dunes are best shot at sunrise or sunset. The light rakes across the ripple patterns. Arrive 30 minutes before sunrise for footprint-free sand.", "Badwater Basin is accessible by car and requires only a short walk. Do it at night in winter — laying on the salt flat under stars with no light pollution is extraordinary.", "Mosaic Canyon (near Stovepipe Wells) is rarely visited but has smooth marble narrows you can slot-canyon scramble for free without any permits." ],
-    dosAndDonts: [ { type: "dont", text: "DO NOT hike after 10 AM between May and September. People literally die from heat stroke." } ],
-        redditPosts: [
+    travelHacks: ["Drive Artists Drive in the late afternoon (3-5 PM). The low-angle sun hits the painted hills from the west, turning them every shade of red, purple, and green.", "For the Racetrack Playa and Ubehebe Crater, fill your gas tank at Panamint Springs — it's the last gas station before a 2-3 hour drive on washboard dirt road.", "Mesquite Flat Sand Dunes are best shot at sunrise or sunset. The light rakes across the ripple patterns. Arrive 30 minutes before sunrise for footprint-free sand.", "Badwater Basin is accessible by car and requires only a short walk. Do it at night in winter — laying on the salt flat under stars with no light pollution is extraordinary.", "Mosaic Canyon (near Stovepipe Wells) is rarely visited but has smooth marble narrows you can slot-canyon scramble for free without any permits."],
+    dosAndDonts: [{ type: "dont", text: "DO NOT hike after 10 AM between May and September. People literally die from heat stroke." }],
+    redditPosts: [
       { title: "Death Valley in November — the park of my dreams", sub: "r/NationalParks", url: "https://www.reddit.com/r/DeathValley/top/?t=all", quote: "Drove Artists Drive at 4pm and the painted hills were glowing every shade of red and purple. Unreal park." },
       { title: "The Sailing Stones of Racetrack Playa — 4-hour drive but completely worth it", sub: "r/geology", url: "https://www.reddit.com/r/DeathValley/top/?t=all", quote: "Standing next to a multi-ton rock that has mysteriously been moving for decades made my brain short-circuit." },
       { title: "Zabriskie Point at sunrise is free, legal, and absolutely magnificent", sub: "r/solotravel", url: "https://www.reddit.com/r/DeathValley/top/?t=all", quote: "Rolled in at 4:30am, had the badlands completely to myself for 45 minutes. One of the best mornings of my life." }
@@ -1895,7 +1865,7 @@ const _PARKS_RAW = [
       3: { temp: "27°C / 81°F", reservations: "Standard Entry Fee.", reddit: "Peak spring conditions before the brutal heat rolls in. Excellent for backcountry camping." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Death Valley in November — the park of my dreams", sub: "r/NationalParks", url: "https://www.reddit.com/r/DeathValley/top/?t=all", quote: "Drove Artists Drive at 4pm and the painted hills were glowing every shade of red and purple. Unreal park." },
       { title: "The Sailing Stones of Racetrack Playa — 4-hour drive but completely worth it", sub: "r/geology", url: "https://www.reddit.com/r/DeathValley/top/?t=all", quote: "Standing next to a multi-ton rock that has mysteriously been moving for decades made my brain short-circuit." },
       { title: "Zabriskie Point at sunrise is free, legal, and absolutely magnificent", sub: "r/solotravel", url: "https://www.reddit.com/r/DeathValley/top/?t=all", quote: "Rolled in at 4:30am, had the badlands completely to myself for 45 minutes. One of the best mornings of my life." }
@@ -1938,9 +1908,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Pre-dawn drive up Cadillac Mountain (reservation required). Watch sunrise over the Atlantic. Breakfast in Bar Harbor. Hike the Beehive Trail (1.6 mi, iron-rung scramble) for an exhilarating morning." },
       { day: "Day 2", plan: "Bike the 45-mile carriage road network. Jordan Pond House: lunch and popovers (make a reservation). Afternoon: Bass Harbor Head Lighthouse at golden hour for the money shot." }
     ],
-    travelHacks: [ "Cadillac Mountain Summit Road requires a vehicle reservation ($6 + entry fee) May 20 – Oct 25, 2026, sunrise to sunset. Book on recreation.gov. 70% of spots release 2 days before — check at 10 AM ET.", "Use the free Island Explorer bus from Bar Harbor to reach Jordan Pond, Eagle Lake, and Sieur de Monts. Parking at Jordan Pond fills by 9 AM.", "Beehive and Precipice Trails are closed mid-spring through July/August for peregrine falcon nesting. Check nps.gov/acad for exact closure dates before planning.", "Acadia's carriage road system (45 miles) is perfect for cycling. Rent bikes from Bar Harbor Bicycle Shop and access directly from town via the Village Connector path.", "Bass Harbor Head Lighthouse is technically in the park but on private property. Park in the small lot and visit the south-facing rocks below for the classic framed-by-spruce-trees shot at sunset." ],
-    dosAndDonts: [ { type: "do", text: "Reserve Cadillac Summit Road permits for sunrise 90 days in advance." } ],
-        redditPosts: [
+    travelHacks: ["Cadillac Mountain Summit Road requires a vehicle reservation ($6 + entry fee) May 20 – Oct 25, 2026, sunrise to sunset. Book on recreation.gov. 70% of spots release 2 days before — check at 10 AM ET.", "Use the free Island Explorer bus from Bar Harbor to reach Jordan Pond, Eagle Lake, and Sieur de Monts. Parking at Jordan Pond fills by 9 AM.", "Beehive and Precipice Trails are closed mid-spring through July/August for peregrine falcon nesting. Check nps.gov/acad for exact closure dates before planning.", "Acadia's carriage road system (45 miles) is perfect for cycling. Rent bikes from Bar Harbor Bicycle Shop and access directly from town via the Village Connector path.", "Bass Harbor Head Lighthouse is technically in the park but on private property. Park in the small lot and visit the south-facing rocks below for the classic framed-by-spruce-trees shot at sunset."],
+    dosAndDonts: [{ type: "do", text: "Reserve Cadillac Summit Road permits for sunrise 90 days in advance." }],
+    redditPosts: [
       { title: "Cadillac Mountain sunrise — can it possibly live up to the hype?", sub: "r/Acadia", url: "https://www.reddit.com/r/Acadia/top/?t=all", quote: "Yes. Yes it can. Watching the first light hit the Atlantic from up there is something I will never forget." },
       { title: "Jordan Pond House popovers — worth the wait?", sub: "r/foodtravel", url: "https://www.reddit.com/r/Acadia/top/?t=all", quote: "Hot popovers with butter and strawberry jam while overlooking a perfect glacier lake. Obviously yes." },
       { title: "Beehive Trail — Acadia's secret iron-rung adventure", sub: "r/hiking", url: "https://www.reddit.com/r/Acadia/top/?t=all", quote: "It\'s a technical scramble with iron rungs bolted to near-vertical rock walls. Not for those with a fear of heights, but incredibly fun." }
@@ -1960,7 +1930,7 @@ const _PARKS_RAW = [
       10: { temp: "14°C / 57°F", reservations: "Cadillac Summit Permit Required till late Oct.", reddit: "Foliage peeping season! Mid-October peak color is a madhouse but visually stunning." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Cadillac Mountain sunrise — can it possibly live up to the hype?", sub: "r/Acadia", url: "https://www.reddit.com/r/Acadia/top/?t=all", quote: "Yes. Yes it can. Watching the first light hit the Atlantic from up there is something I will never forget." },
       { title: "Jordan Pond House popovers — worth the wait?", sub: "r/foodtravel", url: "https://www.reddit.com/r/Acadia/top/?t=all", quote: "Hot popovers with butter and strawberry jam while overlooking a perfect glacier lake. Obviously yes." },
       { title: "Beehive Trail — Acadia's secret iron-rung adventure", sub: "r/hiking", url: "https://www.reddit.com/r/Acadia/top/?t=all", quote: "It\'s a technical scramble with iron rungs bolted to near-vertical rock walls. Not for those with a fear of heights, but incredibly fun." }
@@ -2003,9 +1973,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Hidden Valley loop trail (1 mi) — scramble boulders. Skull Rock nature trail (1.7 mi). Keys View (drive-up, panoramic views of the entire valley and Salton Sea). Camp at Ryan or Jumbo Rocks for stargazing." },
       { day: "Day 2", plan: "Cholla Cactus Garden (0.25 mi, backlit by morning sun) at dawn. Arch Rock trail (1.5 mi). Keys Ranch tour if offered (historical, ranger-led, book online). Single-pitch rock climbing from Hidden Valley Campground." }
     ],
-    travelHacks: [ "The park has no water sources. Every trailhead has a sign stating the water deficit — carry a minimum of 1 liter per mile in spring, 2 liters per mile in summer.", "The West entrance has the longest queues. Enter from the North (29 Palms) or South (Cottonwood) entrances for quick access to the park interior.", "Cell service is extremely limited. Download offline Google Maps and the NPS Joshua Tree app before arriving. Many trailheads are marked incorrectly on regular GPS.", "Check the NPS wildflower hotline (760-367-5522) in February-March. After winter rains, desert wildflower blooms can cover entire sections of the park.", "Rock climbing permits are not required for most routes. Visit the Mountain Project app or Nomad Ventures (in-park) for route beta." ],
-    dosAndDonts: [ { type: "dont", text: "Don't depend on GPS. Pre-download Google Maps." } ],
-        redditPosts: [
+    travelHacks: ["The park has no water sources. Every trailhead has a sign stating the water deficit — carry a minimum of 1 liter per mile in spring, 2 liters per mile in summer.", "The West entrance has the longest queues. Enter from the North (29 Palms) or South (Cottonwood) entrances for quick access to the park interior.", "Cell service is extremely limited. Download offline Google Maps and the NPS Joshua Tree app before arriving. Many trailheads are marked incorrectly on regular GPS.", "Check the NPS wildflower hotline (760-367-5522) in February-March. After winter rains, desert wildflower blooms can cover entire sections of the park.", "Rock climbing permits are not required for most routes. Visit the Mountain Project app or Nomad Ventures (in-park) for route beta."],
+    dosAndDonts: [{ type: "dont", text: "Don't depend on GPS. Pre-download Google Maps." }],
+    redditPosts: [
       { title: "Joshua Tree for stargazing — best spots and what gear to bring", sub: "r/astrophotography", url: "https://www.reddit.com/r/JoshuaTree/top/?t=all", quote: "Skull Rock area is perfect. The Joshua trees silhouetted against the Milky Way are iconic." },
       { title: "Rock climbing in Joshua Tree — a beginner's guide to 8,000 routes", sub: "r/climbing", url: "https://www.reddit.com/r/JoshuaTree/top/?t=all", quote: "Ouroboros and Intersection Rock are great starting areas. Rent at Nomad Ventures in the park." },
       { title: "March wildflower bloom at JTree — when to go and what to expect", sub: "r/NationalParks", url: "https://www.reddit.com/r/JoshuaTree/top/?t=all", quote: "2023 bloom was the best in 20 years after high rainfall. Check the desert wildflower hotline before you go." }
@@ -2026,7 +1996,7 @@ const _PARKS_RAW = [
       5: { temp: "31°C / 88°F", reservations: "Standard Entry Fee.", reddit: "Last decent weather before summer. Limit hikes to early mornings." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Joshua Tree for stargazing — best spots and what gear to bring", sub: "r/astrophotography", url: "https://www.reddit.com/r/JoshuaTree/top/?t=all", quote: "Skull Rock area is perfect. The Joshua trees silhouetted against the Milky Way are iconic." },
       { title: "Rock climbing in Joshua Tree — a beginner's guide to 8,000 routes", sub: "r/climbing", url: "https://www.reddit.com/r/JoshuaTree/top/?t=all", quote: "Ouroboros and Intersection Rock are great starting areas. Rent at Nomad Ventures in the park." },
       { title: "March wildflower bloom at JTree — when to go and what to expect", sub: "r/NationalParks", url: "https://www.reddit.com/r/JoshuaTree/top/?t=all", quote: "2023 bloom was the best in 20 years after high rainfall. Check the desert wildflower hotline before you go." }
@@ -2069,9 +2039,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Pre-dawn at Schwabacher Landing for Teton reflection and moose. Boat shuttle across Jenny Lake → Hidden Falls and Inspiration Point (4 mi RT). Afternoon: Mormon Row barns at golden hour." },
       { day: "Day 2", plan: "Delta Lake trail (8.9 mi RT, 2,900 ft) — start at 5:30 AM to beat thunderstorms and reach the glacier before afternoon clouds obscure the view. Reward: a milky blue alpine lake below the Grand Teton." }
     ],
-    travelHacks: [ "Moose-Wilson Road (between Teton Village and Moose) is closed to RVs and trailers and is the single best road in the park for wildlife. Drive it slowly at dawn and dusk.", "Buy bear spray at Costco in Jackson ($30-35) before arriving — park stores charge $50+. It's required for Cascade Canyon and backcountry trails.", "The Jenny Lake Boathouse shuttle boat saves 2 miles of flat trail each way — worth the $18 roundtrip to go straight to Hidden Falls and Inspiration Point.", "Schwabacher Landing is free, unmarked, and requires a short dirt road drive south of Moose. Dawn light on the Teton reflection in the beaver ponds is one of the best sunrise shots in the NPS.", "Delta Lake (9 mi roundtrip, 2,900 ft gain) requires an early 5 AM start — the boulder field section takes longer than expected, and afternoon thunderstorms are common." ],
-    dosAndDonts: [ { type: "do", text: "Drive Moose-Wilson Road early morning or late evening to guarantee moose sightings." } ],
-        redditPosts: [
+    travelHacks: ["Moose-Wilson Road (between Teton Village and Moose) is closed to RVs and trailers and is the single best road in the park for wildlife. Drive it slowly at dawn and dusk.", "Buy bear spray at Costco in Jackson ($30-35) before arriving — park stores charge $50+. It's required for Cascade Canyon and backcountry trails.", "The Jenny Lake Boathouse shuttle boat saves 2 miles of flat trail each way — worth the $18 roundtrip to go straight to Hidden Falls and Inspiration Point.", "Schwabacher Landing is free, unmarked, and requires a short dirt road drive south of Moose. Dawn light on the Teton reflection in the beaver ponds is one of the best sunrise shots in the NPS.", "Delta Lake (9 mi roundtrip, 2,900 ft gain) requires an early 5 AM start — the boulder field section takes longer than expected, and afternoon thunderstorms are common."],
+    dosAndDonts: [{ type: "do", text: "Drive Moose-Wilson Road early morning or late evening to guarantee moose sightings." }],
+    redditPosts: [
       { title: "Schwabacher Landing at sunrise — the single best spot in all of Grand Teton", sub: "r/GrandTeton", url: "https://www.reddit.com/r/GrandTeton/top/?t=all", quote: "The beaver ponds perfectly reflect the Teton Range. The moose walk right by you. Go." },
       { title: "Delta Lake hike — the most rewarding brutal 9-mile struggle", sub: "r/hiking", url: "https://www.reddit.com/r/GrandTeton/top/?t=all", quote: "You\'ll question all your life choices on the boulder field. Then you see that milky blue lake and it all makes sense." },
       { title: "Grand Teton + Yellowstone combo trip — the ultimate 7-day plan", sub: "r/roadtrip", url: "https://www.reddit.com/r/GrandTeton/top/?t=all", quote: "Days 1-3: Teton, Days 4-7: Yellowstone. Stay in Jackson. Easiest advice I ever followed." }
@@ -2090,7 +2060,7 @@ const _PARKS_RAW = [
       9: { temp: "20°C / 68°F", reservations: "Standard Entry Fee.", reddit: "Aspen trees turn gold mid-to-late September. Absolutely gorgeous and cool." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Schwabacher Landing at sunrise — the single best spot in all of Grand Teton", sub: "r/GrandTeton", url: "https://www.reddit.com/r/GrandTeton/top/?t=all", quote: "The beaver ponds perfectly reflect the Teton Range. The moose walk right by you. Go." },
       { title: "Delta Lake hike — the most rewarding brutal 9-mile struggle", sub: "r/hiking", url: "https://www.reddit.com/r/GrandTeton/top/?t=all", quote: "You\'ll question all your life choices on the boulder field. Then you see that milky blue lake and it all makes sense." },
       { title: "Grand Teton + Yellowstone combo trip — the ultimate 7-day plan", sub: "r/roadtrip", url: "https://www.reddit.com/r/GrandTeton/top/?t=all", quote: "Days 1-3: Teton, Days 4-7: Yellowstone. Stay in Jackson. Easiest advice I ever followed." }
@@ -2133,9 +2103,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Cades Cove wildlife loop (11 mi by car or bike on Wednesdays/Saturdays). Best wildlife at dawn — black bear, deer, wild turkey. Hike Abrams Falls (5 mi RT) mid-morning." },
       { day: "Day 2", plan: "Drive up to Clingmans Dome (highest point at 6,643 ft). Half-mile paved ramp to the observation tower — 360° view of the entire park. Alum Cave Trail (4.4 mi RT) for dramatic overhangs and rock formations." }
     ],
-    travelHacks: [ "The park is free to enter but a parking tag ($5/day, $15/week) is required at major trailheads. Buy it in advance on recreation.gov or risk an expensive ticket.", "Cades Cove Loop Road is closed to cars until 10 AM on Wednesdays (late May–late September) and all day Saturdays — bike or walk the full 11-mile loop in peace.", "Synch firefly lottery (r/NationalParks): apply in April for the June event. Applications open for only a few days and 5,000+ people apply for 700 spots.", "The Alum Cave Trail (4.4 mi roundtrip to Arch Rock, 10 mi to LeConte) is the park's best all-purpose trail — dramatic geology, waterfalls, and high elevation views.", "Avoid Gatlinburg entirely on fall foliage weekends (mid-Oct). Clingmans Dome and Newfound Gap roads become parking lots. Stay in Bryson City (NC side) instead." ],
-    dosAndDonts: [ { type: "do", text: "Buy an annual parking tag if you're staying more than 2 days." } ],
-        redditPosts: [
+    travelHacks: ["The park is free to enter but a parking tag ($5/day, $15/week) is required at major trailheads. Buy it in advance on recreation.gov or risk an expensive ticket.", "Cades Cove Loop Road is closed to cars until 10 AM on Wednesdays (late May–late September) and all day Saturdays — bike or walk the full 11-mile loop in peace.", "Synch firefly lottery (r/NationalParks): apply in April for the June event. Applications open for only a few days and 5,000+ people apply for 700 spots.", "The Alum Cave Trail (4.4 mi roundtrip to Arch Rock, 10 mi to LeConte) is the park's best all-purpose trail — dramatic geology, waterfalls, and high elevation views.", "Avoid Gatlinburg entirely on fall foliage weekends (mid-Oct). Clingmans Dome and Newfound Gap roads become parking lots. Stay in Bryson City (NC side) instead."],
+    dosAndDonts: [{ type: "do", text: "Buy an annual parking tag if you're staying more than 2 days." }],
+    redditPosts: [
       { title: "Synchronous fireflies lottery — how to win and what to expect", sub: "r/NationalParks", url: "https://www.reddit.com/r/GreatSmokyMountains/top/?t=all", quote: "Two weeks in June. Free to enter the lottery but you MUST sign up in April. The light show is unlike anything on earth." },
       { title: "Cades Cove loop at 6am — the best thing I did in the Smokies", sub: "r/hiking", url: "https://www.reddit.com/r/GreatSmokyMountains/top/?t=all", quote: "We had the loop entirely to ourselves. Deer, turkey, two black bears, and a coyote all before 9am." },
       { title: "October fall foliage at Smokies — worth the brutal traffic?", sub: "r/travel", url: "https://www.reddit.com/r/GreatSmokyMountains/top/?t=all", quote: "Don\'t try to drive. Park in Gatlinburg and take the trolley. Mid-October peak is stunning but road rage-inducing." }
@@ -2155,7 +2125,7 @@ const _PARKS_RAW = [
       10: { temp: "19°C / 66°F", reservations: "Park is free. Parking Tag required.", reddit: "Fall color peak in late October brings insane gridlock traffic, but the views are incredible." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Synchronous fireflies lottery — how to win and what to expect", sub: "r/NationalParks", url: "https://www.reddit.com/r/GreatSmokyMountains/top/?t=all", quote: "Two weeks in June. Free to enter the lottery but you MUST sign up in April. The light show is unlike anything on earth." },
       { title: "Cades Cove loop at 6am — the best thing I did in the Smokies", sub: "r/hiking", url: "https://www.reddit.com/r/GreatSmokyMountains/top/?t=all", quote: "We had the loop entirely to ourselves. Deer, turkey, two black bears, and a coyote all before 9am." },
       { title: "October fall foliage at Smokies — worth the brutal traffic?", sub: "r/travel", url: "https://www.reddit.com/r/GreatSmokyMountains/top/?t=all", quote: "Don\'t try to drive. Park in Gatlinburg and take the trolley. Mid-October peak is stunning but road rage-inducing." }
@@ -2198,9 +2168,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Drive Skyline Drive from the north. Stop at Range View, Hogback, and Marys Rock Tunnel overlooks. Hike Stony Man Trail (1.6 mi, highest peak accessible trail in the park). Sunset from Hazel Mountain Overlook." },
       { day: "Day 2", plan: "Old Rag Mountain full circuit (9.2 mi loop, 2,400 ft) — buy the $2 day-use ticket in advance. The rock scramble section at the summit is unlike anything else in the mid-Atlantic." }
     ],
-    travelHacks: [ "Old Rag Mountain requires a $2 day-use ticket per person (recreation.gov), good for all 3 connector trails. Tickets release 30 days out at 10 AM ET and 400 more release 5 days out — both sell out fast.", "The Skyline Drive speed limit is 35 mph and strictly enforced. Budget 3-4 hours to drive the entire 105 miles, including stops at the best overlooks.", "Bearfence Mountain (off mile 56 on Skyline Drive) is a 20-minute scramble to a rock summit with 360° views — one of the best bang-for-buck hikes in the entire park.", "Fall color peak is typically Oct 12-22 (north district) and Oct 18-28 (south). Check NPS webcams at dawn — fog in the valleys with colored trees above it is spectacular.", "The park has 4 campgrounds that do not require timed entry, but Mathews Arm, Loft Mountain, and Big Meadows fill by noon on October weekends. Arrive the night before." ],
-    dosAndDonts: [ { type: "do", text: "Get the day-use ticket for Old Rag online before you arrive." } ],
-        redditPosts: [
+    travelHacks: ["Old Rag Mountain requires a $2 day-use ticket per person (recreation.gov), good for all 3 connector trails. Tickets release 30 days out at 10 AM ET and 400 more release 5 days out — both sell out fast.", "The Skyline Drive speed limit is 35 mph and strictly enforced. Budget 3-4 hours to drive the entire 105 miles, including stops at the best overlooks.", "Bearfence Mountain (off mile 56 on Skyline Drive) is a 20-minute scramble to a rock summit with 360° views — one of the best bang-for-buck hikes in the entire park.", "Fall color peak is typically Oct 12-22 (north district) and Oct 18-28 (south). Check NPS webcams at dawn — fog in the valleys with colored trees above it is spectacular.", "The park has 4 campgrounds that do not require timed entry, but Mathews Arm, Loft Mountain, and Big Meadows fill by noon on October weekends. Arrive the night before."],
+    dosAndDonts: [{ type: "do", text: "Get the day-use ticket for Old Rag online before you arrive." }],
+    redditPosts: [
       { title: "Old Rag Mountain — the best day hike on the East Coast?", sub: "r/hiking", url: "https://www.reddit.com/r/Shenandoah/top/?t=all", quote: "The rock scramble at the top is genuinely exhilarating. Book the $2 day ticket 30 days out or you won\'t get in." },
       { title: "Skyline Drive overlooks — the definitive ranked list", sub: "r/Shenandoah", url: "https://www.reddit.com/r/Shenandoah/top/?t=all", quote: "Hazel Mountain Overlook for sunset is criminally underrated. Marys Rock for the 360° view." },
       { title: "Fall foliage timing at Shenandoah — 2025 data for predicting 2026", sub: "r/NationalParks", url: "https://www.reddit.com/r/Shenandoah/top/?t=all", quote: "Peak is typically Oct 12-22 in the north, Oct 18-28 in the south. Weekdays are dramatically better." }
@@ -2219,7 +2189,7 @@ const _PARKS_RAW = [
       10: { temp: "16°C / 61°F", reservations: "Old Rag Mountain Ticket Required.", reddit: "The busiest month by far. Skyline Drive traffic will be bumper-to-bumper for fall foliage." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Old Rag Mountain — the best day hike on the East Coast?", sub: "r/hiking", url: "https://www.reddit.com/r/Shenandoah/top/?t=all", quote: "The rock scramble at the top is genuinely exhilarating. Book the $2 day ticket 30 days out or you won\'t get in." },
       { title: "Skyline Drive overlooks — the definitive ranked list", sub: "r/Shenandoah", url: "https://www.reddit.com/r/Shenandoah/top/?t=all", quote: "Hazel Mountain Overlook for sunset is criminally underrated. Marys Rock for the 360° view." },
       { title: "Fall foliage timing at Shenandoah — 2025 data for predicting 2026", sub: "r/NationalParks", url: "https://www.reddit.com/r/Shenandoah/top/?t=all", quote: "Peak is typically Oct 12-22 in the north, Oct 18-28 in the south. Weekdays are dramatically better." }
@@ -2262,9 +2232,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Drive Highway 20 from the west. Stop at Diablo Lake Overlook (free, 15 seconds off the road). Washington Pass Overlook for the jagged Liberty Bell massif. Maple Pass trailhead for sunset." },
       { day: "Day 2", plan: "Maple Pass Loop (7.2 mi, 2,000 ft) at dawn — the lake, ridge, and larches are extraordinary. Afternoon: Cascade Pass trail (7.4 mi RT) for a different perspective of wild glaciated peaks." }
     ],
-    travelHacks: [ "The park has NO entrance fee — Highway 20 simply passes through it. There's no entrance gate or ticket booth.", "Sahale Arm backcountry camp requires a permit from recreation.gov. Apply as soon as they open (usually March or April) as the site fills for all of July and August.", "Check WTA.org (Washington Trails Association) for current trail conditions. Major trails above 5,500 ft often have snow through mid-August.", "Maple Pass Loop in late September during golden larch season is the most popular hike in the park — arrive by 7 AM. The trailhead lot fits only 30 cars.", "The Diablo Lake Overlook is 15 seconds off Highway 20. The turquoise color from rock flour is real — you'll stop the car in genuine disbelief." ],
-    dosAndDonts: [ { type: "do", text: "Check trail trip reports (WTA.org) for snow levels. High trails hold snow into August." } ],
-        redditPosts: [
+    travelHacks: ["The park has NO entrance fee — Highway 20 simply passes through it. There's no entrance gate or ticket booth.", "Sahale Arm backcountry camp requires a permit from recreation.gov. Apply as soon as they open (usually March or April) as the site fills for all of July and August.", "Check WTA.org (Washington Trails Association) for current trail conditions. Major trails above 5,500 ft often have snow through mid-August.", "Maple Pass Loop in late September during golden larch season is the most popular hike in the park — arrive by 7 AM. The trailhead lot fits only 30 cars.", "The Diablo Lake Overlook is 15 seconds off Highway 20. The turquoise color from rock flour is real — you'll stop the car in genuine disbelief."],
+    dosAndDonts: [{ type: "do", text: "Check trail trip reports (WTA.org) for snow levels. High trails hold snow into August." }],
+    redditPosts: [
       { title: "Sahale Arm — the most impossibly beautiful backcountry hike I have ever done", sub: "r/hiking", url: "https://www.reddit.com/r/NorthCascades/top/?t=all", quote: "You camp on a moraine surrounded by glaciers 7,600 feet up with 360° views. No words." },
       { title: "North Cascades — no crowds, no fee, no excuses. Go.", sub: "r/NationalParks", url: "https://www.reddit.com/r/NorthCascades/top/?t=all", quote: "Possibly the least visited park in the lower 48. Absolutely stunning. Highway 20 is free to drive." },
       { title: "Maple Pass Loop in golden larch season — a perfect fall hike", sub: "r/PacificNorthwest", url: "https://www.reddit.com/r/NorthCascades/top/?t=all", quote: "Late September when the larches turn gold. Lake Ann below you, mountains all around. Do it." }
@@ -2282,7 +2252,7 @@ const _PARKS_RAW = [
       9: { temp: "20°C / 68°F", reservations: "None (Free Entry).", reddit: "Golden larches (conifers that turn yellow) start peaking in late September. Stunning contrasting colors." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Sahale Arm — the most impossibly beautiful backcountry hike I have ever done", sub: "r/hiking", url: "https://www.reddit.com/r/NorthCascades/top/?t=all", quote: "You camp on a moraine surrounded by glaciers 7,600 feet up with 360° views. No words." },
       { title: "North Cascades — no crowds, no fee, no excuses. Go.", sub: "r/NationalParks", url: "https://www.reddit.com/r/NorthCascades/top/?t=all", quote: "Possibly the least visited park in the lower 48. Absolutely stunning. Highway 20 is free to drive." },
       { title: "Maple Pass Loop in golden larch season — a perfect fall hike", sub: "r/PacificNorthwest", url: "https://www.reddit.com/r/NorthCascades/top/?t=all", quote: "Late September when the larches turn gold. Lake Ann below you, mountains all around. Do it." }
@@ -2325,9 +2295,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "West District (Tucson Mountain): Bajada Loop Drive (dirt road, 8 mi) at dawn for dense saguaro forests. Signal Hill Petroglyphs (0.5 mi). Afternoon: Arizona-Sonora Desert Museum (not NPS, separate entry, 2 hrs minimum)." },
       { day: "Day 2", plan: "East District (Rincon Mountain): Tanque Verde Ridge Trail (6 mi RT for desert views) or easy Cactus Forest Trail loop (2.5 mi). Gates Pass Road outside the west entrance for sunset photography." }
     ],
-    travelHacks: [ "The park is split by Tucson into East (Rincon Mountain) and West (Tucson Mountain) districts — visit both if you have a second day. West has older, denser cacti.", "Gates Pass Road (just outside the west district) is free and has arguably better saguaro scenery than sections inside the paid park boundary.", "The Arizona-Sonora Desert Museum (2 miles from the west entrance) is not technically part of the park — separately ticketed, but it's voted #1 thing to do in Tucson. Do it first.", "Carry a blacklight flashlight on any evening walk. Scorpions glow bright green-yellow under UV light. There are far more than you think near rocks and logs.", "Visit in late April-May for the saguaro bloom — giant white flowers appear only at night and close by morning. Spot them at dawn before the heat wilts them." ],
-    dosAndDonts: [ { type: "do", text: "Carry a blacklight at night to easily spot the glowing scorpions." } ],
-        redditPosts: [
+    travelHacks: ["The park is split by Tucson into East (Rincon Mountain) and West (Tucson Mountain) districts — visit both if you have a second day. West has older, denser cacti.", "Gates Pass Road (just outside the west district) is free and has arguably better saguaro scenery than sections inside the paid park boundary.", "The Arizona-Sonora Desert Museum (2 miles from the west entrance) is not technically part of the park — separately ticketed, but it's voted #1 thing to do in Tucson. Do it first.", "Carry a blacklight flashlight on any evening walk. Scorpions glow bright green-yellow under UV light. There are far more than you think near rocks and logs.", "Visit in late April-May for the saguaro bloom — giant white flowers appear only at night and close by morning. Spot them at dawn before the heat wilts them."],
+    dosAndDonts: [{ type: "do", text: "Carry a blacklight at night to easily spot the glowing scorpions." }],
+    redditPosts: [
       { title: "Arizona-Sonora Desert Museum — why it's better than the park itself", sub: "r/travel", url: "https://www.reddit.com/r/Saguaro/top/?t=all", quote: "It\'s an open-air zoo integrated into an actual hike through the Sonoran Desert. Combine with the west district." },
       { title: "Saguaro at night with a blacklight — scorpions everywhere", sub: "r/NationalParks", url: "https://www.reddit.com/r/Saguaro/top/?t=all", quote: "They glow bright green under UV light. We found 12 within 10 feet of our campsite. Terrifying and amazing." },
       { title: "Best time to visit Saguaro — winter vs spring breakdown", sub: "r/solotravel", url: "https://www.reddit.com/r/Saguaro/top/?t=all", quote: "Winter is quiet perfection. Late April has giant white cactus flowers blooming. Both are great." }
@@ -2348,7 +2318,7 @@ const _PARKS_RAW = [
       4: { temp: "28°C / 82°F", reservations: "Standard Entry Fee.", reddit: "Last month before the blast furnace heat. Saguaros occasionally start blooming white crowns late April." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Arizona-Sonora Desert Museum — why it's better than the park itself", sub: "r/travel", url: "https://www.reddit.com/r/Saguaro/top/?t=all", quote: "It\'s an open-air zoo integrated into an actual hike through the Sonoran Desert. Combine with the west district." },
       { title: "Saguaro at night with a blacklight — scorpions everywhere", sub: "r/NationalParks", url: "https://www.reddit.com/r/Saguaro/top/?t=all", quote: "They glow bright green under UV light. We found 12 within 10 feet of our campsite. Terrifying and amazing." },
       { title: "Best time to visit Saguaro — winter vs spring breakdown", sub: "r/solotravel", url: "https://www.reddit.com/r/Saguaro/top/?t=all", quote: "Winter is quiet perfection. Late April has giant white cactus flowers blooming. Both are great." }
@@ -2391,9 +2361,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Anhinga Trail at dawn (0.8 mi) — do not skip this. Royal Palm area Gumbo Limbo Trail (0.4 mi). Shark Valley: bicycle rental (2 hrs, 15-mi loop) past dozens of alligators sunbathing on the path." },
       { day: "Day 2", plan: "Drive to Flamingo (38 mi, end of the road). Eco Pond birdwatching pull-off. Flamingo Visitor Center and Florida Bay kayaking ($35 rental). Nine Mile Pond canoe/kayak loop for mangrove tunnels." }
     ],
-    travelHacks: [ "The dry season (Nov-April) is the only time the park is safely visitable for most people. Mosquito levels in May-October are described by rangers as 'beyond tolerance'.", "The Anhinga Trail (0.8 mi) has a higher wildlife density per foot than almost anywhere in North America — do it first, at dawn, when anhingas are perched and spreading wings.", "Airboat tours operate OUTSIDE the park boundary. Shark Valley Tram or bicycle rental ($35 for 2hrs) gives a proper in-park experience on official trails.", "Flamingo Visitor Center (the end of the main road) is 38 miles into the park. Bring lunch — there are no food services and camping requires advance booking.", "Florida Bay in winter (Dec-Feb) has spectacular birdwatching from Eco Pond and the Flamingo area. Roseate spoonbills, herons, and ospreys are common sightings." ],
-    dosAndDonts: [ { type: "dont", text: "Don't even attempt visiting between May and October without a head-to-toe mosquito net." } ],
-        redditPosts: [
+    travelHacks: ["The dry season (Nov-April) is the only time the park is safely visitable for most people. Mosquito levels in May-October are described by rangers as 'beyond tolerance'.", "The Anhinga Trail (0.8 mi) has a higher wildlife density per foot than almost anywhere in North America — do it first, at dawn, when anhingas are perched and spreading wings.", "Airboat tours operate OUTSIDE the park boundary. Shark Valley Tram or bicycle rental ($35 for 2hrs) gives a proper in-park experience on official trails.", "Flamingo Visitor Center (the end of the main road) is 38 miles into the park. Bring lunch — there are no food services and camping requires advance booking.", "Florida Bay in winter (Dec-Feb) has spectacular birdwatching from Eco Pond and the Flamingo area. Roseate spoonbills, herons, and ospreys are common sightings."],
+    dosAndDonts: [{ type: "dont", text: "Don't even attempt visiting between May and October without a head-to-toe mosquito net." }],
+    redditPosts: [
       { title: "Dry season in the Everglades is a completely different park", sub: "r/NationalParks", url: "https://www.reddit.com/r/Everglades/top/?t=all", quote: "Wildlife funnels to remaining water during dry season. You\'ll see more gators in an hour than most people see in a lifetime." },
       { title: "Anhinga Trail — the best wildlife viewing per mile of any trail in America", sub: "r/birdwatching", url: "https://www.reddit.com/r/Everglades/top/?t=all", quote: "0.8 miles. Birds will literally perch on the rail next to you drying their wings. Completely surreal." },
       { title: "Burmese pythons in the Everglades — the wildest invasive species crisis in US history", sub: "r/nature", url: "https://www.reddit.com/r/Everglades/top/?t=all", quote: "Up to 90% of small mammal populations wiped out. You can actually sign up for python hunting programs." }
@@ -2414,7 +2384,7 @@ const _PARKS_RAW = [
       4: { temp: "28°C / 83°F", reservations: "Standard Entry Fee.", reddit: "Getting hot and humid again, but mosquito levels are still tolerable." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Dry season in the Everglades is a completely different park", sub: "r/NationalParks", url: "https://www.reddit.com/r/Everglades/top/?t=all", quote: "Wildlife funnels to remaining water during dry season. You\'ll see more gators in an hour than most people see in a lifetime." },
       { title: "Anhinga Trail — the best wildlife viewing per mile of any trail in America", sub: "r/birdwatching", url: "https://www.reddit.com/r/Everglades/top/?t=all", quote: "0.8 miles. Birds will literally perch on the rail next to you drying their wings. Completely surreal." },
       { title: "Burmese pythons in the Everglades — the wildest invasive species crisis in US history", sub: "r/nature", url: "https://www.reddit.com/r/Everglades/top/?t=all", quote: "Up to 90% of small mammal populations wiped out. You can actually sign up for python hunting programs." }
@@ -2457,9 +2427,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Sunrise at Sunrise Point (with every other visitor). Start the Navajo Loop trail from Sunset Point — go down Wall Street to the canyon floor, connect to Queen's Garden, ascend back up (5.5 mi RT). Shuttle to Inspiration Point for afternoon light." },
       { day: "Day 2", plan: "Bryce Point at dawn (minimal crowds vs Sunrise Point). Peek-a-Boo Loop trail (5.5 mi, more dramatic hoodoos than the Navajo Loop). Night sky ranger astronomy program if available." }
     ],
-    travelHacks: [ "Start the Navajo Loop at Wall Street (the steep section) and go down, connecting to Queens Garden Trail to come back up. Going the reverse direction is significantly harder.", "The park sits at 8,000-9,100 ft elevation. Even in summer, temperatures can drop below freezing overnight — pack more layers than you think you need.", "Shuttle service is free and runs May through early October. Use it to avoid the Sunrise/Sunset/Inspiration Point parking scramble.", "Book the ranger-led astronomy programs in advance (free but fill up). Bryce's skies are among the best in the US — over 7,500 stars visible to the naked eye.", "Bryce Canyon City (outside the south entrance) has lodging far cheaper than inside the park. Bryce Canyon Grand Hotel is particularly well reviewed for the price." ],
-    dosAndDonts: [ { type: "do", text: "Pack layers. At 8,000 feet, mornings are freezing even in July." } ],
-        redditPosts: [
+    travelHacks: ["Start the Navajo Loop at Wall Street (the steep section) and go down, connecting to Queens Garden Trail to come back up. Going the reverse direction is significantly harder.", "The park sits at 8,000-9,100 ft elevation. Even in summer, temperatures can drop below freezing overnight — pack more layers than you think you need.", "Shuttle service is free and runs May through early October. Use it to avoid the Sunrise/Sunset/Inspiration Point parking scramble.", "Book the ranger-led astronomy programs in advance (free but fill up). Bryce's skies are among the best in the US — over 7,500 stars visible to the naked eye.", "Bryce Canyon City (outside the south entrance) has lodging far cheaper than inside the park. Bryce Canyon Grand Hotel is particularly well reviewed for the price."],
+    dosAndDonts: [{ type: "do", text: "Pack layers. At 8,000 feet, mornings are freezing even in July." }],
+    redditPosts: [
       { title: "Hike DOWN into the hoodoos — most people make this mistake", sub: "r/NationalParks", url: "https://www.reddit.com/r/BryceCanyon/top/?t=all", quote: "Do NOT just stand on the rim. The Navajo Loop trail goes down into them. It\'s a completely different world." },
       { title: "Bryce Canyon night sky astronomy programs — the best thing the NPS does", sub: "r/stargazing", url: "https://www.reddit.com/r/BryceCanyon/top/?t=all", quote: "Free ranger-led stargazing with huge telescopes. Saw Jupiter\'s moons and the Andromeda galaxy." },
       { title: "Combining Zion + Bryce — the perfect 5-day Utah trip", sub: "r/roadtrip", url: "https://www.reddit.com/r/BryceCanyon/top/?t=all", quote: "Days 1-3: Zion. Days 4-5: Bryce. Drive is gorgeous and only 1.5 hours. Connect in Springdale." }
@@ -2480,7 +2450,7 @@ const _PARKS_RAW = [
       10: { temp: "15°C / 59°F", reservations: "Standard Entry Fee. Shuttle ends mid-Oct.", reddit: "Bring a winter coat! It drops below freezing at night, but daytime hiking is glorious." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Hike DOWN into the hoodoos — most people make this mistake", sub: "r/NationalParks", url: "https://www.reddit.com/r/BryceCanyon/top/?t=all", quote: "Do NOT just stand on the rim. The Navajo Loop trail goes down into them. It\'s a completely different world." },
       { title: "Bryce Canyon night sky astronomy programs — the best thing the NPS does", sub: "r/stargazing", url: "https://www.reddit.com/r/BryceCanyon/top/?t=all", quote: "Free ranger-led stargazing with huge telescopes. Saw Jupiter\'s moons and the Andromeda galaxy." },
       { title: "Combining Zion + Bryce — the perfect 5-day Utah trip", sub: "r/roadtrip", url: "https://www.reddit.com/r/BryceCanyon/top/?t=all", quote: "Days 1-3: Zion. Days 4-5: Bryce. Drive is gorgeous and only 1.5 hours. Connect in Springdale." }
@@ -2523,9 +2493,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Lehman Caves ranger-led tour (book in advance, 60-90 min underground). Wheeler Peak Scenic Drive to 10,000 ft. Alpine Lakes Loop trail (2.7 mi) past Stella and Teresa Lakes. Watch sunset from Wheeler Peak overlook." },
       { day: "Day 2", plan: "Bristlecone Pine Trail (2.8 mi RT) to the 5,000-year-old trees. Glacier Trail extension (4.6 mi) to Wheeler Peak Glacier if accessible. Night: Astronomy Amphitheater for ranger stargazing with telescopes." }
     ],
-    travelHacks: [ "Lehman Caves tours sell out quickly — book on recreation.gov exactly 30 days in advance at 7 AM PT. They release daily slots and peak summer tours vanish in seconds.", "There is zero cell service anywhere in or near the park. Download offline maps and the NPS Great Basin app before arrival.", "Fill your gas tank in Baker (12 miles east) or Ely (70 miles east). There is no fuel in the park.", "Wheeler Peak Scenic Drive opens around Memorial Day (snow-dependent). The drive to 10,000 ft takes 20 minutes and opens access to the Bristlecone Pine trail and glacier.", "The Great Basin Astronomy Festival in September is free. Ranger-telescopes let you see Saturn's rings, Jupiter's moons, and deep-sky nebulae from the darkest park in the lower 48." ],
-    dosAndDonts: [ { type: "do", text: "Fill up your gas tank in Baker or Ely before entering; there is no gas in the park." } ],
-        redditPosts: [
+    travelHacks: ["Lehman Caves tours sell out quickly — book on recreation.gov exactly 30 days in advance at 7 AM PT. They release daily slots and peak summer tours vanish in seconds.", "There is zero cell service anywhere in or near the park. Download offline maps and the NPS Great Basin app before arrival.", "Fill your gas tank in Baker (12 miles east) or Ely (70 miles east). There is no fuel in the park.", "Wheeler Peak Scenic Drive opens around Memorial Day (snow-dependent). The drive to 10,000 ft takes 20 minutes and opens access to the Bristlecone Pine trail and glacier.", "The Great Basin Astronomy Festival in September is free. Ranger-telescopes let you see Saturn's rings, Jupiter's moons, and deep-sky nebulae from the darkest park in the lower 48."],
+    dosAndDonts: [{ type: "do", text: "Fill up your gas tank in Baker or Ely before entering; there is no gas in the park." }],
+    redditPosts: [
       { title: "Great Basin — the dark sky park nobody talks about", sub: "r/stargazing", url: "https://www.reddit.com/r/GreatBasinNationalPark/top/?t=all", quote: "Gold Tier dark sky designation. So dark that your eyes take 20 minutes to fully adjust and then you see 3,000+ stars." },
       { title: "Lehman Caves tour — book 30 days in advance at 7am or miss out", sub: "r/NationalParks", url: "https://www.reddit.com/r/GreatBasinNationalPark/top/?t=all", quote: "The shields (parachute formations) inside are incredibly rare cave formations. Best NPS tour I\'ve done." },
       { title: "The 5,000-year-old Bristlecone Pines at Wheeler Peak", sub: "r/Trees", url: "https://www.reddit.com/r/GreatBasinNationalPark/top/?t=all", quote: "Standing next to a living thing that was already 2,000 years old when the Roman Empire was founded breaks your brain." }
@@ -2544,7 +2514,7 @@ const _PARKS_RAW = [
       9: { temp: "23°C / 73°F", reservations: "Standard Entry Fee (Free). Cave Tours must be booked.", reddit: "Great Basin Astronomy Festival happens this month! Book cave tours well in advance." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Great Basin — the dark sky park nobody talks about", sub: "r/stargazing", url: "https://www.reddit.com/r/GreatBasinNationalPark/top/?t=all", quote: "Gold Tier dark sky designation. So dark that your eyes take 20 minutes to fully adjust and then you see 3,000+ stars." },
       { title: "Lehman Caves tour — book 30 days in advance at 7am or miss out", sub: "r/NationalParks", url: "https://www.reddit.com/r/GreatBasinNationalPark/top/?t=all", quote: "The shields (parachute formations) inside are incredibly rare cave formations. Best NPS tour I\'ve done." },
       { title: "The 5,000-year-old Bristlecone Pines at Wheeler Peak", sub: "r/Trees", url: "https://www.reddit.com/r/GreatBasinNationalPark/top/?t=all", quote: "Standing next to a living thing that was already 2,000 years old when the Roman Empire was founded breaks your brain." }
@@ -2587,9 +2557,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Drive the 33-mile Rim Drive clockwise, stopping at Phantom Ship Overlook, Cloudcap Overlook (highest viewpoint), and Watchman Overlook for sunset. The lake looks different from each vantage point." },
       { day: "Day 2", plan: "Cleetwood Cove Trail (2 mi RT, steep descent) to the lake shore — swim in 38°F impossibly blue water or take the Wizard Island boat tour. Hike Discovery Point trail (2.6 mi RT) for classic crater views." }
     ],
-    travelHacks: [ "Check the NPS Crater Lake webcam at nps.gov/crla before making the drive up — the lake is occasionally obscured by fog or smoke for days at a time.", "Wizard Island boat tours sell out months in advance. Book immediately when summer windows open (usually March). There is no standby option.", "The 33-mile Rim Drive is best driven clockwise starting from Steel Visitor Center — this keeps the lake views to your left (driver's side) for easier sightseeing.", "Cleetwood Cove is the only legal access to the water. The 1-mile descent (11% grade) is easy going down; allow double the time for the brutal climb back up in hot sun.", "Crater Lake Lodge has rooms with a direct view over the caldera. Book exactly 12 months in advance — the window-view rooms sell out in minutes." ],
-    dosAndDonts: [ { type: "do", text: "Hike Cleetwood Cove if you want to touch the water—it's the ONLY legal access point." } ],
-        redditPosts: [
+    travelHacks: ["Check the NPS Crater Lake webcam at nps.gov/crla before making the drive up — the lake is occasionally obscured by fog or smoke for days at a time.", "Wizard Island boat tours sell out months in advance. Book immediately when summer windows open (usually March). There is no standby option.", "The 33-mile Rim Drive is best driven clockwise starting from Steel Visitor Center — this keeps the lake views to your left (driver's side) for easier sightseeing.", "Cleetwood Cove is the only legal access to the water. The 1-mile descent (11% grade) is easy going down; allow double the time for the brutal climb back up in hot sun.", "Crater Lake Lodge has rooms with a direct view over the caldera. Book exactly 12 months in advance — the window-view rooms sell out in minutes."],
+    dosAndDonts: [{ type: "do", text: "Hike Cleetwood Cove if you want to touch the water—it's the ONLY legal access point." }],
+    redditPosts: [
       { title: "Crater Lake — no photo has ever prepared me for the actual blue", sub: "r/NationalParks", url: "https://www.reddit.com/r/CraterLake/top/?t=all", quote: "Every single person I\'ve ever taken there says the same thing the second they look over the rim: \'OH.\'" },
       { title: "Cleetwood Cove trail — the only place you can legally touch the water", sub: "r/hiking", url: "https://www.reddit.com/r/CraterLake/top/?t=all", quote: "It\'s a brutal 1-mile descent. Coming back up in the sun is awful. Jumping into 38° water is completely worth it." },
       { title: "September at Crater Lake — bugs gone, air crisp, water impossibly blue", sub: "r/solotravel", url: "https://www.reddit.com/r/CraterLake/top/?t=all", quote: "Early September is the secret window. Wildfire smoke risk starts dropping and the late summer haze clears out." }
@@ -2607,7 +2577,7 @@ const _PARKS_RAW = [
       9: { temp: "19°C / 66°F", reservations: "Standard Entry Fee.", reddit: "Best month. The mosquitoes are gone, the air is crisp, and the lake is at its bluest." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Crater Lake — no photo has ever prepared me for the actual blue", sub: "r/NationalParks", url: "https://www.reddit.com/r/CraterLake/top/?t=all", quote: "Every single person I\'ve ever taken there says the same thing the second they look over the rim: \'OH.\'" },
       { title: "Cleetwood Cove trail — the only place you can legally touch the water", sub: "r/hiking", url: "https://www.reddit.com/r/CraterLake/top/?t=all", quote: "It\'s a brutal 1-mile descent. Coming back up in the sun is awful. Jumping into 38° water is completely worth it." },
       { title: "September at Crater Lake — bugs gone, air crisp, water impossibly blue", sub: "r/solotravel", url: "https://www.reddit.com/r/CraterLake/top/?t=all", quote: "Early September is the secret window. Wildfire smoke risk starts dropping and the late summer haze clears out." }
@@ -2651,9 +2621,9 @@ const _PARKS_RAW = [
       { day: "Day 3-4", plan: "Greenstone Ridge Trail — hike east or west section (trail is 42 mi total; do 10-14 mi of it). Lookout Louise gives the best island panorama. Thimbleberry picking in August along the ridge." },
       { day: "Day 5", plan: "Canoe or kayak from Rock Harbor out to Raspberry Island. Snorkel over the shallow ship wreck in Rock Harbor using the NPS rental snorkel gear. Depart seaplane or board the evening ferry." }
     ],
-    travelHacks: [ "Book your ferry (Rock Harbor or Copper Harbor) or seaplane (Houghton) months in advance — the seaplane from Houghton is $350 each way but saves 6 nausea-inducing hours on Lake Superior.", "Backcountry trips require advance permit registration (free, but required in 2026). Reserve sites at nps.gov/isro. Sites fill for July-August by early spring.", "Treat ALL water on the island — moose and wolf tapeworm (Echinococcus granulosus) is present in the lakes. Use a filter or iodine, no exceptions.", "Thimbleberries (a native raspberry-like fruit) ripen in late August along trail edges. They're edible and delicious — pick and eat freely.", "The island closes to public access October 31 and reopens late April. The exact date varies by ferry schedule — confirm on nps.gov/isro." ],
-    dosAndDonts: [ { type: "do", text: "Treat ALL water. Tapeworms transmitted by moose and wolves are present in the lakes." } ],
-        redditPosts: [
+    travelHacks: ["Book your ferry (Rock Harbor or Copper Harbor) or seaplane (Houghton) months in advance — the seaplane from Houghton is $350 each way but saves 6 nausea-inducing hours on Lake Superior.", "Backcountry trips require advance permit registration (free, but required in 2026). Reserve sites at nps.gov/isro. Sites fill for July-August by early spring.", "Treat ALL water on the island — moose and wolf tapeworm (Echinococcus granulosus) is present in the lakes. Use a filter or iodine, no exceptions.", "Thimbleberries (a native raspberry-like fruit) ripen in late August along trail edges. They're edible and delicious — pick and eat freely.", "The island closes to public access October 31 and reopens late April. The exact date varies by ferry schedule — confirm on nps.gov/isro."],
+    dosAndDonts: [{ type: "do", text: "Treat ALL water. Tapeworms transmitted by moose and wolves are present in the lakes." }],
+    redditPosts: [
       { title: "Isle Royale — the most extreme national park adventure in the lower 48", sub: "r/ultralight", url: "https://www.reddit.com/r/IsleRoyale/top/?t=all", quote: "No wheeled vehicles. Complete wilderness. 165 miles of trails. Moose everywhere. Plan 5+ days." },
       { title: "Seaplane vs ferry to Isle Royale — which is actually worth it?", sub: "r/NationalParks", url: "https://www.reddit.com/r/IsleRoyale/top/?t=all", quote: "The ferry from Copper Harbor takes 6 nauseating hours each way. The seaplane is $350 but takes 30 minutes." },
       { title: "Spotting the Isle Royale wolves — tips from a researcher", sub: "r/Wolves", url: "https://www.reddit.com/r/IsleRoyale/top/?t=all", quote: "Early mornings, stay very quiet near the inland lakes. They\'re there. Most visitors never see them. The moose tracks will blow your mind." }
@@ -2671,7 +2641,7 @@ const _PARKS_RAW = [
       9: { temp: "17°C / 62°F", reservations: "Ferry runs reduce frequency. Closing late Sept.", reddit: "The bugs are finally gone! Fall colors arrive. But Lake Superior gets very rough." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Isle Royale — the most extreme national park adventure in the lower 48", sub: "r/ultralight", url: "https://www.reddit.com/r/IsleRoyale/top/?t=all", quote: "No wheeled vehicles. Complete wilderness. 165 miles of trails. Moose everywhere. Plan 5+ days." },
       { title: "Seaplane vs ferry to Isle Royale — which is actually worth it?", sub: "r/NationalParks", url: "https://www.reddit.com/r/IsleRoyale/top/?t=all", quote: "The ferry from Copper Harbor takes 6 nauseating hours each way. The seaplane is $350 but takes 30 minutes." },
       { title: "Spotting the Isle Royale wolves — tips from a researcher", sub: "r/Wolves", url: "https://www.reddit.com/r/IsleRoyale/top/?t=all", quote: "Early mornings, stay very quiet near the inland lakes. They\'re there. Most visitors never see them. The moose tracks will blow your mind." }
@@ -2715,9 +2685,9 @@ const _PARKS_RAW = [
       { day: "Day 2", plan: "Chisos Mountains: Lost Mine Trail (4.8 mi RT, 1,100 ft — best trail in the park) from Chisos Basin. Evening: Window View Trail (0.3 mi) for the sunset vista framed through the Window notch." },
       { day: "Day 3", plan: "Boquillas Crossing to Mexico (Wed-Sun, passport required). Walk or ride donkey to the tiny border village. Cross back and drive the River Road for desert solitude. Stargazing from your campsite at the darkest night sky in any lower-48 park." }
     ],
-    travelHacks: [ "Boquillas Port of Entry (cross to Mexico) is open Wed-Sun, 9 AM–6 PM. Bring your passport and some US dollar bills for the rowboat crossing ($5) and village snacks.", "The park has some of the worst conditions for cell service in the US. Download offline maps, the NPS app, and a weather radar app before leaving Terlingua.", "Rio Grande Village has the park's only gas station. Fill up there before driving remote dirt roads like Old Maverick Road or the River Road.", "Check the night sky forecast at darksky.org before your trip. Big Bend has the lowest light pollution of any lower-48 national park — when the moon is new, the Milky Way casts visible shadows.", "Chisos Basin lodge and campsite reservations should be made 6-12 months in advance for spring visits. The Basin is the most popular area and fills for March and April far in advance." ],
-    dosAndDonts: [ { type: "do", text: "Carry tweezers. Everything in the Chihuahuan desert has spikes, thorns, or fangs." } ],
-        redditPosts: [
+    travelHacks: ["Boquillas Port of Entry (cross to Mexico) is open Wed-Sun, 9 AM–6 PM. Bring your passport and some US dollar bills for the rowboat crossing ($5) and village snacks.", "The park has some of the worst conditions for cell service in the US. Download offline maps, the NPS app, and a weather radar app before leaving Terlingua.", "Rio Grande Village has the park's only gas station. Fill up there before driving remote dirt roads like Old Maverick Road or the River Road.", "Check the night sky forecast at darksky.org before your trip. Big Bend has the lowest light pollution of any lower-48 national park — when the moon is new, the Milky Way casts visible shadows.", "Chisos Basin lodge and campsite reservations should be made 6-12 months in advance for spring visits. The Basin is the most popular area and fills for March and April far in advance."],
+    dosAndDonts: [{ type: "do", text: "Carry tweezers. Everything in the Chihuahuan desert has spikes, thorns, or fangs." }],
+    redditPosts: [
       { title: "Big Bend has the darkest night sky of any national park — and it's not close", sub: "r/stargazing", url: "https://www.reddit.com/r/BigBend/top/?t=all", quote: "Zero light pollution for 100+ miles in every direction. In December I could read a book by the Milky Way alone." },
       { title: "Rowing to Mexico at Boquillas Crossing — the most unique thing in the NPS", sub: "r/travel", url: "https://www.reddit.com/r/BigBend/top/?t=all", quote: "A man rows you across the Rio Grande in a tiny boat for $5. Walk up to the village. Have a beer. Leave." },
       { title: "Big Bend in winter — the park completely transforms", sub: "r/NationalParks", url: "https://www.reddit.com/r/BigBend/top/?t=all", quote: "Snow occasionally dusts the Chisos Basin at Christmas. The isolation and silence in December is profound." }
@@ -2738,7 +2708,7 @@ const _PARKS_RAW = [
       3: { temp: "24°C / 75°F", reservations: "Standard Entry Fee.", reddit: "Spring break means max capacity. Wildflower blooms peak. Get to trailheads by 7am." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Big Bend has the darkest night sky of any national park — and it's not close", sub: "r/stargazing", url: "https://www.reddit.com/r/BigBend/top/?t=all", quote: "Zero light pollution for 100+ miles in every direction. In December I could read a book by the Milky Way alone." },
       { title: "Rowing to Mexico at Boquillas Crossing — the most unique thing in the NPS", sub: "r/travel", url: "https://www.reddit.com/r/BigBend/top/?t=all", quote: "A man rows you across the Rio Grande in a tiny boat for $5. Walk up to the village. Have a beer. Leave." },
       { title: "Big Bend in winter — the park completely transforms", sub: "r/NationalParks", url: "https://www.reddit.com/r/BigBend/top/?t=all", quote: "Snow occasionally dusts the Chisos Basin at Christmas. The isolation and silence in December is profound." }
@@ -2781,9 +2751,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Dante Fascell Visitor Center. Kayak rental for Florida Bay paddling (3-4 hrs). Glass-bottom boat tour in the afternoon to see the coral reef without getting wet. Evening: watch the sunset from the marina dock." },
       { day: "Day 2", plan: "Boat to Elliott Key (rent or guide). Snorkel the Maritime Heritage Trail shipwrecks. Walk the Hurricane Creek Trail on Elliott Key (short, flat, through hardwood hammock). Swim in the crystal-clear shallows before the return boat." }
     ],
-    travelHacks: [ "You MUST take a boat to see the park. The mainland visitor center shows you virtually nothing. Book a glass-bottom boat tour or bring/rent your own kayak.", "The Dante Fascell Visitor Center (free entry) rents canoes ($20/hr) and kayaks ($30/hr). Go early — rentals can sell out on weekends.", "The Maritime Heritage Trail shipwrecks require snorkel or dive gear. Visibility is best Nov-April when the water is clearest and wind-chop is lowest.", "Elliott Key has a free campground accessible only by boat. Bring everything including water — there are no services on the island at all.", "Hurricanes damage the coral reef annually. Check nps.gov/bisc for current reef conditions before planning a snorkeling trip. Some zones may be closed for recovery." ],
-    dosAndDonts: [ { type: "dont", text: "Don't visit without booking a boat out to the keys; the mainland center is just a dock." } ],
-        redditPosts: [
+    travelHacks: ["You MUST take a boat to see the park. The mainland visitor center shows you virtually nothing. Book a glass-bottom boat tour or bring/rent your own kayak.", "The Dante Fascell Visitor Center (free entry) rents canoes ($20/hr) and kayaks ($30/hr). Go early — rentals can sell out on weekends.", "The Maritime Heritage Trail shipwrecks require snorkel or dive gear. Visibility is best Nov-April when the water is clearest and wind-chop is lowest.", "Elliott Key has a free campground accessible only by boat. Bring everything including water — there are no services on the island at all.", "Hurricanes damage the coral reef annually. Check nps.gov/bisc for current reef conditions before planning a snorkeling trip. Some zones may be closed for recovery."],
+    dosAndDonts: [{ type: "dont", text: "Don't visit without booking a boat out to the keys; the mainland center is just a dock." }],
+    redditPosts: [
       { title: "Biscayne — snorkeling above the Maritime Heritage Trail shipwrecks", sub: "r/scuba", url: "https://www.reddit.com/r/Biscayne/top/?t=all", quote: "Six shipwrecks, GPS coordinates, self-guided. The visibility on a calm day is 40+ feet." },
       { title: "Biscayne National Park is 95% water — you MUST take a boat tour", sub: "r/NationalParks", url: "https://www.reddit.com/r/Biscayne/top/?t=all", quote: "There is literally nothing to see from the mainland visitor center. Book the Dante Fascell boat tour." },
       { title: "Camping on Elliott Key — Miami's secret backcountry paradise", sub: "r/camping", url: "https://www.reddit.com/r/Biscayne/top/?t=all", quote: "15 minutes by boat from the visitor center. Crystal clear water. Hammock spots under gumbo limbo trees. Almost no one." }
@@ -2803,7 +2773,7 @@ const _PARKS_RAW = [
       4: { temp: "28°C / 82°F", reservations: "Boat tours must be booked.", reddit: "Water warms up beautifully for snorkeling. Last great month before the severe heat and storms begin." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Biscayne — snorkeling above the Maritime Heritage Trail shipwrecks", sub: "r/scuba", url: "https://www.reddit.com/r/Biscayne/top/?t=all", quote: "Six shipwrecks, GPS coordinates, self-guided. The visibility on a calm day is 40+ feet." },
       { title: "Biscayne National Park is 95% water — you MUST take a boat tour", sub: "r/NationalParks", url: "https://www.reddit.com/r/Biscayne/top/?t=all", quote: "There is literally nothing to see from the mainland visitor center. Book the Dante Fascell boat tour." },
       { title: "Camping on Elliott Key — Miami's secret backcountry paradise", sub: "r/camping", url: "https://www.reddit.com/r/Biscayne/top/?t=all", quote: "15 minutes by boat from the visitor center. Crystal clear water. Hammock spots under gumbo limbo trees. Almost no one." }
@@ -2846,9 +2816,9 @@ const _PARKS_RAW = [
       { day: "Day 1 (Day Trip)", plan: "Board the Yankee Freedom III ferry at 8 AM from Key West. Arrive Ft. Jefferson at 10:30 AM. Ranger-led fort tour (1 hr), then snorkel off the sea wall immediately surrounding the fort. Excellent coral and sea turtles without a boat. Ferry departs 3 PM." },
       { day: "Day 1-2 (Camping)", plan: "Same arrival. Set up camp in the shade of the fort walls. After the day-trippers leave at 3 PM the island belongs to you (about 10 campers max). Night: completely dark skies, sea turtles emerge on the beach, bioluminescent plankton in the moat." }
     ],
-    travelHacks: [ "The Yankee Freedom III ferry from Key West is $225 per person roundtrip and the only boat service. Book 60+ days in advance for March-May as it sells out completely.", "The 10-boat camping spots at Garden Key fill within minutes of opening (usually November 15 for the following year). Set a recreation.gov alert.", "Bring every single item you need — there are ZERO services on the island beyond a small gift shop. Water, food, shade structures, snorkeling gear required.", "The ferry includes a ranger-led tour of Fort Jefferson. Do it — the military history (Samuel Mudd, Civil War, etc.) is genuinely fascinating and rangers here are exceptional.", "The reefs immediately around the fort are exceptional for snorkeling without a boat — coral walls within 100 feet of the shore in 6-15 feet of water." ],
-    dosAndDonts: [ { type: "do", text: "Reserve the Yankee Freedom ferry at least 4-6 months in advance. It sells out instantly." } ],
-        redditPosts: [
+    travelHacks: ["The Yankee Freedom III ferry from Key West is $225 per person roundtrip and the only boat service. Book 60+ days in advance for March-May as it sells out completely.", "The 10-boat camping spots at Garden Key fill within minutes of opening (usually November 15 for the following year). Set a recreation.gov alert.", "Bring every single item you need — there are ZERO services on the island beyond a small gift shop. Water, food, shade structures, snorkeling gear required.", "The ferry includes a ranger-led tour of Fort Jefferson. Do it — the military history (Samuel Mudd, Civil War, etc.) is genuinely fascinating and rangers here are exceptional.", "The reefs immediately around the fort are exceptional for snorkeling without a boat — coral walls within 100 feet of the shore in 6-15 feet of water."],
+    dosAndDonts: [{ type: "do", text: "Reserve the Yankee Freedom ferry at least 4-6 months in advance. It sells out instantly." }],
+    redditPosts: [
       { title: "Dry Tortugas overnight camping — the most surreal experience of my life", sub: "r/camping", url: "https://www.reddit.com/r/DryTortugas/top/?t=all", quote: "After the ferry leaves, it\'s you, a handful of other campers, and a Civil War fort in the middle of the Caribbean. Nothing else." },
       { title: "Fort Jefferson and the story of Dr. Samuel Mudd — the most fascinating NPS history", sub: "r/history", url: "https://www.reddit.com/r/DryTortugas/top/?t=all", quote: "Mudd set Booth\'s broken leg. He didn\'t know who Booth was. He was imprisoned here for 4 years anyway." },
       { title: "Snorkeling at Dry Tortugas — Caribbean reef in American waters", sub: "r/snorkeling", url: "https://www.reddit.com/r/DryTortugas/top/?t=all", quote: "70+ miles from Key West, so rarely visited. Coral is absolutely pristine. Most colorful reef I\'ve seen in the US." }
@@ -2869,7 +2839,7 @@ const _PARKS_RAW = [
       4: { temp: "28°C / 82°F", reservations: "Ferry reservation required.", reddit: "Water warms back up into the high 70s. Sooty Terns completely take over Bush Key." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Dry Tortugas overnight camping — the most surreal experience of my life", sub: "r/camping", url: "https://www.reddit.com/r/DryTortugas/top/?t=all", quote: "After the ferry leaves, it\'s you, a handful of other campers, and a Civil War fort in the middle of the Caribbean. Nothing else." },
       { title: "Fort Jefferson and the story of Dr. Samuel Mudd — the most fascinating NPS history", sub: "r/history", url: "https://www.reddit.com/r/DryTortugas/top/?t=all", quote: "Mudd set Booth\'s broken leg. He didn\'t know who Booth was. He was imprisoned here for 4 years anyway." },
       { title: "Snorkeling at Dry Tortugas — Caribbean reef in American waters", sub: "r/snorkeling", url: "https://www.reddit.com/r/DryTortugas/top/?t=all", quote: "70+ miles from Key West, so rarely visited. Coral is absolutely pristine. Most colorful reef I\'ve seen in the US." }
@@ -2912,9 +2882,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Arrive at the summit by 3:30 AM for sunrise (reservation required). Witness sunrise above the clouds. Descend to the visitor center. Drive back down to the communities of Kula or Makawao for breakfast. Afternoon: hike the Pipiwai Trail in Hana if combining with Road to Hana." },
       { day: "Day 2", plan: "Return to lower elevation park for the Hosmer Grove bird walk (0.5 mi, rare Hawaiian honeycreepers). Drive to summit for sunset (no reservation required). Stay for stars in one of the darkest spots on Maui." }
     ],
-    travelHacks: [ "Sunrise reservoir permits ($1/car) open 60 days in advance at midnight HST and sell out in as little as 90 seconds. Set a phone alarm and have recreation.gov logged in and ready.", "The summit is at 10,023 feet. Altitude sickness is real — if you feel dizzy or have a bad headache, descend immediately. Drive slowly and take 20 minutes at the visitors center (7,000 ft) before continuing.", "Downhill bike tours (23 miles from summit to coast, $150) are heavily commercialized. Consider renting a standard bike at the bottom and only doing the lower road sections if you want a more authentic experience.", "Paia town on the north shore has the best breakfast on Maui. Hit Café des Amis or Paia Bay Coffee before your 3 AM drive up to the summit.", "Hosmer Grove (6,800 ft, just inside the park entrance) is free to walk and has native Hawaiian birds including the 'apapane and 'amakihi that you won't see at lower elevations." ],
-    dosAndDonts: [ { type: "do", text: "Bring a heavy winter coat, gloves, and a hat. Yes, in Hawaii. It is 35°F at the summit at dawn." } ],
-        redditPosts: [
+    travelHacks: ["Sunrise reservoir permits ($1/car) open 60 days in advance at midnight HST and sell out in as little as 90 seconds. Set a phone alarm and have recreation.gov logged in and ready.", "The summit is at 10,023 feet. Altitude sickness is real — if you feel dizzy or have a bad headache, descend immediately. Drive slowly and take 20 minutes at the visitors center (7,000 ft) before continuing.", "Downhill bike tours (23 miles from summit to coast, $150) are heavily commercialized. Consider renting a standard bike at the bottom and only doing the lower road sections if you want a more authentic experience.", "Paia town on the north shore has the best breakfast on Maui. Hit Café des Amis or Paia Bay Coffee before your 3 AM drive up to the summit.", "Hosmer Grove (6,800 ft, just inside the park entrance) is free to walk and has native Hawaiian birds including the 'apapane and 'amakihi that you won't see at lower elevations."],
+    dosAndDonts: [{ type: "do", text: "Bring a heavy winter coat, gloves, and a hat. Yes, in Hawaii. It is 35°F at the summit at dawn." }],
+    redditPosts: [
       { title: "Haleakalā sunrise — what it's actually like to stand above the clouds", sub: "r/NationalParks", url: "https://www.reddit.com/r/Haleakala/top/?t=all", quote: "The exact moment the sun clears the horizon and turns the cloud sea pink and gold. I actually cried." },
       { title: "Haleakalā sunrise permit — the complete guide to actually getting one", sub: "r/Maui", url: "https://www.reddit.com/r/Haleakala/top/?t=all", quote: "Book exactly 60 days out at midnight HST. Seriously, set an alarm. They vanish in under 2 minutes." },
       { title: "Biking down Haleakalā — is it actually worth the $150?", sub: "r/bicycling", url: "https://www.reddit.com/r/Haleakala/top/?t=all", quote: "You coast 23 miles downhill from 10,000 feet to sea level barely pedaling. The answer is obviously yes." }
@@ -2941,7 +2911,7 @@ const _PARKS_RAW = [
       12: { temp: "16°C / 60°F (Summit)", reservations: "Sunrise Permit Required.", reddit: "Holiday crowds are huge. The Road to Hana (coastal section of the park) will be a traffic jam." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Haleakalā sunrise — what it's actually like to stand above the clouds", sub: "r/NationalParks", url: "https://www.reddit.com/r/Haleakala/top/?t=all", quote: "The exact moment the sun clears the horizon and turns the cloud sea pink and gold. I actually cried." },
       { title: "Haleakalā sunrise permit — the complete guide to actually getting one", sub: "r/Maui", url: "https://www.reddit.com/r/Haleakala/top/?t=all", quote: "Book exactly 60 days out at midnight HST. Seriously, set an alarm. They vanish in under 2 minutes." },
       { title: "Biking down Haleakalā — is it actually worth the $150?", sub: "r/bicycling", url: "https://www.reddit.com/r/Haleakala/top/?t=all", quote: "You coast 23 miles downhill from 10,000 feet to sea level barely pedaling. The answer is obviously yes." }
@@ -2984,9 +2954,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Bike Aboard program: rent a bike at Peninsula, take the train one direction, cycle back on the 20-mile Ohio & Erie Towpath Trail. Brandywine Falls (0.25 mi boardwalk) — most dramatic at high water in spring. Beaver Marsh wildlife boardwalk at dusk." },
       { day: "Day 2", plan: "Ledges area: Ledges Trail (2.2 mi loop) through sandstone formations. Blue Hen Falls (2.1 mi). Kendall Lake area for a picnic. Stanford Trail and Haskell Run to the waterfall for the full park sampler." }
     ],
-    travelHacks: [ "The Bike Aboard program lets you load your bicycle on the Cuyahoga Valley Scenic Railroad, ride one way, and cycle back. The train runs weekends May-October ($3-5/bike, plus train fare).", "The park has no entrance fee — ever. It's fully free year-round including camping at the three backcountry campsites (permit required, also free).", "Brandywine Falls is the park's most dramatic waterfall. Visit in winter (January-February) when it's at least partially frozen — the boardwalk is accessible year-round.", "The Ohio & Erie Canalway Towpath Trail runs 20 miles through the park. The Ira Trailhead has the best free parking and starts you at the most scenic section.", "The Peninsula village (2 miles off I-271) has great local restaurants and a bike rental shop — much more charming than starting from the Visitor Center." ],
-    dosAndDonts: [ { type: "do", text: "Check the train schedule online, as it doesn't run every day in shoulder seasons." } ],
-        redditPosts: [
+    travelHacks: ["The Bike Aboard program lets you load your bicycle on the Cuyahoga Valley Scenic Railroad, ride one way, and cycle back. The train runs weekends May-October ($3-5/bike, plus train fare).", "The park has no entrance fee — ever. It's fully free year-round including camping at the three backcountry campsites (permit required, also free).", "Brandywine Falls is the park's most dramatic waterfall. Visit in winter (January-February) when it's at least partially frozen — the boardwalk is accessible year-round.", "The Ohio & Erie Canalway Towpath Trail runs 20 miles through the park. The Ira Trailhead has the best free parking and starts you at the most scenic section.", "The Peninsula village (2 miles off I-271) has great local restaurants and a bike rental shop — much more charming than starting from the Visitor Center."],
+    dosAndDonts: [{ type: "do", text: "Check the train schedule online, as it doesn't run every day in shoulder seasons." }],
+    redditPosts: [
       { title: "Cuyahoga Valley Scenic Railroad Bike Aboard — the most unique park activity in America", sub: "r/NationalParks", url: "https://www.reddit.com/r/CuyahogaValley/top/?t=all", quote: "Bike one way, put your bike on the train, ride back. Perfect half-day. One of the coolest park programs anywhere." },
       { title: "Cuyahoga Valley as your first NP — why it's the perfect gateway park", sub: "r/ClevelandCycling", url: "https://www.reddit.com/r/CuyahogaValley/top/?t=all", quote: "12,000 acres, waterfalls, great blue heron rookeries, the towpath trail. And totally free to enter." },
       { title: "Brandywine Falls covered in ice in January — spectacular", sub: "r/hiking", url: "https://www.reddit.com/r/CuyahogaValley/top/?t=all", quote: "The 65-foot waterfall partially freezes in hard winters. You can walk right up to it on the boardwalk." }
@@ -3005,7 +2975,7 @@ const _PARKS_RAW = [
       10: { temp: "17°C / 62°F", reservations: "Train tickets required.", reddit: "The Fall Colors scenic train rides sell out instantly. Incredible autumnal views." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Cuyahoga Valley Scenic Railroad Bike Aboard — the most unique park activity in America", sub: "r/NationalParks", url: "https://www.reddit.com/r/CuyahogaValley/top/?t=all", quote: "Bike one way, put your bike on the train, ride back. Perfect half-day. One of the coolest park programs anywhere." },
       { title: "Cuyahoga Valley as your first NP — why it's the perfect gateway park", sub: "r/ClevelandCycling", url: "https://www.reddit.com/r/CuyahogaValley/top/?t=all", quote: "12,000 acres, waterfalls, great blue heron rookeries, the towpath trail. And totally free to enter." },
       { title: "Brandywine Falls covered in ice in January — spectacular", sub: "r/hiking", url: "https://www.reddit.com/r/CuyahogaValley/top/?t=all", quote: "The 65-foot waterfall partially freezes in hard winters. You can walk right up to it on the boardwalk." }
@@ -3048,9 +3018,9 @@ const _PARKS_RAW = [
       { day: "Day 1", plan: "Exit Glacier (drive-in, free): walk Glacier View Loop (0.8 mi) and Harding Icefield trailhead for the glacier face. Return to Seward for excellent seafood dinner at Chinook's or Thorn's Showcase Lounge." },
       { day: "Day 2", plan: "Full-day Northwestern Fjord boat tour (8-9 hrs, $200-250): two tidewater glaciers calving, Steller sea lion haul-outs, humpback whale bubble-net feeding, puffins, orcas. This is the trip. Book it." }
     ],
-    travelHacks: [ "Book wildlife boat tours through Kenai Fjords Tours or Major Marine Tours 2-3 months in advance for July-August. The 8-hour Northwestern Fjord tour gives the best glacier and wildlife experience.", "Exit Glacier (free, walk-in) is the only section of the park accessible by road. The Harding Icefield Trail (8.2 mi, 3,800 ft gain) gives an unmatched aerial view of the icefield.", "The town of Seward has excellent accommodations and food 10 minutes from the park. Book lodging in Seward early — the town fills for July 4th weekend months in advance.", "Bear viewing at the boat tour is best in August-September when silver salmon are running. Steller sea lions, orcas, and porpoises are common year-round.", "Weather changes extremely fast in Kenai Fjords. Always pack a waterproof shell regardless of the forecast — the fjords create their own micro-weather system." ],
-    dosAndDonts: [ { type: "do", text: "Take motion sickness pills BEFORE you get on the boat, even if you never get sick." } ],
-        redditPosts: [
+    travelHacks: ["Book wildlife boat tours through Kenai Fjords Tours or Major Marine Tours 2-3 months in advance for July-August. The 8-hour Northwestern Fjord tour gives the best glacier and wildlife experience.", "Exit Glacier (free, walk-in) is the only section of the park accessible by road. The Harding Icefield Trail (8.2 mi, 3,800 ft gain) gives an unmatched aerial view of the icefield.", "The town of Seward has excellent accommodations and food 10 minutes from the park. Book lodging in Seward early — the town fills for July 4th weekend months in advance.", "Bear viewing at the boat tour is best in August-September when silver salmon are running. Steller sea lions, orcas, and porpoises are common year-round.", "Weather changes extremely fast in Kenai Fjords. Always pack a waterproof shell regardless of the forecast — the fjords create their own micro-weather system."],
+    dosAndDonts: [{ type: "do", text: "Take motion sickness pills BEFORE you get on the boat, even if you never get sick." }],
+    redditPosts: [
       { title: "Kenai Fjords boat tour — humpback whales bubble-net feeding changed my life", sub: "r/Alaska", url: "https://www.reddit.com/r/KenaiFjords/top/?t=all", quote: "A group of humpbacks corkscrewing up through a ball of fish 30 feet from our boat. Closest I\'ve come to crying in public." },
       { title: "Harding Icefield hike — the deceptively brutal trail with the best views in Alaska", sub: "r/hiking", url: "https://www.reddit.com/r/KenaiFjords/top/?t=all", quote: "8.2 miles, 3,800ft elevation gain. The icefield at the top stretches to the horizon. Truly humbling." },
       { title: "Exit Glacier in August vs 1917 — the retreat is staggering up close", sub: "r/climate", url: "https://www.reddit.com/r/KenaiFjords/top/?t=all", quote: "The historical markers showing where the glacier edge was each decade are gut-wrenching. Go before it\'s gone." }
@@ -3068,7 +3038,7 @@ const _PARKS_RAW = [
       8: { temp: "15°C / 59°F", reservations: "Boat tours strongly advised.", reddit: "Silver salmon fishing is huge right now. Rain frequency starts to heavily increase toward the end of August." }
     },
 
-        redditPosts: [
+    redditPosts: [
       { title: "Kenai Fjords boat tour — humpback whales bubble-net feeding changed my life", sub: "r/Alaska", url: "https://www.reddit.com/r/KenaiFjords/top/?t=all", quote: "A group of humpbacks corkscrewing up through a ball of fish 30 feet from our boat. Closest I\'ve come to crying in public." },
       { title: "Harding Icefield hike — the deceptively brutal trail with the best views in Alaska", sub: "r/hiking", url: "https://www.reddit.com/r/KenaiFjords/top/?t=all", quote: "8.2 miles, 3,800ft elevation gain. The icefield at the top stretches to the horizon. Truly humbling." },
       { title: "Exit Glacier in August vs 1917 — the retreat is staggering up close", sub: "r/climate", url: "https://www.reddit.com/r/KenaiFjords/top/?t=all", quote: "The historical markers showing where the glacier edge was each decade are gut-wrenching. Go before it\'s gone." }
