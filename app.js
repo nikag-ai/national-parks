@@ -4,6 +4,20 @@ const PARKS = window.PARKS_DATA || [];
 const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const MONTH_FULL = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
+const STATE_NAMES = {
+  "AK": "Alaska", "AL": "Alabama", "AR": "Arkansas", "AZ": "Arizona", "CA": "California", 
+  "CO": "Colorado", "CT": "Connecticut", "DE": "Delaware", "FL": "Florida", "GA": "Georgia", 
+  "HI": "Hawaii", "IA": "Iowa", "ID": "Idaho", "IL": "Illinois", "IN": "Indiana", 
+  "KS": "Kansas", "KY": "Kentucky", "LA": "Louisiana", "MA": "Massachusetts", "MD": "Maryland", 
+  "ME": "Maine", "MI": "Michigan", "MN": "Minnesota", "MO": "Missouri", "MS": "Mississippi", 
+  "MT": "Montana", "NC": "North Carolina", "ND": "North Dakota", "NE": "Nebraska", "NH": "New Hampshire", 
+  "NJ": "New Jersey", "NM": "New Mexico", "NV": "Nevada", "NY": "New York", "OH": "Ohio", 
+  "OK": "Oklahoma", "OR": "Oregon", "PA": "Pennsylvania", "RI": "Rhode Island", "SC": "South Carolina", 
+  "SD": "South Dakota", "TN": "Tennessee", "TX": "Texas", "UT": "Utah", "VA": "Virginia", 
+  "VT": "Vermont", "WA": "Washington", "WI": "Wisconsin", "WV": "West Virginia", "WY": "Wyoming",
+  "AS": "American Samoa", "VI": "Virgin Islands", "GU": "Guam", "MP": "Northern Mariana Islands", "PR": "Puerto Rico"
+};
+
 // ============ Composite Score ============
 function calculateCompositeScore(park) {
   const score = (park.popularity * 0.4) + (park.uniqueness * 0.4) + (park.sfoAccessibility * 0.2);
@@ -37,6 +51,7 @@ let showVisited      = localStorage.getItem('showVisited') !== 'false';
 
 // ============ DOM ============
 const chipContainer = document.querySelector('.month-chips');
+const parkSearchInput = document.getElementById('park-search');
 const parkGrid      = document.getElementById('park-grid');
 const emptyState    = document.getElementById('empty-state');
 const statsBar      = document.getElementById('stats-bar');
@@ -46,6 +61,15 @@ const modalBody     = document.getElementById('modal-body');
 const filterPanel   = document.getElementById('filter-panel');
 const visitedToggle = document.getElementById('visited-toggle');
 const toggleWrap    = document.querySelector('.visited-toggle-wrap');
+
+// ============ Search ============
+let searchQuery = '';
+if (parkSearchInput) {
+  parkSearchInput.addEventListener('input', (e) => {
+    searchQuery = e.target.value.toLowerCase().trim();
+    renderParks();
+  });
+}
 
 // ============ Persistence ============
 function saveVisited()   { localStorage.setItem('visitedParks',   JSON.stringify([...visitedParks])); }
@@ -375,13 +399,29 @@ function renderParks() {
     return;
   }
 
+  // --- Search Filter ---
+  if (searchQuery) {
+    parks = parks.filter(p => {
+      const nameMatch = p.name.toLowerCase().includes(searchQuery);
+      const stateMatch = p.state.toLowerCase().includes(searchQuery);
+      
+      const states = p.state.split(' / ');
+      const fullNameMatch = states.some(st => {
+        const full = STATE_NAMES[st.trim()] || "";
+        return full.toLowerCase().includes(searchQuery);
+      });
+      
+      return nameMatch || stateMatch || fullNameMatch;
+    });
+  }
+
 // --- APPLY FILTERS ---
   const rawCount = parks.length;
   updateFilterBounds(parks);
   parks = applyFilters(parks);
   renderFilterUI();
   
-  if (parks.length !== rawCount) {
+  if (parks.length !== rawCount || searchQuery) {
     modeLabel = `Showing ${parks.length} of ${rawCount} parks (Filtered)`;
   }
   // ---------------------

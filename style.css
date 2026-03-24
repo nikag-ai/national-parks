@@ -1113,3 +1113,9 @@ footer a:hover { text-decoration: underline; }
 .check-label { display: inline-flex; align-items: center; gap: 10px; font-size: 0.95rem; color: var(--text-dim); cursor: pointer; text-transform: none !important; margin:0!important; font-weight: 500!important; letter-spacing: 0!important; transition: color 0.2s; }
 .check-label:hover { color: #fff; }
 .check-label input { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+
+/* ============ Global Search ============ */
+.search-container { max-width:640px; margin:0 auto 28px; padding:0 20px; }
+.search-input { width:100%; padding:16px 24px; border-radius:100px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.04); color:var(--text); font-size:1.05rem; font-family:'Inter', sans-serif; outline:none; transition:all 0.2s; box-shadow:0 8px 24px rgba(0,0,0,0.15); }
+.search-input:focus { border-color:var(--accent); background:rgba(25,30,50,0.6); box-shadow:0 0 0 3px rgba(108,140,255,0.2), 0 8px 24px rgba(0,0,0,0.2); }
+.search-input::placeholder { color:rgba(255,255,255,0.4); }
