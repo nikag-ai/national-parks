@@ -17,6 +17,7 @@ let viewMode         = 'all';   // 'all' | 'favorites' | 'visited'
 let sortBy           = 'score'; // 'score' | 'flight' | 'days'
 let visitedParks     = new Set(JSON.parse(localStorage.getItem('visitedParks')   || '[]'));
 let favoritedParks   = new Set(JSON.parse(localStorage.getItem('favoritedParks') || '[]'));
+let hiddenParks      = new Set(JSON.parse(localStorage.getItem('hiddenParks')    || '[]'));
 let showVisited      = localStorage.getItem('showVisited') !== 'false';
 
 // ============ DOM ============
@@ -33,6 +34,7 @@ const toggleWrap    = document.querySelector('.visited-toggle-wrap');
 // ============ Persistence ============
 function saveVisited()   { localStorage.setItem('visitedParks',   JSON.stringify([...visitedParks])); }
 function saveFavorites() { localStorage.setItem('favoritedParks', JSON.stringify([...favoritedParks])); }
+function saveHidden()    { localStorage.setItem('hiddenParks',    JSON.stringify([...hiddenParks])); }
 
 function toggleVisited(parkName, e) {
   if (e) e.stopPropagation();
@@ -44,6 +46,12 @@ function toggleFavorite(parkName, e) {
   if (e) e.stopPropagation();
   favoritedParks.has(parkName) ? favoritedParks.delete(parkName) : favoritedParks.add(parkName);
   saveFavorites(); closeAllMenus(); renderParks();
+}
+
+function toggleHidden(parkName, e) {
+  if (e) e.stopPropagation();
+  hiddenParks.has(parkName) ? hiddenParks.delete(parkName) : hiddenParks.add(parkName);
+  saveHidden(); closeAllMenus(); renderParks();
 }
 
 function closeAllMenus() {
@@ -76,6 +84,7 @@ function renderChips() {
     { id: 'chip-all',       label: 'All Parks',   mode: 'all' },
     { id: 'chip-favorites', label: '⭐ Favorites', mode: 'favorites' },
     { id: 'chip-visited',   label: '✓ Visited',   mode: 'visited'   },
+    { id: 'chip-hidden',    label: '🙈 Hidden',   mode: 'hidden'    },
   ];
 
   specialChips.forEach(({ id, label, mode }) => {
@@ -203,17 +212,20 @@ function renderParks() {
   let modeLabel = '';
 
   if (viewMode === 'all' && !selectedMonth) {
-    parks = PARKS;
+    parks = PARKS.filter(p => !hiddenParks.has(p.name));
     if (!showVisited) parks = parks.filter(p => !visitedParks.has(p.name));
     modeLabel = `${parks.length} Parks Displayed`;
   } else if (viewMode === 'favorites') {
-    parks = PARKS.filter(p => favoritedParks.has(p.name));
+    parks = PARKS.filter(p => favoritedParks.has(p.name) && !hiddenParks.has(p.name));
     modeLabel = `⭐ ${parks.length} Favorited Park${parks.length !== 1 ? 's' : ''}`;
   } else if (viewMode === 'visited') {
-    parks = PARKS.filter(p => visitedParks.has(p.name));
+    parks = PARKS.filter(p => visitedParks.has(p.name) && !hiddenParks.has(p.name));
     modeLabel = `✓ ${parks.length} Visited Park${parks.length !== 1 ? 's' : ''}`;
+  } else if (viewMode === 'hidden') {
+    parks = PARKS.filter(p => hiddenParks.has(p.name));
+    modeLabel = `🙈 ${parks.length} Hidden Park${parks.length !== 1 ? 's' : ''}`;
   } else if (selectedMonth) {
-    parks = PARKS.filter(p => p.bestMonths.includes(selectedMonth));
+    parks = PARKS.filter(p => p.bestMonths.includes(selectedMonth) && !hiddenParks.has(p.name));
     if (!showVisited) parks = parks.filter(p => !visitedParks.has(p.name));
     modeLabel = `${parks.length} parks ideal in <strong>${MONTH_FULL[selectedMonth - 1]}</strong>`;
   } else {
@@ -238,11 +250,13 @@ function renderParks() {
   sortParks(parks).forEach((park, idx) => {
     const isVisited  = visitedParks.has(park.name);
     const isFavorite = favoritedParks.has(park.name);
+    const isHidden   = hiddenParks.has(park.name);
     const card       = document.createElement('div');
 
     let cardClass = 'park-card';
     if (isFavorite) cardClass += ' park-favorite';
     else if (isVisited) cardClass += ' park-visited';
+    if (isHidden) cardClass += ' park-hidden';
 
     card.className = cardClass;
     card.style.animationDelay = `${idx * 0.04}s`;
@@ -277,6 +291,11 @@ function renderParks() {
               <button class="overflow-item ${isFavorite ? 'active-item fav-active' :''}"
                 onclick="toggleFavorite('${park.name}', event)">
                 ${isFavorite ? '⭐ Unfavorite' : '☆ Add to Favorites'}
+              </button>
+              <div class="menu-divider" style="height:1px;background:var(--border);margin:4px 0;"></div>
+              <button class="overflow-item" style="color: #ef4444;"
+                onclick="toggleHidden('${park.name}', event)">
+                ${isHidden ? '👁️ Unhide Park' : '🙈 Hide Park'}
               </button>
             </div>
           </div>
@@ -339,9 +358,22 @@ function openModal(park) {
 
   const isVisited  = visitedParks.has(park.name);
   const isFavorite = favoritedParks.has(park.name);
+  const isHidden   = hiddenParks.has(park.name);
   const starStr    = renderStars(park.compositeScore);
   const scorePct   = (park.compositeScore / 5) * 100;
 
+  // Buttons in modal header
+  const btnsHtml = `
+    <button class="modal-action-btn ${isFavorite ? 'fav-active' : ''}" onclick="toggleFavorite('${park.name}')">
+      ${isFavorite ? '⭐ Unfavorite' : '☆ Favorite'}
+    </button>
+    <button class="modal-action-btn ${isVisited ? 'visited-active' : ''}" onclick="toggleVisited('${park.name}')">
+      ${isVisited ? '✓ Visited' : 'Mark Visited'}
+    </button>
+    <button class="modal-action-btn ${isHidden ? 'hidden-active' : ''}" onclick="toggleHidden('${park.name}')" style="color:#ef4444;border-color:rgba(239,68,68,0.3);">
+      ${isHidden ? '👁️ Unhide' : '🙈 Hide'}
+    </button>
+  `;
   const activitiesHtml  = park.topActivities.map(a => `<span class="activity-tag">${a}</span>`).join('');
   const itineraryHtml   = park.itinerary.map(i => `<div class="itinerary-step"><strong>${i.day}</strong><p>${i.plan}</p></div>`).join('');
   const hacksHtml       = (park.travelHacks||[]).map(h => `<div class="hack-item">${h}</div>`).join('');
