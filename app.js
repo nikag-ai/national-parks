@@ -52,6 +52,7 @@ let showVisited      = localStorage.getItem('showVisited') !== 'false';
 // ============ DOM ============
 const chipContainer = document.querySelector('.month-chips');
 const parkSearchInput = document.getElementById('park-search');
+const searchClearBtn   = document.getElementById('search-clear');
 const parkGrid      = document.getElementById('park-grid');
 const emptyState    = document.getElementById('empty-state');
 const statsBar      = document.getElementById('stats-bar');
@@ -67,6 +68,19 @@ let searchQuery = '';
 if (parkSearchInput) {
   parkSearchInput.addEventListener('input', (e) => {
     searchQuery = e.target.value.toLowerCase().trim();
+    if (searchClearBtn) {
+      searchClearBtn.classList.toggle('visible', searchQuery.length > 0);
+    }
+    renderParks();
+  });
+}
+
+if (searchClearBtn) {
+  searchClearBtn.addEventListener('click', () => {
+    parkSearchInput.value = '';
+    searchQuery = '';
+    searchClearBtn.classList.remove('visible');
+    parkSearchInput.focus();
     renderParks();
   });
 }
@@ -529,6 +543,7 @@ function renderParks() {
         </div>
         ${monthData && park.transport ? `<div class="transport-tag">🚌 ${park.transport}</div>` : ''}
       </div>
+      <div class="card-cta">Click for details ➝</div>
     `;
 
     parkGrid.appendChild(card);
