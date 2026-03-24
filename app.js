@@ -628,11 +628,11 @@ function openModal(park) {
       <h3 class="modal-section-title"><svg width="18" height="18" viewBox="0 0 20 20" fill="#ff4500"><circle cx="10" cy="10" r="10"/><ellipse cx="10" cy="9" rx="5" ry="3.5" fill="#fff" opacity=".15"/><circle cx="7" cy="9" r="1" fill="#fff"/><circle cx="13" cy="9" r="1" fill="#fff"/><path d="M7 12.5c.8.8 5.2.8 6 0" stroke="#fff" stroke-width="1" fill="none" stroke-linecap="round"/></svg> Top Reddit Discussions</h3>
       <div class="reddit-posts-list">
         ${park.redditPosts.map(post=>`
-        <a href="${post.url}/search/?q=${encodeURIComponent(post.title)}&restrict_sr=1" target="_blank" rel="noopener" class="reddit-post-card">
-          <div class="reddit-post-top"><span class="reddit-post-sub">${post.sub}</span><svg class="reddit-post-external" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        <div class="reddit-post-card" style="cursor:default; text-decoration:none;">
+          <div class="reddit-post-top"><span class="reddit-post-sub">${post.sub}</span></div>
           <div class="reddit-post-title">${post.title}</div>
           <blockquote class="reddit-post-quote">"${post.quote}"</blockquote>
-        </a>`).join('')}
+        </div>`).join('')}
       </div>
     </div>`:''}
   `;

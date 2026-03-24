@@ -1073,12 +1073,9 @@ footer a:hover { text-decoration: underline; }
 .reddit-sentiment-header { display:flex; align-items:center; gap:8px; color:#ff6534; font-weight:700; font-size:0.88rem; margin-bottom:8px; }
 .reddit-sentiment blockquote { font-style:italic; font-size:0.88rem; color:var(--text); line-height:1.5; border-left:3px solid rgba(255,69,0,0.4); padding-left:12px; margin:0; }
 .reddit-posts-list { display:flex; flex-direction:column; gap:10px; }
-.reddit-post-card { display:block; background:rgba(255,69,0,0.06); border:1px solid rgba(255,69,0,0.18); border-radius:var(--radius-sm); padding:14px 16px; text-decoration:none; color:var(--text); transition:all 0.2s; }
-.reddit-post-card:hover { background:rgba(255,69,0,0.12); border-color:rgba(255,69,0,0.35); transform:translateX(4px); }
+.reddit-post-card { display:block; background:rgba(255,69,0,0.06); border:1px solid rgba(255,69,0,0.18); border-radius:var(--radius-sm); padding:14px 16px; color:var(--text); }
 .reddit-post-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
 .reddit-post-sub { font-size:0.72rem; font-weight:700; color:#ff6534; text-transform:uppercase; letter-spacing:0.06em; }
-.reddit-post-external { color:rgba(255,255,255,0.3); flex-shrink:0; }
-.reddit-post-card:hover .reddit-post-external { color:rgba(255,255,255,0.7); }
 .reddit-post-title { font-size:0.9rem; font-weight:600; color:var(--text); line-height:1.4; margin-bottom:8px; }
 .reddit-post-quote { font-style:italic; font-size:0.82rem; color:var(--text-dim); line-height:1.5; border-left:2px solid rgba(255,69,0,0.4); padding-left:10px; margin:0; }
 
