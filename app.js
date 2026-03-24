@@ -252,9 +252,8 @@ function applyFilters(baseParks) {
   return baseParks.filter(p => {
     // Duration
     if (filterState.maxDuration !== null && (p.flightMinutes || 0) > filterState.maxDuration) return false;
-    // Days Range
+    // Days Range (Min required)
     if (filterState.minDays !== null && (p.minDays || 1) < filterState.minDays) return false;
-    if (filterState.maxDays !== null && (p.minDays || 1) > filterState.maxDays) return false;
     // Rating
     if (filterState.minRating > 0 && p.compositeScore < filterState.minRating) return false;
     // Stargazing
@@ -305,17 +304,10 @@ function renderFilterUI() {
           onchange="setFilterValue('maxDuration', parseInt(this.value))"
           oninput="this.previousElementSibling.innerText = 'Total Travel Time: <= ' + Math.floor(this.value/60) + 'h ' + (this.value%60) + 'm'">
         
-        <label style="margin-top:16px;">Suggested Days: ${filterState.minDays||filterBounds.minDays} - ${filterState.maxDays||filterBounds.maxDays} days</label>
-        <div style="display:flex; gap:12px;">
-           <span style="font-size:0.8rem;color:#9ca3af">Min</span>
-           <input type="range" min="${filterBounds.minDays}" max="${filterBounds.maxDays}" step="1" value="${filterState.minDays||filterBounds.minDays}" 
-             onchange="setFilterValue('minDays', parseInt(this.value))">
-        </div>
-        <div style="display:flex; gap:12px; margin-top:8px;">
-           <span style="font-size:0.8rem;color:#9ca3af">Max</span>
-           <input type="range" min="${filterBounds.minDays}" max="${filterBounds.maxDays}" step="1" value="${filterState.maxDays||filterBounds.maxDays}" 
-             onchange="setFilterValue('maxDays', parseInt(this.value))">
-        </div>
+        <label style="margin-top:16px;">Suggested Days: &ge; ${filterState.minDays||filterBounds.minDays} days</label>
+        <input type="range" min="${filterBounds.minDays}" max="${filterBounds.maxDays}" step="1" value="${filterState.minDays||filterBounds.minDays}" 
+             onchange="setFilterValue('minDays', parseInt(this.value))"
+             oninput="this.previousElementSibling.innerText = 'Suggested Days: &ge; ' + this.value + ' days'">
       </div>
 
       <div class="filter-col">
@@ -358,8 +350,13 @@ function renderParks() {
 
   if (viewMode === 'all' && !selectedMonth) {
     parks = PARKS.filter(p => !hiddenParks.has(p.name));
-    if (!showVisited) parks = parks.filter(p => !visitedParks.has(p.name));
-    modeLabel = `${parks.length} Parks Displayed`;
+    let hiddenCount = 0;
+    if (!showVisited) {
+      let lenBefore = parks.length;
+      parks = parks.filter(p => !visitedParks.has(p.name));
+      hiddenCount = lenBefore - parks.length;
+    }
+    modeLabel = `${parks.length} Parks Displayed ${hiddenCount > 0 ? '<span style="font-size:0.8rem;color:var(--text-dim);font-weight:400;">(' + hiddenCount + ' hidden by Visited toggle)</span>' : ''}`;
   } else if (viewMode === 'favorites') {
     parks = PARKS.filter(p => favoritedParks.has(p.name) && !hiddenParks.has(p.name));
     modeLabel = `⭐ ${parks.length} Favorited Park${parks.length !== 1 ? 's' : ''}`;
@@ -471,27 +468,17 @@ function renderParks() {
         <span class="min-days-badge">🗓️ Min ${park.minDays} day${park.minDays>1?'s':''}</span>
       </div>
 
-      ${monthData ? `
-      <div class="info-grid">
-        <div class="info-item">
-          <span class="info-label">🌡️ Temp in ${MONTHS[selectedMonth - 1]}</span>
-          <span class="info-value">${monthData.temp}</span>
-        </div>
-        <div class="info-item">
-          <span class="info-label">⛔ Avoid</span>
-          <span class="info-value small-val">${park.avoid && park.avoid.length ? formatBestMonths(park.avoid.map(Number)) : 'None'}</span>
-        </div>
-      </div>` : `
       <div class="info-grid">
         <div class="info-item">
           <span class="info-label">📅 Best Months</span>
           <span class="info-value small-val">${formatBestMonths(park.bestMonths)}</span>
         </div>
-        <div class="info-item">
+        ${monthData ? '<div class="info-item"><span class="info-label">🌡️ Temp in ' + MONTHS[selectedMonth - 1] + '</span><span class="info-value">' + monthData.temp + '</span></div>' : ''}
+        <div class="info-item" ${monthData ? 'style="grid-column: span 2;"' : ''}>
           <span class="info-label">⛔ Avoid</span>
           <span class="info-value small-val">${park.avoid && park.avoid.length ? formatBestMonths(park.avoid.map(Number)) : 'None'}</span>
         </div>
-      </div>`}
+      </div>
 
       <div class="card-footer">
         <div class="card-airport-row">
