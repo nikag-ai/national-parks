@@ -1,5 +1,13 @@
 // ============ Initialization ============
-const PARKS = window.PARKS_DATA || [];
+const PARKS = Object.values(window.PARKS_SUMMARY || {});
+const LOGISTICS = window.PARKS_LOGISTICS || {};
+const MAJOR_HUBS = window.MAJOR_HUBS || [];
+
+function calculateCompositeScore(park) {
+  const score = (park.popularity * 0.4) + (park.uniqueness * 0.4) + (park.sfoAccessibility * 0.2);
+  return Math.max(Math.min((score / 100) * 5, 5), 1);
+}
+PARKS.forEach(p => { p.compositeScore = parseFloat(calculateCompositeScore(p).toFixed(1)); });
 
 const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const MONTH_FULL = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -18,61 +26,71 @@ const STATE_NAMES = {
   "AS": "American Samoa", "VI": "Virgin Islands", "GU": "Guam", "MP": "Northern Mariana Islands", "PR": "Puerto Rico"
 };
 
-// ============ Composite Score ============
-function calculateCompositeScore(park) {
-  const score = (park.popularity * 0.4) + (park.uniqueness * 0.4) + (park.sfoAccessibility * 0.2);
-  return Math.max(Math.min((score / 100) * 5, 5), 1);
+// ============ State & DOM ============
+let selectedMonth    = null;
+let currentHomeHub   = localStorage.getItem('homeHub') || 'SFO';
+let viewMode         = 'all';
+let sortBy           = 'score';
+let visitedParks     = new Set(JSON.parse(localStorage.getItem('visitedParks')   || '[]'));
+let favoritedParks   = new Set(JSON.parse(localStorage.getItem('favoritedParks') || '[]'));
+let hiddenParks      = new Set(JSON.parse(localStorage.getItem('hiddenParks')    || '[]'));
+
+let filterState = JSON.parse(localStorage.getItem('filterState')) || {
+  maxDuration: null,
+  minDays: null,
+  maxDays: null,
+  minRating: 0,
+  flights: [],
+  stargazing: false
+};
+function saveFilterState() { localStorage.setItem('filterState', JSON.stringify(filterState)); }
+let showVisited = localStorage.getItem('showVisited') !== 'false';
+let showFilterPanel = false;
+
+const chipContainer    = document.querySelector('.month-chips');
+const parkSearchInput  = document.getElementById('park-search');
+const searchClearBtn   = document.getElementById('search-clear');
+const parkGrid         = document.getElementById('park-grid');
+const emptyState       = document.getElementById('empty-state');
+const statsBar         = document.getElementById('stats-bar');
+const modal            = document.getElementById('park-modal');
+const modalCloseBtn    = document.getElementById('modal-close-btn');
+const modalBody        = document.getElementById('modal-body');
+const filterPanel      = document.getElementById('filter-panel');
+const visitedToggle    = document.getElementById('visited-toggle');
+const toggleWrap       = document.querySelector('.visited-toggle-wrap');
+const startPointSelect = document.getElementById('start-point');
+
+// ============ Logistics Engine ============
+function getTravelTime(park) {
+  const hub = currentHomeHub;
+  const parkId = park.id;
+  
+  if (LOGISTICS[parkId] && LOGISTICS[parkId][hub] !== undefined) {
+    return LOGISTICS[parkId][hub];
+  }
+
+  // Fallback for safety (though matrix should be complete)
+  return 120 + (park.gatewayExtraMinutes || 0);
 }
-PARKS.forEach(p => { p.compositeScore = parseFloat(calculateCompositeScore(p).toFixed(1)); });
 
 // Initial filter bounds based on all parks
 let filterBounds = { minDuration: 0, maxDuration: 0, minDays: 0, maxDays: 0 };
 function initFilterBounds() {
   if (!PARKS.length) return;
-  filterBounds.minDuration = Math.min(...PARKS.map(p => p.flightMinutes || 0));
-  filterBounds.maxDuration = Math.max(...PARKS.map(p => p.flightMinutes || 0));
+  const times = PARKS.map(p => getTravelTime(p));
+  filterBounds.minDuration = Math.min(...times);
+  filterBounds.maxDuration = Math.max(...times);
   filterBounds.minDays = Math.min(...PARKS.map(p => p.minDays || 1));
   filterBounds.maxDays = Math.max(...PARKS.map(p => p.minDays || 1));
+
+  // Auto-correct filterState if it's now out of range
+  if (filterState.maxDuration === null || filterState.maxDuration < filterBounds.minDuration) {
+    filterState.maxDuration = filterBounds.maxDuration;
+    saveFilterState();
+  }
 }
 initFilterBounds();
-
-// ============ State ============
-let selectedMonth    = null;
-let viewMode         = 'all';   // 'all' | 'favorites' | 'visited'
-let sortBy           = 'score'; // 'score' | 'flight' | 'days'
-let visitedParks     = new Set(JSON.parse(localStorage.getItem('visitedParks')   || '[]'));
-let favoritedParks   = new Set(JSON.parse(localStorage.getItem('favoritedParks') || '[]'));
-let hiddenParks      = new Set(JSON.parse(localStorage.getItem('hiddenParks')    || '[]'));
-
-// ============ Filters ============
-let showFilterPanel = false;
-let filterState = JSON.parse(localStorage.getItem('filterState')) || {
-  maxDuration: null,
-  minDays: null,
-  maxDays: null,
-  minRating: 0, // 0, 3, 4
-  flights: [], // 'no-flight', 'direct', '1-stop', '2-stops'
-  stargazing: false
-};
-
-function saveFilterState() { localStorage.setItem('filterState', JSON.stringify(filterState)); }
-
-let showVisited      = localStorage.getItem('showVisited') !== 'false';
-
-// ============ DOM ============
-const chipContainer = document.querySelector('.month-chips');
-const parkSearchInput = document.getElementById('park-search');
-const searchClearBtn   = document.getElementById('search-clear');
-const parkGrid      = document.getElementById('park-grid');
-const emptyState    = document.getElementById('empty-state');
-const statsBar      = document.getElementById('stats-bar');
-const modal         = document.getElementById('park-modal');
-const modalCloseBtn = document.getElementById('modal-close-btn');
-const modalBody     = document.getElementById('modal-body');
-const filterPanel   = document.getElementById('filter-panel');
-const visitedToggle = document.getElementById('visited-toggle');
-const toggleWrap    = document.querySelector('.visited-toggle-wrap');
-
 // ============ Theme Selection ============
 let currentTheme = localStorage.getItem('theme') || 'dark';
 const applyTheme = (theme) => {
@@ -153,6 +171,21 @@ document.addEventListener('click', closeAllMenus);
 
 function init() {
   renderChips();
+  
+  // Populate Hubs Dropdown
+  if (startPointSelect) {
+    startPointSelect.innerHTML = MAJOR_HUBS.map(hub => 
+      `<option value="${hub.code}" ${hub.code === currentHomeHub ? 'selected' : ''}>${hub.code}</option>`
+    ).join('');
+    
+    startPointSelect.addEventListener('change', (e) => {
+      currentHomeHub = e.target.value;
+      localStorage.setItem('homeHub', currentHomeHub);
+      initFilterBounds(); // Re-calculate bounds for the new hub
+      renderParks();
+    });
+  }
+
   if (visitedToggle) {
     visitedToggle.checked = showVisited;
     visitedToggle.addEventListener('change', () => { 
@@ -245,18 +278,19 @@ function selectMonth(month) {
 }
 
 // ============ Formatting Helpers ============
-function formatBestMonths(months) {
+function formatMonths(months) {
   if (!months || months.length === 0) return "";
   if (months.length === 12) return "Year-round";
+  const sorted = [...months].sort((a,b) => a-b);
   const ranges = [];
-  let start = months[0], prev = months[0];
-  for (let i = 1; i < months.length; i++) {
-    if (months[i] === prev + 1) { prev = months[i]; }
-    else { ranges.push([start, prev]); start = months[i]; prev = months[i]; }
+  let start = sorted[0], prev = sorted[0];
+  for (let i = 1; i < sorted.length; i++) {
+    if (sorted[i] === prev + 1) { prev = sorted[i]; }
+    else { ranges.push([start, prev]); start = sorted[i]; prev = sorted[i]; }
   }
   ranges.push([start, prev]);
   return ranges.map(([s,e]) => s===e ? MONTHS[s-1] : `${MONTHS[s-1]}–${MONTHS[e-1]}`).join(', ');
-}
+}function formatBestMonths(months) { return formatMonths(months); }
 
 function renderStars(count) {
   const full = Math.floor(count), half = (count % 1) >= 0.3;
@@ -281,14 +315,12 @@ function sortParks(parks) {
     if (bFav !== aFav) return bFav - aFav;
 
     if (sortBy === 'distance') {
-      return (a.flightMinutes || 999) - (b.flightMinutes || 999);
+      return getTravelTime(a) - getTravelTime(b);
     } else if (sortBy === 'days') {
       return (a.minDays || 99) - (b.minDays || 99);
     } else if (sortBy === 'stargazing') {
-      const aStar = a.stargazing && a.stargazing.isFriendly ? 1 : 0;
-      const bStar = b.stargazing && b.stargazing.isFriendly ? 1 : 0;
-      if (bStar !== aStar) return bStar - aStar;
-      return b.compositeScore - a.compositeScore; // secondary sort
+      // Note: stargazing info moved to details, using composite as fallback for summary
+      return b.compositeScore - a.compositeScore;
     }
     // default: score
     return b.compositeScore - a.compositeScore;
@@ -390,16 +422,25 @@ function renderFilterChips() {
   });
 }
 
+function getFlightType(park) {
+  if (currentHomeHub === park.gatewayHub) {
+    return park.gatewayExtraMinutes <= 120 ? 'no-flight' : 'direct';
+  }
+  return '1-stop';
+}
+
 function applyFilters(baseParks) {
   return baseParks.filter(p => {
     // Duration
-    if (filterState.maxDuration !== null && (p.flightMinutes || 0) > filterState.maxDuration) return false;
+    const travelTime = getTravelTime(p);
+    if (filterState.maxDuration !== null && travelTime > filterState.maxDuration) return false;
     // Days Range (Min required)
     if (filterState.minDays !== null && (p.minDays || 1) < filterState.minDays) return false;
     // Rating
     if (filterState.minRating > 0 && p.compositeScore < filterState.minRating) return false;
     // Stargazing
-    if (filterState.stargazing && !(p.stargazing && p.stargazing.isFriendly)) return false;
+    if (filterState.stargazing && !p.stargazing) return false;
+    
     // Flight Types
     if (filterState.flights.length > 0) {
       const type = getFlightType(p);
@@ -584,16 +625,16 @@ function renderParks() {
     if (isHidden) cardClass += ' park-hidden';
 
     card.className = cardClass;
-    // Reduce stutter on mobile by shortening stagger
     const stagger = ('ontouchstart' in window) ? 0.02 : 0.04;
     card.style.animationDelay = `${idx * stagger}s`;
     card.addEventListener('click', () => openModal(park));
 
-    const monthData = selectedMonth && park.monthlyData[selectedMonth]
-      ? park.monthlyData[selectedMonth]
-      : null;
+    const travelTime = getTravelTime(park);
+    const hrs = Math.floor(travelTime / 60);
+    const mins = travelTime % 60;
+    const timeStr = hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`;
 
-    const ap = parseAirport(park.airport);
+    const seasonalInfo = window.PARKS_SEASONAL?.[park.id]?.[selectedMonth];
 
     card.innerHTML = `
       <div class="card-header">
@@ -601,33 +642,33 @@ function renderParks() {
           <div class="park-name">
             ${park.name}<span class="park-state-inline">${park.state}</span>
           </div>
-          <div class="park-meta-row">
-            ${isVisited ? '<span class="visited-badge">✓ Visited</span>' : ''}
-          </div>
         </div>
         <div class="card-right-col">
           <div class="card-actions">
             <button class="card-action-btn ${isFavorite ? 'active-heart' : ''}" 
-              title="${isFavorite ? 'Unfavorite' : 'Add to Favorites'}"
-              onclick="toggleFavorite('${park.name}', event)">
+              onclick="toggleFavorite('${park.name}', event)"
+              data-tooltip="${isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}">
               ${isFavorite ? '❤️' : '🤍'}
             </button>
             <button class="card-action-btn ${isVisited ? 'active-tick' : ''}" 
-              title="${isVisited ? 'Mark Unvisited' : 'Mark Visited'}"
-              onclick="toggleVisited('${park.name}', event)">
+              onclick="toggleVisited('${park.name}', event)"
+              data-tooltip="${isVisited ? 'Unmark as Visited' : 'Mark as Visited'}">
               ${isVisited ? '✅' : '✔️'}
             </button>
-            <button class="card-action-btn hide-btn" 
-              title="Hide Park"
-              onclick="toggleHidden('${park.name}', event)">
-              ✖️
+            <button class="card-action-btn ${isHidden ? 'active-hide' : ''}" 
+              onclick="toggleHidden('${park.name}', event)"
+              data-tooltip="${isHidden ? 'Unhide Park' : 'Hide Park'}">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
             </button>
           </div>
         </div>
       </div>
 
       <div class="card-score-row">
-        <span class="star-badge" title="Score: ${park.compositeScore}/5">
+        <span class="star-badge">
           ${renderStars(park.compositeScore)} <span class="score-num">${park.compositeScore}</span>
         </span>
         <span class="min-days-badge">🗓️ Min ${park.minDays} day${park.minDays>1?'s':''}</span>
@@ -638,21 +679,32 @@ function renderParks() {
           <span class="info-label">📅 Best Months</span>
           <span class="info-value small-val">${formatBestMonths(park.bestMonths)}</span>
         </div>
-        ${monthData ? '<div class="info-item"><span class="info-label">🌡️ Temp in ' + MONTHS[selectedMonth - 1] + '</span><span class="info-value">' + monthData.temp + '</span></div>' : ''}
-        <div class="info-item" ${monthData ? 'style="grid-column: span 2;"' : ''}>
-          <span class="info-label">⛔ Avoid</span>
-          <span class="info-value small-val">${park.avoid && park.avoid.length ? formatBestMonths(park.avoid.map(Number)) : 'None'}</span>
-        </div>
+        ${park.avoid && park.avoid.length > 0 ? `
+        <div class="info-item">
+          <span class="info-label">⚠️ Avoid</span>
+          <span class="info-value small-val">${formatMonths(park.avoid)}</span>
+        </div>` : ''}
+        ${seasonalInfo && seasonalInfo.temp !== 'N/A' ? '<div class="info-item"><span class="info-label">🌡️ Temp in ' + MONTHS[selectedMonth - 1] + '</span><span class="info-value">' + seasonalInfo.temp + '</span></div>' : ''}
       </div>
 
       <div class="card-footer">
         <div class="card-airport-row">
-          <span class="plane">✈️</span>
-          <span class="airport-code">${ap.code}</span>
-          ${ap.detail ? `<span class="airport-detail">${ap.detail}</span>` : ''}
-          ${park.flight ? `<span class="flight-time-inline">&bull; 🕒 ${park.flight}</span>` : ''}
+          ${(() => {
+            const h = currentHomeHub;
+            const d = park.driveTimes?.[h];
+            if (d && d <= 360) {
+              return `<span class="car">🚗</span> <span class="time-main"><strong>${timeStr}</strong> drive from ${h}</span>`;
+            }
+            const flight = travelTime - (park.gatewayExtraMinutes || 0);
+            const fH = Math.floor(flight / 60); const fM = flight % 60;
+            const fStr = fH > 0 ? `${fH}h ${fM}m` : `${fM}m`;
+            return `
+              <span class="plane">✈️</span>
+              <span class="airport-code">${park.gatewayHub}</span>
+              <span class="time-main">(${fStr}) + 🚗 ${Math.floor(park.gatewayExtraMinutes/60)}h ${park.gatewayExtraMinutes%60}m &bull; <strong>${timeStr}</strong></span>
+            `;
+          })()}
         </div>
-        ${monthData && park.transport ? `<div class="transport-tag">🚌 ${park.transport}</div>` : ''}
       </div>
       <div class="card-cta">
         ${('ontouchstart' in window) ? 'Tap to explore ➝' : 'Click for details ➝'}
@@ -670,6 +722,9 @@ function setSort(mode) {
 
 // ============ Modal ============
 function openModal(park) {
+  const details = window.PARKS_DETAILS?.[park.id];
+  if (!details) return;
+
   document.body.classList.add('modal-open');
   modal.classList.remove('hidden');
 
@@ -679,52 +734,74 @@ function openModal(park) {
   const starStr    = renderStars(park.compositeScore);
   const scorePct   = (park.compositeScore / 5) * 100;
 
-  // Buttons in modal header
-  const btnsHtml = `
-    <button class="modal-action-btn ${isFavorite ? 'fav-active' : ''}" onclick="toggleFavorite('${park.name}')">
-      ${isFavorite ? '⭐ Unfavorite' : '☆ Favorite'}
-    </button>
-    <button class="modal-action-btn ${isVisited ? 'visited-active' : ''}" onclick="toggleVisited('${park.name}')">
-      ${isVisited ? '✓ Visited' : 'Mark Visited'}
-    </button>
-    <button class="modal-action-btn ${isHidden ? 'hidden-active' : ''}" onclick="toggleHidden('${park.name}')" style="color:#ef4444;border-color:rgba(239,68,68,0.3);">
-      ${isHidden ? '👁️ Unhide' : '🙈 Hide'}
-    </button>
-  `;
-  const activitiesHtml  = park.topActivities.map(a => `<span class="activity-tag">${a}</span>`).join('');
-  const itineraryHtml   = park.itinerary.map(i => `<div class="itinerary-step"><strong>${i.day}</strong><p>${i.plan}</p></div>`).join('');
-  const hacksHtml       = (park.travelHacks||[]).map(h => `<div class="hack-item">${h}</div>`).join('');
-  const dos             = (park.dosAndDonts||[]).filter(i => i.type==="do");
-  const donts           = (park.dosAndDonts||[]).filter(i => i.type==="dont");
+  const activitiesHtml  = (details.topActivities||[]).map(a => `<span class="activity-tag">${a}</span>`).join('');
+  const itineraryHtml   = (details.itinerary||[]).map(i => `<div class="itinerary-step"><strong>${i.day}</strong><p>${i.plan}</p></div>`).join('');
+  const hacksHtml       = (details.travelHacks||[]).map(h => `<div class="hack-item">${h}</div>`).join('');
+  const dos             = (details.dosAndDonts||[]).filter(i => i.type==="do");
+  const donts           = (details.dosAndDonts||[]).filter(i => i.type==="dont");
   const dosHtml         = dos.map(d => `<div class="do-item">${d.text}</div>`).join('');
   const dontsHtml       = donts.map(d => `<div class="dont-item">${d.text}</div>`).join('');
-  const funFactsHtml    = (park.funFacts||[]).map(f => `<div class="fun-fact-item">${f}</div>`).join('');
+  const funFactsHtml    = (details.funFacts||[]).map(f => `<div class="fun-fact-item">${f}</div>`).join('');
 
-  const monthData    = selectedMonth && park.monthlyData[selectedMonth] ? park.monthlyData[selectedMonth] : null;
+  const seasonalInfo = window.PARKS_SEASONAL?.[park.id]?.[selectedMonth];
   const monthNameFn  = selectedMonth ? MONTH_FULL[selectedMonth - 1] : null;
 
-  const links = park.links || {};
+  const redditPostsHtml = (details.redditPosts||[]).map(p => `
+    <a href="${p.url}" target="_blank" class="reddit-post-card">
+      <div class="reddit-post-top">
+        <span class="reddit-post-sub">${p.sub}</span>
+        <span class="reddit-post-icon">↗</span>
+      </div>
+      <div class="reddit-post-title">${p.title}</div>
+      ${p.quote ? `<div class="reddit-post-quote">${p.quote}</div>` : ''}
+    </a>
+  `).join('');
+
+  const links = details.links || {};
+  const linkLabelMap = {
+    nps: '🏛️ NPS Official',
+    wikipedia: '📖 Wikipedia',
+    reddit: '🤖 Reddit',
+    guide: '🗺️ Field Guide',
+    lodging: '🛌 Lodging',
+    dining: '🍽️ Dining',
+    activities: '🧗 Activities',
+    conditions: '🚧 Road Conditions',
+    roadConditions: '🚧 Road Conditions'
+  };
+
   const linksHtml = `<div class="resource-links">
-    ${links.nps          ? `<a href="${links.nps}"          target="_blank" class="resource-link resource-link-nps">🏛️ NPS Official</a>` : ''}
-    ${links.lodging      ? `<a href="${links.lodging}"      target="_blank" class="resource-link resource-link-lodging">🛏️ Lodging</a>` : ''}
-    ${links.dining       ? `<a href="${links.dining}"       target="_blank" class="resource-link resource-link-dining">🍽️ Dining</a>` : ''}
-    ${links.activities   ? `<a href="${links.activities}"   target="_blank" class="resource-link resource-link-activities">🧗 Activities</a>` : ''}
-    ${links.roadConditions ? `<a href="${links.roadConditions}" target="_blank" class="resource-link resource-link-road">🚧 Road Conditions</a>` : ''}
+    ${Object.entries(links).map(([key, url]) => `
+      <a href="${url}" target="_blank" class="resource-link resource-link-${key}">
+        ${linkLabelMap[key] || (key.charAt(0).toUpperCase() + key.slice(1))}
+      </a>
+    `).join('')}
   </div>`;
 
-  const ap = parseAirport(park.airport);
+  const travelTime = getTravelTime(park);
+  const hrs = Math.floor(travelTime / 60);
+  const mins = travelTime % 60;
+  const timeStr = hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`;
 
   modalBody.innerHTML = `
     <div class="modal-icon-actions">
-      <button class="modal-icon-btn" 
-        title="${isFavorite ? 'Unfavorite' : 'Add to Favorites'}"
-        onclick="toggleFavorite('${park.name}', event); openModal(window.PARKS_DATA.find(p=>p.name==='${park.name}'))">
+      <button class="modal-icon-btn ${isFavorite ? 'active-heart' : ''}" 
+        onclick="toggleFavorite('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
+        data-tooltip="${isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}">
         ${isFavorite ? '❤️' : '🤍'}
       </button>
-      <button class="modal-icon-btn" 
-        title="${isVisited ? 'Mark Unvisited' : 'Mark Visited'}"
-        onclick="toggleVisited('${park.name}', event); openModal(window.PARKS_DATA.find(p=>p.name==='${park.name}'))">
+      <button class="modal-icon-btn ${isVisited ? 'active-tick' : ''}" 
+        onclick="toggleVisited('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
+        data-tooltip="${isVisited ? 'Unmark as Visited' : 'Mark as Visited'}">
         ${isVisited ? '✅' : '✔️'}
+      </button>
+      <button class="modal-icon-btn ${isHidden ? 'active-hide' : ''}" 
+        onclick="toggleHidden('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
+        data-tooltip="${isHidden ? 'Unhide Park' : 'Hide Park'}">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
       </button>
     </div>
     <div class="modal-header">
@@ -734,8 +811,20 @@ function openModal(park) {
             ${isFavorite?'⭐ ':''}${park.name} <span class="modal-state-inline">${park.state}</span>
           </h2>
           <div class="modal-subtitle">
-            <span class="modal-airport-inline">✈️ <strong>${ap.code}</strong> ${ap.detail}</span>
-            ${park.flight ? `<span class="sep">&bull;</span><span class="modal-flight-inline">${park.flight}</span>` : ''}
+            ${(() => {
+              const h = currentHomeHub;
+              const d = park.driveTimes?.[h];
+              if (d && d <= 360) {
+                return `<span class="modal-airport-inline">🚗 <strong>${timeStr}</strong> drive from ${h}</span>`;
+              }
+              const flight = travelTime - (park.gatewayExtraMinutes || 0);
+              const fH = Math.floor(flight / 60); const fM = flight % 60;
+              const fStr = fH > 0 ? `${fH}h ${fM}m` : `${fM}m`;
+              const gH = Math.floor(park.gatewayExtraMinutes/60);
+              const gM = park.gatewayExtraMinutes%60;
+              const gStr = gH > 0 ? `${gH}h ${gM}m` : `${gM}m`;
+              return `<span class="modal-airport-inline">✈️ <strong>${park.gatewayHub}</strong> (${fStr}) + 🚗 ${gStr} &bull; <strong>${timeStr} from ${h}</strong></span>`;
+            })()}
             <span class="sep">&bull;</span>
             <span class="modal-min-days">🗓️ Min ${park.minDays} days</span>
           </div>
@@ -743,85 +832,67 @@ function openModal(park) {
         <div class="modal-header-right">
           <div class="modal-rating-detail">
             <div class="modal-star-row">${starStr} <span class="modal-score-num">${park.compositeScore}</span></div>
-            <div class="composite-score">Pop: ${park.popularity} | Unique: ${park.uniqueness} | SFO: ${park.sfoAccessibility}</div>
+            <div class="composite-score">Pop: ${park.popularity} | Unique: ${park.uniqueness}</div>
             <div class="score-bar-bg"><div class="score-bar-fill" style="width:${scorePct}%"></div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Seasonal Verdict -->
-    ${park.seasonalVerdict ? `
+    ${details.seasonalVerdict ? `
     <div class="modal-section seasonal-verdict-container">
       <div class="seasonal-verdict-grid">
         <div>
           <div class="seasonal-best-label">✨ Seasonal Best</div>
-          <div class="seasonal-verdict-text">${park.seasonalVerdict.best}</div>
+          <div class="seasonal-verdict-text">${details.seasonalVerdict.best}</div>
         </div>
         <div class="caution-col">
           <div class="seasonal-caution-label">⚠️ Seasonal Caution</div>
-          <div class="seasonal-verdict-text">${park.seasonalVerdict.avoid}</div>
+          <div class="seasonal-verdict-text">${details.seasonalVerdict.avoid}</div>
         </div>
       </div>
     </div>` : ''}
 
     <div class="modal-section"><h3 class="modal-section-title">✨ Top Activities</h3><div class="activities-list">${activitiesHtml}</div></div>
 
-    <!-- Monthly Banner (only if month selected) -->
-    ${monthData ? `
+    ${seasonalInfo && selectedMonth ? `
     <div class="monthly-banner">
       <div class="monthly-banner-header">📅 Visiting in ${monthNameFn}</div>
       <div class="monthly-metrics">
-        <div class="monthly-metric" style="flex:1;min-width:150px;"><span class="label">Average Temp</span><span class="value">${monthData.temp}</span></div>
-        <div class="monthly-metric" style="flex:2;min-width:250px;"><span class="label">Reservations & Permits</span><span class="value">${monthData.reservations}</span></div>
+        <div class="monthly-metric" style="flex:1;"><span class="label">Average Temp</span><span class="value">${seasonalInfo.temp}</span></div>
+        <div class="monthly-metric" style="flex:1;"><span class="label">Crowd Level</span><span class="value">${'👤'.repeat(seasonalInfo.crowdScore)}</span></div>
       </div>
       <div class="reddit-sentiment" style="margin-top:12px;">
-        <div class="reddit-sentiment-header"><svg width="16" height="16" viewBox="0 0 20 20" fill="#ff4500"><circle cx="10" cy="10" r="10"/><ellipse cx="10" cy="9" rx="5" ry="3.5" fill="#fff" opacity=".15"/><circle cx="7" cy="9" r="1" fill="#fff"/><circle cx="13" cy="9" r="1" fill="#fff"/><path d="M7 12.5c.8.8 5.2.8 6 0" stroke="#fff" stroke-width="1" fill="none" stroke-linecap="round"/></svg> r/NationalParks on ${monthNameFn} at ${park.name}</div>
-        <blockquote>"${monthData.reddit}"</blockquote>
+        <div class="reddit-sentiment-header">r/NationalParks on ${monthNameFn}</div>
+        <blockquote>"${seasonalInfo.reddit}"</blockquote>
       </div>
     </div>` : ''}
 
-    <!-- Sun & Stars -->
     <div class="modal-section">
       <h3 class="modal-section-title">🌅 Sun & Stars</h3>
-      <div style="color:var(--text-dim);font-size:0.9rem;margin-bottom:12px;line-height:1.5;">${park.sunriseSunset}</div>
+      <div style="color:var(--text-dim);font-size:0.9rem;margin-bottom:12px;line-height:1.5;">${details.sunriseSunset}</div>
+      ${details.stargazing ? `
       <div class="stargazing-card">
         <div class="stargazing-icon">🔭</div>
         <div class="stargazing-info">
-          <h4>Stargazing: ${park.stargazing.isFriendly?'Highly Recommended':'Limited'}</h4>
-          <p><strong>Best Spots:</strong> ${park.stargazing.spots}</p>
-          <p>${park.stargazing.description}</p>
+          <h4>Stargazing: ${details.stargazing.isFriendly?'Highly Recommended':'Limited'}</h4>
+          <p><strong>Best Spots:</strong> ${details.stargazing.spots}</p>
+          <p>${details.stargazing.description}</p>
         </div>
-      </div>
+      </div>` : ''}
     </div>
 
-    <!-- Fun Facts -->
     ${funFactsHtml?`<div class="modal-section"><h3 class="modal-section-title">💡 Fun Facts</h3><div class="fun-facts-list">${funFactsHtml}</div></div>`:''}
-
-    <!-- Travel Hacks -->
     ${hacksHtml?`<div class="modal-section"><h3 class="modal-section-title">🎒 Travel Hacks</h3><div class="hacks-list">${hacksHtml}</div></div>`:''}
-
-    <!-- Dos & Donts -->
     ${(dosHtml||dontsHtml)?`<div class="modal-section"><h3 class="modal-section-title">✅ Dos & Don'ts</h3><div class="dos-donts-grid"><div class="dos-col"><h4>✓ Do</h4><div class="dos-list">${dosHtml}</div></div><div class="donts-col"><h4>× Don't</h4><div class="donts-list">${dontsHtml}</div></div></div></div>`:''}
+    <div class="modal-section"><h3 class="modal-section-title">🗺️ Sample Itinerary</h3><div style="margin-top:16px;">${itineraryHtml}</div></div>
 
-    <!-- Itinerary -->
-    <div class="modal-section"><h3 class="modal-section-title">🗺️ Sample Itinerary (${park.days})</h3><div style="margin-top:16px;">${itineraryHtml}</div></div>
-
-    <!-- Reddit Posts -->
-    ${park.redditPosts&&park.redditPosts.length?`
+    ${redditPostsHtml ? `
     <div class="modal-section">
-      <h3 class="modal-section-title"><svg width="18" height="18" viewBox="0 0 20 20" fill="#ff4500"><circle cx="10" cy="10" r="10"/><ellipse cx="10" cy="9" rx="5" ry="3.5" fill="#fff" opacity=".15"/><circle cx="7" cy="9" r="1" fill="#fff"/><circle cx="13" cy="9" r="1" fill="#fff"/><path d="M7 12.5c.8.8 5.2.8 6 0" stroke="#fff" stroke-width="1" fill="none" stroke-linecap="round"/></svg> Top Reddit Discussions</h3>
-      <div class="reddit-posts-list">
-        ${park.redditPosts.map(post=>`
-        <div class="reddit-post-card" style="cursor:default; text-decoration:none;">
-          <div class="reddit-post-top"><span class="reddit-post-sub">${post.sub}</span></div>
-          <div class="reddit-post-title">${post.title}</div>
-          <blockquote class="reddit-post-quote">"${post.quote}"</blockquote>
-        </div>`).join('')}
-      </div>
-    </div>`:''}
+      <h3 class="modal-section-title">💬 Reddit Community Advice</h3>
+      <div class="reddit-posts-list">${redditPostsHtml}</div>
+    </div>` : ''}
 
-    <!-- Resource Links (Moved to bottom) -->
     <div class="modal-section modal-links-section" style="margin-bottom:0; border-bottom:none;">
       <h3 class="modal-section-title">🔗 Resources</h3>${linksHtml}
     </div>

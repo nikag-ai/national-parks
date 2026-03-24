@@ -1,2 +1,9 @@
 .DS_Store
 *.log
+*.json
+/tmp/
+verify_*.js
+sync_*.js
+generate_*.js
+final_overhaul.js
+!data/*.json
