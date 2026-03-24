@@ -1,7 +1,7 @@
 // ============ National Parks Enriched Data (Monthly Granularity) ============
 const _PARKS_RAW = [
   {
-    name: "Indiana Dunes", state: "IN", bestMonths: [6, 7, 8, 9], minDays: 1, flightMinutes: 260, days: "1 Day",
+    name: "Indiana Dunes", state: "IN", bestMonths: [6, 7, 8, 9], minDays: 1, flightMinutes: 410, days: "1 Day",
     airport: "MDW (1h) or ORD (1.5h)", flight: "~4h 20m to MDW (1 stop)", transport: "Car/Train",
     avoid: [11, 12, 1, 2, 3], popularity: 60, uniqueness: 75, sfoAccessibility: 50,
     funFacts: [
@@ -35,7 +35,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "New River Gorge", state: "WV", bestMonths: [5, 6, 9, 10], minDays: 2, flightMinutes: 285, days: "2 Days",
+    name: "New River Gorge", state: "WV", bestMonths: [5, 6, 9, 10], minDays: 2, flightMinutes: 345, days: "2 Days",
     airport: "CRW (1h drive)", flight: "~4h 45m to CRW (1 stop)", transport: "Car",
     avoid: [12, 1, 2], popularity: 65, uniqueness: 88, sfoAccessibility: 40,
     funFacts: [
@@ -70,7 +70,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Mammoth Cave", state: "KY", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 240, days: "1 Day",
+    name: "Mammoth Cave", state: "KY", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 420, days: "1 Day",
     airport: "SDF (1.5h) or BNA (1.5h)", flight: "~4h to SDF/BNA (1 stop)", transport: "Car/Tour",
     avoid: [11, 12, 1, 2], popularity: 55, uniqueness: 92, sfoAccessibility: 60,
     funFacts: [
@@ -104,7 +104,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Hot Springs", state: "AR", bestMonths: [2, 3, 4, 10, 11], minDays: 1, flightMinutes: 240, days: "1 Day",
+    name: "Hot Springs", state: "AR", bestMonths: [2, 3, 4, 10, 11], minDays: 1, flightMinutes: 300, days: "1 Day",
     airport: "LIT (1h drive)", flight: "~4h to LIT (1 stop)", transport: "Car/Walk",
     avoid: [6, 7, 8], popularity: 40, uniqueness: 88, sfoAccessibility: 55,
     funFacts: [
@@ -138,7 +138,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Gateway Arch", state: "MO", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 220, days: "0.5 Days",
+    name: "Gateway Arch", state: "MO", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 240, days: "0.5 Days",
     airport: "STL (20m drive/train)", flight: "~3h 40m to STL (direct)", transport: "Walk/Tram",
     avoid: [1, 2, 7, 8], popularity: 80, uniqueness: 60, sfoAccessibility: 85,
     funFacts: [
@@ -172,7 +172,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Congaree", state: "SC", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 300, days: "1 Day",
+    name: "Congaree", state: "SC", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 450, days: "1 Day",
     airport: "CAE (30m) or CLT (2h)", flight: "~5h to CAE (1 stop)", transport: "Car",
     avoid: [6, 7, 8], popularity: 20, uniqueness: 82, sfoAccessibility: 50,
     funFacts: [
@@ -278,7 +278,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Hawaii Volcanoes", state: "HI", bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], minDays: 2, flightMinutes: 330, days: "2 Days",
+    name: "Hawaii Volcanoes", state: "HI", bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], minDays: 2, flightMinutes: 495, days: "2 Days",
     airport: "ITO (45m drive) or KOA (2h)", flight: "~5h 30m to KOA/ITO (direct)", transport: "Car",
     avoid: [], popularity: 85, uniqueness: 98, sfoAccessibility: 85,
     funFacts: [
@@ -313,7 +313,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Kobuk Valley", state: "AK", bestMonths: [7, 8], minDays: 2, flightMinutes: 600, days: "2 Days",
+    name: "Kobuk Valley", state: "AK", bestMonths: [7, 8], minDays: 2, flightMinutes: 540, days: "2 Days",
     airport: "OTZ (then bush plane)", flight: "~9h to OTZ (1 stop) + plane", transport: "Bush Plane/Foot",
     avoid: [9, 10, 11, 12, 1, 2, 3, 4, 5], popularity: 2, uniqueness: 98, sfoAccessibility: 5,
     funFacts: [
@@ -346,7 +346,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Black Canyon of the Gunnison", state: "CO", bestMonths: [5, 6, 9, 10], minDays: 1, flightMinutes: 135, days: "1 Day",
+    name: "Black Canyon of the Gunnison", state: "CO", bestMonths: [5, 6, 9, 10], minDays: 1, flightMinutes: 425, days: "1 Day",
     airport: "DEN (4.5h) or MTJ (20m)", flight: "~2h 15m to DEN/MTJ", transport: "Car",
     avoid: [11, 12, 1, 2, 3, 4], popularity: 40, uniqueness: 90, sfoAccessibility: 50,
     funFacts: [
@@ -380,7 +380,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Great Sand Dunes", state: "CO", bestMonths: [5, 9, 10], minDays: 1, flightMinutes: 135, days: "1 Day",
+    name: "Great Sand Dunes", state: "CO", bestMonths: [5, 9, 10], minDays: 1, flightMinutes: 765, days: "1 Day",
     airport: "DEN (4h) or COS (2.5h)", flight: "~2h 15m to DEN + 4h drive", transport: "Car",
     avoid: [11, 12, 1, 2, 6, 7, 8], popularity: 50, uniqueness: 95, sfoAccessibility: 55,
     funFacts: [
@@ -414,7 +414,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Petrified Forest", state: "AZ", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 105, days: "1 Day",
+    name: "Petrified Forest", state: "AZ", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 315, days: "1 Day",
     airport: "PHX (3.5h drive)", flight: "~1h 45m to PHX + drive", transport: "Car",
     avoid: [6, 7, 8], popularity: 45, uniqueness: 88, sfoAccessibility: 70,
     funFacts: [
@@ -448,7 +448,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "White Sands", state: "NM", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 185, days: "1 Day",
+    name: "White Sands", state: "NM", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 270, days: "1 Day",
     airport: "ELP (1.5h drive)", flight: "~3h to ELP (1 stop)", transport: "Car",
     avoid: [6, 7, 8], popularity: 60, uniqueness: 98, sfoAccessibility: 65,
     funFacts: [
@@ -482,7 +482,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Carlsbad Caverns", state: "NM", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 185, days: "1 Day",
+    name: "Carlsbad Caverns", state: "NM", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 300, days: "1 Day",
     airport: "ELP (2h drive)", flight: "~3h to ELP (1 stop)", transport: "Car",
     avoid: [12, 1, 2], popularity: 65, uniqueness: 95, sfoAccessibility: 60,
     funFacts: [
@@ -516,7 +516,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Guadalupe Mountains", state: "TX", bestMonths: [10, 11, 3, 4], minDays: 1, flightMinutes: 185, days: "1 Day",
+    name: "Guadalupe Mountains", state: "TX", bestMonths: [10, 11, 3, 4], minDays: 1, flightMinutes: 270, days: "1 Day",
     airport: "ELP (1.5h drive)", flight: "~3h to ELP (1 stop)", transport: "Car",
     avoid: [6, 7, 8], popularity: 30, uniqueness: 85, sfoAccessibility: 60,
     funFacts: [
@@ -550,7 +550,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Theodore Roosevelt", state: "ND", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 240, days: "2 Days",
+    name: "Theodore Roosevelt", state: "ND", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 400, days: "2 Days",
     airport: "BIS (2h drive) or DIK (40m)", flight: "~4h to BIS (1 stop)", transport: "Car",
     avoid: [11, 12, 1, 2, 3], popularity: 45, uniqueness: 88, sfoAccessibility: 40,
     funFacts: [
@@ -585,7 +585,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Badlands", state: "SD", bestMonths: [5, 6, 9, 10], minDays: 1, flightMinutes: 240, days: "1 Day",
+    name: "Badlands", state: "SD", bestMonths: [5, 6, 9, 10], minDays: 1, flightMinutes: 300, days: "1 Day",
     airport: "RAP (1h drive)", flight: "~4h to RAP (1 stop)", transport: "Car",
     avoid: [11, 12, 1, 2], popularity: 65, uniqueness: 90, sfoAccessibility: 55,
     funFacts: [
@@ -619,7 +619,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Wind Cave", state: "SD", bestMonths: [6, 7, 8, 9], minDays: 1, flightMinutes: 240, days: "1 Day",
+    name: "Wind Cave", state: "SD", bestMonths: [6, 7, 8, 9], minDays: 1, flightMinutes: 300, days: "1 Day",
     airport: "RAP (1h drive)", flight: "~4h to RAP (1 stop)", transport: "Car/Tour",
     avoid: [11, 12, 1, 2], popularity: 45, uniqueness: 88, sfoAccessibility: 55,
     funFacts: [
@@ -653,7 +653,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Voyageurs", state: "MN", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 260, days: "2 Days",
+    name: "Voyageurs", state: "MN", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 680, days: "2 Days",
     airport: "MSP (4.5h) or DLH (2.5h)", flight: "~4h 20m to MSP (direct)", transport: "Boat/Car",
     avoid: [11, 12, 1, 2, 3, 4], popularity: 40, uniqueness: 90, sfoAccessibility: 50,
     funFacts: [
@@ -689,7 +689,7 @@ const _PARKS_RAW = [
   }
 ,
   {
-    name: "Mount Rainier", state: "WA", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 135, days: "2 Days",
+    name: "Mount Rainier", state: "WA", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 255, days: "2 Days",
     airport: "SEA (2hr drive)", flight: "~2h 15m direct", transport: "Car",
     avoid: [11, 12, 1, 2, 3, 4], popularity: 85, uniqueness: 90, sfoAccessibility: 85,
     funFacts: [
@@ -898,7 +898,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Channel Islands", state: "CA", bestMonths: [7, 8, 9, 10], minDays: 1, flightMinutes: 70, days: "1 Day",
+    name: "Channel Islands", state: "CA", bestMonths: [7, 8, 9, 10], minDays: 1, flightMinutes: 210, days: "1 Day",
     airport: "LAX or SBA (drive to Ventura)", flight: "~1h 10m to LAX/SBA + 1.5h drive", transport: "Ferry required",
     avoid: [12, 1, 2, 3], popularity: 55, uniqueness: 92, sfoAccessibility: 60,
     funFacts: [
@@ -932,7 +932,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Capitol Reef", state: "UT", bestMonths: [4, 5, 9, 10], minDays: 2, flightMinutes: 100, days: "2 Days",
+    name: "Capitol Reef", state: "UT", bestMonths: [4, 5, 9, 10], minDays: 2, flightMinutes: 310, days: "2 Days",
     airport: "SLC (3.5hr drive)", flight: "~1h 40m direct to SLC", transport: "Car",
     avoid: [12, 1, 2], popularity: 75, uniqueness: 88, sfoAccessibility: 65,
     funFacts: [
@@ -967,7 +967,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Canyonlands", state: "UT", bestMonths: [4, 5, 9, 10], minDays: 2, flightMinutes: 100, days: "2 Days",
+    name: "Canyonlands", state: "UT", bestMonths: [4, 5, 9, 10], minDays: 2, flightMinutes: 430, days: "2 Days",
     airport: "SLC (4hr) or Grand Junction (1.5h)", flight: "~1h 40m direct to SLC", transport: "Car",
     avoid: [12, 1, 2], popularity: 80, uniqueness: 94, sfoAccessibility: 65,
     funFacts: [
@@ -1002,7 +1002,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Mesa Verde", state: "CO", bestMonths: [5, 6, 9, 10], minDays: 2, flightMinutes: 135, days: "2 Days",
+    name: "Mesa Verde", state: "CO", bestMonths: [5, 6, 9, 10], minDays: 2, flightMinutes: 1035, days: "2 Days",
     airport: "DEN (7hr drive) or Durango (1hr)", flight: "~2h 15m to DEN + 7h drive", transport: "Car",
     avoid: [11, 12, 1, 2, 3, 4], popularity: 60, uniqueness: 98, sfoAccessibility: 40,
     funFacts: [
@@ -1039,7 +1039,7 @@ const _PARKS_RAW = [
   }
 ,
   {
-    name: "Denali", state: "AK", bestMonths: [6, 7, 8], minDays: 3, flightMinutes: 420, days: "3 Days",
+    name: "Denali", state: "AK", bestMonths: [6, 7, 8], minDays: 3, flightMinutes: 660, days: "3 Days",
     airport: "ANC (4hr drive or train)", flight: "~7h direct to ANC", transport: "NPS Bus Required",
     avoid: [11, 12, 1, 2], popularity: 82, uniqueness: 95, sfoAccessibility: 40,
     funFacts: [
@@ -1077,7 +1077,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Glacier Bay", state: "AK", bestMonths: [6, 7, 8], minDays: 2, flightMinutes: 300, days: "2 Days",
+    name: "Glacier Bay", state: "AK", bestMonths: [6, 7, 8], minDays: 2, flightMinutes: 360, days: "2 Days",
     airport: "JNU (short flight/ferry to Gustavus)", flight: "~5h (1 stop) to JNU", transport: "Boat/Ship",
     avoid: [11, 12, 1, 2], popularity: 60, uniqueness: 90, sfoAccessibility: 30,
     funFacts: [
@@ -1147,7 +1147,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Lake Clark", state: "AK", bestMonths: [6, 7, 8], minDays: 2, flightMinutes: 300, days: "2 Days",
+    name: "Lake Clark", state: "AK", bestMonths: [6, 7, 8], minDays: 2, flightMinutes: 420, days: "2 Days",
     airport: "ANC (then floatplane)", flight: "~7h to ANC + floatplane", transport: "Floatplane",
     avoid: [11, 12, 1, 2], popularity: 20, uniqueness: 85, sfoAccessibility: 10,
     funFacts: [
@@ -1182,7 +1182,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Wrangell-St. Elias", state: "AK", bestMonths: [6, 7, 8], minDays: 3, flightMinutes: 420, days: "3 Days",
+    name: "Wrangell-St. Elias", state: "AK", bestMonths: [6, 7, 8], minDays: 3, flightMinutes: 720, days: "3 Days",
     airport: "ANC (5hr drive to McCarthy)", flight: "~7h to ANC", transport: "Car/Bush Plane",
     avoid: [11, 12, 1, 2], popularity: 30, uniqueness: 92, sfoAccessibility: 20,
     funFacts: [
@@ -1218,7 +1218,7 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Gates of the Arctic", state: "AK", bestMonths: [7, 8], minDays: 5, flightMinutes: 600, days: "7 Days",
+    name: "Gates of the Arctic", state: "AK", bestMonths: [7, 8], minDays: 5, flightMinutes: 540, days: "7 Days",
     airport: "FAI (then bush plane)", flight: "~9h (1 stop) to FAI", transport: "Bush Plane/Foot",
     avoid: [9, 10, 11, 12, 1, 2, 3, 4, 5], popularity: 5, uniqueness: 98, sfoAccessibility: 5,
     funFacts: [
@@ -1254,7 +1254,7 @@ const _PARKS_RAW = [
   {
     name: "Zion",
     minDays: 2,
-    flightMinutes: 75,
+    flightMinutes: 225,
     state: "UT",
     bestMonths: [3, 4, 5, 9, 10],
     funFacts: [
@@ -1322,7 +1322,7 @@ const _PARKS_RAW = [
   {
     name: "Grand Canyon",
     minDays: 2,
-    flightMinutes: 105,
+    flightMinutes: 315,
     state: "AZ",
     bestMonths: [3, 4, 5, 9, 10, 11],
     funFacts: [
@@ -1390,7 +1390,7 @@ const _PARKS_RAW = [
   {
     name: "Arches",
     minDays: 2,
-    flightMinutes: 100,
+    flightMinutes: 310,
     state: "UT",
     bestMonths: [3, 4, 5, 9, 10],
     funFacts: [
@@ -1454,7 +1454,7 @@ const _PARKS_RAW = [
   {
     name: "Yosemite",
     minDays: 3,
-    flightMinutes: 0,
+    flightMinutes: 240,
     state: "CA",
     bestMonths: [4, 5, 6, 9, 10],
     funFacts: [
@@ -1519,7 +1519,7 @@ const _PARKS_RAW = [
   {
     name: "Rocky Mountain",
     minDays: 2,
-    flightMinutes: 135,
+    flightMinutes: 225,
     state: "CO",
     bestMonths: [6, 7, 8, 9],
     funFacts: [
@@ -1582,7 +1582,7 @@ const _PARKS_RAW = [
   {
     name: "Olympic",
     minDays: 2,
-    flightMinutes: 135,
+    flightMinutes: 285,
     state: "WA",
     bestMonths: [6, 7, 8, 9],
     funFacts: [
@@ -1645,7 +1645,7 @@ const _PARKS_RAW = [
   {
     name: "Yellowstone",
     minDays: 3,
-    flightMinutes: 140,
+    flightMinutes: 230,
     state: "WY",
     bestMonths: [5, 6, 9, 10],
     funFacts: [
@@ -1709,7 +1709,7 @@ const _PARKS_RAW = [
   {
     name: "Glacier",
     minDays: 3,
-    flightMinutes: 150,
+    flightMinutes: 330,
     state: "MT",
     bestMonths: [7, 8, 9],
     funFacts: [
@@ -1772,7 +1772,7 @@ const _PARKS_RAW = [
   {
     name: "Death Valley",
     minDays: 2,
-    flightMinutes: 75,
+    flightMinutes: 195,
     state: "CA",
     bestMonths: [10, 11, 12, 1, 2, 3],
     funFacts: [
@@ -1837,7 +1837,7 @@ const _PARKS_RAW = [
   {
     name: "Acadia",
     minDays: 2,
-    flightMinutes: 300,
+    flightMinutes: 570,
     state: "ME",
     bestMonths: [6, 7, 8, 9, 10],
     funFacts: [
@@ -1901,7 +1901,7 @@ const _PARKS_RAW = [
   {
     name: "Joshua Tree",
     minDays: 2,
-    flightMinutes: 70,
+    flightMinutes: 130,
     state: "CA",
     bestMonths: [10, 11, 2, 3, 4, 5],
     funFacts: [
@@ -1966,7 +1966,7 @@ const _PARKS_RAW = [
   {
     name: "Grand Teton",
     minDays: 2,
-    flightMinutes: 140,
+    flightMinutes: 410,
     state: "WY",
     bestMonths: [6, 7, 8, 9],
     funFacts: [
@@ -2029,7 +2029,7 @@ const _PARKS_RAW = [
   {
     name: "Great Smoky Mountains",
     minDays: 2,
-    flightMinutes: 240,
+    flightMinutes: 300,
     state: "TN / NC",
     bestMonths: [4, 5, 6, 9, 10],
     funFacts: [
@@ -2093,7 +2093,7 @@ const _PARKS_RAW = [
   {
     name: "Shenandoah",
     minDays: 2,
-    flightMinutes: 285,
+    flightMinutes: 405,
     state: "VA",
     bestMonths: [5, 6, 9, 10],
     funFacts: [
@@ -2156,7 +2156,7 @@ const _PARKS_RAW = [
   {
     name: "North Cascades",
     minDays: 2,
-    flightMinutes: 135,
+    flightMinutes: 285,
     state: "WA",
     bestMonths: [7, 8, 9],
     funFacts: [
@@ -2218,7 +2218,7 @@ const _PARKS_RAW = [
   {
     name: "Saguaro",
     minDays: 1,
-    flightMinutes: 105,
+    flightMinutes: 195,
     state: "AZ",
     bestMonths: [11, 12, 1, 2, 3, 4],
     funFacts: [
@@ -2283,7 +2283,7 @@ const _PARKS_RAW = [
   {
     name: "Everglades",
     minDays: 2,
-    flightMinutes: 310,
+    flightMinutes: 360,
     state: "FL",
     bestMonths: [11, 12, 1, 2, 3, 4],
     funFacts: [
@@ -2348,7 +2348,7 @@ const _PARKS_RAW = [
   {
     name: "Bryce Canyon",
     minDays: 2,
-    flightMinutes: 75,
+    flightMinutes: 465,
     state: "UT",
     bestMonths: [5, 6, 7, 8, 9, 10],
     funFacts: [
@@ -2413,7 +2413,7 @@ const _PARKS_RAW = [
   {
     name: "Great Basin",
     minDays: 2,
-    flightMinutes: 75,
+    flightMinutes: 615,
     state: "NV",
     bestMonths: [6, 7, 8, 9],
     funFacts: [
@@ -2476,7 +2476,7 @@ const _PARKS_RAW = [
   {
     name: "Crater Lake",
     minDays: 2,
-    flightMinutes: 90,
+    flightMinutes: 270,
     state: "OR",
     bestMonths: [7, 8, 9],
     funFacts: [
@@ -2538,7 +2538,7 @@ const _PARKS_RAW = [
   {
     name: "Isle Royale",
     minDays: 4,
-    flightMinutes: 260,
+    flightMinutes: 540,
     state: "MI",
     bestMonths: [7, 8, 9],
     funFacts: [
@@ -2601,7 +2601,7 @@ const _PARKS_RAW = [
   {
     name: "Big Bend",
     minDays: 3,
-    flightMinutes: 185,
+    flightMinutes: 390,
     state: "TX",
     bestMonths: [10, 11, 12, 1, 2, 3],
     funFacts: [
@@ -2667,7 +2667,7 @@ const _PARKS_RAW = [
   {
     name: "Biscayne",
     minDays: 1,
-    flightMinutes: 310,
+    flightMinutes: 360,
     state: "FL",
     bestMonths: [12, 1, 2, 3, 4],
     funFacts: [
@@ -2731,7 +2731,7 @@ const _PARKS_RAW = [
   {
     name: "Dry Tortugas",
     minDays: 1,
-    flightMinutes: 310,
+    flightMinutes: 480,
     state: "FL",
     bestMonths: [11, 12, 1, 2, 3, 4],
     funFacts: [
@@ -2796,7 +2796,7 @@ const _PARKS_RAW = [
   {
     name: "Haleakalā",
     minDays: 1,
-    flightMinutes: 330,
+    flightMinutes: 375,
     state: "HI",
     bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     funFacts: [
@@ -2867,7 +2867,7 @@ const _PARKS_RAW = [
   {
     name: "Cuyahoga Valley",
     minDays: 1,
-    flightMinutes: 260,
+    flightMinutes: 290,
     state: "OH",
     bestMonths: [5, 6, 9, 10],
     funFacts: [
@@ -2930,7 +2930,7 @@ const _PARKS_RAW = [
   {
     name: "Kenai Fjords",
     minDays: 2,
-    flightMinutes: 420,
+    flightMinutes: 570,
     state: "AK",
     bestMonths: [6, 7, 8],
     funFacts: [
