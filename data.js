@@ -1,9 +1,10 @@
 // ============ National Parks Enriched Data (Monthly Granularity) ============
 const _PARKS_RAW = [
   {
-    name: "Indiana Dunes", state: "IN", bestMonths: [6, 7, 8, 9], minDays: 1, flightMinutes: 410, days: "1 Day",
+    name: "Indiana Dunes", state: "IN", bestMonths: [5, 9, 10], minDays: 1, flightMinutes: 410, days: "1 Day",
     airport: "MDW (1h) or ORD (1.5h)", flight: "~4h 20m to MDW (1 stop)", transport: "Car/Train",
-    avoid: [11, 12, 1, 2, 3], popularity: 60, uniqueness: 75, sfoAccessibility: 50,
+    avoid: [7, 12, 1, 2], popularity: 60, uniqueness: 75, sfoAccessibility: 50,
+    seasonalVerdict: { best: "May (Bird migration), September (Warm water, fewer crowds).", avoid: "July (Maximum beach crowding/humidity)." },
     funFacts: [
       "The park sits on the southern tip of Lake Michigan, acting as a massive biological crossroads.",
       "Mount Baldy is a 'living' dune, moving inland at a rate of roughly four feet per year.",
@@ -35,9 +36,10 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "New River Gorge", state: "WV", bestMonths: [5, 6, 9, 10], minDays: 2, flightMinutes: 345, days: "2 Days",
+    name: "New River Gorge", state: "WV", bestMonths: [5, 10], minDays: 2, flightMinutes: 345, days: "2 Days",
     airport: "CRW (1h drive)", flight: "~4h 45m to CRW (1 stop)", transport: "Car",
     avoid: [12, 1, 2], popularity: 65, uniqueness: 88, sfoAccessibility: 40,
+    seasonalVerdict: { best: "May (Wildflowers, rafting peak), October (Bridge Day, colorful gorge).", avoid: "Winter (Icy trails, limited rafting/services)." },
     funFacts: [
       "Despite its name, the New River is actually one of the oldest rivers on the North American continent.",
       "The New River Gorge Bridge is the longest steel span in the western hemisphere and the third highest in the US.",
@@ -73,6 +75,7 @@ const _PARKS_RAW = [
     name: "Mammoth Cave", state: "KY", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 420, days: "1 Day",
     airport: "SDF (1.5h) or BNA (1.5h)", flight: "~4h to SDF/BNA (1 stop)", transport: "Car/Tour",
     avoid: [11, 12, 1, 2], popularity: 55, uniqueness: 92, sfoAccessibility: 60,
+    seasonalVerdict: { best: "Spring/Fall offer ideal surface temperatures and active wildlife.", avoid: "Summer (Sold out tours), Winter (Trail closures/snow)." },
     funFacts: [
       "It is the longest known cave system in the entire world, with over 420 miles currently mapped.",
       "The cave served as a tuberculosis hospital in the 1840s (which ended poorly).",
@@ -104,9 +107,10 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Hot Springs", state: "AR", bestMonths: [2, 3, 4, 10, 11], minDays: 1, flightMinutes: 300, days: "1 Day",
+    name: "Hot Springs", state: "AR", bestMonths: [4, 10, 11], minDays: 1, flightMinutes: 300, days: "1 Day",
     airport: "LIT (1h drive)", flight: "~4h to LIT (1 stop)", transport: "Car/Walk",
-    avoid: [6, 7, 8], popularity: 40, uniqueness: 88, sfoAccessibility: 55,
+    avoid: [7, 8], popularity: 40, uniqueness: 88, sfoAccessibility: 55,
+    seasonalVerdict: { best: "April, October - November (Ideal hiking weather).", avoid: "July - August (Southern heat and humidity)." },
     funFacts: [
       "It is the oldest park managed by the NPS, actually protected by Congress in 1832 (before Yellowstone).",
       "It is the only national park located entirely within a city.",
@@ -141,6 +145,7 @@ const _PARKS_RAW = [
     name: "Gateway Arch", state: "MO", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 240, days: "0.5 Days",
     airport: "STL (20m drive/train)", flight: "~3h 40m to STL (direct)", transport: "Walk/Tram",
     avoid: [1, 2, 7, 8], popularity: 80, uniqueness: 60, sfoAccessibility: 85,
+    seasonalVerdict: { best: "Shoulder seasons (May/Oct) have pleasant weather for the grounds.", avoid: "Summer (Extreme humidity), Winter (Bitter river winds)." },
     funFacts: [
       "It is the smallest national park in the US, covering just 91 acres.",
       "The arch is exactly as wide as it is tall: 630 feet.",
@@ -172,9 +177,10 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Congaree", state: "SC", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 450, days: "1 Day",
+    name: "Congaree", state: "SC", bestMonths: [5, 10, 11], minDays: 1, flightMinutes: 450, days: "1 Day",
     airport: "CAE (30m) or CLT (2h)", flight: "~5h to CAE (1 stop)", transport: "Car",
     avoid: [6, 7, 8], popularity: 20, uniqueness: 82, sfoAccessibility: 50,
+    seasonalVerdict: { best: "May (Fireflies), October - November (Foliage, low bugs).", avoid: "Summer (Severe heat/humidity/mosquitoes)." },
     funFacts: [
       "It protects the largest intact expanse of old-growth bottomland hardwood forest remaining in the southeastern US.",
       "For two weeks in late spring, synchronous fireflies put on a synchronized flashing display that exists in only a few places on Earth.",
@@ -209,6 +215,7 @@ const _PARKS_RAW = [
     name: "Virgin Islands", state: "VI", bestMonths: [12, 1, 2, 3, 4], minDays: 3, flightMinutes: 420, days: "3 Days",
     airport: "STT (then ferry to St. John)", flight: "~7h to STT (1 stop)", transport: "Ferry required",
     avoid: [8, 9, 10], popularity: 40, uniqueness: 95, sfoAccessibility: 30,
+    seasonalVerdict: { best: "December - April (Dry season, no mosquitoes, clear water).", avoid: "August - October (Peak hurricane risk, intense humidity)." },
     funFacts: [
       "The park covers roughly 60% of the island of St. John.",
       "Over 40% of the park is actually underwater, protecting coral reefs and mangrove shorelines.",
@@ -245,6 +252,7 @@ const _PARKS_RAW = [
     name: "National Park of American Samoa", state: "AS", bestMonths: [6, 7, 8, 9], minDays: 3, flightMinutes: 720, days: "3 Days",
     airport: "PPG", flight: "SFO→HNL→PPG (~12h, 1 stop)", transport: "Car/Foot",
     avoid: [11, 12, 1, 2, 3], popularity: 2, uniqueness: 98, sfoAccessibility: 5,
+    seasonalVerdict: { best: "June - September (Dry season, calmer seas for boat travel).", avoid: "Dec - March (Cyclone season, extremely high humidity)." },
     funFacts: [
       "It is the only US national park south of the Equator.",
       "The park spans three separate islands (Tutuila, Ofu, and Ta'u) and is leased from Samoan villages.",
@@ -278,9 +286,10 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Hawaii Volcanoes", state: "HI", bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], minDays: 2, flightMinutes: 495, days: "2 Days",
+    name: "Hawaii Volcanoes", state: "HI", bestMonths: [4, 5, 9, 10], minDays: 2, flightMinutes: 495, days: "2 Days",
     airport: "ITO (45m drive) or KOA (2h)", flight: "~5h 30m to KOA/ITO (direct)", transport: "Car",
     avoid: [], popularity: 85, uniqueness: 98, sfoAccessibility: 85,
+    seasonalVerdict: { best: "Spring/Fall offer clear volcano views and mild crater rim temps.", avoid: "No 'bad' time, but winter rain can be heavy on the coastal side." },
     funFacts: [
       "It contains two of the world's most active volcanoes: Kīlauea and Mauna Loa.",
       "You can often safely watch a volcanic eruption here depending on Kīlauea's current mood.",
@@ -316,6 +325,7 @@ const _PARKS_RAW = [
     name: "Kobuk Valley", state: "AK", bestMonths: [7, 8], minDays: 2, flightMinutes: 540, days: "2 Days",
     airport: "OTZ (then bush plane)", flight: "~9h to OTZ (1 stop) + plane", transport: "Bush Plane/Foot",
     avoid: [9, 10, 11, 12, 1, 2, 3, 4, 5], popularity: 2, uniqueness: 98, sfoAccessibility: 5,
+    seasonalVerdict: { best: "July - Early September (Warmest weather, caribou migration).", avoid: "October - May (Extremely cold, no access, total darkness)." },
     funFacts: [
       "Contains the Great Kobuk Sand Dunes, the largest active sand dunes in the Arctic, formed by grinding glaciers during the Ice Age.",
       "Half a million caribou migrate through the park each year.",
@@ -349,6 +359,7 @@ const _PARKS_RAW = [
     name: "Black Canyon of the Gunnison", state: "CO", bestMonths: [5, 6, 9, 10], minDays: 1, flightMinutes: 425, days: "1 Day",
     airport: "DEN (4.5h) or MTJ (20m)", flight: "~2h 15m to DEN/MTJ", transport: "Car",
     avoid: [11, 12, 1, 2, 3, 4], popularity: 40, uniqueness: 90, sfoAccessibility: 50,
+    seasonalVerdict: { best: "Late Spring and Early Fall for hiking down to the river safely.", avoid: "Winter (Main rim road closed, sheer walls are icy/dangerous)." },
     funFacts: [
       "The canyon is so narrow and deep that some parts of the canyon floor only receive 33 minutes of sunlight a day.",
       "The Painted Wall is the highest sheer cliff in Colorado at 2,250 feet — taller than the Empire State Building.",
@@ -383,6 +394,7 @@ const _PARKS_RAW = [
     name: "Great Sand Dunes", state: "CO", bestMonths: [5, 9, 10], minDays: 1, flightMinutes: 765, days: "1 Day",
     airport: "DEN (4h) or COS (2.5h)", flight: "~2h 15m to DEN + 4h drive", transport: "Car",
     avoid: [11, 12, 1, 2, 6, 7, 8], popularity: 50, uniqueness: 95, sfoAccessibility: 55,
+    seasonalVerdict: { best: "Late May for Medano Creek; September/October for cool sand hiking.", avoid: "Summer (150°F sand surface), Winter (High wind/cold)." },
     funFacts: [
       "The park contains the tallest sand dunes in North America, rising up to 750 feet from the floor of the San Luis Valley.",
       "The dunes were formed by wind moving sand from the dried-out ancient Lake Alamosa into a pocket against the Sangre de Cristo Mountains.",
@@ -417,6 +429,7 @@ const _PARKS_RAW = [
     name: "Petrified Forest", state: "AZ", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 315, days: "1 Day",
     airport: "PHX (3.5h drive)", flight: "~1h 45m to PHX + drive", transport: "Car",
     avoid: [6, 7, 8], popularity: 45, uniqueness: 88, sfoAccessibility: 70,
+    seasonalVerdict: { best: "Spring/Fall offer comfortable hiking and blooming desert succulents.", avoid: "Summer (Extreme exposure/heat, frequent monsoon closures)." },
     funFacts: [
       "The 'wood' is completely fossilized into solid quartz and weighs 160 pounds per cubic foot.",
       "It is the only national park that protects a portion of Historic Route 66.",
@@ -451,6 +464,7 @@ const _PARKS_RAW = [
     name: "White Sands", state: "NM", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 270, days: "1 Day",
     airport: "ELP (1.5h drive)", flight: "~3h to ELP (1 stop)", transport: "Car",
     avoid: [6, 7, 8], popularity: 60, uniqueness: 98, sfoAccessibility: 65,
+    seasonalVerdict: { best: "October - November (Perfect temps, calm winds, beautiful sunsets).", avoid: "Summer (Dangerous heat, blinding reflections, monsoons)." },
     funFacts: [
       "It is the largest gypsum dunefield in the world, covering 275 square miles.",
       "Unlike silica sand, gypsum sand does not absorb heat from the sun — it is always cool to the touch.",
@@ -485,6 +499,7 @@ const _PARKS_RAW = [
     name: "Carlsbad Caverns", state: "NM", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 300, days: "1 Day",
     airport: "ELP (2h drive)", flight: "~3h to ELP (1 stop)", transport: "Car",
     avoid: [12, 1, 2], popularity: 65, uniqueness: 95, sfoAccessibility: 60,
+    seasonalVerdict: { best: "May - September (Bat flight program), Fall (Mild surface weather).", avoid: "Winter (Icy access roads, no bats)." },
     funFacts: [
       "The 'Big Room' is the largest single cave chamber by volume in North America (almost 4000 feet long).",
       "During summer, hundreds of thousands of Brazilian free-tailed bats erupt from the natural entrance at sunset.",
@@ -517,6 +532,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Guadalupe Mountains", state: "TX", bestMonths: [10, 11, 3, 4], minDays: 1, flightMinutes: 270, days: "1 Day",
+    seasonalVerdict: { best: "October - November (Fall colors in McKittrick Canyon are legendary).", avoid: "Summer (Extreme heat, very little shade on exposed ridges)." },
     airport: "ELP (1.5h drive)", flight: "~3h to ELP (1 stop)", transport: "Car",
     avoid: [6, 7, 8], popularity: 30, uniqueness: 85, sfoAccessibility: 60,
     funFacts: [
@@ -551,6 +567,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Theodore Roosevelt", state: "ND", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 400, days: "2 Days",
+    seasonalVerdict: { best: "June - September (Lush green prairie, bison and wild horses active).", avoid: "Winter (Brutal North Dakota cold, many road segments unplowed)." },
     airport: "BIS (2h drive) or DIK (40m)", flight: "~4h to BIS (1 stop)", transport: "Car",
     avoid: [11, 12, 1, 2, 3], popularity: 45, uniqueness: 88, sfoAccessibility: 40,
     funFacts: [
@@ -586,6 +603,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Badlands", state: "SD", bestMonths: [5, 6, 9, 10], minDays: 1, flightMinutes: 300, days: "1 Day",
+    seasonalVerdict: { best: "Late Spring and Fall for vibrant colors and mild hiking weather.", avoid: "Summer (Intense heat, zero shade), Winter (Blowing snow/ice)." },
     airport: "RAP (1h drive)", flight: "~4h to RAP (1 stop)", transport: "Car",
     avoid: [11, 12, 1, 2], popularity: 65, uniqueness: 90, sfoAccessibility: 55,
     funFacts: [
@@ -620,6 +638,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Wind Cave", state: "SD", bestMonths: [6, 7, 8, 9], minDays: 1, flightMinutes: 300, days: "1 Day",
+    seasonalVerdict: { best: "Summer (Cave air is 54°F), Fall (Bison and elk active on surface).", avoid: "Winter (Snow can block access to the natural entrance)." },
     airport: "RAP (1h drive)", flight: "~4h to RAP (1 stop)", transport: "Car/Tour",
     avoid: [11, 12, 1, 2], popularity: 45, uniqueness: 88, sfoAccessibility: 55,
     funFacts: [
@@ -654,6 +673,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Voyageurs", state: "MN", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 680, days: "2 Days",
+    seasonalVerdict: { best: "Summer (Boating/kayaking), Feb (Ice Roads fully operational).", avoid: "May/Nov (Freeze-up/Thaw periods when boats and cars are both stuck)." },
     airport: "MSP (4.5h) or DLH (2.5h)", flight: "~4h 20m to MSP (direct)", transport: "Boat/Car",
     avoid: [11, 12, 1, 2, 3, 4], popularity: 40, uniqueness: 90, sfoAccessibility: 50,
     funFacts: [
@@ -690,6 +710,7 @@ const _PARKS_RAW = [
 ,
   {
     name: "Mount Rainier", state: "WA", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 255, days: "2 Days",
+    seasonalVerdict: { best: "August (Wildflower peak at Paradise), September (Clear skies).", avoid: "Winter (Heavy snow/mandatory chains), June (Many trails still buried)." },
     airport: "SEA (2hr drive)", flight: "~2h 15m direct", transport: "Car",
     avoid: [11, 12, 1, 2, 3, 4], popularity: 85, uniqueness: 90, sfoAccessibility: 85,
     funFacts: [
@@ -725,6 +746,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Lassen Volcanic", state: "CA", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 240, days: "2 Days",
+    seasonalVerdict: { best: "Late July - August (Main road finally opens, snow vanishes).", avoid: "Winter/Spring (Park road is buried in up to 40 feet of snow)." },
     airport: "RNO (3hr) or SMF (3.5hr)", flight: "Drive from SF (~4h) or fly", transport: "Car",
     avoid: [11, 12, 1, 2, 3, 4, 5], popularity: 40, uniqueness: 88, sfoAccessibility: 80,
     funFacts: [
@@ -760,6 +782,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Redwood", state: "CA", bestMonths: [5, 6, 7, 8, 9, 10], minDays: 2, flightMinutes: 330, days: "2 Days",
+    seasonalVerdict: { best: "May - June (Rhododendrons bloom), Sept (Fog thins out).", avoid: "Winter (Very high rainfall, muddy trails, potential road closures)." },
     airport: "ACV (45m drive) or SFO (5.5h drive)", flight: "Drive from SFO (~5.5h)", transport: "Car",
     avoid: [12, 1, 2], popularity: 70, uniqueness: 95, sfoAccessibility: 75,
     funFacts: [
@@ -795,6 +818,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Pinnacles", state: "CA", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 120, days: "1 Day",
+    seasonalVerdict: { best: "Spring (Green hills, wildflowers, nesting condors).", avoid: "Summer (Over 100°F heat with zero shade, very dangerous hiking)." },
     airport: "SJC (1.5h drive) or SFO (2h drive)", flight: "Drive from SFO (~2hr)", transport: "Car",
     avoid: [6, 7, 8], popularity: 60, uniqueness: 80, sfoAccessibility: 100,
     funFacts: [
@@ -829,6 +853,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Kings Canyon", state: "CA", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 240, days: "2 Days",
+    seasonalVerdict: { best: "Summer (Road to Cedar Grove is open), Sept (Golden fall foliage).", avoid: "Winter (Road to the deep canyon is closed by snow)." },
     airport: "FAT (1.5h drive) or SFO (4h drive)", flight: "Drive from SFO (~4hr)", transport: "Car",
     avoid: [11, 12, 1, 2, 3], popularity: 65, uniqueness: 88, sfoAccessibility: 85,
     funFacts: [
@@ -864,6 +889,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Sequoia", state: "CA", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 270, days: "2 Days",
+    seasonalVerdict: { best: "July - August (Big Trees are accessible), Sept (Crisp clear air).", avoid: "Winter (Generals Highway often requires tire chains, many trails buried)." },
     airport: "FAT (1.5h) or SFO (4.5h)", flight: "Drive from SFO (~4.5h)", transport: "Car",
     avoid: [11, 12, 1, 2, 3], popularity: 88, uniqueness: 96, sfoAccessibility: 80,
     funFacts: [
@@ -899,6 +925,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Channel Islands", state: "CA", bestMonths: [7, 8, 9, 10], minDays: 1, flightMinutes: 210, days: "1 Day",
+    seasonalVerdict: { best: "August - October (Warmest water for snorkeling, low wind for boat crossings).", avoid: "Winter (Stormy seas often lead to boat cancellations)." },
     airport: "LAX or SBA (drive to Ventura)", flight: "~1h 10m to LAX/SBA + 1.5h drive", transport: "Ferry required",
     avoid: [12, 1, 2, 3], popularity: 55, uniqueness: 92, sfoAccessibility: 60,
     funFacts: [
@@ -933,6 +960,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Capitol Reef", state: "UT", bestMonths: [4, 5, 9, 10], minDays: 2, flightMinutes: 310, days: "2 Days",
+    seasonalVerdict: { best: "October (Apple/pear harvest in Fruita), May (Warm but not hot).", avoid: "July - August (Flash flood season, extremely high heat)." },
     airport: "SLC (3.5hr drive)", flight: "~1h 40m direct to SLC", transport: "Car",
     avoid: [12, 1, 2], popularity: 75, uniqueness: 88, sfoAccessibility: 65,
     funFacts: [
@@ -968,6 +996,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Canyonlands", state: "UT", bestMonths: [4, 5, 9, 10], minDays: 2, flightMinutes: 430, days: "2 Days",
+    seasonalVerdict: { best: "April - May (Cool breezes, clear vistas), October (Perfect camping).", avoid: "Summer (Over 100°F with no shade, treacherous hiking on exposed rock)." },
     airport: "SLC (4hr) or Grand Junction (1.5h)", flight: "~1h 40m direct to SLC", transport: "Car",
     avoid: [12, 1, 2], popularity: 80, uniqueness: 94, sfoAccessibility: 65,
     funFacts: [
@@ -1003,6 +1032,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Mesa Verde", state: "CO", bestMonths: [5, 6, 9, 10], minDays: 2, flightMinutes: 1035, days: "2 Days",
+    seasonalVerdict: { best: "Late May - June (Tours are fully active, before summer heat peak).", avoid: "Winter (Cliff dwellings are closed to tours, many roads are unplowed)." },
     airport: "DEN (7hr drive) or Durango (1hr)", flight: "~2h 15m to DEN + 7h drive", transport: "Car",
     avoid: [11, 12, 1, 2, 3, 4], popularity: 60, uniqueness: 98, sfoAccessibility: 40,
     funFacts: [
@@ -1040,6 +1070,7 @@ const _PARKS_RAW = [
 ,
   {
     name: "Denali", state: "AK", bestMonths: [6, 7, 8], minDays: 3, flightMinutes: 660, days: "3 Days",
+    seasonalVerdict: { best: "Late June - July (24hr daylight, wildlife active), Late August (Fall colors).", avoid: "Winter (Extreme cold, limited bus access, total darkness)." },
     airport: "ANC (4hr drive or train)", flight: "~7h direct to ANC", transport: "NPS Bus Required",
     avoid: [11, 12, 1, 2], popularity: 82, uniqueness: 95, sfoAccessibility: 40,
     funFacts: [
@@ -1078,6 +1109,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Glacier Bay", state: "AK", bestMonths: [6, 7, 8], minDays: 2, flightMinutes: 360, days: "2 Days",
+    seasonalVerdict: { best: "July - August (Calmer seas for boat tours, optimal whale watching).", avoid: "Winter (Total park shutdown, dangerous sea conditions, extreme cold)." },
     airport: "JNU (short flight/ferry to Gustavus)", flight: "~5h (1 stop) to JNU", transport: "Boat/Ship",
     avoid: [11, 12, 1, 2], popularity: 60, uniqueness: 90, sfoAccessibility: 30,
     funFacts: [
@@ -1113,6 +1145,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Katmai", state: "AK", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 420, days: "2 Days",
+    seasonalVerdict: { best: "July (Peak salmon run at Brooks Falls), September (Bear activity continues, fewer people).", avoid: "Winter (Inaccessible, bears hibernating, extreme Arctic conditions)." },
     airport: "ANC (then flight to King Salmon)", flight: "~7h to ANC + local hopper", transport: "Floatplane",
     avoid: [11, 12, 1, 2, 3, 4, 5], popularity: 45, uniqueness: 98, sfoAccessibility: 10,
     funFacts: [
@@ -1148,6 +1181,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Lake Clark", state: "AK", bestMonths: [6, 7, 8], minDays: 2, flightMinutes: 420, days: "2 Days",
+    seasonalVerdict: { best: "August (Bear viewing peak on the coast), July (Clearer skies).", avoid: "Winter (Total isolation, bush planes rarely operational, extreme cold)." },
     airport: "ANC (then floatplane)", flight: "~7h to ANC + floatplane", transport: "Floatplane",
     avoid: [11, 12, 1, 2], popularity: 20, uniqueness: 85, sfoAccessibility: 10,
     funFacts: [
@@ -1183,6 +1217,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Wrangell-St. Elias", state: "AK", bestMonths: [6, 7, 8], minDays: 3, flightMinutes: 720, days: "3 Days",
+    seasonalVerdict: { best: "July (Best access to backcountry), August (Berries and clear mountain vistas).", avoid: "Winter (Most roads unplowed, extreme sub-zero temperatures, no facilities)." },
     airport: "ANC (5hr drive to McCarthy)", flight: "~7h to ANC", transport: "Car/Bush Plane",
     avoid: [11, 12, 1, 2], popularity: 30, uniqueness: 92, sfoAccessibility: 20,
     funFacts: [
@@ -1219,6 +1254,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Gates of the Arctic", state: "AK", bestMonths: [7, 8], minDays: 5, flightMinutes: 540, days: "7 Days",
+    seasonalVerdict: { best: "July (Green tundra, 24hr sun), August (Northern lights begin, fewer bugs).", avoid: "October - May (Life-threatening cold, total darkness, no bush plane support)." },
     airport: "FAI (then bush plane)", flight: "~9h (1 stop) to FAI", transport: "Bush Plane/Foot",
     avoid: [9, 10, 11, 12, 1, 2, 3, 4, 5], popularity: 5, uniqueness: 98, sfoAccessibility: 5,
     funFacts: [
@@ -1253,6 +1289,7 @@ const _PARKS_RAW = [
 ,
   {
     name: "Zion",
+    seasonalVerdict: { best: "Late Spring and Fall have the best water levels for The Narrows and cool hiking air.", avoid: "Summer (Over 100°F heat, extreme flash flood risk, massive crowds)." },
     minDays: 2,
     flightMinutes: 225,
     state: "UT",
@@ -1321,6 +1358,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Grand Canyon",
+    seasonalVerdict: { best: "Spring and Fall (Best rim temperatures), Winter (Seclusion and snow-dusted views).", avoid: "Summer (Inner canyon is over 110°F, extreme heatstroke risk, peak crowding)." },
     minDays: 2,
     flightMinutes: 315,
     state: "AZ",
@@ -1389,6 +1427,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Arches",
+    seasonalVerdict: { best: "April - May (Cool morning hiking), October (Stable weather, beautiful sunsets).", avoid: "Summer (Intense heat, zero shade on trails, mandatory entry reservations sell out)." },
     minDays: 2,
     flightMinutes: 310,
     state: "UT",
@@ -1453,6 +1492,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Yosemite",
+    seasonalVerdict: { best: "May - June (Waterfalls at peak), September (Tioga Road open, high country accessible).", avoid: "Summer (Gridlock traffic, very difficult parking, required reservations)." },
     minDays: 3,
     flightMinutes: 240,
     state: "CA",
@@ -1518,6 +1558,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Rocky Mountain",
+    seasonalVerdict: { best: "Late July (Alpine flowers), September (Elk bugling and golden aspen).", avoid: "Summer (Extreme peak crowds, mandatory reservations, afternoon lightning risk)." },
     minDays: 2,
     flightMinutes: 225,
     state: "CO",
@@ -1581,6 +1622,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Olympic",
+    seasonalVerdict: { best: "July - August (Dry season, high country access), September (Fewer crowds, still clear).", avoid: "Winter (Extremely wet, many roads like Hurricane Ridge have limited access)." },
     minDays: 2,
     flightMinutes: 285,
     state: "WA",
@@ -1644,6 +1686,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Yellowstone",
+    seasonalVerdict: { best: "May - June (Wildlife babies), September (Elk rut, vibrant colors, thinned crowds).", avoid: "Summer (Massive traffic jams, boardwalks are packed to capacity)." },
     minDays: 3,
     flightMinutes: 230,
     state: "WY",
@@ -1707,7 +1750,38 @@ const _PARKS_RAW = [
 
   },
   {
+    name: "Gateway Arch", state: "MO", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 240, days: "1 Day",
+    seasonalVerdict: { best: "April - May (Pleasant weather to walk the grounds), October (River cruise is ideal).", avoid: "Summer (Oppressively hot and humid, though the museum is air-conditioned)." },
+    airport: "STL (20m drive/train)", flight: "~3h 40m direct", transport: "Walk/Tram",
+    avoid: [1, 2, 7, 8], popularity: 80, uniqueness: 60, sfoAccessibility: 85,
+    funFacts: [
+      "The Arch is the tallest monument in the United States at 630 feet.",
+      "It was built to commemorate Thomas Jefferson's vision of the westward expansion of the United States."
+    ],
+    dosAndDonts: [
+      { type: "do", text: "Buy your tram tickets weeks in advance online." },
+      { type: "dont", text: "Don't expect a sprawling wilderness; this is an urban park." }
+    ],
+    travelHacks: [
+      "The museum underneath the Arch is completely free to enter and recently renovated."
+    ],
+    sunriseSunset: "Sunrise over the Mississippi River is beautiful, but the Arch is spectacularly lit at night.",
+    stargazing: {
+      isFriendly: false,
+      spots: "None",
+      description: "Severe urban light pollution from downtown St. Louis."
+    },
+    itinerary: [
+      { day: "Day 1", plan: "Morning arrival, pass security. Spend 2 hours in the underground museum. Take the noon tram to the top. Walk the park grounds." }
+    ],
+    monthlyData: {
+      4: { temp: "67°F / 47°F", reservations: "Tram tickets required", reddit: "Perfect weather to walk the grounds." },
+      9: { temp: "80°F / 60°F", reservations: "Tram tickets required", reddit: "Nice and mild." }
+    }
+  },
+  {
     name: "Glacier",
+    seasonalVerdict: { best: "July - August (Going-to-the-Sun Road is fully open), September (Fall colors, no bugs).", avoid: "Winter (Total road closures, extreme snow, most facilities shutdown)." },
     minDays: 3,
     flightMinutes: 330,
     state: "MT",
@@ -1771,6 +1845,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Death Valley",
+    seasonalVerdict: { best: "November - March (Pleasant hiking weather, clear desert skies).", avoid: "Summer (Life-threatening heat exceeding 120°F, extreme hiking danger)." },
     minDays: 2,
     flightMinutes: 195,
     state: "CA",
@@ -1836,6 +1911,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Acadia",
+    seasonalVerdict: { best: "September - October (Peak fall foliage, zero humidity, active wildlife).", avoid: "Summer (Maximum crowding, difficulty parking at Cadillac Mountain)." },
     minDays: 2,
     flightMinutes: 570,
     state: "ME",
@@ -1900,6 +1976,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Joshua Tree",
+    seasonalVerdict: { best: "Spring (Wildflower blooms) and Fall (Perfect climbing temps) are the most comfortable.", avoid: "Summer (Dangerous heat, extremely dry, direct sun exposure with limited shade)." },
     minDays: 2,
     flightMinutes: 130,
     state: "CA",
@@ -1965,6 +2042,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Grand Teton",
+    seasonalVerdict: { best: "September (Clear mountain views, fewer crowds, active wildlife), July (Wildflowers).", avoid: "Winter (Extremely heavy snow, most internal roads like Teton Park Road are closed)." },
     minDays: 2,
     flightMinutes: 410,
     state: "WY",
@@ -2028,6 +2106,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Great Smoky Mountains",
+    seasonalVerdict: { best: "October (Fall colors peak), May (Synchronous fireflies and spring wildflowers).", avoid: "Summer (Extreme humidity, bumper-to-bumper traffic, maximum peak crowds)." },
     minDays: 2,
     flightMinutes: 300,
     state: "TN / NC",
@@ -2092,6 +2171,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Shenandoah",
+    seasonalVerdict: { best: "October (Stunning fall colors on Skyline Drive), April - May (Wildflower peak).", avoid: "Winter (Skyline Drive often closed due to ice/snow, very limited facilities)." },
     minDays: 2,
     flightMinutes: 405,
     state: "VA",
@@ -2155,6 +2235,7 @@ const _PARKS_RAW = [
   },
   {
     name: "North Cascades",
+    seasonalVerdict: { best: "July - September (Main highway fully open, turquoise lakes at peak color).", avoid: "Winter/Spring (Heavy snow, Highway 20 closed, most trails inaccessible)." },
     minDays: 2,
     flightMinutes: 285,
     state: "WA",
@@ -2217,6 +2298,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Saguaro",
+    seasonalVerdict: { best: "November - March (Mild winter sun, perfect for desert hiking), February (Wildflowers).", avoid: "Summer (Dangerous monsoon storms, lightning, and heat frequently over 105°F)." },
     minDays: 1,
     flightMinutes: 195,
     state: "AZ",
@@ -2282,6 +2364,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Everglades",
+    seasonalVerdict: { best: "December - April (Dry season, low mosquito activity, wildlife concentrated at water holes).", avoid: "Summer (Wet season, extreme mosquito/fly swarms, high humidity, afternoon storms)." },
     minDays: 2,
     flightMinutes: 360,
     state: "FL",
@@ -2347,6 +2430,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Bryce Canyon",
+    seasonalVerdict: { best: "May - September (Pleasant high-altitude temps), Winter (Snow-dusted hoodoos are magical).", avoid: "July (Heavy monsoon lightning risk), Late Winter (Muddy trails from freeze-thaw cycles)." },
     minDays: 2,
     flightMinutes: 465,
     state: "UT",
@@ -2412,6 +2496,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Great Basin",
+    seasonalVerdict: { best: "June - September (Alpine trails accessible), Early October (Fall colors and dark skies).", avoid: "Winter - Spring (Most of Wheeler Peak Scenic Drive is closed due to high altitude snow)." },
     minDays: 2,
     flightMinutes: 615,
     state: "NV",
@@ -2475,6 +2560,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Crater Lake",
+    seasonalVerdict: { best: "July - September (Mazama Village open, Rim Drive fully accessible), Winter (Stunning snowshoeing).", avoid: "Late Spring (Many roads still closed by snow despite sunny weather)." },
     minDays: 2,
     flightMinutes: 270,
     state: "OR",
@@ -2537,6 +2623,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Isle Royale",
+    seasonalVerdict: { best: "July - August (Calmer winds, best island climate for backpacking and kayaking).", avoid: "Winter (The entire park is closed from Nov - mid-April due to extreme isolation and lake ice)." },
     minDays: 4,
     flightMinutes: 540,
     state: "MI",
@@ -2600,6 +2687,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Big Bend",
+    seasonalVerdict: { best: "November - March (Mild days, ideal for the Chisos Mountains and desert floor).", avoid: "Summer (Extreme Rio Grande valley heat, frequently exceeding 110°F on the trails)." },
     minDays: 3,
     flightMinutes: 390,
     state: "TX",
@@ -2666,6 +2754,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Biscayne",
+    seasonalVerdict: { best: "Winter (Mosquito-free on the islands, clear water for snorkeling), Spring (Calm winds).", avoid: "Summer (Hurricane season, extreme humidity, and severe mosquito levels on the keys)." },
     minDays: 1,
     flightMinutes: 360,
     state: "FL",
@@ -2730,6 +2819,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Dry Tortugas",
+    seasonalVerdict: { best: "April - June (Calmest seas for ferry and seaplane, best snorkeling clarity).", avoid: "Winter (Strong winds can lead to ferry cancellations and poor underwater visibility)." },
     minDays: 1,
     flightMinutes: 480,
     state: "FL",
@@ -2795,6 +2885,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Haleakalā",
+    seasonalVerdict: { best: "April - October (Clearer skies for sunrise at the summit, warmer hiking weather).", avoid: "Winter (The summit can experience freezing rain, high winds, and visibility-killing cloud cover)." },
     minDays: 1,
     flightMinutes: 375,
     state: "HI",
@@ -2866,6 +2957,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Cuyahoga Valley",
+    seasonalVerdict: { best: "October (Stunning hardwood fall foliage), June (Lush hiking and waterfalls at peak flow).", avoid: "Winter (Lake effect snow can lead to icy trails and very grey/gloomy visibility)." },
     minDays: 1,
     flightMinutes: 290,
     state: "OH",
@@ -2929,6 +3021,7 @@ const _PARKS_RAW = [
   },
   {
     name: "Kenai Fjords",
+    seasonalVerdict: { best: "June - August (Whale watching peak, calmest seas for boat tours, Harding Icefield accessible).", avoid: "Winter (The park road is unplowed, boat tours don't run, and weather is dangerously unpredictable)." },
     minDays: 2,
     flightMinutes: 570,
     state: "AK",

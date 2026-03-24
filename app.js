@@ -703,37 +703,57 @@ function openModal(park) {
   const ap = parseAirport(park.airport);
 
   modalBody.innerHTML = `
+    <div class="modal-icon-actions">
+      <button class="modal-icon-btn" 
+        title="${isFavorite ? 'Unfavorite' : 'Add to Favorites'}"
+        onclick="toggleFavorite('${park.name}', event); openModal(window.PARKS_DATA.find(p=>p.name==='${park.name}'))">
+        ${isFavorite ? '❤️' : '🤍'}
+      </button>
+      <button class="modal-icon-btn" 
+        title="${isVisited ? 'Mark Unvisited' : 'Mark Visited'}"
+        onclick="toggleVisited('${park.name}', event); openModal(window.PARKS_DATA.find(p=>p.name==='${park.name}'))">
+        ${isVisited ? '✅' : '✔️'}
+      </button>
+    </div>
     <div class="modal-header">
       <div class="modal-title-row">
         <div>
-          <h2 class="modal-title">${isFavorite?'⭐ ':''}${park.name} NP ${isVisited?'<span class="modal-visited-tag">✓ Visited</span>':''}</h2>
-          <p class="modal-subtitle">${park.state} &bull; ✈️ <strong>${ap.code}</strong> ${ap.detail} &bull; 🗓️ Min ${park.minDays} days</p>
-          ${park.flight ? `<p class="modal-flight">${park.flight}</p>` : ''}
+          <h2 class="modal-title">
+            ${isFavorite?'⭐ ':''}${park.name} <span class="modal-state-inline">${park.state}</span> ${isVisited?'<span class="modal-visited-tag">✓ Visited</span>':''}
+          </h2>
+          <div class="modal-subtitle">
+            <span class="modal-airport-inline">✈️ <strong>${ap.code}</strong> ${ap.detail}</span>
+            ${park.flight ? `<span class="sep">&bull;</span><span class="modal-flight-inline">${park.flight}</span>` : ''}
+            <span class="sep">&bull;</span>
+            <span class="modal-min-days">🗓️ Min ${park.minDays} days</span>
+          </div>
         </div>
         <div class="modal-header-right">
           <div class="modal-rating-detail">
-            <div style="color:var(--amber);font-size:1.4rem;font-weight:700;">${starStr} <span style="font-size:1rem;color:var(--text);">${park.compositeScore}</span></div>
+            <div class="modal-star-row">${starStr} <span class="modal-score-num">${park.compositeScore}</span></div>
             <div class="composite-score">Pop: ${park.popularity} | Unique: ${park.uniqueness} | SFO: ${park.sfoAccessibility}</div>
             <div class="score-bar-bg"><div class="score-bar-fill" style="width:${scorePct}%"></div></div>
-          </div>
-          <div class="modal-action-btns">
-            <button class="modal-action-btn ${isVisited?'visited-on':''}"
-              onclick="toggleVisited('${park.name}',event);openModal(window.PARKS_DATA.find(p=>p.name==='${park.name}'))">
-              ${isVisited?'✓ Visited':'+ Mark Visited'}
-            </button>
-            <button class="modal-action-btn ${isFavorite?'fav-on':''}"
-              onclick="toggleFavorite('${park.name}',event);openModal(window.PARKS_DATA.find(p=>p.name==='${park.name}'))">
-              ${isFavorite?'⭐ Favorited':'☆ Favorite'}
-            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Resource Links -->
-    <div class="modal-section modal-links-section">
-      <h3 class="modal-section-title">🔗 Resources</h3>${linksHtml}
-    </div>
+    <!-- Seasonal Verdict -->
+    ${park.seasonalVerdict ? `
+    <div class="modal-section seasonal-verdict-container">
+      <div class="seasonal-verdict-grid">
+        <div>
+          <div class="seasonal-best-label">✨ Seasonal Best</div>
+          <div class="seasonal-verdict-text">${park.seasonalVerdict.best}</div>
+        </div>
+        <div class="caution-col">
+          <div class="seasonal-caution-label">⚠️ Seasonal Caution</div>
+          <div class="seasonal-verdict-text">${park.seasonalVerdict.avoid}</div>
+        </div>
+      </div>
+    </div>` : ''}
+
+    <div class="modal-section"><h3 class="modal-section-title">✨ Top Activities</h3><div class="activities-list">${activitiesHtml}</div></div>
 
     <!-- Monthly Banner (only if month selected) -->
     ${monthData ? `
@@ -772,15 +792,12 @@ function openModal(park) {
     <!-- Dos & Donts -->
     ${(dosHtml||dontsHtml)?`<div class="modal-section"><h3 class="modal-section-title">✅ Dos & Don'ts</h3><div class="dos-donts-grid"><div class="dos-col"><h4>✓ Do</h4><div class="dos-list">${dosHtml}</div></div><div class="donts-col"><h4>× Don't</h4><div class="donts-list">${dontsHtml}</div></div></div></div>`:''}
 
-    <!-- Top Activities -->
-    <div class="modal-section"><h3 class="modal-section-title">✨ Top Activities</h3><div class="activities-list">${activitiesHtml}</div></div>
-
     <!-- Itinerary -->
     <div class="modal-section"><h3 class="modal-section-title">🗺️ Sample Itinerary (${park.days})</h3><div style="margin-top:16px;">${itineraryHtml}</div></div>
 
     <!-- Reddit Posts -->
     ${park.redditPosts&&park.redditPosts.length?`
-    <div class="modal-section" style="margin-bottom:0;">
+    <div class="modal-section">
       <h3 class="modal-section-title"><svg width="18" height="18" viewBox="0 0 20 20" fill="#ff4500"><circle cx="10" cy="10" r="10"/><ellipse cx="10" cy="9" rx="5" ry="3.5" fill="#fff" opacity=".15"/><circle cx="7" cy="9" r="1" fill="#fff"/><circle cx="13" cy="9" r="1" fill="#fff"/><path d="M7 12.5c.8.8 5.2.8 6 0" stroke="#fff" stroke-width="1" fill="none" stroke-linecap="round"/></svg> Top Reddit Discussions</h3>
       <div class="reddit-posts-list">
         ${park.redditPosts.map(post=>`
@@ -791,6 +808,11 @@ function openModal(park) {
         </div>`).join('')}
       </div>
     </div>`:''}
+
+    <!-- Resource Links (Moved to bottom) -->
+    <div class="modal-section modal-links-section" style="margin-bottom:0; border-bottom:none;">
+      <h3 class="modal-section-title">🔗 Resources</h3>${linksHtml}
+    </div>
   `;
 }
 
