@@ -18,6 +18,21 @@ let sortBy           = 'score'; // 'score' | 'flight' | 'days'
 let visitedParks     = new Set(JSON.parse(localStorage.getItem('visitedParks')   || '[]'));
 let favoritedParks   = new Set(JSON.parse(localStorage.getItem('favoritedParks') || '[]'));
 let hiddenParks      = new Set(JSON.parse(localStorage.getItem('hiddenParks')    || '[]'));
+
+// ============ Filters ============
+let showFilterPanel = false;
+let filterBounds = { minDuration: 0, maxDuration: 1000, minDays: 1, maxDays: 14 };
+let filterState = JSON.parse(localStorage.getItem('filterState')) || {
+  maxDuration: null,
+  minDays: null,
+  maxDays: null,
+  minRating: 0, // 0, 3, 4
+  flights: [], // 'no-flight', 'direct', '1-stop', '2-stops'
+  stargazing: false
+};
+
+function saveFilterState() { localStorage.setItem('filterState', JSON.stringify(filterState)); }
+
 let showVisited      = localStorage.getItem('showVisited') !== 'false';
 
 // ============ DOM ============
@@ -28,6 +43,7 @@ const statsBar      = document.getElementById('stats-bar');
 const modal         = document.getElementById('park-modal');
 const modalCloseBtn = document.getElementById('modal-close-btn');
 const modalBody     = document.getElementById('modal-body');
+const filterPanel   = document.getElementById('filter-panel');
 const visitedToggle = document.getElementById('visited-toggle');
 const toggleWrap    = document.querySelector('.visited-toggle-wrap');
 
@@ -203,7 +219,136 @@ function sortParks(parks) {
   });
 }
 
+
+// ============ Filter Logic ============
+function toggleFilterPanel() {
+  showFilterPanel = !showFilterPanel;
+  if (!showFilterPanel) filterPanel.classList.add('hidden');
+  else renderFilterUI();
+}
+
+function updateFilterBounds(baseParks) {
+  if (!baseParks.length) return;
+  filterBounds.minDuration = Math.min(...baseParks.map(p => p.flightMinutes || 0));
+  filterBounds.maxDuration = Math.max(...baseParks.map(p => p.flightMinutes || 0));
+  filterBounds.minDays = Math.min(...baseParks.map(p => p.minDays || 1));
+  filterBounds.maxDays = Math.max(...baseParks.map(p => p.minDays || 1));
+  
+  // Clean up state if out of bounds from previous
+  if (filterState.maxDuration === null || filterState.maxDuration > filterBounds.maxDuration) filterState.maxDuration = filterBounds.maxDuration;
+  if (filterState.minDays === null || filterState.minDays < filterBounds.minDays) filterState.minDays = filterBounds.minDays;
+  if (filterState.maxDays === null || filterState.maxDays > filterBounds.maxDays) filterState.maxDays = filterBounds.maxDays;
+}
+
+function getFlightType(park) {
+  if (!park.flight || park.flight.toLowerCase().includes('drive') || park.flight.toLowerCase().includes('ferry') || park.flight.toLowerCase().includes('boat')) return 'no-flight';
+  const f = park.flight.toLowerCase();
+  if (f.includes('direct')) return 'direct';
+  if (f.includes('1 stop')) return '1-stop';
+  return '2-stops';
+}
+
+function applyFilters(baseParks) {
+  return baseParks.filter(p => {
+    // Duration
+    if (filterState.maxDuration !== null && (p.flightMinutes || 0) > filterState.maxDuration) return false;
+    // Days Range
+    if (filterState.minDays !== null && (p.minDays || 1) < filterState.minDays) return false;
+    if (filterState.maxDays !== null && (p.minDays || 1) > filterState.maxDays) return false;
+    // Rating
+    if (filterState.minRating > 0 && p.compositeScore < filterState.minRating) return false;
+    // Stargazing
+    if (filterState.stargazing && !(p.stargazing && p.stargazing.isFriendly)) return false;
+    // Flight Types
+    if (filterState.flights.length > 0) {
+      const type = getFlightType(p);
+      if (!filterState.flights.includes(type)) return false;
+    }
+    return true;
+  });
+}
+
+function resetFilters() {
+  filterState = { maxDuration: filterBounds.maxDuration, minDays: filterBounds.minDays, maxDays: filterBounds.maxDays, minRating: 0, flights: [], stargazing: false };
+  saveFilterState();
+  renderParks();
+}
+
+function setFilterValue(key, val, shouldRender=true) {
+  filterState[key] = val; saveFilterState();
+  if(shouldRender) {
+    // If range sliders are dragging widely, we shouldn't rerender instantly to avoid lag.
+    // For now, render Parks which triggers re-render.
+    renderParks();
+  }
+}
+function toggleFlightFilter(type) {
+  if (filterState.flights.includes(type)) filterState.flights = filterState.flights.filter(t => t!==type);
+  else filterState.flights.push(type);
+  saveFilterState(); renderParks();
+}
+
+function renderFilterUI() {
+  if (!showFilterPanel) return;
+  filterPanel.classList.remove('hidden');
+  
+  filterPanel.innerHTML = `
+    <div class="filter-header">
+      <h3>Refine Results</h3>
+      <button class="clear-filters-btn" onclick="resetFilters()">Clear Filters</button>
+    </div>
+    <div class="filter-body">
+      
+      <div class="filter-col">
+        <label>Total Travel Time: <= ${Math.round((filterState.maxDuration||filterBounds.maxDuration)/60)}h ${(filterState.maxDuration||filterBounds.maxDuration)%60}m</label>
+        <input type="range" min="${filterBounds.minDuration}" max="${filterBounds.maxDuration}" step="30" value="${filterState.maxDuration||filterBounds.maxDuration}" 
+          onchange="setFilterValue('maxDuration', parseInt(this.value))"
+          oninput="this.previousElementSibling.innerText = 'Total Travel Time: <= ' + Math.floor(this.value/60) + 'h ' + (this.value%60) + 'm'">
+        
+        <label style="margin-top:16px;">Suggested Days: ${filterState.minDays||filterBounds.minDays} - ${filterState.maxDays||filterBounds.maxDays} days</label>
+        <div style="display:flex; gap:12px;">
+           <span style="font-size:0.8rem;color:#9ca3af">Min</span>
+           <input type="range" min="${filterBounds.minDays}" max="${filterBounds.maxDays}" step="1" value="${filterState.minDays||filterBounds.minDays}" 
+             onchange="setFilterValue('minDays', parseInt(this.value))">
+        </div>
+        <div style="display:flex; gap:12px; margin-top:8px;">
+           <span style="font-size:0.8rem;color:#9ca3af">Max</span>
+           <input type="range" min="${filterBounds.minDays}" max="${filterBounds.maxDays}" step="1" value="${filterState.maxDays||filterBounds.maxDays}" 
+             onchange="setFilterValue('maxDays', parseInt(this.value))">
+        </div>
+      </div>
+
+      <div class="filter-col">
+        <label>Star Rating</label>
+        <div class="pill-group">
+          <button class="pill ${filterState.minRating===0?'active':''}" onclick="setFilterValue('minRating', 0)">Any</button>
+          <button class="pill ${filterState.minRating===3?'active':''}" onclick="setFilterValue('minRating', 3)">3+ Stars</button>
+          <button class="pill ${filterState.minRating===4?'active':''}" onclick="setFilterValue('minRating', 4)">4+ Stars</button>
+        </div>
+
+        <label style="margin-top:20px;">Features</label>
+        <label class="check-label">
+          <input type="checkbox" ${filterState.stargazing ? 'checked':''} onchange="setFilterValue('stargazing', this.checked)">
+          🔭 Stargazing Recommended
+        </label>
+      </div>
+
+      <div class="filter-col">
+        <label>Transit Stops (From SFO)</label>
+        <div class="pill-group-vertical">
+          <button class="pill ${filterState.flights.includes('no-flight')?'active':''}" onclick="toggleFlightFilter('no-flight')">🚙 Drive / No Flight</button>
+          <button class="pill ${filterState.flights.includes('direct')?'active':''}" onclick="toggleFlightFilter('direct')">✈️ Direct Flight</button>
+          <button class="pill ${filterState.flights.includes('1-stop')?'active':''}" onclick="toggleFlightFilter('1-stop')">🛑 1 Stop</button>
+          <button class="pill ${filterState.flights.includes('2-stops')?'active':''}" onclick="toggleFlightFilter('2-stops')">🛑 2+ Stops</button>
+        </div>
+      </div>
+
+    </div>
+  `;
+}
+
 // ============ Render Parks ============
+
 function renderParks() {
   parkGrid.innerHTML = '';
   statsBar.innerHTML = '';
@@ -233,11 +378,28 @@ function renderParks() {
     return;
   }
 
+// --- APPLY FILTERS ---
+  const rawCount = parks.length;
+  updateFilterBounds(parks);
+  parks = applyFilters(parks);
+  renderFilterUI();
+  
+  if (parks.length !== rawCount) {
+    modeLabel = `Showing ${parks.length} of ${rawCount} parks (Filtered)`;
+  }
+  // ---------------------
+
   emptyState.classList.add('hidden');
 
-  // Stats bar
+// Stats bar
   statsBar.innerHTML = `
-    <span class="count">${modeLabel}</span>
+    <div style="display:flex; align-items:center; gap: 16px;">
+      <span class="count">${modeLabel}</span>
+      <button class="filter-toggle-btn ${parks.length !== rawCount ? 'has-active-filters' : ''}" onclick="toggleFilterPanel()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"></path></svg>
+        Filters
+      </button>
+    </div>
     <div class="sort-controls">
       <span class="sort-label">Sort:</span>
       <button class="sort-btn ${sortBy==='score'    ? 'sort-active':''}" onclick="setSort('score')">⭐ Rating</button>
