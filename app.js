@@ -63,6 +63,19 @@ const filterPanel   = document.getElementById('filter-panel');
 const visitedToggle = document.getElementById('visited-toggle');
 const toggleWrap    = document.querySelector('.visited-toggle-wrap');
 
+// ============ Theme Selection ============
+let currentTheme = localStorage.getItem('theme') || 'dark';
+const applyTheme = (theme) => {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  document.getElementById('theme-light')?.classList.toggle('active', theme === 'light');
+  document.getElementById('theme-dark')?.classList.toggle('active', theme === 'dark');
+};
+applyTheme(currentTheme);
+
+document.getElementById('theme-light')?.addEventListener('click', () => applyTheme('light'));
+document.getElementById('theme-dark')?.addEventListener('click', () => applyTheme('dark'));
+
 // ============ Search ============
 let searchQuery = '';
 if (parkSearchInput) {
@@ -89,6 +102,12 @@ if (searchClearBtn) {
 function saveVisited()   { localStorage.setItem('visitedParks',   JSON.stringify([...visitedParks])); }
 function saveFavorites() { localStorage.setItem('favoritedParks', JSON.stringify([...favoritedParks])); }
 function saveHidden()    { localStorage.setItem('hiddenParks',    JSON.stringify([...hiddenParks])); }
+
+function toggleVisitedFilterGlobal(checked) {
+  showVisited = checked;
+  localStorage.setItem('showVisited', checked);
+  renderParks();
+}
 
 function toggleVisited(parkName, e) {
   if (e) e.stopPropagation();
@@ -286,6 +305,79 @@ function getFlightType(park) {
   return '2-stops';
 }
 
+function renderFilterChips() {
+  const container = document.getElementById('active-filters');
+  if (!container) return;
+  container.innerHTML = '';
+  
+  const chips = [];
+  
+  if (searchQuery) {
+    chips.push({ label: `🔍 "${searchQuery}"`, onClear: () => { 
+      if (parkSearchInput) parkSearchInput.value = ''; 
+      searchQuery = ''; 
+      if (searchClearBtn) searchClearBtn.classList.remove('visible');
+      renderParks(); 
+    } });
+  }
+  
+  if (selectedMonth) {
+    chips.push({ label: `📅 ${MONTH_FULL[selectedMonth-1]}`, onClear: () => setMonth(0) });
+  }
+  
+  if (viewMode !== 'all') {
+    const labels = { favorites: '⭐ Favorites', visited: '✓ Visited Only', hidden: '🙈 Hidden' };
+    chips.push({ label: labels[viewMode], onClear: () => setViewMode('all') });
+  }
+  
+  if (!showVisited && viewMode !== 'visited') {
+    chips.push({ label: '🚫 Hiding Visited', onClear: () => { 
+      showVisited = true; 
+      const toggle = document.getElementById('visited-toggle');
+      if (toggle) toggle.checked = true;
+      renderParks(); 
+    } });
+  }
+
+  if (filterState.minRating > 0) {
+    chips.push({ label: `⭐ ${filterState.minRating}+ Stars`, onClear: () => setFilterValue('minRating', 0) });
+  }
+  
+  if (filterState.stargazing) {
+    chips.push({ label: '🔭 Stargazing', onClear: () => setFilterValue('stargazing', false) });
+  }
+  
+  if (filterState.minDays > filterBounds.minDays) {
+    chips.push({ label: `🗓️ Min ${filterState.minDays} Days`, onClear: () => setFilterValue('minDays', filterBounds.minDays) });
+  }
+
+  if (filterState.maxDuration < filterBounds.maxDuration) {
+    chips.push({ label: `⏲️ Max ${Math.floor(filterState.maxDuration/60)}h ${filterState.maxDuration%60}m`, onClear: () => setFilterValue('maxDuration', filterBounds.maxDuration) });
+  }
+
+  filterState.flights.forEach(f => {
+    const labels = { 'no-flight': '🚙 Drive', 'direct': '✈️ Direct', '1-stop': '🛑 1 Stop', '2-stops': '🛑 2+ Stops' };
+    chips.push({ label: labels[f], onClear: () => toggleFlightFilter(f) });
+  });
+
+  if (chips.length === 0) {
+    container.style.display = 'none';
+    return;
+  }
+  
+  container.style.display = 'flex';
+  chips.forEach(chip => {
+    const div = document.createElement('div');
+    div.className = 'filter-chip';
+    div.innerHTML = `<span>${chip.label}</span><button class="chip-remove" aria-label="Remove filter">×</button>`;
+    div.querySelector('.chip-remove').onclick = (e) => {
+      e.stopPropagation();
+      chip.onClear();
+    };
+    container.appendChild(div);
+  });
+}
+
 function applyFilters(baseParks) {
   return baseParks.filter(p => {
     // Duration
@@ -371,6 +463,12 @@ function renderFilterUI() {
           <button class="pill ${filterState.flights.includes('1-stop')?'active':''}" onclick="toggleFlightFilter('1-stop')">🛑 1 Stop</button>
           <button class="pill ${filterState.flights.includes('2-stops')?'active':''}" onclick="toggleFlightFilter('2-stops')">🛑 2+ Stops</button>
         </div>
+
+        <label style="margin-top:20px;">Visibility</label>
+        <label class="check-label">
+          <input type="checkbox" id="visited-toggle-filter" ${showVisited ? 'checked' : ''} onchange="toggleVisitedFilterGlobal(this.checked)">
+          Show Visited Parks
+        </label>
       </div>
 
     </div>
@@ -394,7 +492,7 @@ function renderParks() {
       parks = parks.filter(p => !visitedParks.has(p.name));
       hiddenCount = lenBefore - parks.length;
     }
-    modeLabel = `${parks.length} Parks Displayed ${hiddenCount > 0 ? '<span style="font-size:0.8rem;color:var(--text-dim);font-weight:400;">(' + hiddenCount + ' hidden by Visited toggle)</span>' : ''}`;
+    modeLabel = `${parks.length} Parks Displayed`;
   } else if (viewMode === 'favorites') {
     parks = PARKS.filter(p => favoritedParks.has(p.name) && !hiddenParks.has(p.name));
     modeLabel = `⭐ ${parks.length} Favorited Park${parks.length !== 1 ? 's' : ''}`;
@@ -436,8 +534,10 @@ function renderParks() {
   renderFilterUI();
   
   if (parks.length !== rawCount || searchQuery) {
-    modeLabel = `Showing ${parks.length} of ${rawCount} parks (Filtered)`;
+    modeLabel = `Showing ${parks.length} of ${rawCount} parks`;
   }
+  
+  renderFilterChips();
   // ---------------------
 
   emptyState.classList.add('hidden');
@@ -472,7 +572,9 @@ function renderParks() {
     if (isHidden) cardClass += ' park-hidden';
 
     card.className = cardClass;
-    card.style.animationDelay = `${idx * 0.04}s`;
+    // Reduce stutter on mobile by shortening stagger
+    const stagger = ('ontouchstart' in window) ? 0.02 : 0.04;
+    card.style.animationDelay = `${idx * stagger}s`;
     card.addEventListener('click', () => openModal(park));
 
     const monthData = selectedMonth && park.monthlyData[selectedMonth]
@@ -485,32 +587,29 @@ function renderParks() {
       <div class="card-header">
         <div class="card-title-col">
           <div class="park-name">
-            ${isFavorite ? '<span class="fav-star-inline">⭐</span>' : ''}${park.name}
+            ${park.name}<span class="park-state-inline">${park.state}</span>
           </div>
           <div class="park-meta-row">
-            <span class="park-state">${park.state}</span>
-            ${isVisited  ? '<span class="visited-badge">✓ Visited</span>'   : ''}
+            ${isVisited ? '<span class="visited-badge">✓ Visited</span>' : ''}
           </div>
         </div>
         <div class="card-right-col">
-          <div class="overflow-wrap" onclick="event.stopPropagation()">
-            <button class="overflow-btn" title="More options"
-              onclick="this.nextElementSibling.classList.toggle('open')">⋯</button>
-            <div class="overflow-menu">
-              <button class="overflow-item ${isVisited  ? 'active-item'   :''}"
-                onclick="toggleVisited('${park.name}', event)">
-                ${isVisited ? '✓ Mark Unvisited' : '+ Mark Visited'}
-              </button>
-              <button class="overflow-item ${isFavorite ? 'active-item fav-active' :''}"
-                onclick="toggleFavorite('${park.name}', event)">
-                ${isFavorite ? '⭐ Unfavorite' : '☆ Add to Favorites'}
-              </button>
-              <div class="menu-divider" style="height:1px;background:var(--border);margin:4px 0;"></div>
-              <button class="overflow-item" style="color: #ef4444;"
-                onclick="toggleHidden('${park.name}', event)">
-                ${isHidden ? '👁️ Unhide Park' : '🙈 Hide Park'}
-              </button>
-            </div>
+          <div class="card-actions">
+            <button class="card-action-btn ${isFavorite ? 'active-heart' : ''}" 
+              title="${isFavorite ? 'Unfavorite' : 'Add to Favorites'}"
+              onclick="toggleFavorite('${park.name}', event)">
+              ${isFavorite ? '❤️' : '🤍'}
+            </button>
+            <button class="card-action-btn ${isVisited ? 'active-tick' : ''}" 
+              title="${isVisited ? 'Mark Unvisited' : 'Mark Visited'}"
+              onclick="toggleVisited('${park.name}', event)">
+              ${isVisited ? '✅' : '✔️'}
+            </button>
+            <button class="card-action-btn hide-btn" 
+              title="Hide Park"
+              onclick="toggleHidden('${park.name}', event)">
+              ✖️
+            </button>
           </div>
         </div>
       </div>
@@ -543,7 +642,9 @@ function renderParks() {
         </div>
         ${monthData && park.transport ? `<div class="transport-tag">🚌 ${park.transport}</div>` : ''}
       </div>
-      <div class="card-cta">Click for details ➝</div>
+      <div class="card-cta">
+        ${('ontouchstart' in window) ? 'Tap to explore ➝' : 'Click for details ➝'}
+      </div>
     `;
 
     parkGrid.appendChild(card);

@@ -32,7 +32,13 @@
   <div class="bg-glow bg-glow-3"></div>
 
   <header>
-    <h1>US National Park Finder</h1>
+    <div class="header-main-row">
+      <h1>US National Park Finder</h1>
+      <div class="theme-switch" role="group" aria-label="Theme switcher">
+        <button id="theme-light" class="theme-btn" title="Light Mode" aria-label="Switch to light mode">🌞</button>
+        <button id="theme-dark" class="theme-btn" title="Dark Mode" aria-label="Switch to dark mode">🌙</button>
+      </div>
+    </div>
     <p class="subtitle">Discover the perfect national park for your next trip</p>
   </header>
 
@@ -43,19 +49,11 @@
 
   <nav id="month-bar" aria-label="Month filter">
     <div class="month-chips"></div>
-    <div class="visited-toggle-wrap">
-      <label class="toggle-label" for="visited-toggle">
-        <input type="checkbox" id="visited-toggle" checked />
-        <span class="toggle-track">
-          <span class="toggle-knob"></span>
-        </span>
-        Show Visited Parks
-      </label>
-    </div>
   </nav>
 
   <main>
     <div id="stats-bar" class="stats-bar"></div>
+    <div id="active-filters" class="active-filters"></div>
     <div id="filter-panel" class="filter-panel hidden"></div>
     <div id="park-grid" class="park-grid"></div>
     <div id="empty-state" class="empty-state hidden">

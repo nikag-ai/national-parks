@@ -15,7 +15,24 @@
   --rose: #f06292;
   --radius: 16px;
   --radius-sm: 10px;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-hover-bg: rgba(255, 255, 255, 0.08);
 }
+
+[data-theme="light"] {
+  --bg: #fdfdfd;
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+  --border: rgba(0, 0, 0, 0.12);
+  --text: #1e293b;
+  --text-dim: #475569;
+  --accent: #3b82f6;
+  --accent-glow: rgba(59, 130, 246, 0.18);
+  --card-bg: #ffffff;
+  --card-hover-bg: #f8fafc;
+}
+
+
 
 html { scroll-behavior: smooth; }
 
@@ -45,8 +62,53 @@ body {
 header {
   position: relative;
   z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 24px 16px;
   text-align: center;
-  padding: 56px 24px 24px;
+}
+
+.header-main-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+.theme-switch {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 4px;
+  border-radius: 30px;
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.theme-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.theme-btn:hover {
+  color: var(--text);
+}
+
+.theme-btn.active {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 2px 8px var(--accent-glow);
 }
 
 h1 {
@@ -76,7 +138,7 @@ nav#month-bar {
   -webkit-backdrop-filter: blur(24px);
   background: rgba(12, 15, 26, 0.75);
   border-bottom: 1px solid var(--border);
-  padding: 14px 24px;
+  padding: 8px 24px;
   overflow: hidden;
 }
 
@@ -143,7 +205,7 @@ nav#month-bar {
   position: relative;
   z-index: 1;
   max-width: 1400px;
-  margin: 32px auto 24px;
+  margin: 16px auto 12px;
   padding: 0 24px;
   display: flex;
   justify-content: space-between;
@@ -180,9 +242,9 @@ nav#month-bar {
 /* ============ Park Card ============ */
 .park-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: var(--radius); /* Assuming var(--radius-md) is var(--radius) or similar */
+  border-radius: var(--radius);
   padding: 24px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
@@ -192,13 +254,14 @@ nav#month-bar {
   transform: translateY(10px);
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
 .park-card:hover {
   transform: translateY(-6px);
   border-color: var(--accent);
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5), 0 0 15px rgba(108,140,255,0.1);
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--card-hover-bg);
 }
 
 .park-card::before {
@@ -221,7 +284,7 @@ nav#month-bar {
 .card-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 20px;
 }
 
@@ -230,7 +293,7 @@ nav#month-bar {
   font-size: 1.7rem;
   font-weight: 700;
   color: var(--text);
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .park-state {
@@ -792,16 +855,6 @@ footer a {
 footer a:hover { text-decoration: underline; }
 
 
-/* ============ Responsive ============ */
-@media (max-width: 800px) {
-  .park-grid { grid-template-columns: 1fr; }
-  .month-chip { padding: 7px 14px; font-size: 0.82rem; }
-  .modal-content { padding: 24px; }
-  .modal-title { font-size: 1.5rem; }
-  .dos-donts-grid { grid-template-columns: 1fr; }
-  .modal-title-row { flex-direction: column; }
-  .modal-action-btns { flex-direction: row; }
-}
 
 /* ============ Special Chips (Favorites / Visited) ============ */
 .special-chip {
@@ -911,7 +964,7 @@ footer a:hover { text-decoration: underline; }
 /* ============ Card Footer ============ */
 .card-footer {
   margin-top: auto;
-  padding-top: 12px;
+  padding-top: 16px;
   border-top: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -1027,8 +1080,110 @@ footer a:hover { text-decoration: underline; }
 .fav-star-inline { font-size: 0.85rem; margin-right: 2px; }
 .card-title-col { flex:1; min-width:0; }
 
+.park-state-inline {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+/* ============ Explicit Card Actions ============ */
+.card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.card-action-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.card-action-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--surface-hover);
+}
+
+.card-action-btn.active-heart {
+  color: #ff4757;
+  border-color: rgba(255, 71, 87, 0.3);
+  background: rgba(255, 71, 87, 0.05);
+}
+
+.card-action-btn.active-tick {
+  color: var(--green);
+  border-color: rgba(61, 214, 140, 0.3);
+  background: rgba(61, 214, 140, 0.05);
+}
+
+.card-action-btn.hide-btn:hover {
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+/* ============ Filter Chips ============ */
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 1400px;
+  margin: 0 auto 16px;
+  padding: 0 24px;
+  justify-content: flex-start;
+}
+
+.filter-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  color: var(--text);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+}
+
+.filter-chip:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.chip-remove {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.chip-remove:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--accent);
+}
+
 /* ============ Visited Toggle ============ */
-.visited-toggle-wrap { display:flex; justify-content:center; margin-top:12px; }
+.visited-toggle-wrap { display:flex; justify-content:center; margin-top:8px; }
 .toggle-label { display:flex; align-items:center; gap:10px; cursor:pointer; font-size:0.85rem; color:var(--text-dim); user-select:none; }
 .toggle-label input[type="checkbox"] { display:none; }
 .toggle-track {
@@ -1115,7 +1270,7 @@ footer a:hover { text-decoration: underline; }
 .check-label input { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
 
 /* ============ Global Search ============ */
-.search-container { max-width:640px; margin:0 auto 28px; padding:0 20px; position:relative; }
+.search-container { max-width:640px; margin:0 auto 20px; padding:0 20px; position:relative; }
 .search-input { width:100%; padding:16px 24px; padding-right:50px; border-radius:100px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.04); color:var(--text); font-size:1.05rem; font-family:'Inter', sans-serif; outline:none; transition:all 0.2s; box-shadow:0 8px 24px rgba(0,0,0,0.15); }
 .search-input:focus { border-color:var(--accent); background:rgba(25,30,50,0.6); box-shadow:0 0 0 3px rgba(108,140,255,0.2), 0 8px 24px rgba(0,0,0,0.2); }
 .search-input::placeholder { color:rgba(255,255,255,0.4); }
@@ -1126,8 +1281,7 @@ footer a:hover { text-decoration: underline; }
 
 /* ============ Card CTA ============ */
 .card-cta {
-  margin-top: 16px;
-  padding-top: 12px;
+  padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
@@ -1138,12 +1292,106 @@ footer a:hover { text-decoration: underline; }
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  opacity: 0;
-  transform: translateY(8px);
+  opacity: 1;
+  transform: translateY(0);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .park-card:hover .card-cta {
-  opacity: 1;
-  transform: translateY(0);
+  color: #fff;
+}
+
+/* ============ Responsive Overrides (Must stay at end) ============ */
+@media (max-width: 800px) {
+  .park-grid { grid-template-columns: 1fr; gap: 20px; }
+  .modal-content { width: 95%; padding: 20px; max-height: 90vh; }
+  .modal-title { font-size: 1.4rem; }
+  .dos-donts-grid { grid-template-columns: 1fr; }
+  .modal-header-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .modal-action-btns { justify-content: flex-start; }
+}
+
+@media (max-width: 600px) {
+  header { text-align: left !important; padding: 24px 20px 0 !important; }
+  .header-main-row { justify-content: flex-start !important; gap: 12px; }
+  header h1 { font-size: 2rem; }
+  .subtitle { font-size: 0.9rem; margin-bottom: 8px; text-align: left !important; }
+  .theme-switch { transform: scale(0.85); transform-origin: left center; }
+  .park-card { padding: 18px; animation-duration: 0.2s; }
+  
+  .month-chips { 
+    display: flex; 
+    overflow-x: auto; 
+    padding: 10px 4px; 
+    gap: 8px; 
+    -webkit-overflow-scrolling: touch; 
+    scrollbar-width: none; 
+    justify-content: flex-start;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .month-chips::-webkit-scrollbar { display: none; }
+  .month-chip { flex-shrink: 0; padding: 6px 14px; font-size: 0.8rem; }
+  
+  .search-container { margin-bottom: 20px; }
+  .search-input { padding: 14px 20px; font-size: 0.95rem; }
+  
+  .filter-panel { padding: 16px; margin-bottom: 20px; }
+  .filter-body { gap: 24px; }
+  
+  .park-card { padding: 18px; }
+  .park-name { font-size: 1.2rem; }
+  
+  /* Show CTA by default on mobile */
+  .card-cta { 
+    color: var(--accent); 
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.75rem;
+    padding-top: 16px;
+    margin-top: 0;
+  }
+  
+  .stats-bar { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .sort-controls { width: 100%; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+  .sort-controls::-webkit-scrollbar { display: none; }
+}
+
+/* ============ Light Theme Overrides (Cascade Priority) ============ */
+[data-theme="light"] .bg-glow { opacity: 0.05; }
+
+[data-theme="light"] h1 { 
+  background: none;
+  -webkit-text-fill-color: var(--text);
+  color: var(--text);
+}
+
+[data-theme="light"] .subtitle { color: var(--text-dim); }
+
+[data-theme="light"] nav#month-bar {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] .search-input {
+  background: rgba(0,0,0,0.03);
+  border-color: rgba(0,0,0,0.1);
+  color: var(--text);
+}
+
+[data-theme="light"] .search-input::placeholder {
+  color: var(--text-dim);
+  opacity: 0.7;
+}
+
+[data-theme="light"] .filter-toggle-btn,
+[data-theme="light"] .sort-btn {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.1);
+  color: var(--text) !important;
+}
+
+[data-theme="light"] .sort-btn:hover,
+[data-theme="light"] .filter-toggle-btn:hover {
+  background: rgba(0,0,0,0.08);
+  border-color: var(--accent);
+  color: var(--text) !important;
 }
