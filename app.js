@@ -166,9 +166,10 @@ function renderStars(count) {
 }
 
 function parseAirport(str) {
-  if (!str) return { code:'N/A', detail:'' };
-  const m = str.match(/^([A-Z]{3})\s*(.*)$/);
-  return m ? { code: m[1], detail: m[2].replace(/^\(|\)$/g,'').trim() } : { code: str, detail: '' };
+  if (!str) return { code: '', detail: '' };
+  const firstSpace = str.indexOf(' ');
+  if (firstSpace === -1) return { code: str, detail: '' };
+  return { code: str.slice(0, firstSpace), detail: str.slice(firstSpace).trim() };
 }
 
 function sortParks(parks) {
@@ -178,10 +179,15 @@ function sortParks(parks) {
     // Favorites always float to top
     if (bFav !== aFav) return bFav - aFav;
 
-    if (sortBy === 'flight') {
+    if (sortBy === 'distance') {
       return (a.flightMinutes || 999) - (b.flightMinutes || 999);
     } else if (sortBy === 'days') {
       return (a.minDays || 99) - (b.minDays || 99);
+    } else if (sortBy === 'stargazing') {
+      const aStar = a.stargazing && a.stargazing.isFriendly ? 1 : 0;
+      const bStar = b.stargazing && b.stargazing.isFriendly ? 1 : 0;
+      if (bStar !== aStar) return bStar - aStar;
+      return b.compositeScore - a.compositeScore; // secondary sort
     }
     // default: score
     return b.compositeScore - a.compositeScore;
@@ -222,9 +228,10 @@ function renderParks() {
     <span class="count">${modeLabel}</span>
     <div class="sort-controls">
       <span class="sort-label">Sort:</span>
-      <button class="sort-btn ${sortBy==='score'  ? 'sort-active':''}" onclick="setSort('score')">⭐ Rating</button>
-      <button class="sort-btn ${sortBy==='flight' ? 'sort-active':''}" onclick="setSort('flight')">✈️ Flight</button>
-      <button class="sort-btn ${sortBy==='days'   ? 'sort-active':''}" onclick="setSort('days')">🗓️ Days</button>
+      <button class="sort-btn ${sortBy==='score'    ? 'sort-active':''}" onclick="setSort('score')">⭐ Rating</button>
+      <button class="sort-btn ${sortBy==='distance' ? 'sort-active':''}" onclick="setSort('distance')">✈️ Distance</button>
+      <button class="sort-btn ${sortBy==='days'     ? 'sort-active':''}" onclick="setSort('days')">🗓️ Days</button>
+      <button class="sort-btn ${sortBy==='stargazing'?'sort-active':''}" onclick="setSort('stargazing')">🔭 Stargazing</button>
     </div>
   `;
 

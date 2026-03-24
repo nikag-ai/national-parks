@@ -142,8 +142,8 @@ nav#month-bar {
 .stats-bar {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
-  margin: 32px auto 0;
+  max-width: 1400px;
+  margin: 32px auto 24px;
   padding: 0 24px;
   display: flex;
   justify-content: space-between;

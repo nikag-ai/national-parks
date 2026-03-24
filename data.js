@@ -3,7 +3,7 @@ const _PARKS_RAW = [
   {
     name: "Indiana Dunes", state: "IN", bestMonths: [6, 7, 8, 9], minDays: 1, flightMinutes: 260, days: "1 Day",
     airport: "MDW (1h) or ORD (1.5h)", flight: "~4h 20m to MDW (1 stop)", transport: "Car/Train",
-    avoid: ["11", "12", "1", "2", "3"], popularity: 60, uniqueness: 75, sfoAccessibility: 50,
+    avoid: [11, 12, 1, 2, 3], popularity: 60, uniqueness: 75, sfoAccessibility: 50,
     funFacts: [
       "The park sits on the southern tip of Lake Michigan, acting as a massive biological crossroads.",
       "Mount Baldy is a 'living' dune, moving inland at a rate of roughly four feet per year.",
@@ -37,7 +37,7 @@ const _PARKS_RAW = [
   {
     name: "New River Gorge", state: "WV", bestMonths: [5, 6, 9, 10], minDays: 2, flightMinutes: 285, days: "2 Days",
     airport: "CRW (1h drive)", flight: "~4h 45m to CRW (1 stop)", transport: "Car",
-    avoid: ["12", "1", "2"], popularity: 65, uniqueness: 88, sfoAccessibility: 40,
+    avoid: [12, 1, 2], popularity: 65, uniqueness: 88, sfoAccessibility: 40,
     funFacts: [
       "Despite its name, the New River is actually one of the oldest rivers on the North American continent.",
       "The New River Gorge Bridge is the longest steel span in the western hemisphere and the third highest in the US.",
@@ -72,7 +72,7 @@ const _PARKS_RAW = [
   {
     name: "Mammoth Cave", state: "KY", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 240, days: "1 Day",
     airport: "SDF (1.5h) or BNA (1.5h)", flight: "~4h to SDF/BNA (1 stop)", transport: "Car/Tour",
-    avoid: ["11", "12", "1", "2"], popularity: 55, uniqueness: 92, sfoAccessibility: 60,
+    avoid: [11, 12, 1, 2], popularity: 55, uniqueness: 92, sfoAccessibility: 60,
     funFacts: [
       "It is the longest known cave system in the entire world, with over 420 miles currently mapped.",
       "The cave served as a tuberculosis hospital in the 1840s (which ended poorly).",
@@ -106,7 +106,7 @@ const _PARKS_RAW = [
   {
     name: "Hot Springs", state: "AR", bestMonths: [2, 3, 4, 10, 11], minDays: 1, flightMinutes: 240, days: "1 Day",
     airport: "LIT (1h drive)", flight: "~4h to LIT (1 stop)", transport: "Car/Walk",
-    avoid: ["6", "7", "8"], popularity: 40, uniqueness: 88, sfoAccessibility: 55,
+    avoid: [6, 7, 8], popularity: 40, uniqueness: 88, sfoAccessibility: 55,
     funFacts: [
       "It is the oldest park managed by the NPS, actually protected by Congress in 1832 (before Yellowstone).",
       "It is the only national park located entirely within a city.",
@@ -140,7 +140,7 @@ const _PARKS_RAW = [
   {
     name: "Gateway Arch", state: "MO", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 220, days: "0.5 Days",
     airport: "STL (20m drive/train)", flight: "~3h 40m to STL (direct)", transport: "Walk/Tram",
-    avoid: ["1", "2", "7", "8"], popularity: 80, uniqueness: 60, sfoAccessibility: 85,
+    avoid: [1, 2, 7, 8], popularity: 80, uniqueness: 60, sfoAccessibility: 85,
     funFacts: [
       "It is the smallest national park in the US, covering just 91 acres.",
       "The arch is exactly as wide as it is tall: 630 feet.",
@@ -174,7 +174,7 @@ const _PARKS_RAW = [
   {
     name: "Congaree", state: "SC", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 300, days: "1 Day",
     airport: "CAE (30m) or CLT (2h)", flight: "~5h to CAE (1 stop)", transport: "Car",
-    avoid: ["6", "7", "8"], popularity: 20, uniqueness: 82, sfoAccessibility: 50,
+    avoid: [6, 7, 8], popularity: 20, uniqueness: 82, sfoAccessibility: 50,
     funFacts: [
       "It protects the largest intact expanse of old-growth bottomland hardwood forest remaining in the southeastern US.",
       "For two weeks in late spring, synchronous fireflies put on a synchronized flashing display that exists in only a few places on Earth.",
@@ -208,7 +208,7 @@ const _PARKS_RAW = [
   {
     name: "Virgin Islands", state: "VI", bestMonths: [12, 1, 2, 3, 4], minDays: 3, flightMinutes: 420, days: "3 Days",
     airport: "STT (then ferry to St. John)", flight: "~7h to STT (1 stop)", transport: "Ferry required",
-    avoid: ["8", "9", "10"], popularity: 40, uniqueness: 95, sfoAccessibility: 30,
+    avoid: [8, 9, 10], popularity: 40, uniqueness: 95, sfoAccessibility: 30,
     funFacts: [
       "The park covers roughly 60% of the island of St. John.",
       "Over 40% of the park is actually underwater, protecting coral reefs and mangrove shorelines.",
@@ -244,7 +244,7 @@ const _PARKS_RAW = [
   {
     name: "National Park of American Samoa", state: "AS", bestMonths: [6, 7, 8, 9], minDays: 3, flightMinutes: 720, days: "3 Days",
     airport: "PPG", flight: "SFO→HNL→PPG (~12h, 1 stop)", transport: "Car/Foot",
-    avoid: ["11", "12", "1", "2", "3"], popularity: 2, uniqueness: 98, sfoAccessibility: 5,
+    avoid: [11, 12, 1, 2, 3], popularity: 2, uniqueness: 98, sfoAccessibility: 5,
     funFacts: [
       "It is the only US national park south of the Equator.",
       "The park spans three separate islands (Tutuila, Ofu, and Ta'u) and is leased from Samoan villages.",
@@ -315,7 +315,7 @@ const _PARKS_RAW = [
   {
     name: "Kobuk Valley", state: "AK", bestMonths: [7, 8], minDays: 2, flightMinutes: 600, days: "2 Days",
     airport: "OTZ (then bush plane)", flight: "~9h to OTZ (1 stop) + plane", transport: "Bush Plane/Foot",
-    avoid: ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May"], popularity: 2, uniqueness: 98, sfoAccessibility: 5,
+    avoid: [9, 10, 11, 12, 1, 2, 3, 4, 5], popularity: 2, uniqueness: 98, sfoAccessibility: 5,
     funFacts: [
       "Contains the Great Kobuk Sand Dunes, the largest active sand dunes in the Arctic, formed by grinding glaciers during the Ice Age.",
       "Half a million caribou migrate through the park each year.",
@@ -348,7 +348,7 @@ const _PARKS_RAW = [
   {
     name: "Black Canyon of the Gunnison", state: "CO", bestMonths: [5, 6, 9, 10], minDays: 1, flightMinutes: 135, days: "1 Day",
     airport: "DEN (4.5h) or MTJ (20m)", flight: "~2h 15m to DEN/MTJ", transport: "Car",
-    avoid: ["11", "12", "1", "2", "3", "4"], popularity: 40, uniqueness: 90, sfoAccessibility: 50,
+    avoid: [11, 12, 1, 2, 3, 4], popularity: 40, uniqueness: 90, sfoAccessibility: 50,
     funFacts: [
       "The canyon is so narrow and deep that some parts of the canyon floor only receive 33 minutes of sunlight a day.",
       "The Painted Wall is the highest sheer cliff in Colorado at 2,250 feet — taller than the Empire State Building.",
@@ -382,7 +382,7 @@ const _PARKS_RAW = [
   {
     name: "Great Sand Dunes", state: "CO", bestMonths: [5, 9, 10], minDays: 1, flightMinutes: 135, days: "1 Day",
     airport: "DEN (4h) or COS (2.5h)", flight: "~2h 15m to DEN + 4h drive", transport: "Car",
-    avoid: ["11", "12", "1", "2", "6", "7", "8"], popularity: 50, uniqueness: 95, sfoAccessibility: 55,
+    avoid: [11, 12, 1, 2, 6, 7, 8], popularity: 50, uniqueness: 95, sfoAccessibility: 55,
     funFacts: [
       "The park contains the tallest sand dunes in North America, rising up to 750 feet from the floor of the San Luis Valley.",
       "The dunes were formed by wind moving sand from the dried-out ancient Lake Alamosa into a pocket against the Sangre de Cristo Mountains.",
@@ -416,7 +416,7 @@ const _PARKS_RAW = [
   {
     name: "Petrified Forest", state: "AZ", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 105, days: "1 Day",
     airport: "PHX (3.5h drive)", flight: "~1h 45m to PHX + drive", transport: "Car",
-    avoid: ["6", "7", "8"], popularity: 45, uniqueness: 88, sfoAccessibility: 70,
+    avoid: [6, 7, 8], popularity: 45, uniqueness: 88, sfoAccessibility: 70,
     funFacts: [
       "The 'wood' is completely fossilized into solid quartz and weighs 160 pounds per cubic foot.",
       "It is the only national park that protects a portion of Historic Route 66.",
@@ -450,7 +450,7 @@ const _PARKS_RAW = [
   {
     name: "White Sands", state: "NM", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 185, days: "1 Day",
     airport: "ELP (1.5h drive)", flight: "~3h to ELP (1 stop)", transport: "Car",
-    avoid: ["6", "7", "8"], popularity: 60, uniqueness: 98, sfoAccessibility: 65,
+    avoid: [6, 7, 8], popularity: 60, uniqueness: 98, sfoAccessibility: 65,
     funFacts: [
       "It is the largest gypsum dunefield in the world, covering 275 square miles.",
       "Unlike silica sand, gypsum sand does not absorb heat from the sun — it is always cool to the touch.",
@@ -484,7 +484,7 @@ const _PARKS_RAW = [
   {
     name: "Carlsbad Caverns", state: "NM", bestMonths: [4, 5, 9, 10], minDays: 1, flightMinutes: 185, days: "1 Day",
     airport: "ELP (2h drive)", flight: "~3h to ELP (1 stop)", transport: "Car",
-    avoid: ["12", "1", "2"], popularity: 65, uniqueness: 95, sfoAccessibility: 60,
+    avoid: [12, 1, 2], popularity: 65, uniqueness: 95, sfoAccessibility: 60,
     funFacts: [
       "The 'Big Room' is the largest single cave chamber by volume in North America (almost 4000 feet long).",
       "During summer, hundreds of thousands of Brazilian free-tailed bats erupt from the natural entrance at sunset.",
@@ -518,7 +518,7 @@ const _PARKS_RAW = [
   {
     name: "Guadalupe Mountains", state: "TX", bestMonths: [10, 11, 3, 4], minDays: 1, flightMinutes: 185, days: "1 Day",
     airport: "ELP (1.5h drive)", flight: "~3h to ELP (1 stop)", transport: "Car",
-    avoid: ["6", "7", "8"], popularity: 30, uniqueness: 85, sfoAccessibility: 60,
+    avoid: [6, 7, 8], popularity: 30, uniqueness: 85, sfoAccessibility: 60,
     funFacts: [
       "Guadalupe Peak is the highest point in Texas at 8,751 feet.",
       "The mountains are actually a massive fossilized Permian reef rising from the Chihuahuan Desert.",
@@ -552,7 +552,7 @@ const _PARKS_RAW = [
   {
     name: "Theodore Roosevelt", state: "ND", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 240, days: "2 Days",
     airport: "BIS (2h drive) or DIK (40m)", flight: "~4h to BIS (1 stop)", transport: "Car",
-    avoid: ["11", "12", "1", "2", "3"], popularity: 45, uniqueness: 88, sfoAccessibility: 40,
+    avoid: [11, 12, 1, 2, 3], popularity: 45, uniqueness: 88, sfoAccessibility: 40,
     funFacts: [
       "This is the only US national park named directly after a single person.",
       "The park protects the badlands where Theodore Roosevelt ranched, which heavily influenced his conservationist legacy.",
@@ -587,7 +587,7 @@ const _PARKS_RAW = [
   {
     name: "Badlands", state: "SD", bestMonths: [5, 6, 9, 10], minDays: 1, flightMinutes: 240, days: "1 Day",
     airport: "RAP (1h drive)", flight: "~4h to RAP (1 stop)", transport: "Car",
-    avoid: ["11", "12", "1", "2"], popularity: 65, uniqueness: 90, sfoAccessibility: 55,
+    avoid: [11, 12, 1, 2], popularity: 65, uniqueness: 90, sfoAccessibility: 55,
     funFacts: [
       "Contains one of the world's richest fossil beds; ancient mammals like totally extinct rhinos and saber-toothed cats are commonly found.",
       "The badlands formations erode roughly one inch per year, which is incredibly fast for geologic processes.",
@@ -621,7 +621,7 @@ const _PARKS_RAW = [
   {
     name: "Wind Cave", state: "SD", bestMonths: [6, 7, 8, 9], minDays: 1, flightMinutes: 240, days: "1 Day",
     airport: "RAP (1h drive)", flight: "~4h to RAP (1 stop)", transport: "Car/Tour",
-    avoid: ["11", "12", "1", "2"], popularity: 45, uniqueness: 88, sfoAccessibility: 55,
+    avoid: [11, 12, 1, 2], popularity: 45, uniqueness: 88, sfoAccessibility: 55,
     funFacts: [
       "It is one of the longest and most complex cave systems in the world, with over 150 miles of mapped passages.",
       "The cave features 95% of the world's known 'boxwork' — a rare, fragile honeycomb-like rock formation.",
@@ -655,7 +655,7 @@ const _PARKS_RAW = [
   {
     name: "Voyageurs", state: "MN", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 260, days: "2 Days",
     airport: "MSP (4.5h) or DLH (2.5h)", flight: "~4h 20m to MSP (direct)", transport: "Boat/Car",
-    avoid: ["11", "12", "1", "2", "3", "4"], popularity: 40, uniqueness: 90, sfoAccessibility: 50,
+    avoid: [11, 12, 1, 2, 3, 4], popularity: 40, uniqueness: 90, sfoAccessibility: 50,
     funFacts: [
       "The park is nearly 40% water. You must have a boat, canoe, or kayak to truly explore it.",
       "Named for the French-Canadian fur traders who paddled these interconnected waterways in the 1700s.",
@@ -691,7 +691,7 @@ const _PARKS_RAW = [
   {
     name: "Mount Rainier", state: "WA", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 135, days: "2 Days",
     airport: "SEA (2hr drive)", flight: "~2h 15m direct", transport: "Car",
-    avoid: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"], popularity: 85, uniqueness: 90, sfoAccessibility: 85,
+    avoid: [11, 12, 1, 2, 3, 4], popularity: 85, uniqueness: 90, sfoAccessibility: 85,
     funFacts: [
       "Mount Rainier is an active stratovolcano and the most heavily glaciated peak in the contiguous US.",
       "The mountain creates its own weather, often hiding the peak in lenticular clouds.",
@@ -724,9 +724,9 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Lassen Volcanic", state: "CA", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 0, days: "2 Days",
+    name: "Lassen Volcanic", state: "CA", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 240, days: "2 Days",
     airport: "RNO (3hr) or SMF (3.5hr)", flight: "Drive from SF (~4h) or fly", transport: "Car",
-    avoid: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May"], popularity: 40, uniqueness: 88, sfoAccessibility: 80,
+    avoid: [11, 12, 1, 2, 3, 4, 5], popularity: 40, uniqueness: 88, sfoAccessibility: 80,
     funFacts: [
       "Lassen Volcanic is one of the few places on Earth where you can find all four types of volcanoes: plug dome, shield, cinder cone, and stratovolcano.",
       "Lassen Peak last erupted explosively in 1915.",
@@ -759,9 +759,9 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Redwood", state: "CA", bestMonths: [5, 6, 7, 8, 9, 10], minDays: 2, flightMinutes: 0, days: "2 Days",
+    name: "Redwood", state: "CA", bestMonths: [5, 6, 7, 8, 9, 10], minDays: 2, flightMinutes: 330, days: "2 Days",
     airport: "ACV (45m drive) or SFO (5.5h drive)", flight: "Drive from SFO (~5.5h)", transport: "Car",
-    avoid: ["Dec", "Jan", "Feb"], popularity: 70, uniqueness: 95, sfoAccessibility: 75,
+    avoid: [12, 1, 2], popularity: 70, uniqueness: 95, sfoAccessibility: 75,
     funFacts: [
       "The park is home to Hyperion, the tallest living tree on Earth at 380 feet.",
       "It is co-managed by the National Park Service and California State Parks.",
@@ -794,9 +794,9 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Pinnacles", state: "CA", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 0, days: "1 Day",
+    name: "Pinnacles", state: "CA", bestMonths: [3, 4, 10, 11], minDays: 1, flightMinutes: 120, days: "1 Day",
     airport: "SJC (1.5h drive) or SFO (2h drive)", flight: "Drive from SFO (~2hr)", transport: "Car",
-    avoid: ["6", "7", "8"], popularity: 60, uniqueness: 80, sfoAccessibility: 100,
+    avoid: [6, 7, 8], popularity: 60, uniqueness: 80, sfoAccessibility: 100,
     funFacts: [
       "The park's namesake rock formations are the remnants of an extinct volcano that was carried 195 miles north by the San Andreas Fault.",
       "It is one of the few places in the country where the critically endangered California Condor can be seen in the wild.",
@@ -828,9 +828,9 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Kings Canyon", state: "CA", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 0, days: "2 Days",
+    name: "Kings Canyon", state: "CA", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 240, days: "2 Days",
     airport: "FAT (1.5h drive) or SFO (4h drive)", flight: "Drive from SFO (~4hr)", transport: "Car",
-    avoid: ["11", "12", "1", "2", "3"], popularity: 65, uniqueness: 88, sfoAccessibility: 85,
+    avoid: [11, 12, 1, 2, 3], popularity: 65, uniqueness: 88, sfoAccessibility: 85,
     funFacts: [
       "Kings Canyon is deeper than the Grand Canyon, plunging more than 8,200 feet from peak to river.",
       "The General Grant Tree is officially the Nation's Christmas Tree.",
@@ -863,9 +863,9 @@ const _PARKS_RAW = [
     }
   },
   {
-    name: "Sequoia", state: "CA", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 0, days: "2 Days",
+    name: "Sequoia", state: "CA", bestMonths: [6, 7, 8, 9], minDays: 2, flightMinutes: 270, days: "2 Days",
     airport: "FAT (1.5h) or SFO (4.5h)", flight: "Drive from SFO (~4.5h)", transport: "Car",
-    avoid: ["11", "12", "1", "2", "3"], popularity: 88, uniqueness: 96, sfoAccessibility: 80,
+    avoid: [11, 12, 1, 2, 3], popularity: 88, uniqueness: 96, sfoAccessibility: 80,
     funFacts: [
       "Home to the General Sherman tree, the largest living single-stem tree on Earth by volume.",
       "Mount Whitney, the highest peak in the contiguous US, is on the park's eastern border.",
@@ -900,7 +900,7 @@ const _PARKS_RAW = [
   {
     name: "Channel Islands", state: "CA", bestMonths: [7, 8, 9, 10], minDays: 1, flightMinutes: 70, days: "1 Day",
     airport: "LAX or SBA (drive to Ventura)", flight: "~1h 10m to LAX/SBA + 1.5h drive", transport: "Ferry required",
-    avoid: ["12", "1", "2", "3"], popularity: 55, uniqueness: 92, sfoAccessibility: 60,
+    avoid: [12, 1, 2, 3], popularity: 55, uniqueness: 92, sfoAccessibility: 60,
     funFacts: [
       "Often called the 'Galapagos of North America' due to 145 endemic species found nowhere else.",
       "Santa Cruz island is home to the island fox, a tiny fox the size of a house cat.",
@@ -934,7 +934,7 @@ const _PARKS_RAW = [
   {
     name: "Capitol Reef", state: "UT", bestMonths: [4, 5, 9, 10], minDays: 2, flightMinutes: 100, days: "2 Days",
     airport: "SLC (3.5hr drive)", flight: "~1h 40m direct to SLC", transport: "Car",
-    avoid: ["12", "1", "2"], popularity: 75, uniqueness: 88, sfoAccessibility: 65,
+    avoid: [12, 1, 2], popularity: 75, uniqueness: 88, sfoAccessibility: 65,
     funFacts: [
       "The park centers around the Waterpocket Fold, a 100-mile long 'wrinkle' in the earth's crust.",
       "It contains historic LDS fruit orchards. When in season, you can pick and eat fruit for free while in the orchard.",
@@ -969,7 +969,7 @@ const _PARKS_RAW = [
   {
     name: "Canyonlands", state: "UT", bestMonths: [4, 5, 9, 10], minDays: 2, flightMinutes: 100, days: "2 Days",
     airport: "SLC (4hr) or Grand Junction (1.5h)", flight: "~1h 40m direct to SLC", transport: "Car",
-    avoid: ["12", "1", "2"], popularity: 80, uniqueness: 94, sfoAccessibility: 65,
+    avoid: [12, 1, 2], popularity: 80, uniqueness: 94, sfoAccessibility: 65,
     funFacts: [
       "The park is divided into four distinct districts separated by the Colorado and Green rivers. There are no roads connecting the districts.",
       "The Maze district is considered one of the most remote and dangerous areas in the lower 48 states.",
@@ -1004,7 +1004,7 @@ const _PARKS_RAW = [
   {
     name: "Mesa Verde", state: "CO", bestMonths: [5, 6, 9, 10], minDays: 2, flightMinutes: 135, days: "2 Days",
     airport: "DEN (7hr drive) or Durango (1hr)", flight: "~2h 15m to DEN + 7h drive", transport: "Car",
-    avoid: ["11", "12", "1", "2", "3", "4"], popularity: 60, uniqueness: 98, sfoAccessibility: 40,
+    avoid: [11, 12, 1, 2, 3, 4], popularity: 60, uniqueness: 98, sfoAccessibility: 40,
     funFacts: [
       "Mesa Verde protects over 5,000 archaeological sites, including 600 cliff dwellings of the Ancestral Puebloans.",
       "Cliff Palace is the largest cliff dwelling in North America.",
@@ -1041,7 +1041,7 @@ const _PARKS_RAW = [
   {
     name: "Denali", state: "AK", bestMonths: [6, 7, 8], minDays: 3, flightMinutes: 420, days: "3 Days",
     airport: "ANC (4hr drive or train)", flight: "~7h direct to ANC", transport: "NPS Bus Required",
-    avoid: ["Nov", "Dec", "Jan", "Feb"], popularity: 82, uniqueness: 95, sfoAccessibility: 40,
+    avoid: [11, 12, 1, 2], popularity: 82, uniqueness: 95, sfoAccessibility: 40,
     funFacts: [
       "Denali is the highest mountain peak in North America (20,310 feet).",
       "Only one road goes into the park, and personal vehicles are restricted past mile 15.",
@@ -1079,7 +1079,7 @@ const _PARKS_RAW = [
   {
     name: "Glacier Bay", state: "AK", bestMonths: [6, 7, 8], minDays: 2, flightMinutes: 300, days: "2 Days",
     airport: "JNU (short flight/ferry to Gustavus)", flight: "~5h (1 stop) to JNU", transport: "Boat/Ship",
-    avoid: ["Nov", "Dec", "Jan", "Feb"], popularity: 60, uniqueness: 90, sfoAccessibility: 30,
+    avoid: [11, 12, 1, 2], popularity: 60, uniqueness: 90, sfoAccessibility: 30,
     funFacts: [
       "There are no roads to Glacier Bay; you must arrive by air or water.",
       "Just 250 years ago, the entire bay was covered by a single massive glacier.",
@@ -1114,7 +1114,7 @@ const _PARKS_RAW = [
   {
     name: "Katmai", state: "AK", bestMonths: [7, 8, 9], minDays: 2, flightMinutes: 420, days: "2 Days",
     airport: "ANC (then flight to King Salmon)", flight: "~7h to ANC + local hopper", transport: "Floatplane",
-    avoid: ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May"], popularity: 45, uniqueness: 98, sfoAccessibility: 10,
+    avoid: [11, 12, 1, 2, 3, 4, 5], popularity: 45, uniqueness: 98, sfoAccessibility: 10,
     funFacts: [
       "Home to the Valley of Ten Thousand Smokes, created by the largest volcanic eruption of the 20th century (Novarupta, 1912).",
       "Over 2,000 brown bears live in the park.",
@@ -1149,7 +1149,7 @@ const _PARKS_RAW = [
   {
     name: "Lake Clark", state: "AK", bestMonths: [6, 7, 8], minDays: 2, flightMinutes: 300, days: "2 Days",
     airport: "ANC (then floatplane)", flight: "~7h to ANC + floatplane", transport: "Floatplane",
-    avoid: ["Nov", "Dec", "Jan", "Feb"], popularity: 20, uniqueness: 85, sfoAccessibility: 10,
+    avoid: [11, 12, 1, 2], popularity: 20, uniqueness: 85, sfoAccessibility: 10,
     funFacts: [
       "Lake Clark preserves the ancestral homelands of the Dena'ina people.",
       "Contains two active volcanoes: Mount Iliamna and Mount Redoubt.",
@@ -1184,7 +1184,7 @@ const _PARKS_RAW = [
   {
     name: "Wrangell-St. Elias", state: "AK", bestMonths: [6, 7, 8], minDays: 3, flightMinutes: 420, days: "3 Days",
     airport: "ANC (5hr drive to McCarthy)", flight: "~7h to ANC", transport: "Car/Bush Plane",
-    avoid: ["Nov", "Dec", "Jan", "Feb"], popularity: 30, uniqueness: 92, sfoAccessibility: 20,
+    avoid: [11, 12, 1, 2], popularity: 30, uniqueness: 92, sfoAccessibility: 20,
     funFacts: [
       "It is the largest national park in the US — at 13.2 million acres, it's larger than Yellowstone, Yosemite, and Switzerland combined.",
       "Contains 9 of the 16 highest peaks in the United States.",
@@ -1220,7 +1220,7 @@ const _PARKS_RAW = [
   {
     name: "Gates of the Arctic", state: "AK", bestMonths: [7, 8], minDays: 5, flightMinutes: 600, days: "7 Days",
     airport: "FAI (then bush plane)", flight: "~9h (1 stop) to FAI", transport: "Bush Plane/Foot",
-    avoid: ["Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May"], popularity: 5, uniqueness: 98, sfoAccessibility: 5,
+    avoid: [9, 10, 11, 12, 1, 2, 3, 4, 5], popularity: 5, uniqueness: 98, sfoAccessibility: 5,
     funFacts: [
       "It is the northernmost national park in the US, located entirely above the Arctic Circle.",
       "There are no roads, no trails, and no visitor facilities within its boundaries.",
