@@ -29,8 +29,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 60,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Beach & Hiking"
   },
   "new-river-gorge": {
     "id": "new-river-gorge",
@@ -60,8 +61,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Rafting & Bridge Walk"
   },
   "mammoth-cave": {
     "id": "mammoth-cave",
@@ -94,8 +96,11 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+
+  },
+    "topActivity": "Cave Tours"
   },
   "hot-springs": {
     "id": "hot-springs",
@@ -125,8 +130,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Bathhouse Row"
   },
   "gateway-arch": {
     "id": "gateway-arch",
@@ -159,8 +165,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 300,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Tram Ride"
   },
   "congaree": {
     "id": "congaree",
@@ -191,8 +199,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Boardwalk Trek"
   },
   "virgin-islands": {
     "id": "virgin-islands",
@@ -225,8 +234,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Snorkeling"
   },
   "national-park-of-american-samoa": {
     "id": "national-park-of-american-samoa",
@@ -260,8 +271,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Reef Snorkeling"
   },
   "hawaii-volcanoes": {
     "id": "hawaii-volcanoes",
@@ -289,8 +301,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Lava Viewing"
   },
   "kobuk-valley": {
     "id": "kobuk-valley",
@@ -326,8 +340,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Sand Dunes"
   },
   "black-canyon-of-the-gunnison": {
     "id": "black-canyon-of-the-gunnison",
@@ -362,8 +377,10 @@ window.PARKS_SUMMARY = {
       "DEN": 300,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Inner Canyon Trek"
   },
   "great-sand-dunes": {
     "id": "great-sand-dunes",
@@ -398,8 +415,9 @@ window.PARKS_SUMMARY = {
       "DEN": 220,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Sand Sledding"
   },
   "petrified-forest": {
     "id": "petrified-forest",
@@ -431,41 +449,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
   },
-  "white-sands": {
-    "id": "white-sands",
-    "name": "White Sands",
-    "state": "NM",
-    "bestMonths": [
-      3,
-      4,
-      10,
-      11
-    ],
-    "avoid": [
-      6,
-      7,
-      8
-    ],
-    "minDays": 1,
-    "popularity": 60,
-    "uniqueness": 98,
-    "sfoAccessibility": 65,
-    "gatewayHub": "ELP",
-    "gatewayExtraMinutes": 90,
-    "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?White+Sands,national+park",
-    "driveTimes": {
-      "SFO": 9999,
-      "SEA": 9999,
-      "LAX": 9999,
-      "DEN": 9999,
-      "ORD": 9999,
-      "LGA": 9999,
-      "MIA": 9999
-    }
+    "topActivity": "Blue Mesa Hike"
   },
   "carlsbad-caverns": {
     "id": "carlsbad-caverns",
@@ -497,8 +484,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Big Room Tour"
   },
   "guadalupe-mountains": {
     "id": "guadalupe-mountains",
@@ -530,8 +518,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Guadalupe Peak"
   },
   "theodore-roosevelt": {
     "id": "theodore-roosevelt",
@@ -565,8 +555,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Wildlife Driving"
   },
   "badlands": {
     "id": "badlands",
@@ -599,8 +590,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Notch Trail Hike"
   },
   "wind-cave": {
     "id": "wind-cave",
@@ -633,8 +626,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Cave Exploring"
   },
   "voyageurs": {
     "id": "voyageurs",
@@ -669,8 +663,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Houseboating"
   },
   "mount-rainier": {
     "id": "mount-rainier",
@@ -704,8 +700,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Paradise Meadows"
   },
   "lassen-volcanic": {
     "id": "lassen-volcanic",
@@ -740,8 +737,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Bumpass Hell"
   },
   "redwood": {
     "id": "redwood",
@@ -775,8 +774,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Tall Trees Grove"
   },
   "pinnacles": {
     "id": "pinnacles",
@@ -808,8 +808,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Bear Gulch Cave"
   },
   "kings-canyon": {
     "id": "kings-canyon",
@@ -843,8 +845,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Mist Falls Hike"
   },
   "sequoia": {
     "id": "sequoia",
@@ -878,8 +881,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "General Sherman Tree"
   },
   "channel-islands": {
     "id": "channel-islands",
@@ -912,8 +917,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Sea Kayaking"
   },
   "capitol-reef": {
     "id": "capitol-reef",
@@ -945,8 +951,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Cassidy Arch"
   },
   "canyonlands": {
     "id": "canyonlands",
@@ -978,8 +986,9 @@ window.PARKS_SUMMARY = {
       "DEN": 360,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Island in the Sky"
   },
   "mesa-verde": {
     "id": "mesa-verde",
@@ -1014,8 +1023,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Cliff Palace Tour"
   },
   "denali": {
     "id": "denali",
@@ -1047,8 +1058,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Bus Tour Wildlife"
   },
   "glacier-bay": {
     "id": "glacier-bay",
@@ -1080,8 +1092,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Glacier Cruising"
   },
   "katmai": {
     "id": "katmai",
@@ -1116,8 +1130,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Bear Watching"
   },
   "lake-clark": {
     "id": "lake-clark",
@@ -1149,32 +1164,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
   },
-  "wrangell-st.-elias": {
-    "id": "wrangell-st.-elias",
-    "name": "Wrangell-St. Elias",
-    "state": "AK",
-    "bestMonths": [
-      6,
-      7,
-      8
-    ],
-    "avoid": [
-      11,
-      12,
-      1,
-      2
-    ],
-    "minDays": 3,
-    "popularity": 30,
-    "uniqueness": 92,
-    "sfoAccessibility": 20,
-    "gatewayHub": "SEA",
-    "gatewayExtraMinutes": 180,
-    "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Wrangell-St.+Elias,national+park"
+    "topActivity": "Floatplane Tours"
   },
   "gates-of-the-arctic": {
     "id": "gates-of-the-arctic",
@@ -1210,8 +1203,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Wilderness Trek"
   },
   "zion": {
     "id": "zion",
@@ -1243,8 +1237,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "The Narrows Hike"
   },
   "grand-canyon": {
     "id": "grand-canyon",
@@ -1277,8 +1273,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Bright Angel Trail"
   },
   "arches": {
     "id": "arches",
@@ -1311,8 +1308,10 @@ window.PARKS_SUMMARY = {
       "DEN": 340,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Delicate Arch Hike"
   },
   "yosemite": {
     "id": "yosemite",
@@ -1344,8 +1343,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Glacier Point View"
   },
   "rocky-mountain": {
     "id": "rocky-mountain",
@@ -1378,8 +1378,10 @@ window.PARKS_SUMMARY = {
       "DEN": 90,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Trail Ridge Road"
   },
   "olympic": {
     "id": "olympic",
@@ -1412,8 +1414,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Hoh Rainforest"
   },
   "yellowstone": {
     "id": "yellowstone",
@@ -1444,8 +1447,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Old Faithful"
   },
   "glacier": {
     "id": "glacier",
@@ -1478,8 +1483,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Going-to-the-Sun Road"
   },
   "death-valley": {
     "id": "death-valley",
@@ -1514,8 +1520,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Badwater Basin"
   },
   "acadia": {
     "id": "acadia",
@@ -1548,8 +1556,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Cadillac Mountain"
   },
   "joshua-tree": {
     "id": "joshua-tree",
@@ -1582,8 +1591,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Hidden Valley Hike"
   },
   "grand-teton": {
     "id": "grand-teton",
@@ -1613,8 +1624,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Jenny Lake Boat"
   },
   "great-smoky-mountains": {
     "id": "great-smoky-mountains",
@@ -1646,8 +1658,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Cades Cove"
   },
   "shenandoah": {
     "id": "shenandoah",
@@ -1679,8 +1693,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 300,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Skyline Drive"
   },
   "north-cascades": {
     "id": "north-cascades",
@@ -1709,8 +1724,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Diablo Lake View"
   },
   "saguaro": {
     "id": "saguaro",
@@ -1745,8 +1762,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Cactus Forest Drive"
   },
   "everglades": {
     "id": "everglades",
@@ -1780,8 +1798,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 60
-    }
+      "MIA": 60,
+
+  },
+    "topActivity": "Airboat Tour"
   },
   "bryce-canyon": {
     "id": "bryce-canyon",
@@ -1815,8 +1835,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Navajo Loop Hike"
   },
   "great-basin": {
     "id": "great-basin",
@@ -1848,8 +1869,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Lehman Caves"
   },
   "crater-lake": {
     "id": "crater-lake",
@@ -1884,8 +1907,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Rim Drive"
   },
   "isle-royale": {
     "id": "isle-royale",
@@ -1919,8 +1943,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+
+  },
+    "topActivity": "Backpacking"
   },
   "big-bend": {
     "id": "big-bend",
@@ -1954,8 +1980,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Ross Maxwell Drive"
   },
   "biscayne": {
     "id": "biscayne",
@@ -1990,8 +2017,10 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 45
-    }
+      "MIA": 45,
+
+  },
+    "topActivity": "Snorkeling Reefs"
   },
   "dry-tortugas": {
     "id": "dry-tortugas",
@@ -2027,35 +2056,8 @@ window.PARKS_SUMMARY = {
       "ORD": 9999,
       "LGA": 9999,
       "MIA": 240
-    }
-  },
-  "haleakalā": {
-    "id": "haleakalā",
-    "name": "Haleakalā",
-    "state": "HI",
-    "bestMonths": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12
-    ],
-    "avoid": [],
-    "minDays": 1,
-    "popularity": 91,
-    "uniqueness": 95,
-    "sfoAccessibility": 75,
-    "gatewayHub": "LAX",
-    "gatewayExtraMinutes": 330,
-    "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Haleakalā,national+park"
+},
+    "topActivity": "Fort Jefferson"
   },
   "cuyahoga-valley": {
     "id": "cuyahoga-valley",
@@ -2087,8 +2089,9 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 330,
       "LGA": 9999,
-      "MIA": 9999
-    }
+      "MIA": 9999,
+},
+    "topActivity": "Scenic Railroad"
   },
   "kenai-fjords": {
     "id": "kenai-fjords",
@@ -2124,6 +2127,82 @@ window.PARKS_SUMMARY = {
       "ORD": 9999,
       "LGA": 9999,
       "MIA": 9999
-    }
+    },
+    "topActivity": "Boat Tours"
+  },
+  "white-sands": {
+    "id": "white-sands",
+    "name": "White Sands",
+    "state": "NM",
+    "bestMonths": [3, 4, 10, 11],
+    "avoid": [6, 7, 8],
+    "minDays": 1,
+    "popularity": 75,
+    "uniqueness": 95,
+    "sfoAccessibility": 45,
+    "gatewayHub": "ELP",
+    "gatewayExtraMinutes": 90,
+    "stargazing": true,
+    "thumbnail": "https://source.unsplash.com/featured/?White+Sands,national+park",
+    "driveTimes": {
+      "SFO": 9999,
+      "SEA": 9999,
+      "LAX": 9999,
+      "DEN": 9999,
+      "ORD": 9999,
+      "LGA": 9999,
+      "MIA": 9999
+    },
+    "topActivity": "Dune Sledding"
+  },
+  "wrangell-st.-elias": {
+    "id": "wrangell-st.-elias",
+    "name": "Wrangell-St. Elias",
+    "state": "AK",
+    "bestMonths": [6, 7, 8],
+    "avoid": [10, 11, 12, 1, 2, 3, 4, 5],
+    "minDays": 3,
+    "popularity": 40,
+    "uniqueness": 98,
+    "sfoAccessibility": 30,
+    "gatewayHub": "ANC",
+    "gatewayExtraMinutes": 300,
+    "stargazing": true,
+    "thumbnail": "https://source.unsplash.com/featured/?Wrangell,national+park",
+    "driveTimes": {
+      "SFO": 9999,
+      "SEA": 9999,
+      "LAX": 9999,
+      "DEN": 9999,
+      "ORD": 9999,
+      "LGA": 9999,
+      "MIA": 9999
+    },
+    "topActivity": "Glacier Trekking"
+  },
+  "haleakalā": {
+    "id": "haleakalā",
+    "name": "Haleakalā",
+    "state": "HI",
+    "bestMonths": [4, 5, 9, 10],
+    "avoid": [12, 1, 2],
+    "minDays": 1,
+    "popularity": 85,
+    "uniqueness": 92,
+    "sfoAccessibility": 70,
+    "gatewayHub": "OGG",
+    "gatewayExtraMinutes": 60,
+    "stargazing": true,
+    "thumbnail": "https://source.unsplash.com/featured/?Haleakala,national+park",
+    "driveTimes": {
+      "SFO": 9999,
+      "SEA": 9999,
+      "LAX": 9999,
+      "DEN": 9999,
+      "ORD": 9999,
+      "LGA": 9999,
+      "MIA": 9999
+    },
+    "topActivity": "Summit Sunrise"
   }
 };

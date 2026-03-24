@@ -105,7 +105,16 @@ document.getElementById('theme-light')?.addEventListener('click', () => applyThe
 document.getElementById('theme-dark')?.addEventListener('click', () => applyTheme('dark'));
 
 // ============ Search ============
-let searchQuery = '';
+let searchQuery      = '';
+let minTempFilter    = 0;
+let maxTempFilter    = 110;
+
+function getParkHighTemp(parkId, month) {
+  const data = window.PARKS_SEASONAL?.[parkId]?.[month];
+  if (!data || !data.temp || data.temp === 'N/A') return null;
+  const match = data.temp.match(/(\d+)°F/);
+  return match ? parseInt(match[1]) : null;
+}
 const searchContainer = document.querySelector('.search-container');
 if (parkSearchInput) {
   parkSearchInput.addEventListener('input', (e) => {
@@ -135,7 +144,7 @@ if (searchClearBtn) {
   });
 }
 
-// ============ Persistence ============
+
 function saveVisited()   { localStorage.setItem('visitedParks',   JSON.stringify([...visitedParks])); }
 function saveFavorites() { localStorage.setItem('favoritedParks', JSON.stringify([...favoritedParks])); }
 function saveHidden()    { localStorage.setItem('hiddenParks',    JSON.stringify([...hiddenParks])); }
@@ -330,9 +339,10 @@ function sortParks(parks) {
 
 // ============ Filter Logic ============
 function toggleFilterPanel() {
+  const panel = document.getElementById('filter-panel');
   showFilterPanel = !showFilterPanel;
-  if (!showFilterPanel) filterPanel.classList.add('hidden');
-  else renderFilterUI();
+  panel?.classList.toggle('hidden', !showFilterPanel);
+  if (showFilterPanel) renderFilterUI();
 }
 
 function updateFilterBounds(baseParks) {
@@ -366,12 +376,12 @@ function renderFilterChips() {
   }
   
   if (selectedMonth) {
-    chips.push({ label: `📅 ${MONTH_FULL[selectedMonth-1]}`, onClear: () => setMonth(0) });
+    chips.push({ label: `📅 ${MONTH_FULL[selectedMonth-1]}`, onClear: () => selectMonth(null) });
   }
   
   if (viewMode !== 'all') {
     const labels = { favorites: '⭐ Favorites', visited: '✓ Visited Only', hidden: '🙈 Hidden' };
-    chips.push({ label: labels[viewMode], onClear: () => setViewMode('all') });
+    chips.push({ label: labels[viewMode], onClear: () => selectSpecialMode('all') });
   }
   
   if (!showVisited && viewMode !== 'visited') {
@@ -403,6 +413,19 @@ function renderFilterChips() {
     const labels = { 'no-flight': '🚙 Drive', 'direct': '✈️ Direct', '1-stop': '🛑 1 Stop', '2-stops': '🛑 2+ Stops' };
     chips.push({ label: labels[f], onClear: () => toggleFlightFilter(f) });
   });
+
+  if (minTempFilter > 0 || maxTempFilter < 110) {
+    chips.push({ label: `🌡️ ${minTempFilter}°F - ${maxTempFilter}°F`, onClear: () => {
+      minTempFilter = 0; 
+      maxTempFilter = 110;
+      const tMin = document.getElementById('temp-min');
+      const tMax = document.getElementById('temp-max');
+      if (tMin) tMin.value = "0";
+      if (tMax) tMax.value = "110";
+      // Update logic and re-render
+      updateTempFilterLogic(true);
+    }});
+  }
 
   if (chips.length === 0) {
     container.style.display = 'none';
@@ -446,12 +469,27 @@ function applyFilters(baseParks) {
       const type = getFlightType(p);
       if (!filterState.flights.includes(type)) return false;
     }
+
+    // Temperature Filter
+    if (selectedMonth && (minTempFilter > 0 || maxTempFilter < 110)) {
+      const highTemp = getParkHighTemp(p.id, selectedMonth);
+      if (highTemp === null || highTemp < minTempFilter || highTemp > maxTempFilter) return false;
+    }
+
     return true;
   });
 }
 
 function resetFilters() {
   filterState = { maxDuration: filterBounds.maxDuration, minDays: filterBounds.minDays, maxDays: filterBounds.maxDays, minRating: 0, flights: [], stargazing: false };
+  minTempFilter = 0;
+  maxTempFilter = 110;
+  const tMin = document.getElementById('temp-min');
+  const tMax = document.getElementById('temp-max');
+  if (tMin) tMin.value = "0";
+  if (tMax) tMax.value = "110";
+  // Sync UI and trigger re-render
+  syncTempSliderTrack();
   saveFilterState();
   renderParks();
 }
@@ -477,7 +515,10 @@ function renderFilterUI() {
   filterPanel.innerHTML = `
     <div class="filter-header">
       <h3>Refine Results</h3>
-      <button class="clear-filters-btn" onclick="resetFilters()">Clear Filters</button>
+      <div style="display:flex; gap:12px;">
+        <button class="clear-filters-btn" onclick="resetFilters()">Clear All</button>
+        <button class="filter-close-x" onclick="toggleFilterPanel()" aria-label="Close filters">×</button>
+      </div>
     </div>
     <div class="filter-body">
       
@@ -491,6 +532,20 @@ function renderFilterUI() {
         <input type="range" min="${filterBounds.minDays}" max="${filterBounds.maxDays}" step="1" value="${filterState.minDays||filterBounds.minDays}" 
              onchange="setFilterValue('minDays', parseInt(this.value))"
              oninput="this.previousElementSibling.innerText = 'Suggested Days: &ge; ' + this.value + ' days'">
+
+        ${selectedMonth ? `
+        <div class="filter-group" style="margin-top:24px;">
+          <div class="filter-header">
+            <label>Temperature: <span id="temp-range-label" style="color:var(--amber); font-weight:bold;">${minTempFilter}°F - ${maxTempFilter}°F</span></label>
+          </div>
+          <div class="temp-slider-wrapper" style="margin-top:8px;">
+            <div class="slider-track" id="slider-track"></div>
+            <input type="range" id="temp-min" min="0" max="110" value="${minTempFilter}" step="1" oninput="updateTempFilterLogic(true)" onmousedown="this.style.zIndex=10" onmouseup="this.style.zIndex=2" ontouchstart="this.style.zIndex=10" ontouchend="this.style.zIndex=2">
+            <input type="range" id="temp-max" min="0" max="110" value="${maxTempFilter}" step="1" oninput="updateTempFilterLogic(false)" onmousedown="this.style.zIndex=10" onmouseup="this.style.zIndex=2" ontouchstart="this.style.zIndex=10" ontouchend="this.style.zIndex=2">
+          </div>
+          <div class="filter-hint" style="font-size:11px; margin-top:12px;">Filters parks for ${MONTH_FULL[selectedMonth-1]}</div>
+        </div>
+        ` : '<div class="filter-hint" style="margin-top:24px;">Select a month to filter by temperature</div>'}
       </div>
 
       <div class="filter-col">
@@ -526,6 +581,39 @@ function renderFilterUI() {
 
     </div>
   `;
+  syncTempSliderTrack();
+}
+
+function updateTempFilterLogic(isMin) {
+  const tMin = document.getElementById('temp-min');
+  const tMax = document.getElementById('temp-max');
+  if (!tMin || !tMax) return;
+
+  let min = parseInt(tMin.value);
+  let max = parseInt(tMax.value);
+
+  if (min > max - 2) {
+    if (isMin) tMin.value = (max - 2).toString();
+    else tMax.value = (min + 2).toString();
+    min = parseInt(tMin.value);
+    max = parseInt(tMax.value);
+  }
+
+  minTempFilter = min;
+  maxTempFilter = max;
+  const label = document.getElementById('temp-range-label');
+  if (label) label.textContent = `${min}°F - ${max}°F`;
+  syncTempSliderTrack();
+  renderParks();
+}
+
+function syncTempSliderTrack() {
+  const track = document.getElementById('slider-track');
+  if (track) {
+    const p1 = (minTempFilter / 110) * 100;
+    const p2 = (maxTempFilter / 110) * 100;
+    track.style.background = `linear-gradient(to right, #334155 ${p1}%, #fbbf24 ${p1}%, #fbbf24 ${p2}%, #334155 ${p2}%)`;
+  }
 }
 
 // ============ Render Parks ============
@@ -584,7 +672,7 @@ function renderParks() {
   const rawCount = parks.length;
   // updateFilterBounds(parks); // Removed to keep bounds static across all views
   parks = applyFilters(parks);
-  renderFilterUI();
+  // renderFilterUI(); // REMOVED: Re-rendering full UI here kills slider focus/continuity
   
   if (parks.length !== rawCount || searchQuery) {
     modeLabel = `Showing ${parks.length} of ${rawCount} parks`;
@@ -685,6 +773,11 @@ function renderParks() {
           <span class="info-value small-val">${formatMonths(park.avoid)}</span>
         </div>` : ''}
         ${seasonalInfo && seasonalInfo.temp !== 'N/A' ? '<div class="info-item"><span class="info-label">🌡️ Temp in ' + MONTHS[selectedMonth - 1] + '</span><span class="info-value">' + seasonalInfo.temp + '</span></div>' : ''}
+        ${selectedMonth && park.topActivity ? `
+        <div class="info-item">
+          <span class="info-label">🎯 Top Activity</span>
+          <span class="info-value">${park.topActivity}</span>
+        </div>` : ''}
       </div>
 
       <div class="card-footer">
@@ -747,14 +840,14 @@ function openModal(park) {
   const monthNameFn  = selectedMonth ? MONTH_FULL[selectedMonth - 1] : null;
 
   const redditPostsHtml = (details.redditPosts||[]).map(p => `
-    <a href="${p.url}" target="_blank" class="reddit-post-card">
+    <div class="reddit-post-card">
       <div class="reddit-post-top">
         <span class="reddit-post-sub">${p.sub}</span>
-        <span class="reddit-post-icon">↗</span>
+        <span class="reddit-post-icon">💬</span>
       </div>
       <div class="reddit-post-title">${p.title}</div>
       ${p.quote ? `<div class="reddit-post-quote">${p.quote}</div>` : ''}
-    </a>
+    </div>
   `).join('');
 
   const links = details.links || {};
