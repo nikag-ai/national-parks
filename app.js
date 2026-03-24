@@ -25,6 +25,17 @@ function calculateCompositeScore(park) {
 }
 PARKS.forEach(p => { p.compositeScore = parseFloat(calculateCompositeScore(p).toFixed(1)); });
 
+// Initial filter bounds based on all parks
+let filterBounds = { minDuration: 0, maxDuration: 0, minDays: 0, maxDays: 0 };
+function initFilterBounds() {
+  if (!PARKS.length) return;
+  filterBounds.minDuration = Math.min(...PARKS.map(p => p.flightMinutes || 0));
+  filterBounds.maxDuration = Math.max(...PARKS.map(p => p.flightMinutes || 0));
+  filterBounds.minDays = Math.min(...PARKS.map(p => p.minDays || 1));
+  filterBounds.maxDays = Math.max(...PARKS.map(p => p.minDays || 1));
+}
+initFilterBounds();
+
 // ============ State ============
 let selectedMonth    = null;
 let viewMode         = 'all';   // 'all' | 'favorites' | 'visited'
@@ -35,7 +46,6 @@ let hiddenParks      = new Set(JSON.parse(localStorage.getItem('hiddenParks')   
 
 // ============ Filters ============
 let showFilterPanel = false;
-let filterBounds = { minDuration: 0, maxDuration: 1000, minDays: 1, maxDays: 14 };
 let filterState = JSON.parse(localStorage.getItem('filterState')) || {
   maxDuration: null,
   minDays: null,
@@ -285,16 +295,9 @@ function toggleFilterPanel() {
 }
 
 function updateFilterBounds(baseParks) {
-  if (!baseParks.length) return;
-  filterBounds.minDuration = Math.min(...baseParks.map(p => p.flightMinutes || 0));
-  filterBounds.maxDuration = Math.max(...baseParks.map(p => p.flightMinutes || 0));
-  filterBounds.minDays = Math.min(...baseParks.map(p => p.minDays || 1));
-  filterBounds.maxDays = Math.max(...baseParks.map(p => p.minDays || 1));
-  
-  // Clean up state if out of bounds from previous
-  if (filterState.maxDuration === null || filterState.maxDuration > filterBounds.maxDuration) filterState.maxDuration = filterBounds.maxDuration;
-  if (filterState.minDays === null || filterState.minDays < filterBounds.minDays) filterState.minDays = filterBounds.minDays;
-  if (filterState.maxDays === null || filterState.maxDays > filterBounds.maxDays) filterState.maxDays = filterBounds.maxDays;
+  // Logic moved to initFilterBounds to keep them static.
+  // We no longer clip the user's filterState here because it 
+  // causes "random" filters to appear when switching months.
 }
 
 function getFlightType(park) {
@@ -529,7 +532,7 @@ function renderParks() {
 
 // --- APPLY FILTERS ---
   const rawCount = parks.length;
-  updateFilterBounds(parks);
+  // updateFilterBounds(parks); // Removed to keep bounds static across all views
   parks = applyFilters(parks);
   renderFilterUI();
   
