@@ -21,9 +21,9 @@
 
 [data-theme="light"] {
   --bg: #fdfdfd;
-  --surface: #f3f6f9;
+  --surface: #edf2f7;
   --surface-hover: #e2e8f0;
-  --border: rgba(30, 41, 59, 0.16);
+  --border: rgba(30, 41, 59, 0.22);
   --text: #1e293b;
   --text-dim: #475569;
   --accent: #3b82f6;
@@ -245,7 +245,7 @@ nav#month-bar {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 20px 20px 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   overflow: hidden;
@@ -254,7 +254,7 @@ nav#month-bar {
   transform: translateY(10px);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 
 .park-card:hover {
@@ -285,7 +285,7 @@ nav#month-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .park-name {
@@ -323,7 +323,7 @@ nav#month-bar {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .info-item {
@@ -858,8 +858,8 @@ footer a:hover { text-decoration: underline; }
 
 /* ============ Special Chips (Favorites / Visited) ============ */
 .special-chip {
-  background: rgba(255,255,255,0.04) !important;
-  border-color: rgba(255,255,255,0.12) !important;
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
   font-size: 0.82rem;
 }
 #chip-favorites.active {
@@ -935,7 +935,7 @@ footer a:hover { text-decoration: underline; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 .score-num {
   font-size: 0.82rem;
@@ -964,7 +964,7 @@ footer a:hover { text-decoration: underline; }
 /* ============ Card Footer ============ */
 .card-footer {
   margin-top: auto;
-  padding-top: 16px;
+  padding-top: 8px;
   border-top: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -1283,7 +1283,7 @@ footer a:hover { text-decoration: underline; }
 
 /* ============ Global Search ============ */
 .search-container { max-width:640px; margin:0 auto 20px; padding:0 20px; position:relative; }
-.search-input { width:100%; padding:16px 24px; padding-right:50px; border-radius:100px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.04); color:var(--text); font-size:1.05rem; font-family:'Inter', sans-serif; outline:none; transition:all 0.2s; box-shadow:0 8px 24px rgba(0,0,0,0.15); }
+.search-input { width:100%; padding:16px 24px; padding-right:50px; border-radius:100px; border:1px solid var(--border); background:var(--surface); color:var(--text); font-size:1.05rem; font-family:'Inter', sans-serif; outline:none; transition:all 0.2s; box-shadow:0 8px 24px rgba(0,0,0,0.15); }
 .search-input:focus { border-color:var(--accent); background:rgba(25,30,50,0.6); box-shadow:0 0 0 3px rgba(108,140,255,0.2), 0 8px 24px rgba(0,0,0,0.2); }
 .search-input::placeholder { color:rgba(255,255,255,0.4); }
 
@@ -1291,10 +1291,9 @@ footer a:hover { text-decoration: underline; }
 .search-clear:hover { background:rgba(255,255,255,0.1); color:#fff; }
 .search-clear.visible { display:flex; }
 
-/* ============ Card CTA ============ */
 .card-cta {
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1311,6 +1310,9 @@ footer a:hover { text-decoration: underline; }
 
 .park-card:hover .card-cta {
   color: #fff;
+}
+[data-theme="light"] .park-card:hover .card-cta {
+  color: var(--accent);
 }
 
 /* ============ Responsive Overrides (Must stay at end) ============ */
@@ -1339,7 +1341,7 @@ footer a:hover { text-decoration: underline; }
     -webkit-overflow-scrolling: touch; 
     scrollbar-width: none; 
     justify-content: flex-start;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid var(--border);
   }
   .month-chips::-webkit-scrollbar { display: none; }
   .month-chip { flex-shrink: 0; padding: 6px 14px; font-size: 0.8rem; }
@@ -1350,15 +1352,15 @@ footer a:hover { text-decoration: underline; }
   .filter-panel { padding: 16px; margin-bottom: 20px; }
   .filter-body { gap: 24px; }
   
-  .park-card { padding: 18px; }
+  .park-card { padding: 14px 14px 8px; }
   .park-name { font-size: 1.2rem; }
   
   /* Show CTA by default on mobile */
   .card-cta { 
     color: var(--accent); 
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid var(--border);
     font-size: 0.75rem;
-    padding-top: 16px;
+    padding-top: 8px;
     margin-top: 0;
   }
   
