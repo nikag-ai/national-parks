@@ -1,7 +1,6 @@
 # 🏞️ ParkFinder: The Ultimate US National Parks Explorer
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Play_Now-4a6cf7?style=for-the-badge&logo=vercel)](https://nikag-ai.github.io/national-parks/)
-[![Vanilla JS](https://img.shields.io/badge/Vanilla_JS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)]()
 
 **ParkFinder** is a blazing-fast, strictly client-side Single Page Application (SPA) designed to help you intelligently discover, filter, and plan your trips across all **63 US National Parks**. 
 
