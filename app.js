@@ -301,6 +301,18 @@ function formatMonths(months) {
   return ranges.map(([s,e]) => s===e ? MONTHS[s-1] : `${MONTHS[s-1]}–${MONTHS[e-1]}`).join(', ');
 }function formatBestMonths(months) { return formatMonths(months); }
 
+function formatCrowdLevel(score) {
+  const levels = {
+    1: { text: 'Low Crowds', icon: '🟢' },
+    2: { text: 'Moderate Crowds', icon: '🟡' },
+    3: { text: 'Busy', icon: '🟠' },
+    4: { text: 'Very Busy', icon: '🔴' },
+    5: { text: 'Extreme Crowds', icon: '💀' }
+  };
+  const level = levels[score] || { text: 'N/A', icon: '⚪' };
+  return `${level.icon} ${level.text}`;
+}
+
 function renderStars(count) {
   const full = Math.floor(count), half = (count % 1) >= 0.3;
   let s = '';
@@ -920,6 +932,9 @@ function openModal(park) {
             })()}
             <span class="sep">&bull;</span>
             <span class="modal-min-days">🗓️ Min ${park.minDays} days</span>
+            ${seasonalInfo && seasonalInfo.crowdScore ? `
+              <span class="sep">&bull;</span>
+              <span class="modal-crowd-level">${formatCrowdLevel(seasonalInfo.crowdScore)}</span>` : ''}
           </div>
         </div>
         <div class="modal-header-right">
