@@ -302,15 +302,13 @@ function formatMonths(months) {
 }function formatBestMonths(months) { return formatMonths(months); }
 
 function formatCrowdLevel(score) {
-  const levels = {
-    1: { text: 'Low Crowds', icon: '🟢' },
-    2: { text: 'Moderate Crowds', icon: '🟡' },
-    3: { text: 'Busy', icon: '🟠' },
-    4: { text: 'Very Busy', icon: '🔴' },
-    5: { text: 'Extreme Crowds', icon: '💀' }
-  };
-  const level = levels[score] || { text: 'N/A', icon: '⚪' };
-  return `${level.icon} ${level.text}`;
+  if (!score) return '';
+  let html = '<div class="modal-crowd-icons">';
+  for (let i = 1; i <= 5; i++) {
+    html += `<span class="crowd-icon ${i <= score ? 'active' : ''}">👤</span>`;
+  }
+  html += '</div>';
+  return html;
 }
 
 function renderStars(count) {
@@ -932,9 +930,6 @@ function openModal(park) {
             })()}
             <span class="sep">&bull;</span>
             <span class="modal-min-days">🗓️ Min ${park.minDays} days</span>
-            ${seasonalInfo && seasonalInfo.crowdScore ? `
-              <span class="sep">&bull;</span>
-              <span class="modal-crowd-level">${formatCrowdLevel(seasonalInfo.crowdScore)}</span>` : ''}
           </div>
         </div>
         <div class="modal-header-right">
@@ -965,13 +960,29 @@ function openModal(park) {
 
     ${seasonalInfo && selectedMonth ? `
     <div class="monthly-banner">
-      <div class="monthly-banner-header">📅 Visiting in ${monthNameFn}</div>
+      <div class="monthly-banner-header">📅 Visiting in ${MONTH_FULL[selectedMonth-1]}</div>
       <div class="monthly-metrics">
-        <div class="monthly-metric" style="flex:1;"><span class="label">Average Temp</span><span class="value">${seasonalInfo.temp}</span></div>
-        <div class="monthly-metric" style="flex:1;"><span class="label">Crowd Level</span><span class="value">${'👤'.repeat(seasonalInfo.crowdScore)}</span></div>
+        <div class="monthly-metric">
+          <span class="label">Average Temp</span>
+          <span class="value">${seasonalInfo.temp}</span>
+        </div>
+        <div class="monthly-metric" style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 20px;">
+          <span class="label">Crowd Level</span>
+          <div style="display:flex; align-items:center; gap:10px; margin-top:4px;">
+            ${formatCrowdLevel(seasonalInfo.crowdScore)}
+            <span style="font-size:0.8rem; opacity:0.8; font-weight:600; text-transform:uppercase;">${(() => {
+              const s = seasonalInfo.crowdScore;
+              if (s <= 1) return 'Peaceful';
+              if (s <= 2) return 'Moderate';
+              if (s <= 3) return 'Busy';
+              if (s <= 4) return 'Very Busy';
+              return 'Extreme';
+            })()}</span>
+          </div>
+        </div>
       </div>
       <div class="reddit-sentiment" style="margin-top:12px;">
-        <div class="reddit-sentiment-header">r/NationalParks on ${monthNameFn}</div>
+        <div class="reddit-sentiment-header">r/NationalParks Advice for ${MONTH_FULL[selectedMonth-1]}</div>
         <blockquote>"${seasonalInfo.reddit}"</blockquote>
       </div>
     </div>` : ''}

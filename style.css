@@ -2422,3 +2422,37 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 }
+/* Crowd Level Redesign */
+.modal-crowd-icons {
+  display: flex;
+  gap: 6px;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.crowd-icon {
+  opacity: 0.15;
+  transition: opacity 0.3s ease;
+}
+
+.crowd-icon.active {
+  opacity: 1;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.1));
+}
+
+.crowd-density-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(0,0,0,0.03);
+  border-radius: 12px;
+}
+
+.crowd-text-hint {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
