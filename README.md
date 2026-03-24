@@ -1,4 +1,4 @@
-# 🏞️ ParkFinder: The Ultimate US National Parks Explorer
+# 🏞️ US National Park Finder: The Ultimate Explorer
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Play_Now-4a6cf7?style=for-the-badge&logo=vercel)](https://nikag-ai.github.io/national-parks/)
 
