@@ -1028,3 +1028,50 @@ modal.addEventListener('click', e => { if (e.target===modal||e.target.classList.
 document.addEventListener('keydown', e => { if (e.key==='Escape'&&!modal.classList.contains('hidden')) closeModal(); });
 
 init();
+
+// ============ Share & Bookmark UX ============
+const shareBtn = document.getElementById('share-btn');
+
+async function handleShare() {
+  const shareData = {
+    title: 'National Park Finder',
+    text: 'Check out this awesome interactive US National Park Finder!',
+    url: window.location.href
+  };
+
+  try {
+    if (navigator.share) {
+      await navigator.share(shareData);
+    } else {
+      await navigator.clipboard.writeText(shareData.url);
+      showToast('📋 Link copied to clipboard!');
+    }
+  } catch (err) {
+    if (err.name !== 'AbortError') {
+      console.error('Share failed:', err);
+    }
+  }
+}
+
+function showToast(message) {
+  let toast = document.querySelector('.toast-container');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'toast-container';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.classList.add('visible');
+  setTimeout(() => toast.classList.remove('visible'), 3000);
+}
+
+if (shareBtn) {
+  shareBtn.addEventListener('click', handleShare);
+  
+  // Bookmark Hint
+  shareBtn.addEventListener('mouseenter', () => {
+    const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+    const cmd = isMac ? '⌘ + D' : 'Ctrl + D';
+    shareBtn.setAttribute('title', `Click to Share • Press ${cmd} to Bookmark`);
+  });
+}
