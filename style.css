@@ -972,6 +972,48 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.footer-seo-links {
+  margin-bottom: 32px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-seo-title {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.seo-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+}
+
+.seo-links-grid a {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--text-dim);
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.seo-links-grid a:hover {
+  background: var(--card-hover-bg);
+  color: var(--text);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+.footer-disclaimer {
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
 
 
 /* ============ Special Chips (Favorites / Visited) ============ */
