@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nationalparkfinder.info/sitemap.xml
