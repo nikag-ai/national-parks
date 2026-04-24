@@ -7,3 +7,13 @@ sync_*.js
 generate_*.js
 final_overhaul.js
 !data/*.json
+
+# Node modules and build artifacts
+node_modules/
+v2/node_modules/
+v2/dist/
+dist/
+.env
+
+# Large assets
+moodboard/
