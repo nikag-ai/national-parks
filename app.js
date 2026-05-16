@@ -1106,3 +1106,39 @@ if (shareBtn) {
     shareBtn.setAttribute('title', `Click to Share • Press ${cmd} to Bookmark`);
   });
 }
+
+// ============ Feature Request UX ============
+const featureRequestBtn = document.getElementById('header-request-btn');
+const featureModal = document.getElementById('feature-request-modal');
+const featureModalCloseBtn = document.getElementById('feature-modal-close-btn');
+const featureModalBackdrop = document.getElementById('feature-modal-backdrop');
+
+function openFeatureModal() {
+  if (!featureModal) return;
+  featureModal.classList.remove('hidden');
+  document.body.classList.add('modal-open');
+}
+
+function closeFeatureModal() {
+  if (!featureModal) return;
+  featureModal.classList.add('hidden');
+  document.body.classList.remove('modal-open');
+}
+
+if (featureRequestBtn) {
+  featureRequestBtn.addEventListener('click', openFeatureModal);
+}
+
+if (featureModalCloseBtn) {
+  featureModalCloseBtn.addEventListener('click', closeFeatureModal);
+}
+
+if (featureModalBackdrop) {
+  featureModalBackdrop.addEventListener('click', closeFeatureModal);
+}
+
+document.addEventListener('keydown', e => { 
+  if (e.key === 'Escape' && featureModal && !featureModal.classList.contains('hidden')) {
+    closeFeatureModal(); 
+  }
+});
