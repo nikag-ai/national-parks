@@ -206,27 +206,30 @@ function init() {
   
   // Check URL for month
   const path = window.location.pathname;
-  const match = path.match(/\/([a-z]+)(?:\.html)?$/i);
+  const match = path.match(/\/([a-z\-]+)(?:\.html)?$/i);
   let preselectedMonth = null;
+  let preselectedPark = null;
   if (match) {
-    const monthStr = match[1].toLowerCase();
-    const monthIndex = MONTH_FULL.findIndex(m => m.toLowerCase() === monthStr);
+    const slug = match[1].toLowerCase();
+    const monthIndex = MONTH_FULL.findIndex(m => m.toLowerCase() === slug);
     if (monthIndex !== -1) {
       preselectedMonth = monthIndex + 1;
+    } else if (window.PARKS_SUMMARY && window.PARKS_SUMMARY[slug]) {
+      preselectedPark = window.PARKS_SUMMARY[slug];
     }
   }
 
   if (preselectedMonth) {
-    // We must wait for chips to be fully rendered before clicking them or setting active.
-    // However, `renderChips` was called above, so they exist.
-    // selectMonth handles viewMode and selectedMonth setting, and calls renderParks.
     selectMonth(preselectedMonth, true);
   } else {
-    // Default to "All Parks" on load
     viewMode = 'all';
     selectedMonth = null;
     document.getElementById('chip-all')?.classList.add('active');
     renderParks();
+  }
+
+  if (preselectedPark) {
+    setTimeout(() => openModal(preselectedPark, true), 50);
   }
 }
 
@@ -855,9 +858,14 @@ function setSort(mode) {
 }
 
 // ============ Modal ============
-function openModal(park) {
+function openModal(park, preventHistory = false) {
   const details = window.PARKS_DETAILS?.[park.id];
   if (!details) return;
+
+  if (!preventHistory) {
+    window.history.pushState({ modal: park.id, prevMonth: selectedMonth }, '', `/${park.id}`);
+    document.title = `${park.name} National Park | US National Park Finder`;
+  }
 
   document.body.classList.add('modal-open');
   modal.classList.remove('hidden');
@@ -1049,14 +1057,39 @@ function openModal(park) {
   `;
 }
 
-function closeModal() {
+function closeModal(preventHistory = false) {
   modal.classList.add('hidden');
   document.body.classList.remove('modal-open');
+  
+  if (preventHistory !== true) {
+    if (selectedMonth) {
+      const ms = MONTH_FULL[selectedMonth - 1].toLowerCase();
+      window.history.pushState({ month: selectedMonth }, '', `/${ms}`);
+      document.title = `Where to go in ${MONTH_FULL[selectedMonth - 1]}: National Parks Guide | US National Park Finder`;
+    } else {
+      window.history.pushState({ month: null }, '', '/');
+      document.title = 'US National Park Finder | Explore by Month';
+    }
+  }
 }
 
-modalCloseBtn.addEventListener('click', closeModal);
-modal.addEventListener('click', e => { if (e.target===modal||e.target.classList.contains('modal-backdrop')) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key==='Escape'&&!modal.classList.contains('hidden')) closeModal(); });
+modalCloseBtn.addEventListener('click', () => closeModal(false));
+modal.addEventListener('click', e => { if (e.target===modal||e.target.classList.contains('modal-backdrop')) closeModal(false); });
+document.addEventListener('keydown', e => { if (e.key==='Escape'&&!modal.classList.contains('hidden')) closeModal(false); });
+
+window.addEventListener('popstate', (e) => {
+  if (e.state && e.state.modal) {
+    const park = window.PARKS_SUMMARY[e.state.modal];
+    if (park) openModal(park, true);
+  } else {
+    closeModal(true);
+    if (e.state && e.state.month) {
+      selectMonth(e.state.month, true);
+    } else {
+      selectMonth(null, true);
+    }
+  }
+});
 
 init();
 
