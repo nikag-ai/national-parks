@@ -60,6 +60,37 @@ const filterPanel      = document.getElementById('filter-panel');
 const visitedToggle    = document.getElementById('visited-toggle');
 const toggleWrap       = document.querySelector('.visited-toggle-wrap');
 const startPointSelect = document.getElementById('start-point');
+const scrollLeftBtn    = document.getElementById('scroll-left');
+const scrollRightBtn   = document.getElementById('scroll-right');
+
+// ============ Scroll Arrow Indicators ============
+function updateScrollArrows() {
+  if (!chipContainer || !scrollLeftBtn || !scrollRightBtn) return;
+  const { scrollLeft, scrollWidth, clientWidth } = chipContainer;
+  const atLeft = scrollLeft <= 4;
+  const atRight = scrollLeft + clientWidth >= scrollWidth - 4;
+  scrollLeftBtn.classList.toggle('hidden', atLeft);
+  scrollRightBtn.classList.toggle('hidden', atRight);
+}
+
+if (chipContainer) {
+  chipContainer.addEventListener('scroll', updateScrollArrows, { passive: true });
+  window.addEventListener('resize', updateScrollArrows);
+  // Initial check after chips render
+  setTimeout(updateScrollArrows, 100);
+}
+
+if (scrollLeftBtn) {
+  scrollLeftBtn.addEventListener('click', () => {
+    chipContainer.scrollBy({ left: -150, behavior: 'smooth' });
+  });
+}
+
+if (scrollRightBtn) {
+  scrollRightBtn.addEventListener('click', () => {
+    chipContainer.scrollBy({ left: 150, behavior: 'smooth' });
+  });
+}
 
 // ============ Logistics Engine ============
 function getTravelTime(park) {

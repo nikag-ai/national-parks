@@ -93,16 +93,20 @@ header {
   z-index: 1;
   max-width: 800px;
   margin: 0 auto;
-  padding: 32px 24px 16px;
+  padding: 48px 24px 24px;
   text-align: center;
+  position: relative;
 }
 
-.header-main-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 4px;
+header h1 {
+  margin-bottom: 8px;
+}
+
+.theme-switch-wrapper {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 100;
 }
 
 .theme-switch {
@@ -169,8 +173,51 @@ nav#month-bar {
   border-bottom: 1px solid var(--border);
   padding: 8px 0;
   display: flex;
+  align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  opacity: 0.85;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.scroll-arrow:hover {
+  opacity: 1;
+  background: var(--surface-hover);
+  color: var(--text);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-arrow.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-arrow-left {
+  left: 6px;
+}
+
+.scroll-arrow-right {
+  right: 6px;
 }
 
 .month-chips {
@@ -2177,25 +2224,33 @@ footer a:hover {
 
   header {
     text-align: center !important;
-    padding: 24px 20px 0 !important;
+    padding: 32px 20px 16px !important;
   }
 
-  .header-main-row {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center !important;
-    gap: 16px;
+  .theme-switch-wrapper {
+    top: 16px;
+    right: 16px;
   }
 
   header h1 {
     font-size: 1.5rem;
     text-align: center;
+    margin-top: 12px;
   }
 
   .subtitle {
     font-size: 0.9rem;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     text-align: center !important;
+  }
+
+  /* Hide Share Text on Mobile */
+  .share-btn .btn-text {
+    display: none;
+  }
+  
+  .share-btn {
+    padding: 8px 12px;
   }
 
   .theme-switch {
@@ -2211,12 +2266,13 @@ footer a:hover {
   .month-chips {
     display: flex;
     overflow-x: auto;
-    padding: 10px 4px;
+    padding: 10px 16px;
     gap: 8px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     justify-content: flex-start;
-    border-bottom: 1px solid var(--border);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 24px), transparent);
+    mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 24px), transparent);
   }
 
   .month-chips::-webkit-scrollbar {
@@ -2506,7 +2562,10 @@ footer a:hover {
 .header-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 12px;
+  margin-top: 16px;
 }
 
 .header-btn {
@@ -2578,6 +2637,33 @@ footer a:hover {
 [data-theme="light"] .highlight-btn:hover {
   background: rgba(168, 85, 247, 0.15) !important;
   border-color: rgba(168, 85, 247, 0.5) !important;
+}
+
+/* Discord CTA Styling */
+.discord-btn {
+  background: linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(88, 101, 242, 0.4));
+  border: 1px solid rgba(88, 101, 242, 0.5);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 15px rgba(88, 101, 242, 0.15);
+}
+
+.discord-btn:hover {
+  background: linear-gradient(135deg, rgba(88, 101, 242, 0.4), rgba(88, 101, 242, 0.6));
+  border-color: rgba(88, 101, 242, 0.8);
+  box-shadow: 0 0 20px rgba(88, 101, 242, 0.25);
+}
+
+[data-theme="light"] .discord-btn {
+  background: rgba(88, 101, 242, 0.1) !important;
+  border-color: rgba(88, 101, 242, 0.3) !important;
+  color: #5865F2 !important;
+  box-shadow: 0 2px 8px rgba(88, 101, 242, 0.1) !important;
+}
+
+[data-theme="light"] .discord-btn:hover {
+  background: rgba(88, 101, 242, 0.15) !important;
+  border-color: rgba(88, 101, 242, 0.5) !important;
 }
 
 .feature-modal-content {
