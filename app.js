@@ -188,19 +188,25 @@ function toggleVisitedFilterGlobal(checked) {
 
 function toggleVisited(parkName, e) {
   if (e) e.stopPropagation();
+  const isAdding = !visitedParks.has(parkName);
   visitedParks.has(parkName) ? visitedParks.delete(parkName) : visitedParks.add(parkName);
+  if (typeof gtag !== 'undefined') gtag('event', 'park_visited_toggled', { park_name: parkName, action: isAdding ? 'marked_visited' : 'unmarked_visited' });
   saveVisited(); closeAllMenus(); renderParks();
 }
 
 function toggleFavorite(parkName, e) {
   if (e) e.stopPropagation();
+  const isAdding = !favoritedParks.has(parkName);
   favoritedParks.has(parkName) ? favoritedParks.delete(parkName) : favoritedParks.add(parkName);
+  if (typeof gtag !== 'undefined') gtag('event', 'park_favorited_toggled', { park_name: parkName, action: isAdding ? 'favorited' : 'unfavorited' });
   saveFavorites(); closeAllMenus(); renderParks();
 }
 
 function toggleHidden(parkName, e) {
   if (e) e.stopPropagation();
+  const isAdding = !hiddenParks.has(parkName);
   hiddenParks.has(parkName) ? hiddenParks.delete(parkName) : hiddenParks.add(parkName);
+  if (typeof gtag !== 'undefined') gtag('event', 'park_hidden_toggled', { park_name: parkName, action: isAdding ? 'hidden' : 'unhidden' });
   saveHidden(); closeAllMenus(); renderParks();
 }
 
@@ -897,6 +903,7 @@ function openModal(park, preventHistory = false) {
     window.history.pushState({ modal: park.id, prevMonth: selectedMonth }, '', `/${park.id}`);
     document.title = `${park.name} National Park | US National Park Finder`;
   }
+  if (typeof gtag !== 'undefined') gtag('event', 'park_modal_opened', { park_name: park.name, park_id: park.id, month: selectedMonth ? MONTH_FULL[selectedMonth - 1] : 'all' });
 
   document.body.classList.add('modal-open');
   modal.classList.remove('hidden');
@@ -1134,6 +1141,8 @@ async function handleShare() {
     url: window.location.href
   };
 
+  if (typeof gtag !== 'undefined') gtag('event', 'share_clicked', { method: navigator.share ? 'native_share' : 'clipboard', url: window.location.href });
+
   try {
     if (navigator.share) {
       await navigator.share(shareData);
@@ -1181,6 +1190,7 @@ function openFeatureModal() {
   if (!featureModal) return;
   featureModal.classList.remove('hidden');
   document.body.classList.add('modal-open');
+  if (typeof gtag !== 'undefined') gtag('event', 'feature_request_opened', { page: window.location.pathname });
 }
 
 function closeFeatureModal() {
