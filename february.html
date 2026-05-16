@@ -7,7 +7,7 @@
   <meta property="og:title" content="Where to go in February: National Parks Guide | US National Park Finder" />
   <meta property="og:description" content="Looking for the best US National Parks to visit in February? Explore our curated guide to find the perfect park for your February adventure." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://nationalparkfinder.info/february.html" />
+  <meta property="og:url" content="https://nationalparkfinder.info/february" />
   <meta property="og:image" content="https://nationalparkfinder.info/national-parks-icon.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <title>Where to go in February: National Parks Guide | US National Park Finder</title>
@@ -69,7 +69,7 @@
     "license": "https://creativecommons.org/licenses/by/4.0/"
   }
   </script>
-  <link rel="canonical" href="https://nationalparkfinder.info/february.html" />
+  <link rel="canonical" href="https://nationalparkfinder.info/february" />
 
   <script type="application/ld+json">
   {
@@ -113,6 +113,7 @@
       <h1>US National Park Finder</h1>
       <div class="header-actions">
         <button id="share-btn" class="header-btn" title="Share App" aria-label="Share App">🔗 Share</button>
+        <button id="header-request-btn" class="header-btn highlight-btn" title="Request Feature" aria-label="Request Feature">💡 Request Feature ($5)</button>
         <div class="theme-switch" role="group" aria-label="Theme switcher">
           <button id="theme-light" class="theme-btn" title="Light Mode" aria-label="Switch to light mode">🌞</button>
           <button id="theme-dark" class="theme-btn" title="Dark Mode" aria-label="Switch to dark mode">🌙</button>
@@ -160,18 +161,18 @@
     <div class="footer-seo-links">
       <p class="footer-seo-title">Browse by Month</p>
       <div class="seo-links-grid">
-        <a href="january.html">January</a>
-        <a href="february.html">February</a>
-        <a href="march.html">March</a>
-        <a href="april.html">April</a>
-        <a href="may.html">May</a>
-        <a href="june.html">June</a>
-        <a href="july.html">July</a>
-        <a href="august.html">August</a>
-        <a href="september.html">September</a>
-        <a href="october.html">October</a>
-        <a href="november.html">November</a>
-        <a href="december.html">December</a>
+        <a href="january">January</a>
+        <a href="february">February</a>
+        <a href="march">March</a>
+        <a href="april">April</a>
+        <a href="may">May</a>
+        <a href="june">June</a>
+        <a href="july">July</a>
+        <a href="august">August</a>
+        <a href="september">September</a>
+        <a href="october">October</a>
+        <a href="november">November</a>
+        <a href="december">December</a>
       </div>
     </div>
     <p class="footer-disclaimer">Data is approximate — always check <a href="https://recreation.gov" target="_blank">recreation.gov</a> for permits & reservations</p>
@@ -184,6 +185,34 @@
       <button class="modal-close" id="modal-close-btn">&times;</button>
       <div class="modal-body" id="modal-body">
         <!-- Content injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature Request Modal -->
+  <div id="feature-request-modal" class="modal hidden">
+    <div class="modal-backdrop" id="feature-modal-backdrop"></div>
+    <div class="modal-content feature-modal-content">
+      <button class="modal-close" id="feature-modal-close-btn">&times;</button>
+      <div class="modal-body">
+        <h2 class="modal-title" style="margin-bottom: 8px;">Request a Feature</h2>
+        <p class="modal-subtitle" style="margin-bottom: 24px;">Have an idea to make ParkFinder better? Support the project with $5 and tell me what to build next!</p>
+        
+        <div class="feature-request-form">
+          <div class="guarantee-box">
+            <span class="guarantee-icon">🛡️</span>
+            <p><strong>30-Day Guarantee:</strong> If your feature request is not delivered within 30 days, your money will be fully refunded.</p>
+          </div>
+          
+          <div class="venmo-box">
+            <img id="venmo-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Faccount.venmo.com%2F%3Ftxn%3Dpay%26audience%3Dprivate%26recipients%3DNikunj-Agrawal%26amount%3D5.00%26note%3DFeature%20Request" alt="Venmo QR" class="venmo-qr">
+            <div class="venmo-text">
+              <strong>Scan or Click to Pay $5</strong>
+              <span>Be sure to include your feature request in the Venmo note so I know what to build!</span>
+              <a id="venmo-link-btn" href="https://account.venmo.com/?txn=pay&audience=private&recipients=Nikunj-Agrawal&amount=5.00&note=Feature%20Request" target="_blank" class="venmo-link-btn">Open Venmo @Nikunj-Agrawal</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

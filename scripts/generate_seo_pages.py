@@ -65,11 +65,11 @@ def generate_pages():
         # Open Graph updates
         og_title = f'<meta property="og:title" content="Where to go in {capitalized_month}: National Parks Guide | US National Park Finder" />'
         og_desc = f'<meta property="og:description" content="{new_meta_desc}" />'
-        og_url = f'<meta property="og:url" content="https://nationalparkfinder.info/{month}.html" />'
+        og_url = f'<meta property="og:url" content="https://nationalparkfinder.info/{month}" />'
         
         new_subtitle = base_subtitle + f'\n    <h2 class="seo-h2" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Best National Parks to visit in {capitalized_month}</h2>'
         
-        new_canonical = f'<link rel="canonical" href="https://nationalparkfinder.info/{month}.html" />'
+        new_canonical = f'<link rel="canonical" href="https://nationalparkfinder.info/{month}" />'
         
         # Generate the static park list for this month
         month_parks = [p["name"] for p in parks_data.values() if month_idx in p.get("bestMonths", [])]
@@ -141,7 +141,7 @@ def generate_pages():
     
     # Add months
     for month in MONTHS:
-        sitemap_lines.append(f'  <url>\n    <loc>https://nationalparkfinder.info/{month}.html</loc>\n    <lastmod>{today}</lastmod>\n    <priority>0.8</priority>\n  </url>')
+        sitemap_lines.append(f'  <url>\n    <loc>https://nationalparkfinder.info/{month}</loc>\n    <lastmod>{today}</lastmod>\n    <priority>0.8</priority>\n  </url>')
     
     sitemap_lines.append("</urlset>")
     

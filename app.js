@@ -206,7 +206,7 @@ function init() {
   
   // Check URL for month
   const path = window.location.pathname;
-  const match = path.match(/\/([a-z]+)\.html/i);
+  const match = path.match(/\/([a-z]+)(?:\.html)?$/i);
   let preselectedMonth = null;
   if (match) {
     const monthStr = match[1].toLowerCase();
@@ -284,7 +284,7 @@ function selectSpecialMode(mode) {
     document.getElementById(`chip-${mode}`)?.classList.add('active');
   }
   
-  window.history.pushState({ month: null }, '', 'index.html');
+  window.history.pushState({ month: null }, '', '/');
   document.title = 'US National Park Finder | Explore by Month';
   
   // Show/hide visited toggle
@@ -302,13 +302,13 @@ function selectMonth(month, preventHistory = false) {
     document.getElementById(`chip-${selectedMonth}`)?.classList.add('active');
     if (!preventHistory) {
       const ms = MONTH_FULL[selectedMonth - 1].toLowerCase();
-      window.history.pushState({ month: selectedMonth }, '', `${ms}.html`);
+      window.history.pushState({ month: selectedMonth }, '', `/${ms}`);
       document.title = `Where to go in ${MONTH_FULL[selectedMonth - 1]}: National Parks Guide | US National Park Finder`;
     }
   } else {
     document.getElementById('chip-all')?.classList.add('active');
     if (!preventHistory) {
-      window.history.pushState({ month: null }, '', 'index.html');
+      window.history.pushState({ month: null }, '', '/');
       document.title = 'US National Park Finder | Explore by Month';
     }
   }
