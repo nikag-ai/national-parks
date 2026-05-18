@@ -1,0 +1,21 @@
+# ----------------------------------------
+# Events: Event name
+# Account: national-parks
+# Property: national-parks
+# ----------------------------------------
+# 
+# All Users
+# Start date: 20260323
+# End date: 20260517
+Event name,Event count,Total users,Event count per active user,Total revenue
+page_view,15947,10581,1.508418463866818,0
+session_start,13573,10575,1.284592087828885,0
+first_visit,10717,10562,1.0146752508994508,0
+user_engagement,3833,3164,1.2625164690382082,0
+scroll,2077,1738,1.2033603707995364,0
+click,196,124,1.5806451612903225,0
+park_modal_opened,43,26,1.6538461538461537,0
+park_favorited_toggled,10,1,10,0
+park_visited_toggled,10,2,5,0
+feature_request_opened,1,1,1,0
+share_clicked,1,1,1,0

@@ -1,0 +1,58 @@
+# ----------------------------------------
+# Traffic acquisition: Session source / medium
+# Account: national-parks
+# Property: national-parks
+# ----------------------------------------
+# 
+# All Users
+# Start date: 20260323
+# End date: 20260517
+Session source / medium,Sessions,Engaged sessions,Engagement rate,Average engagement time per session,Events per session,Event count,Key events,Session key event rate,Total revenue
+(direct) / (none),7040,1567,0.22258522727272728,17.622301136363635,3.265340909090909,22988,0,0,0
+substack / email,5033,1850,0.367574011523942,34.49016491158355,3.559705940790781,17916,0,0,0
+reddit.com / referral,876,372,0.4246575342465753,36.651826484018265,3.6095890410958904,3162,0,0,0
+substack.com / referral,108,15,0.1388888888888889,6.027777777777778,2.5925925925925926,280,0,0,0
+kk.org / referral,89,70,0.7865168539325843,94.40449438202248,4.820224719101123,429,0,0,0
+out.reddit.com / referral,56,10,0.17857142857142858,8,2.9107142857142856,163,0,0,0
+google / organic,51,24,0.47058823529411764,38.86274509803921,3.803921568627451,194,0,0,0
+recomendo.com / referral,51,20,0.39215686274509803,28.03921568627451,3.6470588235294117,186,0,0,0
+(not set),44,2,0.045454545454545456,36.04545454545455,1.7954545454545454,79,0,0,0
+old.reddit.com / referral,44,24,0.5454545454545454,96.5,3.909090909090909,172,0,0,0
+phook.net / referral,39,24,0.6153846153846154,38.97435897435897,3.871794871794872,151,0,0,0
+statics.teams.cdn.office.net / referral,29,22,0.7586206896551724,66.79310344827586,3.8275862068965516,111,0,0,0
+m.facebook.com / referral,19,4,0.21052631578947367,0,3.1578947368421053,60,0,0,0
+richontech.tv / referral,19,7,0.3684210526315789,25.526315789473685,3.5789473684210527,68,0,0,0
+facebook.com / referral,17,9,0.5294117647058824,3.1176470588235294,3.5294117647058822,60,0,0,0
+google / cpc,16,0,0,0,3.0625,49,0,0,0
+catamaran.beehiiv.com / newsletter,14,3,0.21428571428571427,8.285714285714286,3,42,0,0,0
+inoreader.com / referral,6,4,0.6666666666666666,233.16666666666666,4.333333333333333,26,0,0,0
+travelbetweenthepages.com / referral,6,4,0.6666666666666666,53.5,4.166666666666667,25,0,0,0
+bing / organic,5,0,0,0,3,15,0,0,0
+deepculture.substack.com / referral,5,3,0.6,35,4,20,0,0,0
+newsblur.com / referral,5,1,0.2,5.6,2.8,14,0,0,0
+archive.recomendo.com / referral,4,3,0.75,55.75,4.5,18,0,0,0
+l.facebook.com / referral,4,1,0.25,12.5,3.25,13,0,0,0
+news.ycombinator.com / referral,4,3,0.75,41,5,20,0,0,0
+substack / (not set),4,2,0.5,10.5,3.5,14,0,0,0
+mail.google.com / referral,3,2,0.6666666666666666,47,3.3333333333333335,10,0,0,0
+naptimekitchen.substack.com / referral,3,1,0.3333333333333333,106.66666666666667,2.3333333333333335,7,0,0,0
+thehustle.co / referral,3,3,1,44.333333333333336,4.333333333333333,13,0,0,0
+app.savewithfolio.com / referral,2,2,1,8.5,4,8,0,0,0
+chat.google.com / referral,2,2,1,207.5,4.5,9,0,0,0
+kagi.com / referral,2,1,0.5,68.5,4,8,0,0,0
+l.instagram.com / referral,2,0,0,0,3,6,0,0,0
+lm.facebook.com / referral,2,0,0,0,3,6,0,0,0
+pinboard.in / referral,2,2,1,52.5,4,8,0,0,0
+pushbullet.com / referral,2,0,0,0,2.5,5,0,0,0
+theoldreader.com / referral,2,2,1,166,5.5,11,0,0,0
+www.hivefive.community / newsletter,2,1,0.5,7,4.5,9,0,0,0
+api.scraperforce.com / referral,1,0,0,0,3,3,0,0,0
+claude.ai / referral,1,1,1,0,3,3,0,0,0
+docs.google.com / referral,1,1,1,7,3,3,0,0,0
+forum-staging.porsche356registry.org / referral,1,0,0,0,2,2,0,0,0
+hacker-news.firebaseio.com / referral,1,0,0,0,3,3,0,0,0
+iwebthings.joejenett.com / referral,1,0,0,2,4,4,0,0,0
+mail.yahoo.com / referral,1,0,0,0,3,3,0,0,0
+producthunt.com / referral,1,0,0,0,3,3,0,0,0
+t.co / referral,1,0,0,0,3,3,0,0,0
+ticktick.com / referral,1,1,1,151,6,6,0,0,0

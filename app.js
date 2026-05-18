@@ -258,16 +258,43 @@ function init() {
 
   if (preselectedMonth) {
     selectMonth(preselectedMonth, true);
-  } else {
-    viewMode = 'all';
-    selectedMonth = null;
-    document.getElementById('chip-all')?.classList.add('active');
-    renderParks();
+  } else if (!preselectedPark) {
+    // Auto-select current month for immediate relevance (especially on mobile)
+    const currentMonth = new Date().getMonth() + 1; // 1-indexed
+    selectMonth(currentMonth, true);
   }
 
   if (preselectedPark) {
     setTimeout(() => openModal(preselectedPark, true), 50);
   }
+}
+
+// ============ Mobile Menu Toggle ============
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const headerActions = document.getElementById('header-actions');
+if (mobileMenuToggle && headerActions) {
+  mobileMenuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = headerActions.classList.toggle('mobile-open');
+    mobileMenuToggle.classList.toggle('open', isOpen);
+    mobileMenuToggle.textContent = isOpen ? '✕' : '⋯';
+    const headerEl = mobileMenuToggle.closest('header');
+    if (headerEl) {
+      headerEl.classList.toggle('menu-open', isOpen);
+    }
+  });
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!headerActions.contains(e.target) && e.target !== mobileMenuToggle) {
+      headerActions.classList.remove('mobile-open');
+      mobileMenuToggle.classList.remove('open');
+      mobileMenuToggle.textContent = '⋯';
+      const headerEl = mobileMenuToggle.closest('header');
+      if (headerEl) {
+        headerEl.classList.remove('menu-open');
+      }
+    }
+  });
 }
 
 // ============ Render Chips (months + special) ============
@@ -339,7 +366,20 @@ function selectMonth(month, preventHistory = false) {
   document.querySelectorAll('.month-chip').forEach(c => c.classList.remove('active'));
   
   if (selectedMonth) {
-    document.getElementById(`chip-${selectedMonth}`)?.classList.add('active');
+    const activeChip = document.getElementById(`chip-${selectedMonth}`);
+    activeChip?.classList.add('active');
+    // Scroll the chip into view (centered) so it's obvious which month is selected
+    if (activeChip && chipContainer) {
+      setTimeout(() => {
+        const chipLeft = activeChip.offsetLeft;
+        const chipWidth = activeChip.offsetWidth;
+        const containerWidth = chipContainer.offsetWidth;
+        chipContainer.scrollTo({
+          left: chipLeft - (containerWidth / 2) + (chipWidth / 2),
+          behavior: 'smooth'
+        });
+      }, 50);
+    }
     if (!preventHistory) {
       const ms = MONTH_FULL[selectedMonth - 1].toLowerCase();
       window.history.pushState({ month: selectedMonth }, '', `/${ms}`);
@@ -663,6 +703,32 @@ function renderFilterUI() {
     </div>
   `;
   syncTempSliderTrack();
+  initSliderTouchHandlers();
+}
+
+function initSliderTouchHandlers() {
+  const tempMin = document.getElementById('temp-min');
+  const tempMax = document.getElementById('temp-max');
+  const wrapper = document.querySelector('.temp-slider-wrapper');
+  if (!tempMin || !tempMax || !wrapper) return;
+
+  wrapper.addEventListener('touchstart', (e) => {
+    const rect = wrapper.getBoundingClientRect();
+    const touchX = e.touches[0].clientX - rect.left;
+    const pct = touchX / rect.width;
+    const clickedVal = pct * 110;
+
+    const distMin = Math.abs(clickedVal - parseFloat(tempMin.value));
+    const distMax = Math.abs(clickedVal - parseFloat(tempMax.value));
+
+    if (distMin < distMax) {
+      tempMin.style.zIndex = '10';
+      tempMax.style.zIndex = '2';
+    } else {
+      tempMax.style.zIndex = '10';
+      tempMin.style.zIndex = '2';
+    }
+  }, { passive: true });
 }
 
 function updateTempFilterLogic(isMin) {
@@ -782,19 +848,33 @@ function renderParks() {
     </div>
   `;
 
-  sortParks(parks).forEach((park, idx) => {
-    const isVisited  = visitedParks.has(park.name);
-    const isFavorite = favoritedParks.has(park.name);
-    const isHidden   = hiddenParks.has(park.name);
-    const card       = document.createElement('div');
+  const sorted = sortParks(parks);
+  const isMobile = window.innerWidth <= 600;
+
+  // ============ Lazy Loading Setup ============
+  const BATCH_SIZE = isMobile ? 10 : sorted.length; // Desktop shows all, mobile lazy loads
+  let loadedCount = 0;
+
+  function renderBatch() {
+    const end = Math.min(loadedCount + BATCH_SIZE, sorted.length);
+    for (let idx = loadedCount; idx < end; idx++) {
+      const park = sorted[idx];
+      const isHero = (selectedMonth && idx === 0 && viewMode === 'all');
+
+      const isVisited  = visitedParks.has(park.name);
+      const isFavorite = favoritedParks.has(park.name);
+      const isHidden   = hiddenParks.has(park.name);
+      const card       = document.createElement('div');
 
     let cardClass = 'park-card';
     if (isFavorite) cardClass += ' park-favorite';
     else if (isVisited) cardClass += ' park-visited';
     if (isHidden) cardClass += ' park-hidden';
+    // Add compact class on mobile for progressive disclosure
+    if (isMobile) cardClass += ' park-card-compact';
 
     card.className = cardClass;
-    const stagger = ('ontouchstart' in window) ? 0.02 : 0.04;
+    const stagger = isMobile ? 0.02 : 0.04;
     card.style.animationDelay = `${idx * stagger}s`;
     card.addEventListener('click', () => openModal(park));
 
@@ -806,6 +886,7 @@ function renderParks() {
     const seasonalInfo = window.PARKS_SEASONAL?.[park.id]?.[selectedMonth];
 
     card.innerHTML = `
+      ${isHero ? `<div class="floating-hero-badge">🏆 Top Pick for ${MONTH_FULL[selectedMonth - 1]}</div>` : ''}
       <div class="card-header">
         <div class="card-title-col">
           <div class="park-name">
@@ -838,55 +919,87 @@ function renderParks() {
 
       <div class="card-score-row">
         <span class="star-badge">
-          ${renderStars(park.compositeScore)} <span class="score-num">${park.compositeScore}</span>
+          ${isMobile ? `⭐ <span class="score-num">${park.compositeScore}</span>` : `${renderStars(park.compositeScore)} <span class="score-num">${park.compositeScore}</span>`}
         </span>
+        ${park.topActivity ? `<span class="compact-activity">🎯 ${park.topActivity}</span>` : ''}
         <span class="min-days-badge">🗓️ Min ${park.minDays} day${park.minDays>1?'s':''}</span>
       </div>
 
-      <div class="info-grid">
-        <div class="info-item">
-          <span class="info-label">📅 Best Months</span>
-          <span class="info-value small-val">${formatBestMonths(park.bestMonths)}</span>
+      <div class="card-details">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">📅 Best Months</span>
+            <span class="info-value small-val">${formatBestMonths(park.bestMonths)}</span>
+          </div>
+          ${park.avoid && park.avoid.length > 0 ? `
+          <div class="info-item">
+            <span class="info-label">⚠️ Avoid</span>
+            <span class="info-value small-val">${formatMonths(park.avoid)}</span>
+          </div>` : ''}
+          ${seasonalInfo && seasonalInfo.temp !== 'N/A' ? '<div class="info-item"><span class="info-label">🌡️ Temp in ' + MONTHS[selectedMonth - 1] + '</span><span class="info-value">' + seasonalInfo.temp + '</span></div>' : ''}
+          ${park.topActivity ? `
+          <div class="info-item">
+            <span class="info-label">🎯 Top Activity</span>
+            <span class="info-value">${park.topActivity}</span>
+          </div>` : ''}
         </div>
-        ${park.avoid && park.avoid.length > 0 ? `
-        <div class="info-item">
-          <span class="info-label">⚠️ Avoid</span>
-          <span class="info-value small-val">${formatMonths(park.avoid)}</span>
-        </div>` : ''}
-        ${seasonalInfo && seasonalInfo.temp !== 'N/A' ? '<div class="info-item"><span class="info-label">🌡️ Temp in ' + MONTHS[selectedMonth - 1] + '</span><span class="info-value">' + seasonalInfo.temp + '</span></div>' : ''}
-        ${selectedMonth && park.topActivity ? `
-        <div class="info-item">
-          <span class="info-label">🎯 Top Activity</span>
-          <span class="info-value">${park.topActivity}</span>
-        </div>` : ''}
-      </div>
 
-      <div class="card-footer">
-        <div class="card-airport-row">
-          ${(() => {
-            const h = currentHomeHub;
-            const d = park.driveTimes?.[h];
-            if (d && d <= 360) {
-              return `<span class="car">🚗</span> <span class="time-main"><strong>${timeStr}</strong> drive from ${h}</span>`;
-            }
-            const flight = travelTime - (park.gatewayExtraMinutes || 0);
-            const fH = Math.floor(flight / 60); const fM = flight % 60;
-            const fStr = fH > 0 ? `${fH}h ${fM}m` : `${fM}m`;
-            return `
-              <span class="plane">✈️</span>
-              <span class="airport-code">${park.gatewayHub}</span>
-              <span class="time-main">(${fStr}) + 🚗 ${Math.floor(park.gatewayExtraMinutes/60)}h ${park.gatewayExtraMinutes%60}m &bull; <strong>${timeStr}</strong></span>
-            `;
-          })()}
+        <div class="card-footer">
+          <div class="card-airport-row">
+            ${(() => {
+              const h = currentHomeHub;
+              const d = park.driveTimes?.[h];
+              if (d && d <= 360) {
+                return `<span class="car">🚗</span> <span class="time-main"><strong>${timeStr}</strong> drive from ${h}</span>`;
+              }
+              const flight = travelTime - (park.gatewayExtraMinutes || 0);
+              const fH = Math.floor(flight / 60); const fM = flight % 60;
+              const fStr = fH > 0 ? `${fH}h ${fM}m` : `${fM}m`;
+              return `
+                <span class="plane">✈️</span>
+                <span class="airport-code">${park.gatewayHub}</span>
+                <span class="time-main">(${fStr}) + 🚗 ${Math.floor(park.gatewayExtraMinutes/60)}h ${park.gatewayExtraMinutes%60}m &bull; <strong>${timeStr}</strong></span>
+              `;
+            })()}
+          </div>
         </div>
       </div>
       <div class="card-cta">
-        ${('ontouchstart' in window) ? 'Tap to explore ➝' : 'Click for details ➝'}
+        ${isMobile ? 'Tap to explore ➝' : 'Click for details ➝'}
       </div>
     `;
 
-    parkGrid.appendChild(card);
-  });
+    const sentinel = parkGrid.querySelector('.load-more-sentinel');
+    if (sentinel) {
+      parkGrid.insertBefore(card, sentinel);
+    } else {
+      parkGrid.appendChild(card);
+    }
+  }
+    loadedCount = end;
+  }
+
+  // Render first batch
+  renderBatch();
+
+  // Setup IntersectionObserver for lazy loading on mobile
+  if (isMobile && loadedCount < sorted.length) {
+    const sentinel = document.createElement('div');
+    sentinel.className = 'load-more-sentinel';
+    sentinel.innerHTML = '<div class="load-more-spinner">Loading more parks...</div>';
+    parkGrid.appendChild(sentinel);
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && loadedCount < sorted.length) {
+        renderBatch();
+        if (loadedCount >= sorted.length) {
+          sentinel.remove();
+          observer.disconnect();
+        }
+      }
+    }, { rootMargin: '200px' });
+    observer.observe(sentinel);
+  }
 }
 
 function setSort(mode) {
@@ -1207,8 +1320,12 @@ if (featureModalCloseBtn) {
   featureModalCloseBtn.addEventListener('click', closeFeatureModal);
 }
 
-if (featureModalBackdrop) {
-  featureModalBackdrop.addEventListener('click', closeFeatureModal);
+if (featureModal) {
+  featureModal.addEventListener('click', (e) => {
+    if (e.target === featureModal || e.target === featureModalBackdrop) {
+      closeFeatureModal();
+    }
+  });
 }
 
 document.addEventListener('keydown', e => { 
