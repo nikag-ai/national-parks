@@ -3042,9 +3042,14 @@ footer a:hover {
 
 /* ============ Mobile Close Button Hit-Box Expansion (WCAG 44px) ============ */
 @media (max-width: 768px) {
-  .modal-close,
   .filter-close-x {
     position: relative;
+  }
+  
+  .modal-close {
+    position: absolute !important;
+    top: 16px !important;
+    right: 16px !important;
   }
   
   .modal-close::after {
