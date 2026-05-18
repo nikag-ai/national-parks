@@ -32,6 +32,7 @@
     gtag('js', new Date());
 
     gtag('config', 'G-YZ57RJ75MN');
+    gtag('config', 'AW-593488152');
   </script>
 
   <!-- Google Schema Markup -->
@@ -83,20 +84,29 @@
   <div class="bg-glow bg-glow-2"></div>
   <div class="bg-glow bg-glow-3"></div>
 
-  <header>
-    <div class="header-main-row">
-      <h1>US National Park Finder</h1>
-      <div class="header-actions">
-        <button id="share-btn" class="header-btn" title="Share App" aria-label="Share App">🔗 Share</button>
-        <button id="header-request-btn" class="header-btn highlight-btn" title="Request Feature" aria-label="Request Feature">💡 Request Feature ($5)</button>
-        <div class="theme-switch" role="group" aria-label="Theme switcher">
-          <button id="theme-light" class="theme-btn" title="Light Mode" aria-label="Switch to light mode">🌞</button>
-          <button id="theme-dark" class="theme-btn" title="Dark Mode" aria-label="Switch to dark mode">🌙</button>
-        </div>
-      </div>
+  <!-- Absolute Theme Switcher -->
+  <div class="theme-switch-wrapper">
+    <div class="theme-switch" role="group" aria-label="Theme switcher">
+      <button id="theme-light" class="theme-btn" title="Light Mode" aria-label="Switch to light mode">🌞</button>
+      <button id="theme-dark" class="theme-btn" title="Dark Mode" aria-label="Switch to dark mode">🌙</button>
     </div>
+  </div>
+
+  <header>
+    <h1>US National Park Finder</h1>
     <p class="subtitle">Discover the perfect national park for your next trip</p>
     <h2 class="seo-h2" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Arches National Park, UT</h2>
+    <div class="header-actions">
+      <button id="share-btn" class="header-btn share-btn" title="Share App" aria-label="Share App">
+        <span class="btn-icon">🔗</span><span class="btn-text">Share</span>
+      </button>
+      <button id="header-request-btn" class="header-btn highlight-btn" title="Request Feature" aria-label="Request Feature">
+        <span class="btn-icon">💡</span><span class="btn-text">Request Feature ($5)</span>
+      </button>
+      <a id="header-discord-btn" href="https://discord.gg/9pdg6QtWVW" target="_blank" class="header-btn discord-btn" title="Join Discord" aria-label="Join Discord">
+        <span class="btn-icon">💬</span><span class="btn-text">Join Community</span>
+      </a>
+    </div>
   </header>
 
   <div class="search-container">
@@ -113,7 +123,9 @@
   </div>
 
   <nav id="month-bar" aria-label="Month filter">
+    <button class="scroll-arrow scroll-arrow-left hidden" id="scroll-left" aria-label="Scroll left">‹</button>
     <div class="month-chips"></div>
+    <button class="scroll-arrow scroll-arrow-right" id="scroll-right" aria-label="Scroll right">›</button>
   </nav>
 
   <main>
