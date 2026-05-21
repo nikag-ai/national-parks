@@ -204,18 +204,20 @@ dynamicStyles.textContent = `
       border-radius: 24px 24px 0 0 !important;
       border: none !important;
       border-top: 1px solid var(--border) !important;
-      padding: 24px 24px 36px !important;
+      padding: 20px 16px 24px !important;
       background: var(--surface) !important;
       box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4) !important;
       flex-direction: column !important;
       align-items: stretch !important;
-      gap: 12px !important;
+      gap: 8px !important;
       margin: 0 !important;
       z-index: 1000 !important;
       transform: translateY(100%) !important;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
       opacity: 0 !important;
       pointer-events: none !important;
+      max-height: 85vh !important;
+      overflow-y: auto !important;
     }
     
     .header-actions.mobile-open {
@@ -232,7 +234,7 @@ dynamicStyles.textContent = `
       height: 4px;
       background: var(--border);
       border-radius: 2px;
-      margin: -12px auto 12px auto;
+      margin: -10px auto 10px auto;
       opacity: 0.6;
     }
     
@@ -296,6 +298,176 @@ dynamicStyles.textContent = `
     .search-input {
       padding-left: 42px !important;
     }
+  }
+
+  /* Redesigned Premium Card Layout */
+  .park-card {
+    padding: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+  
+  .card-media {
+    position: relative !important;
+    width: 100% !important;
+    height: 180px !important;
+    overflow: hidden !important;
+  }
+  
+  .card-thumbnail {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.5s ease !important;
+  }
+  
+  .park-card:hover .card-thumbnail {
+    transform: scale(1.08) !important;
+  }
+  
+  
+  
+  .card-favorite-btn {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    z-index: 10 !important;
+    background: rgba(10, 12, 18, 0.6) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    margin: 0 !important;
+  }
+  
+  [data-theme="light"] .card-favorite-btn {
+    background: rgba(255, 255, 255, 0.7) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    color: var(--text) !important;
+  }
+  
+  .card-favorite-btn:hover {
+    background: rgba(10, 12, 18, 0.8) !important;
+    transform: scale(1.1) !important;
+  }
+  
+  [data-theme="light"] .card-favorite-btn:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  .card-media .floating-hero-badge {
+    top: 12px !important;
+    margin-top: 0 !important;
+  }
+  
+  .card-body {
+    padding: 8px 16px 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    flex-grow: 1 !important;
+  }
+  
+  .card-title-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+  
+  .park-name {
+    font-size: 1.15rem !important;
+    margin: 0 !important;
+    font-weight: 700 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    flex-grow: 1 !important;
+  }
+  
+  .park-state-inline {
+    font-size: 0.9rem !important;
+    color: var(--text-dim) !important;
+    font-weight: 500 !important;
+    margin-left: 2px !important;
+  }
+  
+  .card-meta-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+  
+  .card-rating {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    color: var(--text) !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .card-rating svg {
+    color: var(--amber) !important;
+    fill: var(--amber) !important;
+    width: 14px !important;
+    height: 14px !important;
+  }
+  
+  .card-meta-row {
+    display: flex !important;
+    gap: 8px !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 28px !important;
+  }
+
+  .card-pill {
+    background: #25293d !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    padding: 4px 10px !important;
+    border-radius: 100px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: var(--text) !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  
+  [data-theme="light"] .card-pill {
+    background: #e2e8f0 !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  }
+  
+  .card-pill-activity {
+    color: var(--accent) !important;
+    background: var(--accent-glow) !important;
+    border-color: rgba(108, 140, 255, 0.2) !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .card-pill-transit {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .card-pill-transit svg {
+    width: 12px !important;
+    height: 12px !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    vertical-align: middle !important;
   }
 `;
 document.head.appendChild(dynamicStyles);
@@ -452,7 +624,7 @@ function init() {
 
   if (preselectedMonth) {
     selectMonth(preselectedMonth, true);
-  } else if (!preselectedPark) {
+  } else {
     // Auto-select current month for immediate relevance (especially on mobile)
     const currentMonth = new Date().getMonth() + 1; // 1-indexed
     selectMonth(currentMonth, true);
@@ -516,33 +688,9 @@ if (mobileMenuToggle && headerActions) {
   });
 }
 
-// ============ Render Chips (months + special) ============
+// ============ Render Chips (months only — special modes moved to view-tabs) ============
 function renderChips() {
-  // Special chips first
-  const specialChips = [
-    { id: 'chip-all',       label: 'All Parks',   mode: 'all' },
-    { id: 'chip-favorites', label: '<svg class="icon" style="margin-right: 4px; color: var(--amber); fill: var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg>Favorites', mode: 'favorites' },
-    { id: 'chip-visited',   label: '<svg class="icon" style="margin-right: 4px; color: var(--green);"><use href="#icon-check-filled" xlink:href="#icon-check-filled"></use></svg>Visited',   mode: 'visited'   },
-    { id: 'chip-hidden',    label: '<svg class="icon" style="margin-right: 4px;"><use href="#icon-eye-off" xlink:href="#icon-eye-off"></use></svg>Hidden',   mode: 'hidden'    },
-  ];
-
-  specialChips.forEach(({ id, label, mode }) => {
-    const chip = document.createElement('button');
-    chip.className = 'month-chip special-chip';
-    chip.innerHTML = label;
-    chip.id = id;
-    if (viewMode === 'all' && mode === 'all' && !selectedMonth) chip.classList.add('active');
-    chip.addEventListener('click', () => selectSpecialMode(mode));
-    chipContainer.appendChild(chip);
-  });
-
-  // Divider
-  const sep = document.createElement('span');
-  sep.className = 'chip-sep';
-  sep.textContent = '|';
-  chipContainer.appendChild(sep);
-
-  // Month chips
+  // Month chips only (special chips moved to static HTML view-tabs)
   MONTHS.forEach((m, i) => {
     const chip = document.createElement('button');
     chip.className = 'month-chip';
@@ -554,20 +702,34 @@ function renderChips() {
   });
 }
 
+// ============ View Tab Bindings ============
+function updateViewTabs(activeMode) {
+  document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+  const activeTab = document.getElementById(`tab-${activeMode}`);
+  if (activeTab) activeTab.classList.add('active');
+}
+
+document.querySelectorAll('.view-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const mode = tab.getAttribute('data-mode');
+    selectSpecialMode(mode);
+  });
+});
+
 function selectSpecialMode(mode) {
-  // Clear all chips
+  // Clear month chip highlights
   document.querySelectorAll('.month-chip').forEach(c => c.classList.remove('active'));
 
   if (viewMode === mode && mode !== 'all') {
-    // Deselect (if you clicked visited/favorites again)
+    // Deselect (if you clicked visited/favorites again) → back to all
     viewMode = 'all';
     selectedMonth = null;
-    document.getElementById('chip-all')?.classList.add('active');
+    updateViewTabs('all');
   } else {
     // Select the new mode
     viewMode = mode;
     selectedMonth = null;
-    document.getElementById(`chip-${mode}`)?.classList.add('active');
+    updateViewTabs(mode);
   }
   
   window.history.pushState({ month: null }, '', '/');
@@ -581,7 +743,9 @@ function selectSpecialMode(mode) {
 function selectMonth(month, preventHistory = false) {
   viewMode = 'all';
   selectedMonth = selectedMonth === month ? null : month;
-  // Clear ALL chips first, then activate the right one by ID (avoids index offset from special chips)
+  // Update view tabs — always set Explore as active when selecting a month
+  updateViewTabs('all');
+  // Clear ALL month chips first, then activate the right one
   document.querySelectorAll('.month-chip').forEach(c => c.classList.remove('active'));
   
   if (selectedMonth) {
@@ -605,7 +769,6 @@ function selectMonth(month, preventHistory = false) {
       document.title = `Where to go in ${MONTH_FULL[selectedMonth - 1]}: National Parks Guide | US National Park Finder`;
     }
   } else {
-    document.getElementById('chip-all')?.classList.add('active');
     if (!preventHistory) {
       window.history.pushState({ month: null }, '', '/');
       document.title = 'US National Park Finder | Explore by Month';
@@ -1118,83 +1281,48 @@ function renderParks() {
     const seasonalInfo = window.PARKS_SEASONAL?.[park.id]?.[selectedMonth];
 
     card.innerHTML = `
-      ${isHero ? `<div class="floating-hero-badge"><svg class="icon" style="margin-right:4px;"><use href="#icon-trophy" xlink:href="#icon-trophy"></use></svg>Top Pick for ${MONTH_FULL[selectedMonth - 1]}</div>` : ''}
-      <div class="card-header">
-        <div class="card-title-col">
-          <div class="park-name">
-            ${park.name}<span class="park-state-inline">${park.state}</span>
-          </div>
-        </div>
-        <div class="card-right-col">
-          <div class="card-actions">
-            <button class="card-action-btn ${isFavorite ? 'active-heart' : ''}" 
-              onclick="toggleFavorite('${park.name}', event)"
-              data-tooltip="${isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}">
-              <svg class="icon"><use href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}" xlink:href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}"></use></svg>
-            </button>
-            <button class="card-action-btn ${isVisited ? 'active-tick' : ''}" 
-              onclick="toggleVisited('${park.name}', event)"
-              data-tooltip="${isVisited ? 'Unmark as Visited' : 'Mark as Visited'}">
-              <svg class="icon"><use href="${isVisited ? '#icon-check-filled' : '#icon-check'}" xlink:href="${isVisited ? '#icon-check-filled' : '#icon-check'}"></use></svg>
-            </button>
-            <button class="card-action-btn ${isHidden ? 'active-hide' : ''}" 
-              onclick="toggleHidden('${park.name}', event)"
-              data-tooltip="${isHidden ? 'Unhide Park' : 'Hide Park'}">
-              <svg class="icon"><use href="${isHidden ? '#icon-eye-off' : '#icon-eye'}" xlink:href="${isHidden ? '#icon-eye-off' : '#icon-eye'}"></use></svg>
-            </button>
-          </div>
-        </div>
+      <div class="card-media">
+        <img src="${park.thumbnail}" alt="${park.name}" class="card-thumbnail card-img" loading="lazy">
+        ${isHero ? `<div class="floating-hero-badge"><svg class="icon" style="margin-right:4px;"><use href="#icon-trophy" xlink:href="#icon-trophy"></use></svg>Top Pick for ${MONTH_FULL[selectedMonth - 1]}</div>` : ''}
+        <button class="card-action-btn card-favorite-btn ${isFavorite ? 'active-heart' : ''}" 
+          onclick="toggleFavorite('${park.name}', event)"
+          data-tooltip="${isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}"
+          aria-label="${isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}">
+          <svg class="icon"><use href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}" xlink:href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}"></use></svg>
+        </button>
       </div>
 
-      <div class="card-score-row">
-        <span class="star-badge">
-          ${isMobile ? `<svg class="icon star-icon" style="color: var(--amber); fill: var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg> <span class="score-num">${park.compositeScore}</span>` : `${renderStars(park.compositeScore)} <span class="score-num">${park.compositeScore}</span>`}
-        </span>
-        ${park.topActivity ? `<span class="compact-activity"><svg class="icon" style="margin-right:3px;"><use href="#icon-target" xlink:href="#icon-target"></use></svg>${park.topActivity}</span>` : ''}
-        <span class="min-days-badge"><svg class="icon" style="margin-right:3px;"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg>Min ${park.minDays} day${park.minDays>1?'s':''}</span>
-      </div>
-
-      <div class="card-details">
-        <div class="info-grid">
-          <div class="info-item">
-            <span class="info-label"><svg class="icon" style="margin-right:4px;"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg>Best Months</span>
-            <span class="info-value small-val">${formatBestMonths(park.bestMonths)}</span>
-          </div>
-          ${park.avoid && park.avoid.length > 0 ? `
-          <div class="info-item">
-            <span class="info-label"><svg class="icon" style="margin-right:4px;"><use href="#icon-warning" xlink:href="#icon-warning"></use></svg>Avoid</span>
-            <span class="info-value small-val">${formatMonths(park.avoid)}</span>
-          </div>` : ''}
-          ${seasonalInfo && seasonalInfo.temp !== 'N/A' ? '<div class="info-item"><span class="info-label"><svg class="icon" style="margin-right:4px;"><use href="#icon-thermometer" xlink:href="#icon-thermometer"></use></svg>Temp in ' + MONTHS[selectedMonth - 1] + '</span><span class="info-value">' + seasonalInfo.temp + '</span></div>' : ''}
-          ${park.topActivity ? `
-          <div class="info-item">
-            <span class="info-label"><svg class="icon" style="margin-right:4px;"><use href="#icon-target" xlink:href="#icon-target"></use></svg>Top Activity</span>
-            <span class="info-value">${park.topActivity}</span>
-          </div>` : ''}
+      <div class="card-body">
+        <div class="card-title-row">
+          <h3 class="park-name">${park.name}<span class="park-state-inline">, ${park.state}</span></h3>
+          <span class="card-rating">
+            <svg class="icon star-icon"><use href="#icon-star" xlink:href="#icon-star"></use></svg>
+            <span class="rating-num">${park.compositeScore}</span>
+          </span>
         </div>
 
-        <div class="card-footer">
-          <div class="card-airport-row">
-            ${(() => {
-              const h = currentHomeHub;
-              const d = park.driveTimes?.[h];
-              if (d && d <= 360) {
-                return `<span class="car"><svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg></span> <span class="time-main"><strong>${timeStr}</strong> drive from ${h}</span>`;
-              }
-              const flight = travelTime - (park.gatewayExtraMinutes || 0);
-              const fH = Math.floor(flight / 60); const fM = flight % 60;
-              const fStr = fH > 0 ? `${fH}h ${fM}m` : `${fM}m`;
+        <div class="card-meta-row">
+          <span class="card-pill">${park.minDays} Day${park.minDays > 1 ? 's' : ''} Min</span>
+          ${park.topActivity ? `<span class="card-pill card-pill-activity">${park.topActivity}</span>` : ''}
+          ${(() => {
+            const h = currentHomeHub;
+            const d = park.driveTimes?.[h];
+            if (d && d <= 360) {
               return `
-                <span class="plane"><svg class="icon"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg></span>
-                <span class="airport-code">${park.gatewayHub}</span>
-                <span class="time-main">(${fStr}) + <svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg> ${Math.floor(park.gatewayExtraMinutes/60)}h ${park.gatewayExtraMinutes%60}m &bull; <strong>${timeStr}</strong></span>
+                <span class="card-pill card-pill-transit">
+                  <svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg>
+                  ${timeStr}
+                </span>
               `;
-            })()}
-          </div>
+            }
+            return `
+              <span class="card-pill card-pill-transit">
+                <svg class="icon"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg>
+                ${timeStr} (${park.gatewayHub})
+              </span>
+            `;
+          })()}
         </div>
-      </div>
-      <div class="card-cta">
-        ${isMobile ? 'Tap to explore ➝' : 'Click for details ➝'}
       </div>
     `;
 
@@ -1275,12 +1403,12 @@ function openModal(park, preventHistory = false) {
 
   const activitiesHtml  = (details.topActivities||[]).map(a => `<span class="activity-tag">${a}</span>`).join('');
   const itineraryHtml   = (details.itinerary||[]).map(i => `<div class="itinerary-step"><strong>${i.day}</strong><p>${i.plan}</p></div>`).join('');
-  const hacksHtml       = (details.travelHacks||[]).map(h => `<div class="hack-item">${h}</div>`).join('');
+  const hacksHtml       = (details.travelHacks||[]).map(h => `<div class="hack-item"><svg class="icon"><use href="#icon-lightbulb" xlink:href="#icon-lightbulb"></use></svg><span>${h}</span></div>`).join('');
   const dos             = (details.dosAndDonts||[]).filter(i => i.type==="do");
   const donts           = (details.dosAndDonts||[]).filter(i => i.type==="dont");
   const dosHtml         = dos.map(d => `<div class="do-item">${d.text}</div>`).join('');
   const dontsHtml       = donts.map(d => `<div class="dont-item">${d.text}</div>`).join('');
-  const funFactsHtml    = (details.funFacts||[]).map(f => `<div class="fun-fact-item">${f}</div>`).join('');
+  const funFactsHtml    = (details.funFacts||[]).map(f => `<div class="fun-fact-item"><svg class="icon"><use href="#icon-target" xlink:href="#icon-target"></use></svg><span>${f}</span></div>`).join('');
 
   const seasonalInfo = window.PARKS_SEASONAL?.[park.id]?.[selectedMonth];
   const monthNameFn  = selectedMonth ? MONTH_FULL[selectedMonth - 1] : null;
@@ -1297,24 +1425,40 @@ function openModal(park, preventHistory = false) {
   `).join('');
 
   const links = details.links || {};
+  const linkIconMap = {
+    nps: '#icon-nps',
+    wikipedia: '#icon-wikipedia',
+    reddit: '#icon-reddit',
+    guide: '#icon-map',
+    lodging: '#icon-bed',
+    dining: '#icon-utensils',
+    activities: '#icon-hiking',
+    conditions: '#icon-shield-alert',
+    roadConditions: '#icon-shield-alert'
+  };
   const linkLabelMap = {
-    nps: '🏛️ NPS Official',
-    wikipedia: '📖 Wikipedia',
-    reddit: '🤖 Reddit',
-    guide: '🗺️ Field Guide',
-    lodging: '🛌 Lodging',
-    dining: '🍽️ Dining',
-    activities: '🧗 Activities',
-    conditions: '🚧 Road Conditions',
-    roadConditions: '🚧 Road Conditions'
+    nps: 'NPS Official',
+    wikipedia: 'Wikipedia',
+    reddit: 'Reddit Advice',
+    guide: 'Field Guide',
+    lodging: 'Lodging Options',
+    dining: 'Dining Guide',
+    activities: 'Top Activities',
+    conditions: 'Road Conditions',
+    roadConditions: 'Road Conditions'
   };
 
   const linksHtml = `<div class="resource-links">
-    ${Object.entries(links).map(([key, url]) => `
-      <a href="${url}" target="_blank" class="resource-link resource-link-${key}">
-        ${linkLabelMap[key] || (key.charAt(0).toUpperCase() + key.slice(1))}
-      </a>
-    `).join('')}
+    ${Object.entries(links).map(([key, url]) => {
+      const icon = linkIconMap[key] || '#icon-link';
+      const label = linkLabelMap[key] || (key.charAt(0).toUpperCase() + key.slice(1));
+      return `
+        <a href="${url}" target="_blank" class="resource-link resource-link-${key}">
+          <svg class="icon"><use href="${icon}" xlink:href="${icon}"></use></svg>
+          <span>${label}</span>
+        </a>
+      `;
+    }).join('')}
   </div>`;
 
   const travelTime = getTravelTime(park);
@@ -1323,133 +1467,278 @@ function openModal(park, preventHistory = false) {
   const timeStr = hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`;
 
   modalBody.innerHTML = `
-    <div class="modal-icon-actions">
-      <button class="modal-icon-btn ${isFavorite ? 'active-heart' : ''}" 
-        onclick="toggleFavorite('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
-        data-tooltip="${isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}">
-        <svg class="icon"><use href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}" xlink:href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}"></use></svg>
-      </button>
-      <button class="modal-icon-btn ${isVisited ? 'active-tick' : ''}" 
-        onclick="toggleVisited('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
-        data-tooltip="${isVisited ? 'Unmark as Visited' : 'Mark as Visited'}">
-        <svg class="icon"><use href="${isVisited ? '#icon-check-filled' : '#icon-check'}" xlink:href="${isVisited ? '#icon-check-filled' : '#icon-check'}"></use></svg>
-      </button>
-      <button class="modal-icon-btn ${isHidden ? 'active-hide' : ''}" 
-        onclick="toggleHidden('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
-        data-tooltip="${isHidden ? 'Unhide Park' : 'Hide Park'}">
-        <svg class="icon"><use href="${isHidden ? '#icon-eye-off' : '#icon-eye'}" xlink:href="${isHidden ? '#icon-eye-off' : '#icon-eye'}"></use></svg>
-      </button>
-    </div>
-    <div class="modal-header">
-      <div class="modal-title-row">
-        <div>
-          <h2 class="modal-title">
-            ${isFavorite ? '<svg class="icon star-icon" style="color: var(--amber); fill: var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg> ' : ''}${park.name} <span class="modal-state-inline">${park.state}</span>
-          </h2>
-          <div class="modal-subtitle">
-            ${(() => {
-              const h = currentHomeHub;
-              const d = park.driveTimes?.[h];
-              if (d && d <= 360) {
-                return `<span class="modal-airport-inline"><svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg> <strong>${timeStr}</strong> drive from ${h}</span>`;
-              }
-              const flight = travelTime - (park.gatewayExtraMinutes || 0);
-              const fH = Math.floor(flight / 60); const fM = flight % 60;
-              const fStr = fH > 0 ? `${fH}h ${fM}m` : `${fM}m`;
-              const gH = Math.floor(park.gatewayExtraMinutes/60);
-              const gM = park.gatewayExtraMinutes%60;
-              const gStr = gH > 0 ? `${gH}h ${gM}m` : `${gM}m`;
-              return `<span class="modal-airport-inline"><svg class="icon"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg> <strong>${park.gatewayHub}</strong> (${fStr}) + <svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg> ${gStr} &bull; <strong>${timeStr} from ${h}</strong></span>`;
-            })()}
-            <span class="sep">&bull;</span>
-            <span class="modal-min-days"><svg class="icon"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg> Min ${park.minDays} days</span>
-          </div>
-        </div>
-        <div class="modal-header-right">
-          <div class="modal-rating-detail">
-            <div class="modal-star-row">${starStr} <span class="modal-score-num">${park.compositeScore}</span></div>
-            <div class="composite-score">Pop: ${park.popularity} | Unique: ${park.uniqueness}</div>
-            <div class="score-bar-bg"><div class="score-bar-fill" style="width:${scorePct}%"></div></div>
-          </div>
-        </div>
+    <!-- Hero Banner with rounded corners, dark gradient, and action buttons overlay -->
+    <div class="modal-hero-banner" style="background-image: url('assets/images/parks/${park.id}.jpg')">
+      <div class="modal-hero-overlay"></div>
+      <div class="modal-hero-actions">
+        <button class="modal-icon-btn ${isFavorite ? 'active-heart' : ''}" 
+          onclick="toggleFavorite('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
+          data-tooltip="${isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}">
+          <svg class="icon"><use href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}" xlink:href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}"></use></svg>
+        </button>
+        <button class="modal-icon-btn ${isVisited ? 'active-tick' : ''}" 
+          onclick="toggleVisited('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
+          data-tooltip="${isVisited ? 'Unmark as Visited' : 'Mark as Visited'}">
+          <svg class="icon"><use href="${isVisited ? '#icon-check-filled' : '#icon-check'}" xlink:href="${isVisited ? '#icon-check-filled' : '#icon-check'}"></use></svg>
+        </button>
+        <button class="modal-icon-btn ${isHidden ? 'active-hide' : ''}" 
+          onclick="toggleHidden('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
+          data-tooltip="${isHidden ? 'Unhide Park' : 'Hide Park'}">
+          <svg class="icon"><use href="${isHidden ? '#icon-eye-off' : '#icon-eye'}" xlink:href="${isHidden ? '#icon-eye-off' : '#icon-eye'}"></use></svg>
+        </button>
       </div>
     </div>
 
-    ${details.seasonalVerdict ? `
-    <div class="modal-section seasonal-verdict-container">
-      <div class="seasonal-verdict-grid">
-        <div>
-          <div class="seasonal-best-label"><svg class="icon"><use href="#icon-feature-lights" xlink:href="#icon-feature-lights"></use></svg> Seasonal Best</div>
-          <div class="seasonal-verdict-text">${details.seasonalVerdict.best}</div>
-        </div>
-        <div class="caution-col">
-          <div class="seasonal-caution-label"><svg class="icon"><use href="#icon-warning" xlink:href="#icon-warning"></use></svg> Seasonal Caution</div>
-          <div class="seasonal-verdict-text">${details.seasonalVerdict.avoid}</div>
-        </div>
+    <div class="modal-body-container">
+      <div class="modal-header-v2">
+        <h2 class="modal-title">
+          ${isFavorite ? '<svg class="icon star-icon" style="color: var(--amber); fill: var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg> ' : ''}${park.name} <span class="modal-state-inline">${park.state}</span>
+        </h2>
       </div>
-    </div>` : ''}
 
-    <div class="modal-section"><h3 class="modal-section-title"><svg class="icon"><use href="#icon-feature-lights" xlink:href="#icon-feature-lights"></use></svg> Top Activities</h3><div class="activities-list">${activitiesHtml}</div></div>
+      <!-- Segmented Mobile Tabbed Navigation -->
+      <div class="mobile-tabs-bar">
+        <button class="mobile-tab-btn active" onclick="switchMobileTab('overview', event)">Overview</button>
+        <button class="mobile-tab-btn" onclick="switchMobileTab('itinerary', event)">Itinerary</button>
+        <button class="mobile-tab-btn" onclick="switchMobileTab('tips', event)">Tips & Advice</button>
+      </div>
 
-    ${seasonalInfo && selectedMonth ? `
-    <div class="monthly-banner">
-      <div class="monthly-banner-header"><svg class="icon"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg> Visiting in ${MONTH_FULL[selectedMonth-1]}</div>
-      <div class="monthly-metrics">
-        <div class="monthly-metric">
-          <span class="label">Average Temp</span>
-          <span class="value">${seasonalInfo.temp}</span>
+      <div class="modal-grid-layout active-tab-overview">
+        <!-- Main Column (Left/Primary Info) -->
+        <div class="modal-main-col">
+          ${details.seasonalVerdict ? `
+          <div class="modal-section seasonal-verdict-container" data-tab="overview">
+            <div class="seasonal-verdict-grid">
+              ${details.seasonalVerdict.best ? `
+              <div class="best-col">
+                <div class="seasonal-best-label"><svg class="icon"><use href="#icon-feature-lights" xlink:href="#icon-feature-lights"></use></svg> Seasonal Best</div>
+                <div class="seasonal-verdict-text">${details.seasonalVerdict.best}</div>
+              </div>` : ''}
+              ${details.seasonalVerdict.avoid ? `
+              <div class="caution-col">
+                <div class="seasonal-caution-label"><svg class="icon"><use href="#icon-warning" xlink:href="#icon-warning"></use></svg> Seasonal Caution</div>
+                <div class="seasonal-verdict-text">${details.seasonalVerdict.avoid}</div>
+              </div>` : ''}
+            </div>
+          </div>` : ''}
+
+          <div class="modal-section" data-tab="tips">
+            <h3 class="modal-section-title"><svg class="icon"><use href="#icon-feature-lights" xlink:href="#icon-feature-lights"></use></svg> Top Activities</h3>
+            <div class="activities-list">${activitiesHtml}</div>
+          </div>
+
+          ${seasonalInfo && selectedMonth ? `
+          <div class="monthly-banner" data-tab="overview">
+            <div class="monthly-banner-header"><svg class="icon"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg> Visiting in ${MONTH_FULL[selectedMonth-1]}</div>
+            <div class="monthly-metrics">
+              <div class="monthly-metric">
+                <span class="label">Average Temp</span>
+                <span class="value">${seasonalInfo.temp}</span>
+              </div>
+              <div class="monthly-metric">
+                <span class="label">Crowd Level</span>
+                <div style="display:flex; align-items:center; gap:10px; margin-top:4px;">
+                  ${formatCrowdLevel(seasonalInfo.crowdScore)}
+                  <span style="font-size:0.8rem; opacity:0.8; font-weight:600; text-transform:uppercase;">${(() => {
+                    const s = seasonalInfo.crowdScore;
+                    if (s <= 1) return 'Peaceful';
+                    if (s <= 2) return 'Moderate';
+                    if (s <= 3) return 'Busy';
+                    if (s <= 4) return 'Very Busy';
+                    return 'Extreme';
+                  })()}</span>
+                </div>
+              </div>
+            </div>
+            <div class="reddit-sentiment" style="margin-top:12px;">
+              <div class="reddit-sentiment-header">r/NationalParks Advice for ${MONTH_FULL[selectedMonth-1]}</div>
+              <blockquote>"${seasonalInfo.reddit}"</blockquote>
+            </div>
+          </div>` : ''}
+
+          ${(dosHtml||dontsHtml) ? `
+          <div class="modal-section" data-tab="tips">
+            <h3 class="modal-section-title"><svg class="icon"><use href="#icon-check-filled" xlink:href="#icon-check-filled"></use></svg> Dos & Don'ts</h3>
+            <div class="dos-donts-grid">
+              ${dosHtml ? `
+              <div class="dos-col">
+                <h4><svg class="icon" style="color:var(--green);"><use href="#icon-check" xlink:href="#icon-check"></use></svg> Do</h4>
+                <div class="dos-list">${dosHtml}</div>
+              </div>` : ''}
+              ${dontsHtml ? `
+              <div class="donts-col">
+                <h4><svg class="icon" style="color:var(--rose);"><use href="#icon-close" xlink:href="#icon-close"></use></svg> Don't</h4>
+                <div class="donts-list">${dontsHtml}</div>
+              </div>` : ''}
+            </div>
+          </div>` : ''}
+
+          <div class="modal-section" data-tab="itinerary">
+            <h3 class="modal-section-title"><svg class="icon"><use href="#icon-map" xlink:href="#icon-map"></use></svg> Sample Itinerary</h3>
+            <div style="margin-top:16px;">${itineraryHtml}</div>
+          </div>
+
+          ${redditPostsHtml ? `
+          <div class="modal-section" data-tab="tips">
+            <h3 class="modal-section-title"><svg class="icon"><use href="#icon-comment" xlink:href="#icon-comment"></use></svg> Reddit Community Advice</h3>
+            <div class="reddit-posts-list">${redditPostsHtml}</div>
+          </div>` : ''}
         </div>
-        <div class="monthly-metric">
-          <span class="label">Crowd Level</span>
-          <div style="display:flex; align-items:center; gap:10px; margin-top:4px;">
-            ${formatCrowdLevel(seasonalInfo.crowdScore)}
-            <span style="font-size:0.8rem; opacity:0.8; font-weight:600; text-transform:uppercase;">${(() => {
-              const s = seasonalInfo.crowdScore;
-              if (s <= 1) return 'Peaceful';
-              if (s <= 2) return 'Moderate';
-              if (s <= 3) return 'Busy';
-              if (s <= 4) return 'Very Busy';
-              return 'Extreme';
-            })()}</span>
+
+        <!-- Sidebar Column (Right/Secondary Info) -->
+        <div class="modal-sidebar-col">
+          <!-- Ratings Card -->
+          <div class="modal-sidebar-card rating-card" data-tab="overview">
+            <h4 class="sidebar-card-title">Ratings & Score</h4>
+            <div class="modal-rating-detail-v2">
+              <div class="rating-radial-row">
+                <div class="radial-gauge-container">
+                  <div class="gauge-composite-num">${park.compositeScore}</div>
+                  <div class="gauge-label">Score</div>
+                </div>
+                <div class="star-display-block">
+                  <div class="modal-star-row">${starStr}</div>
+                  <div class="composite-score">Pop: ${park.popularity} | Unique: ${park.uniqueness}</div>
+                </div>
+              </div>
+              <div class="score-bar-bg"><div class="score-bar-fill" style="width:${scorePct}%"></div></div>
+            </div>
+          </div>
+
+          <!-- Travel Logistics Card -->
+          <div class="modal-sidebar-card logistics-card" data-tab="overview">
+            <h4 class="sidebar-card-title">Travel Logistics</h4>
+            <div class="logistic-rows-container">
+              ${(() => {
+                const h = currentHomeHub;
+                const d = park.driveTimes?.[h];
+                if (d && d <= 360) {
+                  return `
+                    <div class="logistic-row">
+                      <svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg>
+                      <div>
+                        <div class="logistic-val">${timeStr} Drive</div>
+                        <div class="logistic-lbl">from ${h}</div>
+                      </div>
+                    </div>`;
+                }
+                const flight = travelTime - (park.gatewayExtraMinutes || 0);
+                const fH = Math.floor(flight / 60); const fM = flight % 60;
+                const fStr = fH > 0 ? `${fH}h ${fM}m` : `${fM}m`;
+                const gH = Math.floor(park.gatewayExtraMinutes/60);
+                const gM = park.gatewayExtraMinutes%60;
+                const gStr = gH > 0 ? `${gH}h ${gM}m` : `${gM}m`;
+                return `
+                  <div class="logistic-row">
+                    <svg class="icon"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg>
+                    <div>
+                      <div class="logistic-val">Fly to ${park.gatewayHub}</div>
+                      <div class="logistic-lbl">${fStr} flight</div>
+                    </div>
+                  </div>
+                  <div class="logistic-row">
+                    <svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg>
+                    <div>
+                      <div class="logistic-val">${gStr} Drive</div>
+                      <div class="logistic-lbl">from airport</div>
+                    </div>
+                  </div>
+                  <div class="logistic-total">
+                    <strong>Total travel:</strong> ${timeStr} from ${h}
+                  </div>`;
+              })()}
+              <div class="logistic-row duration-row">
+                <svg class="icon"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg>
+                <div>
+                  <div class="logistic-val">Min ${park.minDays} Days Recommended</div>
+                  <div class="logistic-lbl">Ideal visit duration</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sun & Stars Card -->
+          <div class="modal-sidebar-card sun-stars-card" data-tab="overview">
+            <h4 class="sidebar-card-title"><svg class="icon"><use href="#icon-sunset" xlink:href="#icon-sunset"></use></svg> Sun & Stars</h4>
+            <div class="sun-sunset-text">${details.sunriseSunset}</div>
+            ${details.stargazing ? `
+            <div class="stargazing-mini-card">
+              <div class="stargazing-mini-header">
+                <svg class="icon"><use href="#icon-telescope" xlink:href="#icon-telescope"></use></svg>
+                <span>Stargazing: ${details.stargazing.isFriendly?'Highly Recommended':'Limited'}</span>
+              </div>
+              <p class="stargazing-spots"><strong>Spots:</strong> ${details.stargazing.spots}</p>
+              <p class="stargazing-desc">${details.stargazing.description}</p>
+            </div>` : ''}
+          </div>
+
+          <!-- Fun Facts Card -->
+          ${funFactsHtml ? `
+          <div class="modal-sidebar-card collapsible-card collapsed" id="card-fun-facts" data-tab="tips">
+            <div class="sidebar-card-header" onclick="toggleSidebarCard('card-fun-facts')">
+              <h4 class="sidebar-card-title"><svg class="icon"><use href="#icon-info" xlink:href="#icon-info"></use></svg> Fun Facts</h4>
+              <span class="chevron-arrow">▾</span>
+            </div>
+            <div class="sidebar-card-body">
+              <div class="fun-facts-list">${funFactsHtml}</div>
+            </div>
+          </div>` : ''}
+
+          <!-- Travel Hacks Card -->
+          ${hacksHtml ? `
+          <div class="modal-sidebar-card collapsible-card collapsed" id="card-travel-hacks" data-tab="tips">
+            <div class="sidebar-card-header" onclick="toggleSidebarCard('card-travel-hacks')">
+              <h4 class="sidebar-card-title"><svg class="icon"><use href="#icon-backpack" xlink:href="#icon-backpack"></use></svg> Travel Hacks</h4>
+              <span class="chevron-arrow">▾</span>
+            </div>
+            <div class="sidebar-card-body">
+              <div class="hacks-list">${hacksHtml}</div>
+            </div>
+          </div>` : ''}
+
+          <!-- Resources Links -->
+          <div class="modal-sidebar-card resources-card" data-tab="overview">
+            <h4 class="sidebar-card-title"><svg class="icon"><use href="#icon-link" xlink:href="#icon-link"></use></svg> Resources</h4>
+            ${linksHtml}
           </div>
         </div>
       </div>
-      <div class="reddit-sentiment" style="margin-top:12px;">
-        <div class="reddit-sentiment-header">r/NationalParks Advice for ${MONTH_FULL[selectedMonth-1]}</div>
-        <blockquote>"${seasonalInfo.reddit}"</blockquote>
-      </div>
-    </div>` : ''}
-
-    <div class="modal-section">
-      <h3 class="modal-section-title"><svg class="icon"><use href="#icon-sunset" xlink:href="#icon-sunset"></use></svg> Sun & Stars</h3>
-      <div style="color:var(--text-dim);font-size:0.9rem;margin-bottom:12px;line-height:1.5;">${details.sunriseSunset}</div>
-      ${details.stargazing ? `
-      <div class="stargazing-card">
-        <div class="stargazing-icon"><svg class="icon" style="width:1.5em; height:1.5em;"><use href="#icon-telescope" xlink:href="#icon-telescope"></use></svg></div>
-        <div class="stargazing-info">
-          <h4>Stargazing: ${details.stargazing.isFriendly?'Highly Recommended':'Limited'}</h4>
-          <p><strong>Best Spots:</strong> ${details.stargazing.spots}</p>
-          <p>${details.stargazing.description}</p>
-        </div>
-      </div>` : ''}
-    </div>
-
-    ${funFactsHtml?`<div class="modal-section"><h3 class="modal-section-title"><svg class="icon"><use href="#icon-info" xlink:href="#icon-info"></use></svg> Fun Facts</h3><div class="fun-facts-list">${funFactsHtml}</div></div>`:''}
-    ${hacksHtml?`<div class="modal-section"><h3 class="modal-section-title"><svg class="icon"><use href="#icon-backpack" xlink:href="#icon-backpack"></use></svg> Travel Hacks</h3><div class="hacks-list">${hacksHtml}</div></div>`:''}
-    ${(dosHtml||dontsHtml)?`<div class="modal-section"><h3 class="modal-section-title"><svg class="icon"><use href="#icon-check-filled" xlink:href="#icon-check-filled"></use></svg> Dos & Don'ts</h3><div class="dos-donts-grid"><div class="dos-col"><h4><svg class="icon" style="color:var(--green);"><use href="#icon-check" xlink:href="#icon-check"></use></svg> Do</h4><div class="dos-list">${dosHtml}</div></div><div class="donts-col"><h4><svg class="icon" style="color:var(--rose);"><use href="#icon-close" xlink:href="#icon-close"></use></svg> Don't</h4><div class="donts-list">${dontsHtml}</div></div></div></div>`:''}
-    <div class="modal-section"><h3 class="modal-section-title"><svg class="icon"><use href="#icon-map" xlink:href="#icon-map"></use></svg> Sample Itinerary</h3><div style="margin-top:16px;">${itineraryHtml}</div></div>
-
-    ${redditPostsHtml ? `
-    <div class="modal-section">
-      <h3 class="modal-section-title"><svg class="icon"><use href="#icon-comment" xlink:href="#icon-comment"></use></svg> Reddit Community Advice</h3>
-      <div class="reddit-posts-list">${redditPostsHtml}</div>
-    </div>` : ''}
-
-    <div class="modal-section modal-links-section" style="margin-bottom:0; border-bottom:none;">
-      <h3 class="modal-section-title"><svg class="icon"><use href="#icon-link" xlink:href="#icon-link"></use></svg> Resources</h3>${linksHtml}
     </div>
   `;
 }
+
+// Global helper for mobile tab switches
+window.switchMobileTab = function(tabName, event) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  
+  // Update button active classes
+  document.querySelectorAll('.mobile-tab-btn').forEach(btn => btn.classList.remove('active'));
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('active');
+  } else {
+    const btns = document.querySelectorAll('.mobile-tab-btn');
+    btns.forEach(btn => {
+      if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${tabName}'`)) {
+        btn.classList.add('active');
+      }
+    });
+  }
+
+  // Update layout container class to toggle visibility
+  const grid = document.querySelector('.modal-grid-layout');
+  if (grid) {
+    grid.className = `modal-grid-layout active-tab-${tabName}`;
+  }
+
+  // Scroll details back to top on tab switch
+  const modalContent = document.querySelector('.modal-content');
+  if (modalContent) {
+    modalContent.scrollTop = 0;
+  }
+};
 
 function closeModal(preventHistory = false) {
   modal.classList.add('hidden');
@@ -1490,6 +1779,7 @@ init();
 
 // ============ Share & Bookmark UX ============
 const shareBtn = document.getElementById('share-btn');
+const shareBtnMobile = document.getElementById('share-btn-mobile');
 
 async function handleShare() {
   const shareData = {
@@ -1526,19 +1816,21 @@ function showToast(message) {
   setTimeout(() => toast.classList.remove('visible'), 3000);
 }
 
-if (shareBtn) {
-  shareBtn.addEventListener('click', handleShare);
+const allShareBtns = [shareBtn, shareBtnMobile].filter(Boolean);
+allShareBtns.forEach(btn => {
+  btn.addEventListener('click', handleShare);
   
   // Bookmark Hint
-  shareBtn.addEventListener('mouseenter', () => {
+  btn.addEventListener('mouseenter', () => {
     const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
     const cmd = isMac ? '⌘ + D' : 'Ctrl + D';
-    shareBtn.setAttribute('title', `Click to Share • Press ${cmd} to Bookmark`);
+    btn.setAttribute('title', `Click to Share • Press ${cmd} to Bookmark`);
   });
-}
+});
 
 // ============ Feature Request UX ============
 const featureRequestBtn = document.getElementById('header-request-btn');
+const featureRequestBtnMobile = document.getElementById('header-request-btn-mobile');
 const featureModal = document.getElementById('feature-request-modal');
 const featureModalCloseBtn = document.getElementById('feature-modal-close-btn');
 const featureModalBackdrop = document.getElementById('feature-modal-backdrop');
@@ -1558,9 +1850,10 @@ function closeFeatureModal() {
   updateAriaHidden();
 }
 
-if (featureRequestBtn) {
-  featureRequestBtn.addEventListener('click', openFeatureModal);
-}
+const allRequestBtns = [featureRequestBtn, featureRequestBtnMobile].filter(Boolean);
+allRequestBtns.forEach(btn => {
+  btn.addEventListener('click', openFeatureModal);
+});
 
 if (featureModalCloseBtn) {
   featureModalCloseBtn.addEventListener('click', closeFeatureModal);
@@ -1579,3 +1872,10 @@ document.addEventListener('keydown', e => {
     closeFeatureModal(); 
   }
 });
+
+window.toggleSidebarCard = function(id) {
+  const card = document.getElementById(id);
+  if (card) {
+    card.classList.toggle('collapsed');
+  }
+};

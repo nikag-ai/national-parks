@@ -21,7 +21,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "MDW",
     "gatewayExtraMinutes": 60,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Indiana+Dunes,national+park",
+    "thumbnail": "assets/images/parks/indiana-dunes.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -29,8 +29,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 60,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Beach & Hiking"
   },
   "new-river-gorge": {
@@ -53,7 +53,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "CRW",
     "gatewayExtraMinutes": 60,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?New+River+Gorge,national+park",
+    "thumbnail": "assets/images/parks/new-river-gorge.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -61,8 +61,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Rafting & Bridge Walk"
   },
   "mammoth-cave": {
@@ -88,7 +88,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "SDF",
     "gatewayExtraMinutes": 90,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Mammoth+Cave,national+park",
+    "thumbnail": "assets/images/parks/mammoth-cave.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -96,10 +96,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Cave Tours"
   },
   "hot-springs": {
@@ -122,7 +120,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "LIT",
     "gatewayExtraMinutes": 60,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Hot+Springs,national+park",
+    "thumbnail": "assets/images/parks/hot-springs.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -130,8 +128,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Bathhouse Row"
   },
   "gateway-arch": {
@@ -157,7 +155,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "STL",
     "gatewayExtraMinutes": 20,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Gateway+Arch,national+park",
+    "thumbnail": "assets/images/parks/gateway-arch.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -165,9 +163,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 300,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Tram Ride"
   },
   "congaree": {
@@ -191,7 +188,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "CAE",
     "gatewayExtraMinutes": 120,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Congaree,national+park",
+    "thumbnail": "assets/images/parks/congaree.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -199,8 +196,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Boardwalk Trek"
   },
   "virgin-islands": {
@@ -226,7 +223,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "STT",
     "gatewayExtraMinutes": 0,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Virgin+Islands,national+park",
+    "thumbnail": "assets/images/parks/virgin-islands.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -234,9 +231,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Snorkeling"
   },
   "national-park-of-american-samoa": {
@@ -263,7 +259,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "PPG",
     "gatewayExtraMinutes": 0,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?National+Park+of+American+Samoa,national+park",
+    "thumbnail": "assets/images/parks/national-park-of-american-samoa.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -271,8 +267,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Reef Snorkeling"
   },
   "hawaii-volcanoes": {
@@ -293,7 +289,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "ITO",
     "gatewayExtraMinutes": 120,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Hawaii+Volcanoes,national+park",
+    "thumbnail": "assets/images/parks/hawaii-volcanoes.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -301,9 +297,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Lava Viewing"
   },
   "kobuk-valley": {
@@ -332,7 +327,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "OTZ",
     "gatewayExtraMinutes": 0,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Kobuk+Valley,national+park",
+    "thumbnail": "assets/images/parks/kobuk-valley.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -340,8 +335,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Sand Dunes"
   },
   "black-canyon-of-the-gunnison": {
@@ -369,7 +364,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "DEN",
     "gatewayExtraMinutes": 270,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Black+Canyon+of+the+Gunnison,national+park",
+    "thumbnail": "assets/images/parks/black-canyon-of-the-gunnison.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -377,9 +372,8 @@ window.PARKS_SUMMARY = {
       "DEN": 300,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Inner Canyon Trek"
   },
   "great-sand-dunes": {
@@ -407,7 +401,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "DEN",
     "gatewayExtraMinutes": 240,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Great+Sand+Dunes,national+park",
+    "thumbnail": "assets/images/parks/great-sand-dunes.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -415,8 +409,8 @@ window.PARKS_SUMMARY = {
       "DEN": 220,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Sand Sledding"
   },
   "petrified-forest": {
@@ -441,7 +435,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "PHX",
     "gatewayExtraMinutes": 210,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Petrified+Forest,national+park",
+    "thumbnail": "assets/images/parks/petrified-forest.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -449,9 +443,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Blue Mesa Hike"
   },
   "carlsbad-caverns": {
@@ -476,7 +469,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "ELP",
     "gatewayExtraMinutes": 120,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Carlsbad+Caverns,national+park",
+    "thumbnail": "assets/images/parks/carlsbad-caverns.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -484,8 +477,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Big Room Tour"
   },
   "guadalupe-mountains": {
@@ -510,7 +503,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "ELP",
     "gatewayExtraMinutes": 90,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Guadalupe+Mountains,national+park",
+    "thumbnail": "assets/images/parks/guadalupe-mountains.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -518,9 +511,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Guadalupe Peak"
   },
   "theodore-roosevelt": {
@@ -547,7 +539,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "BIS",
     "gatewayExtraMinutes": 120,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Theodore+Roosevelt,national+park",
+    "thumbnail": "assets/images/parks/theodore-roosevelt.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -555,8 +547,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Wildlife Driving"
   },
   "badlands": {
@@ -582,7 +574,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "RAP",
     "gatewayExtraMinutes": 60,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Badlands,national+park",
+    "thumbnail": "assets/images/parks/badlands.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -590,9 +582,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Notch Trail Hike"
   },
   "wind-cave": {
@@ -618,7 +609,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "RAP",
     "gatewayExtraMinutes": 60,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Wind+Cave,national+park",
+    "thumbnail": "assets/images/parks/wind-cave.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -626,8 +617,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Cave Exploring"
   },
   "voyageurs": {
@@ -655,7 +646,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "MSP",
     "gatewayExtraMinutes": 270,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Voyageurs,national+park",
+    "thumbnail": "assets/images/parks/voyageurs.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -663,9 +654,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Houseboating"
   },
   "mount-rainier": {
@@ -692,7 +682,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "SEA",
     "gatewayExtraMinutes": 120,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Mount+Rainier,national+park",
+    "thumbnail": "assets/images/parks/mount-rainier.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 120,
@@ -700,8 +690,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Paradise Meadows"
   },
   "lassen-volcanic": {
@@ -729,7 +719,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "RNO",
     "gatewayExtraMinutes": 180,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Lassen+Volcanic,national+park",
+    "thumbnail": "assets/images/parks/lassen-volcanic.jpg",
     "driveTimes": {
       "SFO": 240,
       "SEA": 9999,
@@ -737,9 +727,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Bumpass Hell"
   },
   "redwood": {
@@ -766,7 +755,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "ACV",
     "gatewayExtraMinutes": 330,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Redwood,national+park",
+    "thumbnail": "assets/images/parks/redwood.jpg",
     "driveTimes": {
       "SFO": 340,
       "SEA": 9999,
@@ -774,8 +763,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Tall Trees Grove"
   },
   "pinnacles": {
@@ -800,7 +789,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "SJC",
     "gatewayExtraMinutes": 90,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Pinnacles,national+park",
+    "thumbnail": "assets/images/parks/pinnacles.jpg",
     "driveTimes": {
       "SFO": 130,
       "SEA": 9999,
@@ -808,9 +797,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Bear Gulch Cave"
   },
   "kings-canyon": {
@@ -837,7 +825,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "FAT",
     "gatewayExtraMinutes": 90,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Kings+Canyon,national+park",
+    "thumbnail": "assets/images/parks/kings-canyon.jpg",
     "driveTimes": {
       "SFO": 270,
       "SEA": 9999,
@@ -845,8 +833,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Mist Falls Hike"
   },
   "sequoia": {
@@ -873,7 +861,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "FAT",
     "gatewayExtraMinutes": 90,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Sequoia,national+park",
+    "thumbnail": "assets/images/parks/sequoia.jpg",
     "driveTimes": {
       "SFO": 280,
       "SEA": 9999,
@@ -881,9 +869,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "General Sherman Tree"
   },
   "channel-islands": {
@@ -909,7 +896,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "LAX or SBA (drive to Ventura)",
     "gatewayExtraMinutes": 0,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Channel+Islands,national+park",
+    "thumbnail": "assets/images/parks/channel-islands.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -917,8 +904,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Sea Kayaking"
   },
   "capitol-reef": {
@@ -943,7 +930,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "SLC",
     "gatewayExtraMinutes": 210,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Capitol+Reef,national+park",
+    "thumbnail": "assets/images/parks/capitol-reef.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -951,9 +938,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Cassidy Arch"
   },
   "canyonlands": {
@@ -978,7 +964,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "SLC",
     "gatewayExtraMinutes": 240,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Canyonlands,national+park",
+    "thumbnail": "assets/images/parks/canyonlands.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -986,8 +972,8 @@ window.PARKS_SUMMARY = {
       "DEN": 360,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Island in the Sky"
   },
   "mesa-verde": {
@@ -1015,7 +1001,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "DEN",
     "gatewayExtraMinutes": 420,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Mesa+Verde,national+park",
+    "thumbnail": "assets/images/parks/mesa-verde.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1023,9 +1009,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Cliff Palace Tour"
   },
   "denali": {
@@ -1050,7 +1035,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "ANC",
     "gatewayExtraMinutes": 240,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Denali,national+park",
+    "thumbnail": "assets/images/parks/denali.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1058,8 +1043,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Bus Tour Wildlife"
   },
   "glacier-bay": {
@@ -1084,7 +1069,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "JNU",
     "gatewayExtraMinutes": 0,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Glacier+Bay,national+park",
+    "thumbnail": "assets/images/parks/glacier-bay.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1092,9 +1077,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Glacier Cruising"
   },
   "katmai": {
@@ -1122,7 +1106,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "ANC",
     "gatewayExtraMinutes": 0,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Katmai,national+park",
+    "thumbnail": "assets/images/parks/katmai.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1130,8 +1114,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Bear Watching"
   },
   "lake-clark": {
@@ -1156,7 +1140,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "ANC",
     "gatewayExtraMinutes": 0,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Lake+Clark,national+park",
+    "thumbnail": "assets/images/parks/lake-clark.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1164,9 +1148,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Floatplane Tours"
   },
   "gates-of-the-arctic": {
@@ -1195,7 +1178,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "FAI",
     "gatewayExtraMinutes": 0,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Gates+of+the+Arctic,national+park",
+    "thumbnail": "assets/images/parks/gates-of-the-arctic.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1203,8 +1186,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Wilderness Trek"
   },
   "zion": {
@@ -1229,7 +1212,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "LAS",
     "gatewayExtraMinutes": 150,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Zion,national+park",
+    "thumbnail": "assets/images/parks/zion.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1237,9 +1220,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "The Narrows Hike"
   },
   "grand-canyon": {
@@ -1265,7 +1247,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "PHX",
     "gatewayExtraMinutes": 210,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Grand+Canyon,national+park",
+    "thumbnail": "assets/images/parks/grand-canyon.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1273,8 +1255,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Bright Angel Trail"
   },
   "arches": {
@@ -1300,7 +1282,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "SLC",
     "gatewayExtraMinutes": 210,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Arches,national+park",
+    "thumbnail": "assets/images/parks/arches.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1308,9 +1290,8 @@ window.PARKS_SUMMARY = {
       "DEN": 340,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Delicate Arch Hike"
   },
   "yosemite": {
@@ -1335,7 +1316,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "FAT",
     "gatewayExtraMinutes": 90,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Yosemite,national+park",
+    "thumbnail": "assets/images/parks/yosemite.jpg",
     "driveTimes": {
       "SFO": 240,
       "SEA": 9999,
@@ -1343,8 +1324,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Glacier Point View"
   },
   "rocky-mountain": {
@@ -1370,7 +1351,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "DEN",
     "gatewayExtraMinutes": 90,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Rocky+Mountain,national+park",
+    "thumbnail": "assets/images/parks/rocky-mountain.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1378,9 +1359,8 @@ window.PARKS_SUMMARY = {
       "DEN": 90,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Trail Ridge Road"
   },
   "olympic": {
@@ -1406,7 +1386,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "SEA",
     "gatewayExtraMinutes": 150,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Olympic,national+park",
+    "thumbnail": "assets/images/parks/olympic.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 150,
@@ -1414,8 +1394,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Hoh Rainforest"
   },
   "yellowstone": {
@@ -1439,7 +1419,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "BZN",
     "gatewayExtraMinutes": 90,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Yellowstone,national+park",
+    "thumbnail": "assets/images/parks/yellowstone.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1447,9 +1427,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Old Faithful"
   },
   "glacier": {
@@ -1475,7 +1454,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "BZN",
     "gatewayExtraMinutes": 180,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Glacier,national+park",
+    "thumbnail": "assets/images/parks/glacier.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1483,8 +1462,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Going-to-the-Sun Road"
   },
   "death-valley": {
@@ -1512,7 +1491,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "LAS",
     "gatewayExtraMinutes": 120,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Death+Valley,national+park",
+    "thumbnail": "assets/images/parks/death-valley.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1520,9 +1499,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Badwater Basin"
   },
   "acadia": {
@@ -1548,7 +1526,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "BOS",
     "gatewayExtraMinutes": 270,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Acadia,national+park",
+    "thumbnail": "assets/images/parks/acadia.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1556,8 +1534,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Cadillac Mountain"
   },
   "joshua-tree": {
@@ -1583,7 +1561,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "ONT",
     "gatewayExtraMinutes": 60,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Joshua+Tree,national+park",
+    "thumbnail": "assets/images/parks/joshua-tree.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1591,9 +1569,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Hidden Valley Hike"
   },
   "grand-teton": {
@@ -1616,7 +1593,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "SLC (4.5hr drive)*",
     "gatewayExtraMinutes": 0,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Grand+Teton,national+park",
+    "thumbnail": "assets/images/parks/grand-teton.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1624,8 +1601,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Jenny Lake Boat"
   },
   "great-smoky-mountains": {
@@ -1650,7 +1627,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "TYS",
     "gatewayExtraMinutes": 60,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Great+Smoky+Mountains,national+park",
+    "thumbnail": "assets/images/parks/great-smoky-mountains.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1658,9 +1635,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Cades Cove"
   },
   "shenandoah": {
@@ -1685,7 +1661,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "BWI",
     "gatewayExtraMinutes": 120,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Shenandoah,national+park",
+    "thumbnail": "assets/images/parks/shenandoah.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1693,8 +1669,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 300,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Skyline Drive"
   },
   "north-cascades": {
@@ -1716,7 +1692,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "SEA",
     "gatewayExtraMinutes": 150,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?North+Cascades,national+park",
+    "thumbnail": "assets/images/parks/north-cascades.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 150,
@@ -1724,9 +1700,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Diablo Lake View"
   },
   "saguaro": {
@@ -1754,7 +1729,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "PHX",
     "gatewayExtraMinutes": 90,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Saguaro,national+park",
+    "thumbnail": "assets/images/parks/saguaro.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1762,8 +1737,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Cactus Forest Drive"
   },
   "everglades": {
@@ -1790,7 +1765,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "FLL",
     "gatewayExtraMinutes": 60,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Everglades,national+park",
+    "thumbnail": "assets/images/parks/everglades.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1798,9 +1773,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 60,
-
-  },
+      "MIA": 60
+    },
     "topActivity": "Airboat Tour"
   },
   "bryce-canyon": {
@@ -1827,7 +1801,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "LAS",
     "gatewayExtraMinutes": 240,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Bryce+Canyon,national+park",
+    "thumbnail": "assets/images/parks/bryce-canyon.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1835,8 +1809,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Navajo Loop Hike"
   },
   "great-basin": {
@@ -1861,7 +1835,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "LAS",
     "gatewayExtraMinutes": 270,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Great+Basin,national+park",
+    "thumbnail": "assets/images/parks/great-basin.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1869,9 +1843,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Lehman Caves"
   },
   "crater-lake": {
@@ -1899,7 +1872,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "PDX",
     "gatewayExtraMinutes": 180,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Crater+Lake,national+park",
+    "thumbnail": "assets/images/parks/crater-lake.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1907,8 +1880,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Rim Drive"
   },
   "isle-royale": {
@@ -1935,7 +1908,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "CMX + ferry*",
     "gatewayExtraMinutes": 0,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Isle+Royale,national+park",
+    "thumbnail": "assets/images/parks/isle-royale.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1943,9 +1916,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-
-  },
+      "MIA": 9999
+    },
     "topActivity": "Backpacking"
   },
   "big-bend": {
@@ -1972,7 +1944,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "ELP",
     "gatewayExtraMinutes": 210,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Big+Bend,national+park",
+    "thumbnail": "assets/images/parks/big-bend.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -1980,8 +1952,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Ross Maxwell Drive"
   },
   "biscayne": {
@@ -2009,7 +1981,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "FLL",
     "gatewayExtraMinutes": 60,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Biscayne,national+park",
+    "thumbnail": "assets/images/parks/biscayne.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -2017,9 +1989,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 9999,
       "LGA": 9999,
-      "MIA": 45,
-
-  },
+      "MIA": 45
+    },
     "topActivity": "Snorkeling Reefs"
   },
   "dry-tortugas": {
@@ -2047,7 +2018,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "Key West (via FLL+drive)",
     "gatewayExtraMinutes": 0,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Dry+Tortugas,national+park",
+    "thumbnail": "assets/images/parks/dry-tortugas.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -2056,7 +2027,7 @@ window.PARKS_SUMMARY = {
       "ORD": 9999,
       "LGA": 9999,
       "MIA": 240
-},
+    },
     "topActivity": "Fort Jefferson"
   },
   "cuyahoga-valley": {
@@ -2081,7 +2052,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "CLE",
     "gatewayExtraMinutes": 30,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Cuyahoga+Valley,national+park",
+    "thumbnail": "assets/images/parks/cuyahoga-valley.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -2089,8 +2060,8 @@ window.PARKS_SUMMARY = {
       "DEN": 9999,
       "ORD": 330,
       "LGA": 9999,
-      "MIA": 9999,
-},
+      "MIA": 9999
+    },
     "topActivity": "Scenic Railroad"
   },
   "kenai-fjords": {
@@ -2118,7 +2089,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "ANC",
     "gatewayExtraMinutes": 150,
     "stargazing": false,
-    "thumbnail": "https://source.unsplash.com/featured/?Kenai+Fjords,national+park",
+    "thumbnail": "assets/images/parks/kenai-fjords.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -2134,8 +2105,17 @@ window.PARKS_SUMMARY = {
     "id": "white-sands",
     "name": "White Sands",
     "state": "NM",
-    "bestMonths": [3, 4, 10, 11],
-    "avoid": [6, 7, 8],
+    "bestMonths": [
+      3,
+      4,
+      10,
+      11
+    ],
+    "avoid": [
+      6,
+      7,
+      8
+    ],
     "minDays": 1,
     "popularity": 75,
     "uniqueness": 95,
@@ -2143,7 +2123,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "ELP",
     "gatewayExtraMinutes": 90,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?White+Sands,national+park",
+    "thumbnail": "assets/images/parks/white-sands.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -2159,8 +2139,21 @@ window.PARKS_SUMMARY = {
     "id": "wrangell-st.-elias",
     "name": "Wrangell-St. Elias",
     "state": "AK",
-    "bestMonths": [6, 7, 8],
-    "avoid": [10, 11, 12, 1, 2, 3, 4, 5],
+    "bestMonths": [
+      6,
+      7,
+      8
+    ],
+    "avoid": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
     "minDays": 3,
     "popularity": 40,
     "uniqueness": 98,
@@ -2168,7 +2161,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "ANC",
     "gatewayExtraMinutes": 300,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Wrangell,national+park",
+    "thumbnail": "assets/images/parks/wrangell-st.-elias.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,
@@ -2180,12 +2173,21 @@ window.PARKS_SUMMARY = {
     },
     "topActivity": "Glacier Trekking"
   },
-  "haleakalā": {
-    "id": "haleakalā",
-    "name": "Haleakalā",
+  "haleakal\u0101": {
+    "id": "haleakal\u0101",
+    "name": "Haleakal\u0101",
     "state": "HI",
-    "bestMonths": [4, 5, 9, 10],
-    "avoid": [12, 1, 2],
+    "bestMonths": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "avoid": [
+      12,
+      1,
+      2
+    ],
     "minDays": 1,
     "popularity": 85,
     "uniqueness": 92,
@@ -2193,7 +2195,7 @@ window.PARKS_SUMMARY = {
     "gatewayHub": "OGG",
     "gatewayExtraMinutes": 60,
     "stargazing": true,
-    "thumbnail": "https://source.unsplash.com/featured/?Haleakala,national+park",
+    "thumbnail": "assets/images/parks/haleakal\u0101.jpg",
     "driveTimes": {
       "SFO": 9999,
       "SEA": 9999,

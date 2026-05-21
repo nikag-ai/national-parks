@@ -43,7 +43,7 @@ def generate_pages():
     # Base strings to replace
     base_title = "<title>US National Park Finder | Explore by Month</title>"
     base_meta_desc = '<meta name="description" content="US National Park Finder: The ultimate interactive guide to discovering the best US National Parks. Filter by month, travel time, and stargazing to find your perfect trip." />'
-    base_subtitle = '<p class="subtitle">Discover the perfect national park for your next trip</p>'
+    base_subtitle = '<p class="subtitle">An interactive guide to the 63 US National Parks. Select any month to reveal which parks are at their prime for adventure.</p>'
     base_canonical = '<link rel="canonical" href="https://nationalparkfinder.info/" />'
     base_seo_list = '<div id="seo-park-list" style="display:none;" aria-hidden="true"></div>'
 

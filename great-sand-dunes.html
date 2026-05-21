@@ -12,7 +12,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <title>Great Sand Dunes National Park (CO) Guide | US National Park Finder</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=2.0.6" />
+  <link rel="stylesheet" href="style.css?v=2.2.0" />
   <link rel="icon" type="image/png" href="national-parks-icon.png" />
   <link rel="apple-touch-icon" href="national-parks-icon.png" />
   <!-- PostHog Analytics -->
@@ -374,6 +374,41 @@
       <path d="m5 3 1 2.5L8.5 6 6 7 5 9.5 4 7 1.5 6 4 5.5z"></path>
       <path d="m19 17 1 2.5 2.5.5-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"></path>
     </symbol>
+    <!-- icon-bed -->
+    <symbol id="icon-bed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9M10 8v9"></path>
+    </symbol>
+    <!-- icon-utensils -->
+    <symbol id="icon-utensils" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v4M12 12v10M21 15V2v0a5 5 0 0 0-5 5v3c0 1.1.9 2 2 2h3Zm0 0v8"></path>
+    </symbol>
+    <!-- icon-hiking -->
+    <symbol id="icon-hiking" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
+    </symbol>
+    <!-- icon-nps -->
+    <symbol id="icon-nps" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 22V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v16M3 14h18M3 18h18M10 4v10M14 4v10"></path>
+    </symbol>
+    <!-- icon-wikipedia -->
+    <symbol id="icon-wikipedia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7zM12 7v14"></path>
+    </symbol>
+    <!-- icon-reddit -->
+    <symbol id="icon-reddit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="13" r="8"></circle>
+      <circle cx="9" cy="13" r="1"></circle>
+      <circle cx="15" cy="13" r="1"></circle>
+      <path d="M9.5 16.5c1.5 1 3.5 1 5 0"></path>
+      <path d="M12 5v3"></path>
+      <circle cx="12" cy="4" r="1"></circle>
+    </symbol>
+    <!-- icon-shield-alert -->
+    <symbol id="icon-shield-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      <line x1="12" y1="8" x2="12" y2="12"></line>
+      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </symbol>
   </svg>
 
   <!-- Beta Opt-In Banner
@@ -387,36 +422,56 @@
   <div class="bg-glow bg-glow-2"></div>
   <div class="bg-glow bg-glow-3"></div>
 
-  <header>
-    <div class="header-title-row">
-      <h1>US National Park Finder</h1>
-      <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="More actions" title="More actions">⋯</button>
-    </div>
-    <p class="subtitle">Discover the perfect national park for your next trip</p>
-    <h2 class="seo-h2" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Great Sand Dunes National Park, CO</h2>
-    <div class="header-actions" id="header-actions">
-      <!-- Unified Responsive Theme Toggle -->
-      <div id="header-theme-toggle" class="header-theme-toggle" onclick="if (!event.target.closest('#theme-light, #theme-dark')) applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')" role="group" aria-label="Theme switcher">
-        <div class="theme-toggle-track">
-          <button id="theme-light" class="theme-btn" title="Light Mode" aria-label="Switch to light mode">
-            <svg class="icon"><use href="#icon-sun" xlink:href="#icon-sun"></use></svg>
-          </button>
-          <button id="theme-dark" class="theme-btn" title="Dark Mode" aria-label="Switch to dark mode">
-            <svg class="icon"><use href="#icon-moon" xlink:href="#icon-moon"></use></svg>
-          </button>
+  <!-- Premium Top Navigation Bar -->
+  <div class="app-nav" id="app-nav">
+    <div class="app-nav-inner">
+      <a class="app-nav-brand" href="/"><img src="national-parks-icon.png" alt="" class="app-nav-logo-img"> ParkFinder</a>
+      <div class="app-nav-actions">
+        <div id="header-theme-toggle" class="header-theme-toggle" onclick="if (!event.target.closest('#theme-light, #theme-dark')) applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')" role="group" aria-label="Theme switcher">
+          <div class="theme-toggle-track">
+            <button id="theme-light" class="theme-btn" title="Light Mode" aria-label="Switch to light mode">
+              <svg class="icon"><use href="#icon-sun" xlink:href="#icon-sun"></use></svg>
+            </button>
+            <button id="theme-dark" class="theme-btn" title="Dark Mode" aria-label="Switch to dark mode">
+              <svg class="icon"><use href="#icon-moon" xlink:href="#icon-moon"></use></svg>
+            </button>
+          </div>
+          <span class="toggle-indicator"></span>
         </div>
-        <span class="toggle-indicator"></span>
+        <button id="share-btn" class="app-nav-icon-btn has-tooltip" aria-label="Share App">
+          <svg class="icon"><use href="#icon-share" xlink:href="#icon-share"></use></svg>
+          <span class="nav-tooltip">Share</span>
+        </button>
+        <button id="header-request-btn" class="app-nav-icon-btn has-tooltip" aria-label="Request Feature">
+          <svg class="icon"><use href="#icon-lightbulb" xlink:href="#icon-lightbulb"></use></svg>
+          <span class="nav-tooltip">Request Feature</span>
+        </button>
+        <a id="header-discord-btn" href="https://discord.gg/9pdg6QtWVW" target="_blank" class="app-nav-icon-btn has-tooltip" aria-label="Join Discord">
+          <svg class="icon"><use href="#icon-message" xlink:href="#icon-message"></use></svg>
+          <span class="nav-tooltip">Community</span>
+        </a>
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="More actions" title="More actions">⋯</button>
       </div>
-      <button id="share-btn" class="header-btn share-btn" title="Share App" aria-label="Share App">
-        <span class="btn-icon">🔗</span><span class="btn-text">Share</span>
-      </button>
-      <button id="header-request-btn" class="header-btn highlight-btn" title="Request Feature" aria-label="Request Feature">
-        <span class="btn-icon">💡</span><span class="btn-text">Request Feature ($5)</span>
-      </button>
-      <a id="header-discord-btn" href="https://discord.gg/9pdg6QtWVW" target="_blank" class="header-btn discord-btn" title="Join Discord" aria-label="Join Discord">
-        <span class="btn-icon">💬</span><span class="btn-text">Join Community</span>
-      </a>
     </div>
+  </div>
+
+  <!-- Hidden mobile drawer (keep original header-actions for mobile bottom sheet) -->
+  <div class="header-actions" id="header-actions">
+    <button id="share-btn-mobile" class="header-btn share-btn" title="Share App" aria-label="Share App">
+      <span class="btn-icon">🔗</span><span class="btn-text">Share</span>
+    </button>
+    <button id="header-request-btn-mobile" class="header-btn highlight-btn" title="Request Feature" aria-label="Request Feature">
+      <span class="btn-icon">💡</span><span class="btn-text">Request Feature ($5)</span>
+    </button>
+    <a id="header-discord-btn-mobile" href="https://discord.gg/9pdg6QtWVW" target="_blank" class="header-btn discord-btn" title="Join Discord" aria-label="Join Discord">
+      <span class="btn-icon">💬</span><span class="btn-text">Join Community</span>
+    </a>
+  </div>
+
+  <header>
+    <h1>America's national parks, timed perfectly.</h1>
+    <p class="subtitle">An interactive guide to the 63 US National Parks. Select any month to reveal which parks are at their prime for adventure.</p>
+    <h2 class="seo-h2" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Great Sand Dunes National Park, CO</h2>
   </header>
 
   <div class="search-container">
@@ -432,6 +487,30 @@
     </div>
   </div>
 
+  <!-- Segmented View Tabs -->
+  <div class="view-tabs-container" id="view-tabs-container">
+    <div class="view-tabs">
+      <button class="view-tab active" id="tab-all" data-mode="all">
+        <svg class="icon"><use href="#icon-map" xlink:href="#icon-map"></use></svg>
+        Explore
+      </button>
+      <button class="view-tab" id="tab-favorites" data-mode="favorites">
+        <svg class="icon" style="color: var(--amber); fill: var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg>
+        Favorites
+      </button>
+      <button class="view-tab" id="tab-visited" data-mode="visited">
+        <svg class="icon" style="color: var(--green);"><use href="#icon-check-filled" xlink:href="#icon-check-filled"></use></svg>
+        Visited
+      </button>
+      <button class="view-tab" id="tab-hidden" data-mode="hidden">
+        <svg class="icon"><use href="#icon-eye-off" xlink:href="#icon-eye-off"></use></svg>
+        Hidden
+      </button>
+    </div>
+  </div>
+
+  <!-- Month Filter Label + Bar -->
+  <div class="month-filter-label" id="month-filter-label">Peak Month to Visit</div>
   <nav id="month-bar" aria-label="Month filter">
     <button class="scroll-arrow scroll-arrow-left hidden" id="scroll-left" aria-label="Scroll left">‹</button>
     <div class="month-chips"></div>
@@ -590,6 +669,6 @@
   <script src="data/parks-seasonal.js"></script>
   <script src="data/parks-details.js"></script>
   <script src="data/parks-logistics.js"></script>
-  <script src="app.js"></script>
+  <script src="app.js?v=2.2.0"></script>
 </body>
 </html>
