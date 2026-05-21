@@ -2884,34 +2884,6 @@ input[type="range"]:active::-moz-range-thumb {
   }
 
   header {
-    text-align: center !important;
-    padding: 12px 16px 6px !important;
-    position: relative;
-  }
-
-  header.menu-open,
-  header:has(.mobile-menu-toggle.open) {
-    z-index: 1001 !important;
-  }
-
-  /* Title row: h1 + overflow button absolute-positioned */
-  .header-title-row {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .header-title-row h1 {
-    font-size: 1.25rem !important;
-    text-align: center;
-    margin: 0;
-    line-height: 1.15;
-    padding: 0 40px;
-  }
-
-  .subtitle {
     display: none !important;
   }
 
@@ -2979,6 +2951,7 @@ input[type="range"]:active::-moz-range-thumb {
   }
 
   .search-container {
+    margin-top: 16px !important;
     margin-bottom: 8px !important;
     padding: 0 16px !important;
   }
