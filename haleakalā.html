@@ -12,7 +12,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <title>Haleakalā National Park (HI) Guide | US National Park Finder</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=2.0.5" />
+  <link rel="stylesheet" href="style.css?v=2.0.6" />
   <link rel="icon" type="image/png" href="national-parks-icon.png" />
   <link rel="apple-touch-icon" href="national-parks-icon.png" />
   <!-- PostHog Analytics -->
@@ -76,8 +76,306 @@
   }
   </script>
   <link rel="canonical" href="https://nationalparkfinder.info/haleakalā" />
+  <style>
+    /* Premium Responsive Theme Toggle Styling */
+    .header-theme-toggle {
+      display: inline-block;
+      vertical-align: middle;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 4px;
+      border-radius: 30px;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 36px;
+      width: 68px;
+      box-sizing: border-box;
+    }
+
+    .header-theme-toggle:hover {
+      border-color: rgba(108, 140, 255, 0.3);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .header-theme-toggle .theme-toggle-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 2;
+    }
+
+    .header-theme-toggle .theme-btn {
+      background: transparent !important;
+      border: none !important;
+      color: var(--text-dim) !important;
+      width: 26px !important;
+      height: 26px !important;
+      border-radius: 50% !important;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.3s ease;
+      padding: 0 !important;
+      margin: 0 !important;
+      z-index: 2;
+      box-shadow: none !important;
+    }
+
+    .header-theme-toggle .theme-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2;
+      transition: transform 0.3s ease, stroke 0.3s ease;
+      stroke: var(--text-dim);
+      fill: none;
+    }
+
+    .header-theme-toggle .theme-btn.active {
+      color: #fff !important;
+    }
+
+    /* Sliding Indicator */
+    .header-theme-toggle .toggle-indicator {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 2px 8px var(--accent-glow);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* State positions */
+    [data-theme="dark"] .header-theme-toggle .toggle-indicator {
+      transform: translateX(34px);
+    }
+
+    [data-theme="light"] .header-theme-toggle .toggle-indicator {
+      transform: translateX(0);
+    }
+
+    /* Active icon styles */
+    [data-theme="dark"] .header-theme-toggle #theme-dark svg {
+      transform: rotate(-12deg);
+      stroke: #fff;
+    }
+    [data-theme="light"] .header-theme-toggle #theme-light svg {
+      transform: rotate(12deg);
+      stroke: #fff;
+    }
+
+    /* Mobile responsive menu overrides */
+    @media (max-width: 768px) {
+      .header-actions .header-theme-toggle {
+        margin: 8px auto 4px;
+        align-self: center;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Premium SVG Symbol Sprite Block -->
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none;" aria-hidden="true">
+    <!-- icon-sun -->
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+    </symbol>
+    <!-- icon-moon -->
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </symbol>
+    <!-- icon-search -->
+    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <path d="m21 21-4.3-4.3"></path>
+    </symbol>
+    <!-- icon-close -->
+    <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18M6 6l12 12"></path>
+    </symbol>
+    <!-- icon-x -->
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18M6 6l12 12"></path>
+    </symbol>
+    <!-- icon-share -->
+    <symbol id="icon-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"></path>
+    </symbol>
+    <!-- icon-lightbulb -->
+    <symbol id="icon-lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1 .3 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5M9 18h6M10 22h4"></path>
+    </symbol>
+    <!-- icon-message -->
+    <symbol id="icon-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </symbol>
+    <!-- icon-chevron-left -->
+    <symbol id="icon-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m15 18-6-6 6-6"></path>
+    </symbol>
+    <!-- icon-chevron-right -->
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m9 18 6-6-6-6"></path>
+    </symbol>
+    <!-- icon-star -->
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+    </symbol>
+    <!-- icon-star-half -->
+    <symbol id="icon-star-half" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 17.8 5.8 21 7 14.1 2 9.3l7-.9L12 2"></path>
+    </symbol>
+    <!-- icon-heart -->
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+    </symbol>
+    <!-- icon-visited -->
+    <symbol id="icon-visited" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="m9 12 2 2 4-4"></path>
+    </symbol>
+    <!-- icon-hide -->
+    <symbol id="icon-hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68M6.61 6.61A13.52 13.52 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61L2 2l20 20"></path>
+    </symbol>
+    <!-- icon-eye-off -->
+    <symbol id="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9.88 9.88a3 3 0 1 0 4.24 4.24M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68M6.61 6.61A13.52 13.52 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61L2 2l20 20"></path>
+    </symbol>
+    <!-- icon-eye -->
+    <symbol id="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+      <circle cx="12" cy="12" r="3"></circle>
+    </symbol>
+    <!-- icon-car -->
+    <symbol id="icon-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"></path>
+      <circle cx="7" cy="17" r="2"></circle>
+      <circle cx="17" cy="17" r="2"></circle>
+      <path d="M5 17h8M13 11h9"></path>
+    </symbol>
+    <!-- icon-plane -->
+    <symbol id="icon-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17.8 20.19 14 12.35 10.16 8.56 12.39 4h-2L6.82 9.26l-3.66-.75-.83.83 3.61 2.37-1.9 3.84-2.51-.31-.83.83 3.65 2.29a3.83 3.83 0 0 0 3.56-.08L14 15.35l7.8 3.84Z"></path>
+    </symbol>
+    <!-- icon-calendar -->
+    <symbol id="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 2v4M16 2v4"></path>
+      <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+      <path d="M3 10h18"></path>
+    </symbol>
+    <!-- icon-temp -->
+    <symbol id="icon-temp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"></path>
+    </symbol>
+    <!-- icon-thermometer -->
+    <symbol id="icon-thermometer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"></path>
+    </symbol>
+    <!-- icon-telescope -->
+    <symbol id="icon-telescope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m10.07 13.93 4.88-4.88M16 6.81l2.12-2.12a2 2 0 0 1 2.83 0v0a2 2 0 0 1 0 2.83L18.83 8.64M14 10.83l-8.49 8.49a2 2 0 0 1-2.83 0v0a2 2 0 0 1 0-2.83l8.49-8.49M8.3 8.3l4-4a2 2 0 0 1 2.83 0l5.57 5.57a2 2 0 0 1 0 2.83l-4 4M9 22l3-5 3 5"></path>
+    </symbol>
+    <!-- icon-trophy -->
+    <symbol id="icon-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34M12 2a6 6 0 0 1 6 6c0 3.24-2 6-5 6.8v0c-3-.8-5-3.56-5-6.8a6 6 0 0 1 6-6Z"></path>
+    </symbol>
+    <!-- icon-user -->
+    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+      <circle cx="12" cy="7" r="4"></circle>
+    </symbol>
+    <!-- icon-info -->
+    <symbol id="icon-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 16v-4M12 8h.01"></path>
+    </symbol>
+    <!-- icon-heart-filled -->
+    <symbol id="icon-heart-filled" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" fill="currentColor"></path>
+    </symbol>
+    <!-- icon-check -->
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 6 9 17l-5-5"></path>
+    </symbol>
+    <!-- icon-check-filled -->
+    <symbol id="icon-check-filled" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10" fill="currentColor"></circle>
+      <path d="m9 12 2 2 4-4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </symbol>
+    <!-- icon-warning -->
+    <symbol id="icon-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+      <line x1="12" y1="9" x2="12" y2="13"></line>
+      <line x1="12" y1="17" x2="12.01" y2="17"></line>
+    </symbol>
+    <!-- icon-target -->
+    <symbol id="icon-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <circle cx="12" cy="12" r="6"></circle>
+      <circle cx="12" cy="12" r="2"></circle>
+    </symbol>
+    <!-- icon-stop -->
+    <symbol id="icon-stop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <rect x="9" y="9" width="6" height="6" rx="1"></rect>
+    </symbol>
+    <!-- icon-slash -->
+    <symbol id="icon-slash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+    </symbol>
+    <!-- icon-backpack -->
+    <symbol id="icon-backpack" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10Z"></path>
+      <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path>
+      <path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path>
+      <path d="M8 10h8"></path>
+    </symbol>
+    <!-- icon-map -->
+    <symbol id="icon-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon>
+      <line x1="9" y1="3" x2="9" y2="18"></line>
+      <line x1="15" y1="6" x2="15" y2="21"></line>
+    </symbol>
+    <!-- icon-sunset -->
+    <symbol id="icon-sunset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 10V2M12 2l-3 3M12 2l3 3M4 22h16M2 16h20M21.22 11.22l-1.42 1.42M2.78 11.22l1.42 1.42M12 16a4 4 0 0 0-4-4h8a4 4 0 0 0-4 4Z"></path>
+    </symbol>
+    <!-- icon-comment -->
+    <symbol id="icon-comment" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </symbol>
+    <!-- icon-link -->
+    <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+    </symbol>
+    <!-- icon-clock -->
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <polyline points="12 6 12 12 16 14"></polyline>
+    </symbol>
+    <!-- icon-feature-lights -->
+    <symbol id="icon-feature-lights" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+      <path d="m5 3 1 2.5L8.5 6 6 7 5 9.5 4 7 1.5 6 4 5.5z"></path>
+      <path d="m19 17 1 2.5 2.5.5-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1z"></path>
+    </symbol>
+  </svg>
+
   <!-- Beta Opt-In Banner
   <div style="background-color: #2c4a3a; color: #e8dcc8; padding: 12px; text-align: center; font-family: 'Cormorant Garamond', serif; border-bottom: 2px solid #d4856f; position: relative; z-index: 1000;">
     <span style="font-size: 1.1rem; letter-spacing: 0.5px;">Want to try our new <strong>Nature-Inspired</strong> experience?</span>
@@ -89,14 +387,6 @@
   <div class="bg-glow bg-glow-2"></div>
   <div class="bg-glow bg-glow-3"></div>
 
-  <!-- Absolute Theme Switcher (desktop only, hidden on mobile) -->
-  <div class="theme-switch-wrapper">
-    <div class="theme-switch" role="group" aria-label="Theme switcher">
-      <button id="theme-light" class="theme-btn" title="Light Mode" aria-label="Switch to light mode">🌞</button>
-      <button id="theme-dark" class="theme-btn" title="Dark Mode" aria-label="Switch to dark mode">🌙</button>
-    </div>
-  </div>
-
   <header>
     <div class="header-title-row">
       <h1>US National Park Finder</h1>
@@ -105,9 +395,17 @@
     <p class="subtitle">Discover the perfect national park for your next trip</p>
     <h2 class="seo-h2" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Haleakalā National Park, HI</h2>
     <div class="header-actions" id="header-actions">
-      <div class="mobile-theme-row">
-        <button class="header-btn" onclick="applyTheme('light')" title="Light Mode" aria-label="Light mode">🌞 Light</button>
-        <button class="header-btn" onclick="applyTheme('dark')" title="Dark Mode" aria-label="Dark mode">🌙 Dark</button>
+      <!-- Unified Responsive Theme Toggle -->
+      <div id="header-theme-toggle" class="header-theme-toggle" onclick="if (!event.target.closest('#theme-light, #theme-dark')) applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')" role="group" aria-label="Theme switcher">
+        <div class="theme-toggle-track">
+          <button id="theme-light" class="theme-btn" title="Light Mode" aria-label="Switch to light mode">
+            <svg class="icon"><use href="#icon-sun" xlink:href="#icon-sun"></use></svg>
+          </button>
+          <button id="theme-dark" class="theme-btn" title="Dark Mode" aria-label="Switch to dark mode">
+            <svg class="icon"><use href="#icon-moon" xlink:href="#icon-moon"></use></svg>
+          </button>
+        </div>
+        <span class="toggle-indicator"></span>
       </div>
       <button id="share-btn" class="header-btn share-btn" title="Share App" aria-label="Share App">
         <span class="btn-icon">🔗</span><span class="btn-text">Share</span>

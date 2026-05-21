@@ -122,18 +122,183 @@ function initFilterBounds() {
   }
 }
 initFilterBounds();
-// ============ Theme Selection ============
+// ============ Theme Selection & Dynamic Styles ============
 let currentTheme = localStorage.getItem('theme') || 'dark';
 const applyTheme = (theme) => {
   document.documentElement.setAttribute('data-theme', theme);
   localStorage.setItem('theme', theme);
+  
+  // Desktop theme buttons
   document.getElementById('theme-light')?.classList.toggle('active', theme === 'light');
   document.getElementById('theme-dark')?.classList.toggle('active', theme === 'dark');
 };
+window.applyTheme = applyTheme;
 applyTheme(currentTheme);
 
 document.getElementById('theme-light')?.addEventListener('click', () => applyTheme('light'));
 document.getElementById('theme-dark')?.addEventListener('click', () => applyTheme('dark'));
+
+// Dynamic styles injection for modern SVG icons, modal toolbar layout, and mobile bottom sheet drawer
+const dynamicStyles = document.createElement('style');
+dynamicStyles.textContent = `
+  /* Modern SVG icon styling */
+  svg.icon {
+    width: 1.15em;
+    height: 1.15em;
+    vertical-align: middle;
+    display: inline-block;
+    transition: transform 0.2s ease, fill 0.2s ease;
+  }
+  
+  /* Rating stars style */
+  svg.icon.star-icon {
+    width: 1.25em;
+    height: 1.25em;
+    margin-right: 1px;
+    filter: drop-shadow(0 1px 2px rgba(245, 166, 35, 0.25));
+  }
+  
+  /* Vertical toolbar in modal header */
+  .modal-icon-actions {
+    position: absolute !important;
+    top: 68px !important;
+    right: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    z-index: 100 !important;
+    margin: 0 !important;
+  }
+
+  /* Blurred backdrop for mobile drawer */
+  .mobile-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 12, 18, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  body.mobile-menu-open {
+    overflow: hidden;
+  }
+  
+  body.mobile-menu-open .mobile-menu-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (max-width: 600px) {
+    /* Style header actions as a premium bottom sheet drawer */
+    .header-actions {
+      display: flex !important;
+      position: fixed !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      top: auto !important;
+      border-radius: 24px 24px 0 0 !important;
+      border: none !important;
+      border-top: 1px solid var(--border) !important;
+      padding: 24px 24px 36px !important;
+      background: var(--surface) !important;
+      box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4) !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 12px !important;
+      margin: 0 !important;
+      z-index: 1000 !important;
+      transform: translateY(100%) !important;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    
+    .header-actions.mobile-open {
+      transform: translateY(0) !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    
+    /* Close option / handle bar on the bottom sheet drawer */
+    .header-actions::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      margin: -12px auto 12px auto;
+      opacity: 0.6;
+    }
+    
+    /* Ensure the mobile theme buttons are styled neatly */
+    .mobile-theme-row {
+      margin-bottom: 8px;
+    }
+    
+    .mobile-theme-row .header-btn {
+      flex: 1;
+      justify-content: center;
+    }
+    
+    .mobile-theme-row .header-btn.active {
+      background: var(--accent) !important;
+      color: white !important;
+      box-shadow: 0 2px 8px var(--accent-glow) !important;
+    }
+  }
+
+  /* Position and style the prepended SVG search icon */
+  .search-icon-svg {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    transition: color 0.2s ease;
+    z-index: 2;
+  }
+  
+  /* When search input has focus, make search icon active color */
+  .search-input-wrapper:focus-within .search-icon-svg {
+    color: var(--accent);
+  }
+  
+  /* Adjust input padding to make room for the left search icon */
+  .search-input {
+    padding-left: 50px !important;
+  }
+  
+  /* Light theme overrides */
+  [data-theme="light"] .search-icon-svg {
+    color: var(--text-dim) !important;
+    opacity: 0.7;
+  }
+  [data-theme="light"] .search-input-wrapper:focus-within .search-icon-svg {
+    color: var(--accent) !important;
+    opacity: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .search-icon-svg {
+      left: 16px;
+      width: 16px;
+      height: 16px;
+    }
+    .search-input {
+      padding-left: 42px !important;
+    }
+  }
+`;
+document.head.appendChild(dynamicStyles);
 
 // ============ Search ============
 let searchQuery      = '';
@@ -215,7 +380,36 @@ function closeAllMenus() {
 }
 document.addEventListener('click', closeAllMenus);
 
+// ============ Search Bar Emojis Cleanup & SVG Prepender ============
+function setupSearchInputEmoji() {
+  const searchInput = document.getElementById('park-search');
+  const searchWrapper = document.querySelector('.search-input-wrapper');
+  if (searchInput && searchWrapper) {
+    // 1. Remove emoji from placeholder
+    let placeholder = searchInput.getAttribute('placeholder') || '';
+    if (placeholder.includes('🔍')) {
+      placeholder = placeholder.replace(/🔍\s*/g, '');
+      searchInput.setAttribute('placeholder', placeholder);
+    }
+
+    // 2. Prepend SVG search icon if not already present
+    if (!searchWrapper.querySelector('.search-icon-svg')) {
+      const svgIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svgIcon.setAttribute('class', 'search-icon-svg');
+      svgIcon.setAttribute('viewBox', '0 0 24 24');
+      svgIcon.setAttribute('fill', 'none');
+      svgIcon.setAttribute('stroke', 'currentColor');
+      svgIcon.setAttribute('stroke-width', '2');
+      svgIcon.setAttribute('stroke-linecap', 'round');
+      svgIcon.setAttribute('stroke-linejoin', 'round');
+      svgIcon.innerHTML = `<circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path>`;
+      searchWrapper.insertBefore(svgIcon, searchInput);
+    }
+  }
+}
+
 function init() {
+  setupSearchInputEmoji();
   renderChips();
   
   // Populate Hubs Dropdown
@@ -269,9 +463,29 @@ function init() {
   }
 }
 
-// ============ Mobile Menu Toggle ============
+// ============ Mobile Menu Toggle & Bottom-Sheet Drawer ============
 const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const headerActions = document.getElementById('header-actions');
+
+// Create mobile menu backdrop dynamically
+let menuBackdrop = document.querySelector('.mobile-menu-backdrop');
+if (!menuBackdrop) {
+  menuBackdrop = document.createElement('div');
+  menuBackdrop.className = 'mobile-menu-backdrop';
+  document.body.appendChild(menuBackdrop);
+}
+
+function closeMobileMenu() {
+  if (headerActions) headerActions.classList.remove('mobile-open');
+  if (mobileMenuToggle) {
+    mobileMenuToggle.classList.remove('open');
+    mobileMenuToggle.textContent = '⋯';
+  }
+  const headerEl = mobileMenuToggle?.closest('header');
+  if (headerEl) headerEl.classList.remove('menu-open');
+  document.body.classList.remove('mobile-menu-open');
+}
+
 if (mobileMenuToggle && headerActions) {
   mobileMenuToggle.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -282,17 +496,22 @@ if (mobileMenuToggle && headerActions) {
     if (headerEl) {
       headerEl.classList.toggle('menu-open', isOpen);
     }
+    if (isOpen) {
+      document.body.classList.add('mobile-menu-open');
+    } else {
+      document.body.classList.remove('mobile-menu-open');
+    }
   });
+
+  // Close menu when clicking the backdrop
+  menuBackdrop.addEventListener('click', (e) => {
+    closeMobileMenu();
+  });
+
   // Close menu when clicking outside
   document.addEventListener('click', (e) => {
-    if (!headerActions.contains(e.target) && e.target !== mobileMenuToggle) {
-      headerActions.classList.remove('mobile-open');
-      mobileMenuToggle.classList.remove('open');
-      mobileMenuToggle.textContent = '⋯';
-      const headerEl = mobileMenuToggle.closest('header');
-      if (headerEl) {
-        headerEl.classList.remove('menu-open');
-      }
+    if (!headerActions.contains(e.target) && e.target !== mobileMenuToggle && e.target !== menuBackdrop) {
+      closeMobileMenu();
     }
   });
 }
@@ -302,15 +521,15 @@ function renderChips() {
   // Special chips first
   const specialChips = [
     { id: 'chip-all',       label: 'All Parks',   mode: 'all' },
-    { id: 'chip-favorites', label: '⭐ Favorites', mode: 'favorites' },
-    { id: 'chip-visited',   label: '✓ Visited',   mode: 'visited'   },
-    { id: 'chip-hidden',    label: '🙈 Hidden',   mode: 'hidden'    },
+    { id: 'chip-favorites', label: '<svg class="icon" style="margin-right: 4px; color: var(--amber); fill: var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg>Favorites', mode: 'favorites' },
+    { id: 'chip-visited',   label: '<svg class="icon" style="margin-right: 4px; color: var(--green);"><use href="#icon-check-filled" xlink:href="#icon-check-filled"></use></svg>Visited',   mode: 'visited'   },
+    { id: 'chip-hidden',    label: '<svg class="icon" style="margin-right: 4px;"><use href="#icon-eye-off" xlink:href="#icon-eye-off"></use></svg>Hidden',   mode: 'hidden'    },
   ];
 
   specialChips.forEach(({ id, label, mode }) => {
     const chip = document.createElement('button');
     chip.className = 'month-chip special-chip';
-    chip.textContent = label;
+    chip.innerHTML = label;
     chip.id = id;
     if (viewMode === 'all' && mode === 'all' && !selectedMonth) chip.classList.add('active');
     chip.addEventListener('click', () => selectSpecialMode(mode));
@@ -416,7 +635,7 @@ function formatCrowdLevel(score) {
   if (!score) return '';
   let html = '<div class="modal-crowd-icons">';
   for (let i = 1; i <= 5; i++) {
-    html += `<span class="crowd-icon ${i <= score ? 'active' : ''}">👤</span>`;
+    html += `<span class="crowd-icon ${i <= score ? 'active' : ''}"><svg class="icon"><use href="#icon-user" xlink:href="#icon-user"></use></svg></span>`;
   }
   html += '</div>';
   return html;
@@ -425,8 +644,12 @@ function formatCrowdLevel(score) {
 function renderStars(count) {
   const full = Math.floor(count), half = (count % 1) >= 0.3;
   let s = '';
-  for (let i = 0; i < full; i++) s += '★';
-  if (half) s += '½';
+  for (let i = 0; i < full; i++) {
+    s += `<svg class="icon star-icon" style="color: var(--amber); fill: var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg>`;
+  }
+  if (half) {
+    s += `<svg class="icon star-icon" style="color: var(--amber); fill: var(--amber);"><use href="#icon-star-half" xlink:href="#icon-star-half"></use></svg>`;
+  }
   return s;
 }
 
@@ -488,7 +711,7 @@ function renderFilterChips() {
   const chips = [];
   
   if (searchQuery) {
-    chips.push({ label: `🔍 "${searchQuery}"`, onClear: () => { 
+    chips.push({ label: `<svg class="icon"><use href="#icon-search" xlink:href="#icon-search"></use></svg> "${searchQuery}"`, onClear: () => { 
       if (parkSearchInput) parkSearchInput.value = ''; 
       searchQuery = ''; 
       if (searchClearBtn) searchClearBtn.classList.remove('visible');
@@ -497,16 +720,20 @@ function renderFilterChips() {
   }
   
   if (selectedMonth) {
-    chips.push({ label: `📅 ${MONTH_FULL[selectedMonth-1]}`, onClear: () => selectMonth(null) });
+    chips.push({ label: `<svg class="icon"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg> ${MONTH_FULL[selectedMonth-1]}`, onClear: () => selectMonth(null) });
   }
   
   if (viewMode !== 'all') {
-    const labels = { favorites: '⭐ Favorites', visited: '✓ Visited Only', hidden: '🙈 Hidden' };
+    const labels = { 
+      favorites: '<svg class="icon" style="color:var(--amber); fill:var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg> Favorites', 
+      visited: '<svg class="icon" style="color:var(--green);"><use href="#icon-check-filled" xlink:href="#icon-check-filled"></use></svg> Visited Only', 
+      hidden: '<svg class="icon"><use href="#icon-eye-off" xlink:href="#icon-eye-off"></use></svg> Hidden' 
+    };
     chips.push({ label: labels[viewMode], onClear: () => selectSpecialMode('all') });
   }
   
   if (!showVisited && viewMode !== 'visited') {
-    chips.push({ label: '🚫 Hiding Visited', onClear: () => { 
+    chips.push({ label: '<svg class="icon"><use href="#icon-slash" xlink:href="#icon-slash"></use></svg> Hiding Visited', onClear: () => { 
       showVisited = true; 
       const toggle = document.getElementById('visited-toggle');
       if (toggle) toggle.checked = true;
@@ -515,28 +742,33 @@ function renderFilterChips() {
   }
 
   if (filterState.minRating > 0) {
-    chips.push({ label: `⭐ ${filterState.minRating}+ Stars`, onClear: () => setFilterValue('minRating', 0) });
+    chips.push({ label: `<svg class="icon" style="color:var(--amber); fill:var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg> ${filterState.minRating}+ Stars`, onClear: () => setFilterValue('minRating', 0) });
   }
   
   if (filterState.stargazing) {
-    chips.push({ label: '🔭 Stargazing', onClear: () => setFilterValue('stargazing', false) });
+    chips.push({ label: '<svg class="icon"><use href="#icon-telescope" xlink:href="#icon-telescope"></use></svg> Stargazing', onClear: () => setFilterValue('stargazing', false) });
   }
   
   if (filterState.minDays > filterBounds.minDays) {
-    chips.push({ label: `🗓️ Min ${filterState.minDays} Days`, onClear: () => setFilterValue('minDays', filterBounds.minDays) });
+    chips.push({ label: `<svg class="icon"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg> Min ${filterState.minDays} Days`, onClear: () => setFilterValue('minDays', filterBounds.minDays) });
   }
 
   if (filterState.maxDuration < filterBounds.maxDuration) {
-    chips.push({ label: `⏲️ Max ${Math.floor(filterState.maxDuration/60)}h ${filterState.maxDuration%60}m`, onClear: () => setFilterValue('maxDuration', filterBounds.maxDuration) });
+    chips.push({ label: `<svg class="icon"><use href="#icon-clock" xlink:href="#icon-clock"></use></svg> Max ${Math.floor(filterState.maxDuration/60)}h ${filterState.maxDuration%60}m`, onClear: () => setFilterValue('maxDuration', filterBounds.maxDuration) });
   }
 
   filterState.flights.forEach(f => {
-    const labels = { 'no-flight': '🚙 Drive', 'direct': '✈️ Direct', '1-stop': '🛑 1 Stop', '2-stops': '🛑 2+ Stops' };
+    const labels = { 
+      'no-flight': '<svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg> Drive', 
+      'direct': '<svg class="icon"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg> Direct', 
+      '1-stop': '<svg class="icon"><use href="#icon-stop" xlink:href="#icon-stop"></use></svg> 1 Stop', 
+      '2-stops': '<svg class="icon"><use href="#icon-stop" xlink:href="#icon-stop"></use></svg> 2+ Stops' 
+    };
     chips.push({ label: labels[f], onClear: () => toggleFlightFilter(f) });
   });
 
   if (minTempFilter > 0 || maxTempFilter < 110) {
-    chips.push({ label: `🌡️ ${minTempFilter}°F - ${maxTempFilter}°F`, onClear: () => {
+    chips.push({ label: `<svg class="icon"><use href="#icon-thermometer" xlink:href="#icon-thermometer"></use></svg> ${minTempFilter}°F - ${maxTempFilter}°F`, onClear: () => {
       minTempFilter = 0; 
       maxTempFilter = 110;
       const tMin = document.getElementById('temp-min');
@@ -680,17 +912,17 @@ function renderFilterUI() {
         <label style="margin-top:20px;">Features</label>
         <label class="check-label">
           <input type="checkbox" ${filterState.stargazing ? 'checked':''} onchange="setFilterValue('stargazing', this.checked)">
-          🔭 Stargazing Recommended
+          <svg class="icon" style="margin-right: 4px;"><use href="#icon-telescope" xlink:href="#icon-telescope"></use></svg> Stargazing Recommended
         </label>
       </div>
 
       <div class="filter-col">
         <label>Transit Stops (From SFO)</label>
         <div class="pill-group-vertical">
-          <button class="pill ${filterState.flights.includes('no-flight')?'active':''}" onclick="toggleFlightFilter('no-flight')">🚙 Drive / No Flight</button>
-          <button class="pill ${filterState.flights.includes('direct')?'active':''}" onclick="toggleFlightFilter('direct')">✈️ Direct Flight</button>
-          <button class="pill ${filterState.flights.includes('1-stop')?'active':''}" onclick="toggleFlightFilter('1-stop')">🛑 1 Stop</button>
-          <button class="pill ${filterState.flights.includes('2-stops')?'active':''}" onclick="toggleFlightFilter('2-stops')">🛑 2+ Stops</button>
+          <button class="pill ${filterState.flights.includes('no-flight')?'active':''}" onclick="toggleFlightFilter('no-flight')"><svg class="icon" style="margin-right:6px;"><use href="#icon-car" xlink:href="#icon-car"></use></svg>Drive / No Flight</button>
+          <button class="pill ${filterState.flights.includes('direct')?'active':''}" onclick="toggleFlightFilter('direct')"><svg class="icon" style="margin-right:6px;"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg>Direct Flight</button>
+          <button class="pill ${filterState.flights.includes('1-stop')?'active':''}" onclick="toggleFlightFilter('1-stop')"><svg class="icon" style="margin-right:6px;"><use href="#icon-stop" xlink:href="#icon-stop"></use></svg>1 Stop</button>
+          <button class="pill ${filterState.flights.includes('2-stops')?'active':''}" onclick="toggleFlightFilter('2-stops')"><svg class="icon" style="margin-right:6px;"><use href="#icon-stop" xlink:href="#icon-stop"></use></svg>2+ Stops</button>
         </div>
 
         <label style="margin-top:20px;">Visibility</label>
@@ -841,10 +1073,10 @@ function renderParks() {
     </div>
     <div class="sort-controls">
       <span class="sort-label">Sort:</span>
-      <button class="sort-btn ${sortBy==='score'    ? 'sort-active':''}" onclick="setSort('score')">⭐ Rating</button>
-      <button class="sort-btn ${sortBy==='distance' ? 'sort-active':''}" onclick="setSort('distance')">✈️ Distance</button>
-      <button class="sort-btn ${sortBy==='days'     ? 'sort-active':''}" onclick="setSort('days')">🗓️ Days</button>
-      <button class="sort-btn ${sortBy==='stargazing'?'sort-active':''}" onclick="setSort('stargazing')">🔭 Stargazing</button>
+      <button class="sort-btn ${sortBy==='score'    ? 'sort-active':''}" onclick="setSort('score')"><svg class="icon" style="margin-right:4px; color:var(--amber); fill:var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg>Rating</button>
+      <button class="sort-btn ${sortBy==='distance' ? 'sort-active':''}" onclick="setSort('distance')"><svg class="icon" style="margin-right:4px;"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg>Distance</button>
+      <button class="sort-btn ${sortBy==='days'     ? 'sort-active':''}" onclick="setSort('days')"><svg class="icon" style="margin-right:4px;"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg>Days</button>
+      <button class="sort-btn ${sortBy==='stargazing'?'sort-active':''}" onclick="setSort('stargazing')"><svg class="icon" style="margin-right:4px;"><use href="#icon-telescope" xlink:href="#icon-telescope"></use></svg>Stargazing</button>
     </div>
   `;
 
@@ -886,7 +1118,7 @@ function renderParks() {
     const seasonalInfo = window.PARKS_SEASONAL?.[park.id]?.[selectedMonth];
 
     card.innerHTML = `
-      ${isHero ? `<div class="floating-hero-badge">🏆 Top Pick for ${MONTH_FULL[selectedMonth - 1]}</div>` : ''}
+      ${isHero ? `<div class="floating-hero-badge"><svg class="icon" style="margin-right:4px;"><use href="#icon-trophy" xlink:href="#icon-trophy"></use></svg>Top Pick for ${MONTH_FULL[selectedMonth - 1]}</div>` : ''}
       <div class="card-header">
         <div class="card-title-col">
           <div class="park-name">
@@ -898,20 +1130,17 @@ function renderParks() {
             <button class="card-action-btn ${isFavorite ? 'active-heart' : ''}" 
               onclick="toggleFavorite('${park.name}', event)"
               data-tooltip="${isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}">
-              ${isFavorite ? '❤️' : '🤍'}
+              <svg class="icon"><use href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}" xlink:href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}"></use></svg>
             </button>
             <button class="card-action-btn ${isVisited ? 'active-tick' : ''}" 
               onclick="toggleVisited('${park.name}', event)"
               data-tooltip="${isVisited ? 'Unmark as Visited' : 'Mark as Visited'}">
-              ${isVisited ? '✅' : '✔️'}
+              <svg class="icon"><use href="${isVisited ? '#icon-check-filled' : '#icon-check'}" xlink:href="${isVisited ? '#icon-check-filled' : '#icon-check'}"></use></svg>
             </button>
             <button class="card-action-btn ${isHidden ? 'active-hide' : ''}" 
               onclick="toggleHidden('${park.name}', event)"
               data-tooltip="${isHidden ? 'Unhide Park' : 'Hide Park'}">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
+              <svg class="icon"><use href="${isHidden ? '#icon-eye-off' : '#icon-eye'}" xlink:href="${isHidden ? '#icon-eye-off' : '#icon-eye'}"></use></svg>
             </button>
           </div>
         </div>
@@ -919,27 +1148,27 @@ function renderParks() {
 
       <div class="card-score-row">
         <span class="star-badge">
-          ${isMobile ? `⭐ <span class="score-num">${park.compositeScore}</span>` : `${renderStars(park.compositeScore)} <span class="score-num">${park.compositeScore}</span>`}
+          ${isMobile ? `<svg class="icon star-icon" style="color: var(--amber); fill: var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg> <span class="score-num">${park.compositeScore}</span>` : `${renderStars(park.compositeScore)} <span class="score-num">${park.compositeScore}</span>`}
         </span>
-        ${park.topActivity ? `<span class="compact-activity">🎯 ${park.topActivity}</span>` : ''}
-        <span class="min-days-badge">🗓️ Min ${park.minDays} day${park.minDays>1?'s':''}</span>
+        ${park.topActivity ? `<span class="compact-activity"><svg class="icon" style="margin-right:3px;"><use href="#icon-target" xlink:href="#icon-target"></use></svg>${park.topActivity}</span>` : ''}
+        <span class="min-days-badge"><svg class="icon" style="margin-right:3px;"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg>Min ${park.minDays} day${park.minDays>1?'s':''}</span>
       </div>
 
       <div class="card-details">
         <div class="info-grid">
           <div class="info-item">
-            <span class="info-label">📅 Best Months</span>
+            <span class="info-label"><svg class="icon" style="margin-right:4px;"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg>Best Months</span>
             <span class="info-value small-val">${formatBestMonths(park.bestMonths)}</span>
           </div>
           ${park.avoid && park.avoid.length > 0 ? `
           <div class="info-item">
-            <span class="info-label">⚠️ Avoid</span>
+            <span class="info-label"><svg class="icon" style="margin-right:4px;"><use href="#icon-warning" xlink:href="#icon-warning"></use></svg>Avoid</span>
             <span class="info-value small-val">${formatMonths(park.avoid)}</span>
           </div>` : ''}
-          ${seasonalInfo && seasonalInfo.temp !== 'N/A' ? '<div class="info-item"><span class="info-label">🌡️ Temp in ' + MONTHS[selectedMonth - 1] + '</span><span class="info-value">' + seasonalInfo.temp + '</span></div>' : ''}
+          ${seasonalInfo && seasonalInfo.temp !== 'N/A' ? '<div class="info-item"><span class="info-label"><svg class="icon" style="margin-right:4px;"><use href="#icon-thermometer" xlink:href="#icon-thermometer"></use></svg>Temp in ' + MONTHS[selectedMonth - 1] + '</span><span class="info-value">' + seasonalInfo.temp + '</span></div>' : ''}
           ${park.topActivity ? `
           <div class="info-item">
-            <span class="info-label">🎯 Top Activity</span>
+            <span class="info-label"><svg class="icon" style="margin-right:4px;"><use href="#icon-target" xlink:href="#icon-target"></use></svg>Top Activity</span>
             <span class="info-value">${park.topActivity}</span>
           </div>` : ''}
         </div>
@@ -950,15 +1179,15 @@ function renderParks() {
               const h = currentHomeHub;
               const d = park.driveTimes?.[h];
               if (d && d <= 360) {
-                return `<span class="car">🚗</span> <span class="time-main"><strong>${timeStr}</strong> drive from ${h}</span>`;
+                return `<span class="car"><svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg></span> <span class="time-main"><strong>${timeStr}</strong> drive from ${h}</span>`;
               }
               const flight = travelTime - (park.gatewayExtraMinutes || 0);
               const fH = Math.floor(flight / 60); const fM = flight % 60;
               const fStr = fH > 0 ? `${fH}h ${fM}m` : `${fM}m`;
               return `
-                <span class="plane">✈️</span>
+                <span class="plane"><svg class="icon"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg></span>
                 <span class="airport-code">${park.gatewayHub}</span>
-                <span class="time-main">(${fStr}) + 🚗 ${Math.floor(park.gatewayExtraMinutes/60)}h ${park.gatewayExtraMinutes%60}m &bull; <strong>${timeStr}</strong></span>
+                <span class="time-main">(${fStr}) + <svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg> ${Math.floor(park.gatewayExtraMinutes/60)}h ${park.gatewayExtraMinutes%60}m &bull; <strong>${timeStr}</strong></span>
               `;
             })()}
           </div>
@@ -1007,6 +1236,22 @@ function setSort(mode) {
   renderParks();
 }
 
+// ============ Modal Accessibility Tree Toggle ============
+function updateAriaHidden() {
+  const isParkModalOpen = modal && !modal.classList.contains('hidden');
+  const isFeatureModalOpen = featureModal && !featureModal.classList.contains('hidden');
+  const anyOpen = isParkModalOpen || isFeatureModalOpen;
+  
+  const wrappers = document.querySelectorAll('header, .search-container, #month-bar, main, footer');
+  wrappers.forEach(el => {
+    if (anyOpen) {
+      el.setAttribute('aria-hidden', 'true');
+    } else {
+      el.removeAttribute('aria-hidden');
+    }
+  });
+}
+
 // ============ Modal ============
 function openModal(park, preventHistory = false) {
   const details = window.PARKS_DETAILS?.[park.id];
@@ -1020,6 +1265,7 @@ function openModal(park, preventHistory = false) {
 
   document.body.classList.add('modal-open');
   modal.classList.remove('hidden');
+  updateAriaHidden();
 
   const isVisited  = visitedParks.has(park.name);
   const isFavorite = favoritedParks.has(park.name);
@@ -1043,7 +1289,7 @@ function openModal(park, preventHistory = false) {
     <div class="reddit-post-card">
       <div class="reddit-post-top">
         <span class="reddit-post-sub">${p.sub}</span>
-        <span class="reddit-post-icon">💬</span>
+        <span class="reddit-post-icon"><svg class="icon"><use href="#icon-comment" xlink:href="#icon-comment"></use></svg></span>
       </div>
       <div class="reddit-post-title">${p.title}</div>
       ${p.quote ? `<div class="reddit-post-quote">${p.quote}</div>` : ''}
@@ -1081,34 +1327,31 @@ function openModal(park, preventHistory = false) {
       <button class="modal-icon-btn ${isFavorite ? 'active-heart' : ''}" 
         onclick="toggleFavorite('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
         data-tooltip="${isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}">
-        ${isFavorite ? '❤️' : '🤍'}
+        <svg class="icon"><use href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}" xlink:href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}"></use></svg>
       </button>
       <button class="modal-icon-btn ${isVisited ? 'active-tick' : ''}" 
         onclick="toggleVisited('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
         data-tooltip="${isVisited ? 'Unmark as Visited' : 'Mark as Visited'}">
-        ${isVisited ? '✅' : '✔️'}
+        <svg class="icon"><use href="${isVisited ? '#icon-check-filled' : '#icon-check'}" xlink:href="${isVisited ? '#icon-check-filled' : '#icon-check'}"></use></svg>
       </button>
       <button class="modal-icon-btn ${isHidden ? 'active-hide' : ''}" 
         onclick="toggleHidden('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
         data-tooltip="${isHidden ? 'Unhide Park' : 'Hide Park'}">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-          <circle cx="12" cy="12" r="3"></circle>
-        </svg>
+        <svg class="icon"><use href="${isHidden ? '#icon-eye-off' : '#icon-eye'}" xlink:href="${isHidden ? '#icon-eye-off' : '#icon-eye'}"></use></svg>
       </button>
     </div>
     <div class="modal-header">
       <div class="modal-title-row">
         <div>
           <h2 class="modal-title">
-            ${isFavorite?'⭐ ':''}${park.name} <span class="modal-state-inline">${park.state}</span>
+            ${isFavorite ? '<svg class="icon star-icon" style="color: var(--amber); fill: var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg> ' : ''}${park.name} <span class="modal-state-inline">${park.state}</span>
           </h2>
           <div class="modal-subtitle">
             ${(() => {
               const h = currentHomeHub;
               const d = park.driveTimes?.[h];
               if (d && d <= 360) {
-                return `<span class="modal-airport-inline">🚗 <strong>${timeStr}</strong> drive from ${h}</span>`;
+                return `<span class="modal-airport-inline"><svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg> <strong>${timeStr}</strong> drive from ${h}</span>`;
               }
               const flight = travelTime - (park.gatewayExtraMinutes || 0);
               const fH = Math.floor(flight / 60); const fM = flight % 60;
@@ -1116,10 +1359,10 @@ function openModal(park, preventHistory = false) {
               const gH = Math.floor(park.gatewayExtraMinutes/60);
               const gM = park.gatewayExtraMinutes%60;
               const gStr = gH > 0 ? `${gH}h ${gM}m` : `${gM}m`;
-              return `<span class="modal-airport-inline">✈️ <strong>${park.gatewayHub}</strong> (${fStr}) + 🚗 ${gStr} &bull; <strong>${timeStr} from ${h}</strong></span>`;
+              return `<span class="modal-airport-inline"><svg class="icon"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg> <strong>${park.gatewayHub}</strong> (${fStr}) + <svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg> ${gStr} &bull; <strong>${timeStr} from ${h}</strong></span>`;
             })()}
             <span class="sep">&bull;</span>
-            <span class="modal-min-days">🗓️ Min ${park.minDays} days</span>
+            <span class="modal-min-days"><svg class="icon"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg> Min ${park.minDays} days</span>
           </div>
         </div>
         <div class="modal-header-right">
@@ -1136,27 +1379,27 @@ function openModal(park, preventHistory = false) {
     <div class="modal-section seasonal-verdict-container">
       <div class="seasonal-verdict-grid">
         <div>
-          <div class="seasonal-best-label">✨ Seasonal Best</div>
+          <div class="seasonal-best-label"><svg class="icon"><use href="#icon-feature-lights" xlink:href="#icon-feature-lights"></use></svg> Seasonal Best</div>
           <div class="seasonal-verdict-text">${details.seasonalVerdict.best}</div>
         </div>
         <div class="caution-col">
-          <div class="seasonal-caution-label">⚠️ Seasonal Caution</div>
+          <div class="seasonal-caution-label"><svg class="icon"><use href="#icon-warning" xlink:href="#icon-warning"></use></svg> Seasonal Caution</div>
           <div class="seasonal-verdict-text">${details.seasonalVerdict.avoid}</div>
         </div>
       </div>
     </div>` : ''}
 
-    <div class="modal-section"><h3 class="modal-section-title">✨ Top Activities</h3><div class="activities-list">${activitiesHtml}</div></div>
+    <div class="modal-section"><h3 class="modal-section-title"><svg class="icon"><use href="#icon-feature-lights" xlink:href="#icon-feature-lights"></use></svg> Top Activities</h3><div class="activities-list">${activitiesHtml}</div></div>
 
     ${seasonalInfo && selectedMonth ? `
     <div class="monthly-banner">
-      <div class="monthly-banner-header">📅 Visiting in ${MONTH_FULL[selectedMonth-1]}</div>
+      <div class="monthly-banner-header"><svg class="icon"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg> Visiting in ${MONTH_FULL[selectedMonth-1]}</div>
       <div class="monthly-metrics">
         <div class="monthly-metric">
           <span class="label">Average Temp</span>
           <span class="value">${seasonalInfo.temp}</span>
         </div>
-        <div class="monthly-metric" style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 20px;">
+        <div class="monthly-metric">
           <span class="label">Crowd Level</span>
           <div style="display:flex; align-items:center; gap:10px; margin-top:4px;">
             ${formatCrowdLevel(seasonalInfo.crowdScore)}
@@ -1178,11 +1421,11 @@ function openModal(park, preventHistory = false) {
     </div>` : ''}
 
     <div class="modal-section">
-      <h3 class="modal-section-title">🌅 Sun & Stars</h3>
+      <h3 class="modal-section-title"><svg class="icon"><use href="#icon-sunset" xlink:href="#icon-sunset"></use></svg> Sun & Stars</h3>
       <div style="color:var(--text-dim);font-size:0.9rem;margin-bottom:12px;line-height:1.5;">${details.sunriseSunset}</div>
       ${details.stargazing ? `
       <div class="stargazing-card">
-        <div class="stargazing-icon">🔭</div>
+        <div class="stargazing-icon"><svg class="icon" style="width:1.5em; height:1.5em;"><use href="#icon-telescope" xlink:href="#icon-telescope"></use></svg></div>
         <div class="stargazing-info">
           <h4>Stargazing: ${details.stargazing.isFriendly?'Highly Recommended':'Limited'}</h4>
           <p><strong>Best Spots:</strong> ${details.stargazing.spots}</p>
@@ -1191,19 +1434,19 @@ function openModal(park, preventHistory = false) {
       </div>` : ''}
     </div>
 
-    ${funFactsHtml?`<div class="modal-section"><h3 class="modal-section-title">💡 Fun Facts</h3><div class="fun-facts-list">${funFactsHtml}</div></div>`:''}
-    ${hacksHtml?`<div class="modal-section"><h3 class="modal-section-title">🎒 Travel Hacks</h3><div class="hacks-list">${hacksHtml}</div></div>`:''}
-    ${(dosHtml||dontsHtml)?`<div class="modal-section"><h3 class="modal-section-title">✅ Dos & Don'ts</h3><div class="dos-donts-grid"><div class="dos-col"><h4>✓ Do</h4><div class="dos-list">${dosHtml}</div></div><div class="donts-col"><h4>× Don't</h4><div class="donts-list">${dontsHtml}</div></div></div></div>`:''}
-    <div class="modal-section"><h3 class="modal-section-title">🗺️ Sample Itinerary</h3><div style="margin-top:16px;">${itineraryHtml}</div></div>
+    ${funFactsHtml?`<div class="modal-section"><h3 class="modal-section-title"><svg class="icon"><use href="#icon-info" xlink:href="#icon-info"></use></svg> Fun Facts</h3><div class="fun-facts-list">${funFactsHtml}</div></div>`:''}
+    ${hacksHtml?`<div class="modal-section"><h3 class="modal-section-title"><svg class="icon"><use href="#icon-backpack" xlink:href="#icon-backpack"></use></svg> Travel Hacks</h3><div class="hacks-list">${hacksHtml}</div></div>`:''}
+    ${(dosHtml||dontsHtml)?`<div class="modal-section"><h3 class="modal-section-title"><svg class="icon"><use href="#icon-check-filled" xlink:href="#icon-check-filled"></use></svg> Dos & Don'ts</h3><div class="dos-donts-grid"><div class="dos-col"><h4><svg class="icon" style="color:var(--green);"><use href="#icon-check" xlink:href="#icon-check"></use></svg> Do</h4><div class="dos-list">${dosHtml}</div></div><div class="donts-col"><h4><svg class="icon" style="color:var(--rose);"><use href="#icon-close" xlink:href="#icon-close"></use></svg> Don't</h4><div class="donts-list">${dontsHtml}</div></div></div></div>`:''}
+    <div class="modal-section"><h3 class="modal-section-title"><svg class="icon"><use href="#icon-map" xlink:href="#icon-map"></use></svg> Sample Itinerary</h3><div style="margin-top:16px;">${itineraryHtml}</div></div>
 
     ${redditPostsHtml ? `
     <div class="modal-section">
-      <h3 class="modal-section-title">💬 Reddit Community Advice</h3>
+      <h3 class="modal-section-title"><svg class="icon"><use href="#icon-comment" xlink:href="#icon-comment"></use></svg> Reddit Community Advice</h3>
       <div class="reddit-posts-list">${redditPostsHtml}</div>
     </div>` : ''}
 
     <div class="modal-section modal-links-section" style="margin-bottom:0; border-bottom:none;">
-      <h3 class="modal-section-title">🔗 Resources</h3>${linksHtml}
+      <h3 class="modal-section-title"><svg class="icon"><use href="#icon-link" xlink:href="#icon-link"></use></svg> Resources</h3>${linksHtml}
     </div>
   `;
 }
@@ -1211,6 +1454,7 @@ function openModal(park, preventHistory = false) {
 function closeModal(preventHistory = false) {
   modal.classList.add('hidden');
   document.body.classList.remove('modal-open');
+  updateAriaHidden();
   
   if (preventHistory !== true) {
     if (selectedMonth) {
@@ -1303,6 +1547,7 @@ function openFeatureModal() {
   if (!featureModal) return;
   featureModal.classList.remove('hidden');
   document.body.classList.add('modal-open');
+  updateAriaHidden();
   if (typeof gtag !== 'undefined') gtag('event', 'feature_request_opened', { page: window.location.pathname });
 }
 
@@ -1310,6 +1555,7 @@ function closeFeatureModal() {
   if (!featureModal) return;
   featureModal.classList.add('hidden');
   document.body.classList.remove('modal-open');
+  updateAriaHidden();
 }
 
 if (featureRequestBtn) {
