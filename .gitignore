@@ -19,3 +19,9 @@ dist/
 moodboard/
 scratch/
 screenshots/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
