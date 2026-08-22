@@ -442,11 +442,7 @@
           <svg class="icon"><use href="#icon-share" xlink:href="#icon-share"></use></svg>
           <span class="nav-tooltip">Share</span>
         </button>
-        <button id="header-request-btn" class="app-nav-icon-btn has-tooltip" aria-label="Request Feature">
-          <svg class="icon"><use href="#icon-lightbulb" xlink:href="#icon-lightbulb"></use></svg>
-          <span class="nav-tooltip">Request Feature</span>
-        </button>
-        <a id="header-discord-btn" href="https://discord.gg/9pdg6QtWVW" target="_blank" class="app-nav-icon-btn has-tooltip" aria-label="Join Discord">
+<a id="header-discord-btn" href="https://discord.gg/9pdg6QtWVW" target="_blank" class="app-nav-icon-btn has-tooltip" aria-label="Join Discord">
           <svg class="icon"><use href="#icon-message" xlink:href="#icon-message"></use></svg>
           <span class="nav-tooltip">Community</span>
         </a>
@@ -460,10 +456,7 @@
     <button id="share-btn-mobile" class="header-btn share-btn" title="Share App" aria-label="Share App">
       <span class="btn-icon">🔗</span><span class="btn-text">Share</span>
     </button>
-    <button id="header-request-btn-mobile" class="header-btn highlight-btn" title="Request Feature" aria-label="Request Feature">
-      <span class="btn-icon">💡</span><span class="btn-text">Request Feature ($5)</span>
-    </button>
-    <a id="header-discord-btn-mobile" href="https://discord.gg/9pdg6QtWVW" target="_blank" class="header-btn discord-btn" title="Join Discord" aria-label="Join Discord">
+<a id="header-discord-btn-mobile" href="https://discord.gg/9pdg6QtWVW" target="_blank" class="header-btn discord-btn" title="Join Discord" aria-label="Join Discord">
       <span class="btn-icon">💬</span><span class="btn-text">Join Community</span>
     </a>
   </div>
@@ -629,33 +622,6 @@
     </div>
   </div>
 
-  <!-- Feature Request Modal -->
-  <div id="feature-request-modal" class="modal hidden">
-    <div class="modal-backdrop" id="feature-modal-backdrop"></div>
-    <div class="modal-content feature-modal-content">
-      <button class="modal-close" id="feature-modal-close-btn">&times;</button>
-      <div class="modal-body">
-        <h2 class="modal-title" style="margin-bottom: 8px;">Request a Feature</h2>
-        <p class="modal-subtitle" style="margin-bottom: 24px;">Have an idea to make ParkFinder better? Support the project with $5 and tell me what to build next!</p>
-        
-        <div class="feature-request-form">
-          <div class="guarantee-box">
-            <span class="guarantee-icon">🛡️</span>
-            <p><strong>30-Day Guarantee:</strong> If your feature request is not delivered within 30 days, your money will be fully refunded.</p>
-          </div>
-          
-          <div class="venmo-box">
-            <img id="venmo-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https%3A%2F%2Faccount.venmo.com%2F%3Ftxn%3Dpay%26audience%3Dprivate%26recipients%3DNikunj-Agrawal%26amount%3D5.00%26note%3DFeature%20Request" alt="Venmo QR" class="venmo-qr">
-            <div class="venmo-text">
-              <strong>Scan or Click to Pay $5</strong>
-              <span>Be sure to include your feature request in the Venmo note so I know what to build!</span>
-              <a id="venmo-link-btn" href="https://account.venmo.com/?txn=pay&audience=private&recipients=Nikunj-Agrawal&amount=5.00&note=Feature%20Request" target="_blank" class="venmo-link-btn">Open Venmo @Nikunj-Agrawal</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="data/data-hubs.js"></script>
   <script src="data/parks-summary.js"></script>

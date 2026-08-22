@@ -1367,8 +1367,7 @@ function setSort(mode) {
 // ============ Modal Accessibility Tree Toggle ============
 function updateAriaHidden() {
   const isParkModalOpen = modal && !modal.classList.contains('hidden');
-  const isFeatureModalOpen = featureModal && !featureModal.classList.contains('hidden');
-  const anyOpen = isParkModalOpen || isFeatureModalOpen;
+  const anyOpen = isParkModalOpen;
   
   const wrappers = document.querySelectorAll('header, .search-container, #month-bar, main, footer');
   wrappers.forEach(el => {
@@ -1828,50 +1827,6 @@ allShareBtns.forEach(btn => {
   });
 });
 
-// ============ Feature Request UX ============
-const featureRequestBtn = document.getElementById('header-request-btn');
-const featureRequestBtnMobile = document.getElementById('header-request-btn-mobile');
-const featureModal = document.getElementById('feature-request-modal');
-const featureModalCloseBtn = document.getElementById('feature-modal-close-btn');
-const featureModalBackdrop = document.getElementById('feature-modal-backdrop');
-
-function openFeatureModal() {
-  if (!featureModal) return;
-  featureModal.classList.remove('hidden');
-  document.body.classList.add('modal-open');
-  updateAriaHidden();
-  if (typeof gtag !== 'undefined') gtag('event', 'feature_request_opened', { page: window.location.pathname });
-}
-
-function closeFeatureModal() {
-  if (!featureModal) return;
-  featureModal.classList.add('hidden');
-  document.body.classList.remove('modal-open');
-  updateAriaHidden();
-}
-
-const allRequestBtns = [featureRequestBtn, featureRequestBtnMobile].filter(Boolean);
-allRequestBtns.forEach(btn => {
-  btn.addEventListener('click', openFeatureModal);
-});
-
-if (featureModalCloseBtn) {
-  featureModalCloseBtn.addEventListener('click', closeFeatureModal);
-}
-
-if (featureModal) {
-  featureModal.addEventListener('click', (e) => {
-    if (e.target === featureModal || e.target === featureModalBackdrop) {
-      closeFeatureModal();
-    }
-  });
-}
-
-document.addEventListener('keydown', e => { 
-  if (e.key === 'Escape' && featureModal && !featureModal.classList.contains('hidden')) {
-    closeFeatureModal(); 
-  }
-});
 
 window.toggleSidebarCard = function(id) {
   const card = document.getElementById(id);
