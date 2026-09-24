@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
-import { parks, MONTHS, HUBS } from "../data/parks";
+import { parks, MONTHS } from "../data/parks";
 import { MonthBar } from "../components/MonthBar";
 import { SearchBar } from "../components/SearchBar";
 import { ParkCard } from "../components/ParkCard";
@@ -39,9 +39,7 @@ export function Discovery() {
     setSelectedMonth(initialMonth);
   }, [initialMonth]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedHub, setSelectedHub] = useLocalStorage("homeHub", "SFO");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [tempRange, setTempRange] = useState([30, 100]);
   const [selectedPark, setSelectedPark] = useState<Park | null>(null);
   const [favorites, setFavorites] = useLocalStorage<Set<string>>("favoritedParks", new Set());
   const [visited, setVisited] = useLocalStorage<Set<string>>("visitedParks", new Set());
@@ -52,14 +50,14 @@ export function Discovery() {
   useEffect(() => {
     if (selectedMonth !== null) {
       const monthName = MONTHS[selectedMonth];
-      document.title = `Best National Parks to Visit in ${monthName} | National Park Finder`;
+      document.title = `National park ideas in ${monthName}`;
       
       const metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
-        metaDescription.setAttribute('content', `Discover the best US National Parks to explore in ${monthName}. High-resolution itineraries, weather data, and travel logistics for the perfect ${monthName} getaway.`);
+        metaDescription.setAttribute('content', `Explore US national park ideas in ${monthName}. Editorial month suggestions and source-linked NPS planning guidance.`);
       }
     } else {
-      document.title = "US National Park Finder | Explore by Month";
+      document.title = "National parks by month";
     }
   }, [selectedMonth]);
 
@@ -88,16 +86,8 @@ export function Discovery() {
       );
     }
 
-    // Apply temperature filter
-    filtered = filtered.filter(
-      park =>
-        park.temperature.max >= tempRange[0] &&
-        park.temperature.min <= tempRange[1]
-    );
-
-    // Sort by composite score
-    return filtered.sort((a, b) => b.compositeScore - a.compositeScore);
-  }, [selectedMonth, searchQuery, tempRange, favorites, visited, hidden, activeFilter]);
+    return filtered.sort((a, b) => a.name.localeCompare(b.name));
+  }, [selectedMonth, searchQuery, favorites, visited, hidden, activeFilter]);
 
   const toggleFavorite = (parkName: string) => {
     setFavorites(prev => {
@@ -154,8 +144,6 @@ export function Discovery() {
         <SearchBar
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
-          selectedHub={selectedHub}
-          onHubChange={setSelectedHub}
           onFilterClick={() => setIsFilterOpen(true)}
         />
 
@@ -214,7 +202,6 @@ export function Discovery() {
                 >
                   <ParkCard
                     park={park}
-                    selectedHub={selectedHub}
                     isFavorite={favorites.has(park.name)}
                     isVisited={visited.has(park.name)}
                     onToggleFavorite={toggleFavorite}
@@ -244,14 +231,11 @@ export function Discovery() {
       <FilterPanel
         isOpen={isFilterOpen}
         onClose={() => setIsFilterOpen(false)}
-        tempRange={tempRange}
-        onTempRangeChange={setTempRange}
       />
 
       <ParkDetailModal
         park={selectedPark}
         onClose={() => setSelectedPark(null)}
-        selectedHub={selectedHub}
         isFavorite={selectedPark ? favorites.has(selectedPark.name) : false}
         isVisited={selectedPark ? visited.has(selectedPark.name) : false}
         onToggleFavorite={() => selectedPark && toggleFavorite(selectedPark.name)}

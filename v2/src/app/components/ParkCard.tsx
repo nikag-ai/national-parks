@@ -1,11 +1,10 @@
 import { motion } from "motion/react";
-import { Heart, MapPin, EyeOff, Plane, Star, Compass, Tent, Eye } from "lucide-react";
+import { Heart, MapPin, EyeOff } from "lucide-react";
 import { Button } from "./ui/button";
 import type { Park } from "../data/parks";
 
 interface ParkCardProps {
   park: Park;
-  selectedHub: string;
   isFavorite: boolean;
   isVisited: boolean;
   onToggleFavorite: (parkName: string) => void;
@@ -16,7 +15,6 @@ interface ParkCardProps {
 
 export function ParkCard({
   park,
-  selectedHub,
   isFavorite,
   isVisited,
   onToggleFavorite,
@@ -24,7 +22,6 @@ export function ParkCard({
   onToggleHidden,
   onClick,
 }: ParkCardProps) {
-  const flightTime = park.flightTime[selectedHub as keyof typeof park.flightTime];
 
   return (
     <motion.div
@@ -46,17 +43,10 @@ export function ParkCard({
         {/* Gradient Overlay with Organic Shape */}
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/50 to-transparent" />
         
-        {/* Composite Score Badge */}
-        <div className="absolute top-4 right-4 bg-accent text-accent-foreground px-4 py-2 rounded-full flex items-center gap-2 shadow-lg backdrop-blur-sm">
-          <Star className="w-4 h-4 fill-current" />
-          <span className="font-semibold" style={{ fontFamily: 'var(--font-sans)' }}>
-            {park.compositeScore}
-          </span>
-        </div>
-
         {/* Quick Action Buttons */}
         <div className="absolute top-4 left-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
           <Button
+            aria-label="Toggle favorite"
             size="icon"
             variant="secondary"
             className="rounded-full shadow-lg backdrop-blur-sm"
@@ -68,6 +58,7 @@ export function ParkCard({
             <Heart className={`w-4 h-4 ${isFavorite ? "fill-current text-red-500" : ""}`} />
           </Button>
           <Button
+            aria-label="Toggle visited"
             size="icon"
             variant="secondary"
             className="rounded-full shadow-lg backdrop-blur-sm"
@@ -79,6 +70,7 @@ export function ParkCard({
             <MapPin className={`w-4 h-4 ${isVisited ? "fill-current text-blue-500" : ""}`} />
           </Button>
           <Button
+            aria-label="Hide park"
             size="icon"
             variant="secondary"
             className="rounded-full shadow-lg backdrop-blur-sm"
@@ -111,49 +103,8 @@ export function ParkCard({
           {park.description}
         </p>
 
-        {/* Logistics Row */}
-        <div className="flex items-center gap-4 text-sm">
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Plane className="w-4 h-4" />
-            <span style={{ fontFamily: 'var(--font-sans)' }}>
-              {flightTime}h from {selectedHub}
-            </span>
-          </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Compass className="w-4 h-4" />
-            <span style={{ fontFamily: 'var(--font-sans)' }}>
-              {park.temperature.min}°-{park.temperature.max}°F
-            </span>
-          </div>
-        </div>
-
-        {/* Features Icons */}
-        <div className="flex gap-3 pt-2 border-t border-border">
-          {park.features.stargazing && (
-            <div className="flex items-center gap-1.5 text-primary">
-              <Star className="w-4 h-4" />
-              <span className="text-xs" style={{ fontFamily: 'var(--font-sans)' }}>Stargazing</span>
-            </div>
-          )}
-          {park.features.hiking && (
-            <div className="flex items-center gap-1.5 text-primary">
-              <Compass className="w-4 h-4" />
-              <span className="text-xs" style={{ fontFamily: 'var(--font-sans)' }}>Hiking</span>
-            </div>
-          )}
-          {park.features.camping && (
-            <div className="flex items-center gap-1.5 text-primary">
-              <Tent className="w-4 h-4" />
-              <span className="text-xs" style={{ fontFamily: 'var(--font-sans)' }}>Camping</span>
-            </div>
-          )}
-          {park.features.wildlife && (
-            <div className="flex items-center gap-1.5 text-primary">
-              <Eye className="w-4 h-4" />
-              <span className="text-xs" style={{ fontFamily: 'var(--font-sans)' }}>Wildlife</span>
-            </div>
-          )}
-        </div>
+        <p className="text-sm text-muted-foreground">{park.minDays} day{park.minDays === 1 ? "" : "s"} suggested, excluding travel (editorial)</p>
+        <div className="flex flex-wrap gap-2">{park.activities.map(a => <span key={a} className="text-xs bg-muted rounded-full px-3 py-1">{a}</span>)}</div>
       </div>
     </motion.div>
   );

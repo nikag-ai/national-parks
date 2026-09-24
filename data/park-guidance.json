@@ -1,0 +1,3901 @@
+{
+  "indiana-dunes": {
+    "id": "indiana-dunes",
+    "name": "Indiana Dunes",
+    "state": "IN",
+    "bestMonths": [
+      5,
+      9,
+      10
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/indiana-dunes.jpg",
+    "npsCode": "indu",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Lake Michigan beaches",
+      "Woodland walks",
+      "Birdwatching",
+      "Stargazing"
+    ],
+    "description": "Explore the Lake Michigan shoreline and inland habitats. NPS describes spring wildflowers and birding, summer sunsets, fall colors, and winter skiing as different ways to experience the park.",
+    "planningNote": "Facility hours and available activities vary by season. Check closures and beach safety information before visiting.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/indu/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/indu/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/indu/stargazing.htm"
+      }
+    ],
+    "nightSkyNote": "NPS recommends Kemil Beach for stargazing. Its parking lot and beach are open 24 hours; other beach lots may close at night.",
+    "weatherNote": "Summer is warmer and winter is much colder. Rainfall and lake conditions still matter outside winter.",
+    "photo": {
+      "title": "Central Avenue Beach Indiana Dunes National Park",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/9253EDFB-AAFD-E111-B985CD2747F5C48F.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Central Avenue Beach Indiana Dunes National Park",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 3,
+      "peakMonths": [
+        9,
+        10
+      ],
+      "headline": "Lake Michigan beaches & dune trails",
+      "reason": "Our pick for dune walks outside the hottest part of summer."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "new-river-gorge": {
+    "id": "new-river-gorge",
+    "name": "New River Gorge",
+    "state": "WV",
+    "bestMonths": [
+      5,
+      10
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/new-river-gorge.jpg",
+    "npsCode": "neri",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Canyon Rim overlooks",
+      "Grandview",
+      "Hiking",
+      "Stargazing"
+    ],
+    "description": "Canyon Rim and Grandview offer starting points for exploring the gorge. NPS also lists hiking, rafting, climbing, and cycling options.",
+    "planningNote": "Choose activities to match your time and experience. River trips and longer trails need separate planning from a stop at an overlook.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/neri/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/neri/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/neri/planyourvisit/sunsets-and-night-skies.htm"
+      }
+    ],
+    "nightSkyNote": "NPS recommends the Canyon Rim bridge overlook, Grandview, and other areas. The park is open 24 hours, but some visitor-center parking lots close overnight.",
+    "weatherNote": "Mountain weather can change quickly. Summer can bring warm conditions and rain; storms are possible during a visit.",
+    "photo": {
+      "title": "New River Gorge Bridge",
+      "credit": "Gary Hartley",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7E8DAE-1DD8-B71B-0B9B0DDABB90EA30.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "bridge spanning the river",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        10
+      ],
+      "headline": "A landmark bridge above a forested gorge",
+      "reason": "Spring and fall are our picks for hiking the gorge; river trips have their own seasons."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "mammoth-cave": {
+    "id": "mammoth-cave",
+    "name": "Mammoth Cave",
+    "state": "KY",
+    "bestMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/mammoth-cave.jpg",
+    "npsCode": "maca",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Cave tours",
+      "Surface hiking",
+      "River paddling",
+      "Stargazing"
+    ],
+    "description": "The park includes cave passages, forests, and river valleys. Surface activities include hiking, cycling, and paddling on the Green and Nolin rivers.",
+    "planningNote": "Use the official cave-tour page to compare tickets, tour schedules, physical requirements, and accessibility before choosing a tour.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/maca/planyourvisit/things2do.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/maca/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/maca/planyourvisit/stargazing.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Mammoth Cave is an International Dark Sky Park. NPS offers surface stargazing guidance; check the program calendar and stay in permitted public areas.",
+    "weatherNote": "The cave and surface have different climates. Surface winters can bring ice and snow, while summers are warm and moist.",
+    "photo": {
+      "title": "Gothic Avenue",
+      "credit": "NPS Photo/ Jackie Wheet",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/958C8BC3-9657-7E73-D0697F507A869B69.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "A large stacked stone pillar reaches the flat ceiling containing signatures in a cave passage.",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "headline": "Vast underground passages",
+      "reason": "Cave tours work across seasons; spring and fall also suit above-ground exploring."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "hot-springs": {
+    "id": "hot-springs",
+    "name": "Hot Springs",
+    "state": "AR",
+    "bestMonths": [
+      4,
+      10,
+      11
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/hot-springs.jpg",
+    "npsCode": "hosp",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Bathhouse Row",
+      "Mountain overlooks",
+      "Hiking"
+    ],
+    "description": "Explore historic Bathhouse Row and the trails in the surrounding hills. Thermal-water bathing is offered inside the Buckstaff and Quapaw bathhouses.",
+    "planningNote": "There are no outdoor springs open for soaking. Summer can be hot and humid; campground stays at Gulpha Gorge require reservations.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/hosp/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/hosp/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Summers are hot and humid. Spring and fall can be wet; winter cold still calls for appropriate layers.",
+    "photo": {
+      "title": "Bathhouse Row Evening",
+      "credit": "Mitch Smith",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/C0D8DFDD-F151-C5B0-3004B0088C98BA5A.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Bathhouse Row Evening",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 3,
+      "peakMonths": [
+        4,
+        10
+      ],
+      "headline": "Historic bathhouses & forest walks",
+      "reason": "Our spring and fall pick for combining Bathhouse Row with outdoor walks."
+    },
+    "nightSkyResearch": {
+      "status": "not-listed",
+      "reason": "Not listed: no park-specific NPS stargazing recommendation found; developed urban setting",
+      "sourceUrl": "https://www.nps.gov/hosp/planyourvisit/hours.htm",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "gateway-arch": {
+    "id": "gateway-arch",
+    "name": "Gateway Arch",
+    "state": "MO",
+    "bestMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/gateway-arch.jpg",
+    "npsCode": "jeff",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Arch museum",
+      "Tram ride",
+      "Old Courthouse"
+    ],
+    "description": "The museum, tram ride, and Old Courthouse offer different ways to explore the park and its history.",
+    "planningNote": "Museum entry is free. The tram requires a separate ticket; check ticket availability and accessibility before booking.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/jeff/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/jeff/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "The outdoor grounds have cold winters and warm summers. Indoor activities offer options outside the milder months.",
+    "photo": {
+      "title": "Morning Light at the Gateway Arch",
+      "credit": "NPS Photo/Sue Ford",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/A6BB26F2-E35A-F940-E65C458BC5784713.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Morning Light at the Gateway Arch",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 3,
+      "peakMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "headline": "Ride to the top of the Gateway Arch",
+      "reason": "Indoor experiences work year-round; milder months also suit the riverfront grounds."
+    },
+    "nightSkyResearch": {
+      "status": "not-listed",
+      "reason": "Not listed: urban park; grounds close 11 p.m.; no NPS stargazing recommendation found",
+      "sourceUrl": "https://www.nps.gov/jeff/planyourvisit/hours.htm",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "congaree": {
+    "id": "congaree",
+    "name": "Congaree",
+    "state": "SC",
+    "bestMonths": [
+      5,
+      10,
+      11
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/congaree.jpg",
+    "npsCode": "cong",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Boardwalk walk",
+      "Cedar Creek paddling",
+      "Forest trails"
+    ],
+    "description": "Explore the floodplain forest on the boardwalk and other trails, or plan a paddle along Cedar Creek.",
+    "planningNote": "Check current conditions before visiting this floodplain park. For paddling, arrange a boat and appropriate safety equipment in advance.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/cong/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/cong/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Flooding can develop quickly. Check river and creek levels as well as the weather forecast.",
+    "photo": {
+      "title": "Congaree River",
+      "credit": "NPS",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C862C60-1DD8-B71B-0BB65F7B652BA840.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Congaree River",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        10,
+        11
+      ],
+      "headline": "Boardwalks through old-growth floodplain forest",
+      "reason": "Fall is our pick for forest walks away from summer heat; flooding can change access."
+    },
+    "nightSkyResearch": {
+      "status": "insufficient-evidence",
+      "reason": "Evidence limited: an astronomy event occurred, but no general NPS visitor stargazing guidance found",
+      "sourceUrl": "https://www.nps.gov/cong/learn/management/upload/CONG-Supt-Compendium_Updated-9-18-2025_SIGNED-1.pdf",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "virgin-islands": {
+    "id": "virgin-islands",
+    "name": "Virgin Islands",
+    "state": "VI",
+    "bestMonths": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "minDays": 3,
+    "thumbnail": "assets/images/parks/virgin-islands.jpg",
+    "npsCode": "viis",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Snorkeling",
+      "Hiking",
+      "Boating",
+      "Stargazing"
+    ],
+    "description": "Explore island trails and marine environments through hiking, boating, and snorkeling.",
+    "planningNote": "Review marine hazards and mosquito precautions. Do not touch or disturb marine life, and check conditions before entering the water.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/viis/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/viis/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/viis/planyourvisit/rangerguidedtours.htm"
+      }
+    ],
+    "nightSkyNote": "NPS lists a Cinnamon Bay Beach night-sky program every other Wednesday, November through May. Check the current calendar before planning around it and bring insect protection.",
+    "weatherNote": "Winter is generally drier and windier; summer is wetter with lighter winds. Check hurricane forecasts and winter swells.",
+    "photo": {
+      "title": "Trunk Bay",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/1F0534AF-91EB-443B-41760F790BE42778.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Trunk Bay",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        2,
+        3
+      ],
+      "headline": "Trunk Bay beaches & coral reefs",
+      "reason": "Our dry-season pick for beach time; sea conditions still shape snorkeling plans."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "national-park-of-american-samoa": {
+    "id": "national-park-of-american-samoa",
+    "name": "National Park of American Samoa",
+    "state": "AS",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minDays": 3,
+    "thumbnail": "assets/images/parks/national-park-of-american-samoa.jpg",
+    "npsCode": "npsa",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Rainforest walks",
+      "Mount Alava trail",
+      "Island landscapes"
+    ],
+    "description": "Park lands and waters are on Tutuila, Taʻū, and Ofu. Rainforest trails and coral reefs are among its features.",
+    "planningNote": "Inter-island transport and visitor services are limited. Plan connections in advance, respect village customs, and ask permission where appropriate. June through September is generally drier; rain is possible year-round.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/npsa/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/npsa/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Warm temperatures and humidity persist year-round. June through September is relatively drier, not rain-free.",
+    "photo": {
+      "title": "Back side of Pola Island from Tuafanua Trail",
+      "credit": "NPS Photo / Michael Larson",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C84F643-1DD8-B71B-0BC6F3EA2E1F58AB.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Back side of Pola Island from Tuafanua Trail",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        7,
+        8
+      ],
+      "headline": "Rainforest trails & South Pacific coast",
+      "reason": "The generally drier season is our pick for exploring; tropical rain remains possible."
+    },
+    "nightSkyResearch": {
+      "status": "insufficient-evidence",
+      "reason": "Evidence limited: NPS describes southern skies but not a practical after-dark viewing destination",
+      "sourceUrl": "https://www.nps.gov/npsa/learn/nature/upload/NatHistGuideAS09.pdf",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "hawaii-volcanoes": {
+    "id": "hawaii-volcanoes",
+    "name": "Hawaii Volcanoes",
+    "state": "HI",
+    "bestMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/hawaii-volcanoes.jpg",
+    "npsCode": "havo",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Volcanic landscapes",
+      "Hiking",
+      "Kahuku Unit",
+      "Stargazing"
+    ],
+    "description": "Explore volcanic landscapes and the park's cultural connections. The summit area and Kahuku Unit offer different experiences.",
+    "planningNote": "Eruption viewing depends on current activity and closures. Stay on designated routes: volcanic gases, unstable cliffs, and hidden ground hazards can make closed areas dangerous.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/havo/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/havo/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "NPS includes Hawaiʻi Volcanoes in its night-sky destinations. Check current area access and volcanic conditions before planning an after-dark visit.",
+    "weatherNote": "Elevation strongly affects the weather. The summit may be chilly and rainy at any time, while the coast can be hot and windy.",
+    "photo": {
+      "title": "Kīlauea Iki",
+      "credit": "NPS Photo/J. Wei",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/C5AEDF53-AE4A-F6DB-2FBA7BE158386C0E.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "A cloud-filled volcanic crater at sunrise with a mountain rising behind",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [],
+      "headline": "Volcanic craters & lava landscapes",
+      "reason": "A year-round option for volcanic landscapes; active lava is never guaranteed."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "kobuk-valley": {
+    "id": "kobuk-valley",
+    "name": "Kobuk Valley",
+    "state": "AK",
+    "bestMonths": [
+      7,
+      8
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/kobuk-valley.jpg",
+    "npsCode": "kova",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Great Kobuk Sand Dunes",
+      "Flightseeing",
+      "River travel"
+    ],
+    "description": "Remote dunes and the Kobuk River are central to a visit. Air taxis can help arrange access or an overflight.",
+    "planningNote": "There are no roads, developed trails, or campgrounds in the park. Backcountry visits require wilderness skills and advance transport planning.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/kova/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/kova/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Rain, snow, and freezing temperatures are possible in any month. Summer dates do not remove the need for warm waterproof layers.",
+    "photo": {
+      "title": "Kobuk Sand Dunes",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7A1214-1DD8-B71B-0B00D823BD9BF4CF.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Kobuk Sand Dunes",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        7
+      ],
+      "headline": "Sand dunes above the Arctic Circle",
+      "reason": "Summer is our pick for a remote wilderness trip, with transport and weather buffers."
+    },
+    "nightSkyResearch": {
+      "status": "insufficient-evidence",
+      "reason": "Evidence limited: NPS notes aurora and winter darkness; extreme access and no visitor stargazing guidance",
+      "sourceUrl": "https://www.nps.gov/kova/planyourvisit/weather.htm",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "black-canyon-of-the-gunnison": {
+    "id": "black-canyon-of-the-gunnison",
+    "name": "Black Canyon of the Gunnison",
+    "state": "CO",
+    "bestMonths": [
+      5,
+      6,
+      9,
+      10
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/black-canyon-of-the-gunnison.jpg",
+    "npsCode": "blca",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Canyon viewpoints",
+      "Ranger programs",
+      "Hiking",
+      "Stargazing"
+    ],
+    "description": "Plan a visit around canyon viewpoints, trails, and ranger programs using the park's official maps and activity guide.",
+    "planningNote": "Weather and construction can affect roads. Cell reception is limited, and there is no cellular service inside the canyon; obtain wilderness permit guidance before planning a descent.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/blca/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/blca/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/blca/planyourvisit/astronomy.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Black Canyon is an International Dark Sky Park with astronomy programming. Check the park schedule and road access before an evening visit.",
+    "weatherNote": "Expect large temperature changes and summer afternoon thunderstorms. Winter snow conditions vary from year to year.",
+    "photo": {
+      "title": "Black Canyon near Tomichi Point",
+      "credit": "NPS Photo/Lynch",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C81655F-1DD8-B71B-0B4BCFFDB74EE723.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Black Canyon near Tomichi Point",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        5,
+        9
+      ],
+      "headline": "Sheer cliffs & dramatic rim views",
+      "reason": "Late spring and early fall are our picks for rim exploring; check road access."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "great-sand-dunes": {
+    "id": "great-sand-dunes",
+    "name": "Great Sand Dunes",
+    "state": "CO",
+    "bestMonths": [
+      5,
+      9,
+      10
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/great-sand-dunes.jpg",
+    "npsCode": "grsa",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Dune exploration",
+      "Sand sledding",
+      "Medano Creek",
+      "Stargazing"
+    ],
+    "description": "Explore the dunes on foot or with a suitable sand sled or board. Seasonal Medano Creek conditions can add a different experience.",
+    "planningNote": "Creek flow depends on snowpack and weather, rather than a guaranteed date. Hot sand and lightning need particular attention; check current conditions and camping reservations.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/grsa/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/grsa/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/grsa/planyourvisit/experiencethenight.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Great Sand Dunes is an International Dark Sky Park. The dunes are a night-sky viewing option; plan for cold nights, low moonlight, and safe navigation.",
+    "weatherNote": "Spring can be windy and summer sand can become dangerously hot. Summer mornings and evenings are more suitable for dune exploration.",
+    "photo": {
+      "title": "Dunes and Crestone Peaks at Sunset",
+      "credit": "NPS/Patrick Myers",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/BC4ACB4C-0A6D-0188-E9A6AA1217827461.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Dunes and Crestone Peaks at Sunset",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        5,
+        9
+      ],
+      "headline": "Giant dunes beneath the Sangre de Cristos",
+      "reason": "Our pick for dune walks outside midsummer heat; creek flow is seasonal."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "petrified-forest": {
+    "id": "petrified-forest",
+    "name": "Petrified Forest",
+    "state": "AZ",
+    "bestMonths": [
+      3,
+      4,
+      10,
+      11
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/petrified-forest.jpg",
+    "npsCode": "pefo",
+    "reviewedAt": "2026-09-23",
+    "activities": [
+      "Blue Mesa Trail",
+      "Scenic overlooks",
+      "Petrified logs",
+      "Stargazing"
+    ],
+    "description": "Roadside overlooks and walking trails reveal petrified logs, badlands, mesas, and cultural sites.",
+    "planningNote": "Check park hours and route guidance. After-dark stargazing requires a limited same-day Dark Sky Viewing Permit or an overnight wilderness permit; enter before closing.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/pefo/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/pefo/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/pefo/planyourvisit/darkskyviewpermit.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Petrified Forest is an International Dark Sky Park, but it closes at dusk. After-dark viewing requires a free Dark Sky Viewing Permit, limited to two per day and issued first come, first served, or an overnight wilderness permit.",
+    "weatherNote": "Summer heat and thunderstorms contrast with cold winter conditions and occasional snow. Check the forecast before choosing a route.",
+    "photo": {
+      "title": "Blue Mesa Trail",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C85B554-1DD8-B71B-0BA79402AD7E7711.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Two visitors walk the Blue Mesa Trail between blue, purple, and grey badlands.",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 3,
+      "peakMonths": [
+        4,
+        10
+      ],
+      "headline": "Painted badlands & ancient stone logs",
+      "reason": "Spring and fall are our picks for walking the exposed desert landscape."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "carlsbad-caverns": {
+    "id": "carlsbad-caverns",
+    "name": "Carlsbad Caverns",
+    "state": "NM",
+    "bestMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/carlsbad-caverns.jpg",
+    "npsCode": "cave",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Cavern visit",
+      "Ranger programs",
+      "Bat flight program",
+      "Stargazing"
+    ],
+    "description": "Explore the cavern and check the park's ranger-guided tour and bat-flight program options.",
+    "planningNote": "Timed entry is required for the cavern. The entry-time reservation and park admission are separate; confirm current ticket instructions before arrival.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/cave/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/cave/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/cave/planyourvisit/nightsky.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "NPS offers night-sky programs at Carlsbad Caverns. Check the current program calendar; the cave and surface areas have different access rules.",
+    "weatherNote": "Surface summers are hot. Spring can be windy, early fall can be rainy, and winter can bring ice or snow.",
+    "photo": {
+      "title": "Hall of Giants",
+      "credit": "NPS / Michael Larson",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/29C3C977-AAE6-B7FD-3C107828D704A5CB.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Hall of Giants",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        4,
+        5,
+        9,
+        10
+      ],
+      "headline": "The Big Room's enormous cave formations",
+      "reason": "The cave is a year-round draw; our shoulder-season picks also suit surface trails."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "guadalupe-mountains": {
+    "id": "guadalupe-mountains",
+    "name": "Guadalupe Mountains",
+    "state": "TX",
+    "bestMonths": [
+      10,
+      11,
+      3,
+      4
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/guadalupe-mountains.jpg",
+    "npsCode": "gumo",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Hiking",
+      "Historic sites",
+      "Backpacking",
+      "Stargazing"
+    ],
+    "description": "Trails, historic sites, and backcountry routes offer ways to explore the Guadalupe Mountains.",
+    "planningNote": "Pets are prohibited on most trails. Consult the hiking and safety guidance when selecting a route, and check camping arrangements separately.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/gumo/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/gumo/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/gumo/learn/nature/environmentalfactors.htm"
+      }
+    ],
+    "nightSkyNote": "NPS describes the park’s largely pristine night skies. Plan around a clear, low-moon night and check current campground or permitted-area access.",
+    "weatherNote": "Strong winds occur year-round. Cooler-season temperatures are generally milder, but higher elevations are colder.",
+    "photo": {
+      "title": "El Capitan",
+      "credit": "NPS/Bieri",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C825533-1DD8-B71B-0B6FDF436F604A3C.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "El Capitan",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        4,
+        10
+      ],
+      "headline": "Limestone peaks & McKittrick Canyon",
+      "reason": "Spring and fall are our hiking picks; strong winds can still affect plans."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "theodore-roosevelt": {
+    "id": "theodore-roosevelt",
+    "name": "Theodore Roosevelt",
+    "state": "ND",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/theodore-roosevelt.jpg",
+    "npsCode": "thro",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Wildlife watching",
+      "Hiking",
+      "Scenic drives",
+      "Stargazing"
+    ],
+    "description": "The park has three separate units with trails, wildlife-viewing opportunities, and scenic landscapes.",
+    "planningNote": "Winter snow and ice can close roads. There are no restaurants or hotels inside the park; plan food and lodging in nearby communities or use park camping options.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/thro/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/thro/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/thingstodo/see-the-stars-in-theodore-roosevelt-national-park.htm"
+      }
+    ],
+    "nightSkyNote": "NPS recommends the North and South Units for stargazing, including Peaceful Valley Ranch and Oxbow Overlook. Watch for wildlife and use safe parking areas.",
+    "weatherNote": "Winter snow can close some or all park roads. Verify road status rather than assuming year-round vehicle access.",
+    "photo": {
+      "title": "River Bend Overlook, North Unit",
+      "credit": "NPS Photo / Mark Meyers",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C793AD5-1DD8-B71B-0B4A3C1BFA5B4C83.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "River Bend Overlook, North Unit",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        6,
+        9
+      ],
+      "headline": "Badlands, bison & big-sky country",
+      "reason": "Early summer and September are our picks for combining drives with walks."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "badlands": {
+    "id": "badlands",
+    "name": "Badlands",
+    "state": "SD",
+    "bestMonths": [
+      5,
+      6,
+      9,
+      10
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/badlands.jpg",
+    "npsCode": "badl",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Hiking",
+      "Scenic roads",
+      "Camping",
+      "Stargazing"
+    ],
+    "description": "Explore Badlands landscapes by road and on foot. The park offers both paved and unpaved road experiences.",
+    "planningNote": "Check road conditions and campground availability before setting your route. Campground and cabin reservations are handled separately.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/badl/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/badl/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://home.nps.gov/badl/learn/news/badlands-national-park-achieves-dark-sky-park-certification.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Badlands became an International Dark Sky Park in 2026. NPS offers night-sky programs; check the current schedule and conditions before visiting.",
+    "weatherNote": "Summer heat and sudden severe thunderstorms require preparation. Winters are cold and can be snowy.",
+    "photo": {
+      "title": "Badlands Rugged Peaks",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C82EBFE-1DD8-B71B-0B21072718DB2A95.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Badlands formations are very rugged and often have sharp peaks.",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        5,
+        9
+      ],
+      "headline": "Sculpted rock spires & prairie wildlife",
+      "reason": "Our shoulder-season pick for exploring exposed trails outside peak summer heat."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "wind-cave": {
+    "id": "wind-cave",
+    "name": "Wind Cave",
+    "state": "SD",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/wind-cave.jpg",
+    "npsCode": "wica",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Guided cave tours",
+      "Prairie wildlife",
+      "Hiking",
+      "Stargazing"
+    ],
+    "description": "The cave and the prairie above it offer different experiences, from ranger-led underground visits to surface trails and wildlife watching.",
+    "planningNote": "Cave access is only on a ranger-guided tour. Tickets can sell out, especially in summer, so check reservations before traveling.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/wica/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/wica/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/wica/learn/nature/dark-sky.htm"
+      }
+    ],
+    "nightSkyNote": "NPS offers summer night-sky programs. Check the current calendar; the park is pursuing, but is not listed here as having, Dark Sky certification.",
+    "weatherNote": "Surface summers can be hot with strong thunderstorms. Fall often has warm days and cold nights; winter snow can close roads.",
+    "photo": {
+      "title": "Boxwork in the Elk's Room",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3DDEBDBA-0714-8856-F59E16D2DB6FCB4B.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Boxwork in the Elk's Room",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        6,
+        9
+      ],
+      "headline": "Rare boxwork caves & roaming bison",
+      "reason": "Early summer and September are our picks for pairing a cave tour with prairie time."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "voyageurs": {
+    "id": "voyageurs",
+    "name": "Voyageurs",
+    "state": "MN",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/voyageurs.jpg",
+    "npsCode": "voya",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Boating",
+      "Hiking",
+      "Houseboating",
+      "Stargazing"
+    ],
+    "description": "Lakes, trails, camping, and boat tours offer several ways to explore Voyageurs. Winter activities are also available when conditions allow.",
+    "planningNote": "Navigation hazards, wind, storms, and waves affect lake travel. Check weather, permits, campsite access, and boat arrangements before departure.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/voya/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/voya/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/voya/planyourvisit/stargazing.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Voyageurs is an International Dark Sky Park. NPS identifies Meadwood Road Day Use Area and the Rainy Lake Visitor Center upper parking lot as accessible viewing areas.",
+    "weatherNote": "Summer generally offers milder weather for lake trips. Ice, snow, and seasonal transport determine other types of visits.",
+    "photo": {
+      "title": "Grassy Bay Cliffs",
+      "credit": "Erik Fremstad",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/325E7D4A-919F-7E79-851567904D618FBF.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Grassy Bay Cliffs",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        7,
+        8
+      ],
+      "headline": "Island campsites & interconnected lakes",
+      "reason": "Summer is our pick for a trip centered on boating and island exploration."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "mount-rainier": {
+    "id": "mount-rainier",
+    "name": "Mount Rainier",
+    "state": "WA",
+    "bestMonths": [
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/mount-rainier.jpg",
+    "npsCode": "mora",
+    "reviewedAt": "2026-09-23",
+    "activities": [
+      "Paradise",
+      "Longmire",
+      "Sunrise",
+      "Stargazing"
+    ],
+    "description": "Developed areas including Longmire, Paradise, and Sunrise provide different bases for exploring forests, meadows, and mountain scenery.",
+    "planningNote": "Mount Rainier does not use timed entry in 2026. Summer parking can fill, and some roads and facilities close seasonally; check access for the area you plan to visit.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/mora/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/mora/index.htm"
+      },
+      {
+        "label": "NPS 2026 entry and reservation guidance",
+        "url": "https://home.nps.gov/mora/planyourvisit/fees.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/mora/planyourvisit/rangerprograms.htm"
+      }
+    ],
+    "nightSkyNote": "NPS offers weather-dependent Paradise night-sky programs in season. Check the current ranger schedule and road access before an evening trip.",
+    "weatherNote": "July and August are generally sunniest. Mountain weather changes quickly, and higher-elevation winter conditions can persist into spring.",
+    "photo": {
+      "title": "Mount Rainier from Aurora Lake",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/1FD67031-C1A8-4462-6B815FF24500A576.jpeg",
+      "verifiedAt": "2026-09-22",
+      "alt": "A glaciated mountain framed by forested hillsides reflects in a still mountain lake.",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        8
+      ],
+      "headline": "Glacier views & alpine meadows",
+      "reason": "Late summer is our pick for high-country walks; snowmelt timing varies each year."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "lassen-volcanic": {
+    "id": "lassen-volcanic",
+    "name": "Lassen Volcanic",
+    "state": "CA",
+    "bestMonths": [
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/lassen-volcanic.jpg",
+    "npsCode": "lavo",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Park Highway viewpoints",
+      "Hiking",
+      "Hydrothermal features",
+      "Stargazing"
+    ],
+    "description": "The park highway reaches many viewpoints and trailheads. Hydrothermal landscapes and mountain trails require different preparation.",
+    "planningNote": "Snow covers much of the park for a substantial part of the year. Check road and trail openings, reserve camping, and stay on designated paths in hydrothermal areas.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/lavo/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/lavo/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/lavo/planyourvisit/stargazing.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "NPS recommends stargazing in Lassen Volcanic. Check seasonal road access and nighttime temperatures; the park is not listed as certified in the NPS directory.",
+    "weatherNote": "Winters are snowy, and spring can still bring substantial snow cover. Summer access depends on road and trail opening conditions.",
+    "photo": {
+      "title": "Bumpass Hell",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C873B2E-1DD8-B71B-0B28C044BC4B9DC6.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "A boardwalk passes through a colorful, steaming hydrothermal basin.",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        8
+      ],
+      "headline": "Steaming basins & volcanic peaks",
+      "reason": "Late summer is our pick for mountain roads and trails after seasonal snowmelt."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "redwood": {
+    "id": "redwood",
+    "name": "Redwood",
+    "state": "CA",
+    "bestMonths": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/redwood.jpg",
+    "npsCode": "redw",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Redwood forest walks",
+      "Scenic drives",
+      "Coastal exploration"
+    ],
+    "description": "Redwood National and State Parks protect old-growth forests and coastal habitats through joint management.",
+    "planningNote": "Check the official visitor guide and current trail, road, campground, and fire information before selecting your route.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/redw/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/redw/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Prepare for cool, damp weather and summer fog. The wetter part of the year is generally October through April.",
+    "photo": {
+      "title": "A Redwood Grove",
+      "credit": "NPS / Steve Olson",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/98E40FEC-B73D-6A30-593481BBD8E895D3.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Reddy-brown colored redwoods",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        6,
+        9
+      ],
+      "headline": "Walk beneath the world's tallest trees",
+      "reason": "Our drier-season picks combine forest walks with the coast; fog and rain remain possible."
+    },
+    "nightSkyResearch": {
+      "status": "insufficient-evidence",
+      "reason": "Evidence limited: no park-specific NPS visitor stargazing guidance found",
+      "sourceUrl": "https://www.nps.gov/redw/planyourvisit/index.htm",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "pinnacles": {
+    "id": "pinnacles",
+    "name": "Pinnacles",
+    "state": "CA",
+    "bestMonths": [
+      3,
+      4,
+      10,
+      11
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/pinnacles.jpg",
+    "npsCode": "pinn",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Hiking",
+      "Rock climbing",
+      "Wildflower viewing",
+      "Stargazing"
+    ],
+    "description": "Hiking, climbing, and wildlife watching are among the park's activities. NPS highlights spring wildflowers and cooler fall and winter conditions.",
+    "planningNote": "Summer heat can make hiking dangerous. Check the forecast and current conditions, and plan water and route length carefully.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/pinn/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/pinn/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://home.nps.gov/thingstodo/pinnacles-night-sky-viewing.htm"
+      }
+    ],
+    "nightSkyNote": "NPS recommends night-sky viewing at the east-side Day Use Area, Bacon Ranch, and Peaks View, or west-side Chaparral. Check weather and access.",
+    "weatherNote": "Summers are hot and dry; winters are milder with rain. Day-to-night temperature changes can be substantial in every season.",
+    "photo": {
+      "title": "High Peaks with Condors Above",
+      "credit": "NPS Photo/ Katherine Fielding",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/9CCA8ED3-ABB9-CB69-EF4B32F2ADACEC47.jpeg",
+      "verifiedAt": "2026-09-22",
+      "alt": "A massive rock spire with California condors flying above the peak.",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        4
+      ],
+      "headline": "Rock spires, caves & condor country",
+      "reason": "Spring is our pick for hiking; cave access depends on seasonal closures and conditions."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "kings-canyon": {
+    "id": "kings-canyon",
+    "name": "Kings Canyon",
+    "state": "CA",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/kings-canyon.jpg",
+    "npsCode": "seki",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Grant Grove",
+      "Cedar Grove",
+      "Riverside trails",
+      "Stargazing"
+    ],
+    "description": "Kings Canyon includes Grant Grove and Cedar Grove. These areas offer giant sequoias, canyon scenery, and access to Sierra wilderness.",
+    "planningNote": "Check road and facility status before linking areas in an itinerary. Store food and scented items according to park rules and review river safety guidance.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/seki/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/seki/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/seki/planyourvisit/dark-sky-festival.htm"
+      }
+    ],
+    "nightSkyNote": "NPS hosts night-sky events in Sequoia and Kings Canyon. Check the current festival or ranger schedule and seasonal road access.",
+    "weatherNote": "Elevation changes the season: foothills can be hot while high passes retain snow. Winter brings snow to sequoia groves.",
+    "photo": {
+      "title": "Kings Canyon",
+      "credit": "NPS/Rick Cain",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7A250B-1DD8-B71B-0BCF61A89A8B2970.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Kings Canyon",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        7,
+        8
+      ],
+      "headline": "Deep canyons & giant sequoias",
+      "reason": "Summer is our pick for the canyon and high country when seasonal roads allow."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "sequoia": {
+    "id": "sequoia",
+    "name": "Sequoia",
+    "state": "CA",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/sequoia.jpg",
+    "npsCode": "seki",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Giant Forest",
+      "General Sherman Tree",
+      "Foothills",
+      "Stargazing"
+    ],
+    "description": "Sequoia includes the Foothills, Giant Forest, Lodgepole, and Mineral King areas, with features such as the General Sherman Tree and Moro Rock.",
+    "planningNote": "Check road and facility status before linking areas in an itinerary. Store food and scented items according to park rules and review river safety guidance.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/seki/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/seki/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/seki/planyourvisit/dark-sky-festival.htm"
+      }
+    ],
+    "nightSkyNote": "NPS hosts night-sky events in Sequoia and Kings Canyon. Check the current festival or ranger schedule and seasonal road access.",
+    "weatherNote": "Elevation changes the season: foothills can be hot while high passes retain snow. Winter brings snow to sequoia groves.",
+    "photo": {
+      "title": "General Sherman Tree",
+      "credit": "National Park Service (photographer not listed)",
+      "sourceUrl": "https://www.nps.gov/common/uploads/cropped_image/primary/1BF87320-E487-28A4-8E0F241A813FA447.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "The General Sherman Tree towers above a wooden fence",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        6,
+        9
+      ],
+      "headline": "Giant sequoias & Sierra granite",
+      "reason": "Early summer and September are our picks for grove walks; mountain weather can change access."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "channel-islands": {
+    "id": "channel-islands",
+    "name": "Channel Islands",
+    "state": "CA",
+    "bestMonths": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/channel-islands.jpg",
+    "npsCode": "chis",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Island hikes",
+      "Boat trips",
+      "Mainland visitor center"
+    ],
+    "description": "The park includes five islands and surrounding waters. The Ventura Harbor visitor center offers a mainland introduction.",
+    "planningNote": "Arrange island transportation and any campsite together. Island trips generally need a full day or longer; there are no island stores or restaurants, and drinking-water availability is limited.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/chis/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/chis/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Ocean and weather conditions vary by day and by island. Relatively stable air temperatures do not guarantee calm crossings.",
+    "photo": {
+      "title": "Inspiration Point by Tim Hauf",
+      "credit": "Tim Hauf, timhaufphotography.com",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/8DE774D1-CB22-37F2-D826E3F0A73D303A.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Inspiration Point by Tim Hauf",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        9
+      ],
+      "headline": "Sea cliffs, island hikes & wildlife",
+      "reason": "Late summer and early fall are our picks for island exploring; crossings depend on the sea."
+    },
+    "nightSkyResearch": {
+      "status": "insufficient-evidence",
+      "reason": "Evidence limited: NPS documents skyglow and dark-sky values, but nighttime visitor access needs verification",
+      "sourceUrl": "https://www.nps.gov/chis/learn/news/pr091516.htm",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "capitol-reef": {
+    "id": "capitol-reef",
+    "name": "Capitol Reef",
+    "state": "UT",
+    "bestMonths": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/capitol-reef.jpg",
+    "npsCode": "care",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Fruita",
+      "Waterpocket District",
+      "Cathedral Valley",
+      "Stargazing"
+    ],
+    "description": "Fruita, the Waterpocket District, and Cathedral Valley offer different ways to explore the park.",
+    "planningNote": "Some services are seasonal, and remote districts need additional planning. There is no park lodge or restaurant; check local services and current conditions.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/care/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/care/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/care/learn/nature/night-sky.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Capitol Reef is an International Dark Sky Park. Plan for a clear, low-moon night and check current access before driving to a viewing area.",
+    "weatherNote": "Rain can make narrow canyons dangerous and unpaved roads impassable. Check local conditions before remote drives or canyon hikes.",
+    "photo": {
+      "title": "Gifford House and Pendleton Barn",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C82E3C7-1DD8-B71B-0B4181834EE46AED.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Gifford House and Pendleton Barn",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        4,
+        10
+      ],
+      "headline": "Sandstone cliffs & the orchards of Fruita",
+      "reason": "Spring and fall are our picks for desert walks; harvests depend on the season and crop."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "canyonlands": {
+    "id": "canyonlands",
+    "name": "Canyonlands",
+    "state": "UT",
+    "bestMonths": [
+      4,
+      5,
+      9,
+      10
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/canyonlands.jpg",
+    "npsCode": "cany",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "District viewpoints",
+      "Hiking",
+      "Night-sky viewing",
+      "Stargazing"
+    ],
+    "description": "The park's districts are separated by the Green and Colorado rivers. Hiking, backcountry travel, and stargazing are among its activities.",
+    "planningNote": "There are no roads directly connecting the districts. Choose a district before planning a day's route, and check permits and vehicle requirements for backcountry travel.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/cany/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/cany/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/cany/learn/nature/lightscape.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Canyonlands is an International Dark Sky Park. Bring a red light and check current road conditions, especially for remote viewing areas.",
+    "weatherNote": "Spring and fall are generally milder. Summer can be very hot, winter cold, and day-to-night temperature changes large.",
+    "photo": {
+      "title": "Mesa Arch",
+      "credit": "NPS/Neal Herbert",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7A525D-1DD8-B71B-0B8E59D2EB39F6D0.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "a broad stone arch with rock pinnacles in the distance",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        4,
+        10
+      ],
+      "headline": "Mesa Arch & immense canyon country",
+      "reason": "Spring and fall are our picks for exposed overlooks and trails outside summer heat."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "mesa-verde": {
+    "id": "mesa-verde",
+    "name": "Mesa Verde",
+    "state": "CO",
+    "bestMonths": [
+      5,
+      6,
+      9,
+      10
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/mesa-verde.jpg",
+    "npsCode": "meve",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Cliff dwelling tours",
+      "Cultural sites",
+      "Ranger programs",
+      "Stargazing"
+    ],
+    "description": "Explore the park's cultural sites using the seasonal visitor guides and ranger programs.",
+    "planningNote": "Cliff dwelling tours are seasonal and require advance reservations. Verify the particular tour's dates, physical requirements, and availability before building an itinerary around it.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/meve/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/meve/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/meve/planyourvisit/stargazing.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Mesa Verde is an International Dark Sky Park. Overlooks and some park-road pullouts remain accessible at night; ancestral sites, trails, and backcountry close after dark.",
+    "weatherNote": "Spring snow can continue into May and fall snow can arrive in October. Summer afternoons can bring thunderstorms.",
+    "photo": {
+      "title": "Cliff Palace",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7C0089-1DD8-B71B-0BC397BA671C0616.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Cliff Palace",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        5,
+        9
+      ],
+      "headline": "Cliff dwellings & ancestral history",
+      "reason": "Our shoulder-season picks pair mesa exploring with tours when their schedules allow."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "denali": {
+    "id": "denali",
+    "name": "Denali",
+    "state": "AK",
+    "bestMonths": [
+      6,
+      7,
+      8
+    ],
+    "minDays": 3,
+    "thumbnail": "assets/images/parks/denali.jpg",
+    "npsCode": "dena",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Park bus trips",
+      "Savage River",
+      "Ranger programs",
+      "Stargazing"
+    ],
+    "description": "Denali has a single park road, and most summer sightseeing beyond its entrance area is by tour or transit bus.",
+    "planningNote": "Private vehicles can use only a limited portion of the road in summer. Check current road access and bus destinations, which may change, before booking.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/dena/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/dena/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/dena/learn/nature/aurora.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "NPS lists Denali for night-sky viewing, including occasional aurora. Darkness and clear skies matter, and summer twilight can limit star viewing.",
+    "weatherNote": "Summer is often cool and wet, and snow is possible in any month. Winter conditions can start in September.",
+    "photo": {
+      "title": "Mountains and Reflection Pond",
+      "credit": "NPS Photo / Nathan Kostegian",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C83C9C7-1DD8-B71B-0B9B669ED961F97E.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "snowy mountains reflected in a pond",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        7,
+        8
+      ],
+      "headline": "Alaska Range wilderness & wildlife",
+      "reason": "Summer is our pick for a first visit; bus access and mountain visibility vary."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "glacier-bay": {
+    "id": "glacier-bay",
+    "name": "Glacier Bay",
+    "state": "AK",
+    "bestMonths": [
+      6,
+      7,
+      8
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/glacier-bay.jpg",
+    "npsCode": "glba",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Bartlett Cove trails",
+      "Boat exploration",
+      "Visitor center"
+    ],
+    "description": "Explore developed trails near Bartlett Cove or plan a boat-based visit to Glacier Bay.",
+    "planningNote": "A cruise-ship visit, independent stay, and private-boat trip have different logistics. Check seasonal services, transport, and permit requirements for your type of visit.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/glba/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/glba/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Summer can be cool and rainy. Prepare for wet weather rather than treating summer as a dry season.",
+    "photo": {
+      "title": "Cruising Glacier Bay",
+      "credit": "NPS / T. VandenBerg",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C791618-1DD8-B71B-0B113FBF2EC1D614.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Cruising Glacier Bay",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        6,
+        7
+      ],
+      "headline": "Tidewater glaciers & wild coastlines",
+      "reason": "Summer is our pick for boat-based glacier viewing; fog and rain can still limit views."
+    },
+    "nightSkyResearch": {
+      "status": "not-listed",
+      "reason": "Not listed: NPS says clear aurora nights are exceedingly rare in this rainy ecosystem",
+      "sourceUrl": "https://www.nps.gov/glba/learn/nature/aurora-borealis.htm",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "katmai": {
+    "id": "katmai",
+    "name": "Katmai",
+    "state": "AK",
+    "bestMonths": [
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/katmai.jpg",
+    "npsCode": "katm",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Bear watching",
+      "Brooks Camp",
+      "Valley of Ten Thousand Smokes"
+    ],
+    "description": "Brown bears and volcanic landscapes are central features of Katmai. Brooks Camp is one place to begin planning a visit.",
+    "planningNote": "Services are limited. Arrange transport with an authorized provider and read bear-safety guidance; wildlife sightings and viewing conditions cannot be guaranteed.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/katm/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/katm/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Cool, wet weather is common from spring through fall. Be ready for changing weather systems and transport disruption.",
+    "photo": {
+      "title": "Bear catching jumping salmon",
+      "credit": "NPS/David Jacob",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7A32DB-1DD8-B71B-0B37F66E9D0832AF.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Bear standing at the edge of a waterfall while a salmon is leaping towards it.",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        7,
+        9
+      ],
+      "headline": "Brown bears at Brooks Falls",
+      "reason": "July and September are our bear-viewing picks around Brooks; sightings and locations vary."
+    },
+    "nightSkyResearch": {
+      "status": "not-listed",
+      "reason": "Not listed: NPS explicitly says sunlight, clouds, and access make it unsuitable as a dark-sky destination",
+      "sourceUrl": "https://home.nps.gov/katm/blogs/change-in-the-eternal-night-sky-view.htm",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "lake-clark": {
+    "id": "lake-clark",
+    "name": "Lake Clark",
+    "state": "AK",
+    "bestMonths": [
+      6,
+      7,
+      8
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/lake-clark.jpg",
+    "npsCode": "lacl",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Bear watching",
+      "Twin Lakes",
+      "Backpacking",
+      "Stargazing"
+    ],
+    "description": "Lake Clark offers remote wilderness experiences, including coastal bear viewing and the Twin Lakes area.",
+    "planningNote": "The park is not connected to the road system; access is primarily by small aircraft. Plan with transport providers and prepare for weather, terrain, and wildlife hazards.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/lacl/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/lacl/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/lacl/learn/nature/environmentalfactors.htm"
+      }
+    ],
+    "nightSkyNote": "NPS says winter offers the best stargazing because summer nights are short. Winter access is remote and weather-dependent; do not plan a summer trip for dark skies alone.",
+    "weatherNote": "The coast is wetter and milder than the interior. Frost and snow are possible year-round, and lake ice affects aircraft access.",
+    "photo": {
+      "title": "Lake Clark",
+      "credit": "NPS Photo / James Kramer",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7A9F9E-1DD8-B71B-0B6CEC8EF3F377DA.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Lake Clark",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        7,
+        8
+      ],
+      "headline": "Turquoise lakes & volcanic wilderness",
+      "reason": "Summer is our pick for a remote trip; flight and weather buffers are essential."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "gates-of-the-arctic": {
+    "id": "gates-of-the-arctic",
+    "name": "Gates of the Arctic",
+    "state": "AK",
+    "bestMonths": [
+      7,
+      8
+    ],
+    "minDays": 5,
+    "thumbnail": "assets/images/parks/gates-of-the-arctic.jpg",
+    "npsCode": "gaar",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Flightseeing",
+      "Backpacking",
+      "River trips"
+    ],
+    "description": "This is a remote wilderness park without roads, established trails, or developed campsites. Outfitters and air taxis offer alternatives to an independent expedition.",
+    "planningNote": "Backcountry visitors need strong wilderness skills and must be self-sufficient. Transport delays are possible; NPS advises carrying extra food and having flexible plans.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/gaar/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/gaar/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Winters are exceptionally cold and summers relatively mild. Winds and rapidly changing conditions still require expedition preparation.",
+    "photo": {
+      "title": "Alatna River",
+      "credit": "NPS Photo / Sean Tevebaugh",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7A8B6B-1DD8-B71B-0B8B89FE0C6B6F4F.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Alatna River",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        7
+      ],
+      "headline": "Untamed Brooks Range wilderness",
+      "reason": "Summer is our pick for experienced backcountry travelers; this is not a road-trip stop."
+    },
+    "nightSkyResearch": {
+      "status": "insufficient-evidence",
+      "reason": "Evidence limited: NPS notes winter aurora but warns of extreme cold and travel hazards",
+      "sourceUrl": "https://home.nps.gov/gaar/planyourvisit/weather.htm",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "zion": {
+    "id": "zion",
+    "name": "Zion",
+    "state": "UT",
+    "bestMonths": [
+      3,
+      4,
+      5,
+      9,
+      10
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/zion.jpg",
+    "npsCode": "zion",
+    "reviewedAt": "2026-09-23",
+    "activities": [
+      "Hiking",
+      "Zion Canyon shuttle",
+      "Ranger programs",
+      "Stargazing"
+    ],
+    "description": "Explore Zion Canyon and other park areas by using the official hiking and transport guides.",
+    "planningNote": "General park entry and shuttle rides do not require reservations as of this review. Angels Landing and some wilderness activities require permits; check river conditions and closures before considering the Narrows.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/zion/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/zion/index.htm"
+      },
+      {
+        "label": "NPS Zion shuttle and entrance guidance",
+        "url": "https://www.nps.gov/zion/planyourvisit/zion-canyon-shuttle-system.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/zion/learn/nature/nightskies.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Zion is an International Dark Sky Park. Check seasonal shuttle and road access when choosing where to view the night sky.",
+    "weatherNote": "Summer heat can be intense. Summer monsoon storms increase flash-flood risk, which matters especially for canyon and river routes.",
+    "photo": {
+      "title": "The Watchman",
+      "credit": "NPS Photo / Shane Carte",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/68BFC1AC-BF96-629F-89D261D78F181C64.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "The Watchman",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 5,
+      "peakMonths": [
+        4,
+        10
+      ],
+      "headline": "Towering canyon walls & riverside trails",
+      "reason": "Spring and fall are our picks outside peak summer heat; river hikes depend on conditions."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "grand-canyon": {
+    "id": "grand-canyon",
+    "name": "Grand Canyon",
+    "state": "AZ",
+    "bestMonths": [
+      3,
+      4,
+      5,
+      9,
+      10,
+      11
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/grand-canyon.jpg",
+    "npsCode": "grca",
+    "reviewedAt": "2026-09-23",
+    "activities": [
+      "South Rim viewpoints",
+      "Desert View",
+      "Ranger programs",
+      "Stargazing"
+    ],
+    "description": "The South Rim offers viewpoints, a historic village, shuttle routes, and access to hiking. North Rim facilities and access must be checked separately.",
+    "planningNote": "Do not treat the rims as interchangeable stops. Check current roads, services, weather, and hiking guidance for the specific rim and trail you plan to visit.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/grca/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/grca/index.htm"
+      },
+      {
+        "label": "NPS Grand Canyon night skies and stargazing",
+        "url": "https://www.nps.gov/grca/learn/nature/night-skies.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Grand Canyon is an International Dark Sky Park. NPS suggests Mather Point and Desert View; check the moon phase, weather, and current access.",
+    "weatherNote": "The canyon interior can be much hotter than the rims. Winter snow and summer heat affect different elevations differently.",
+    "photo": {
+      "title": "Sunset from Mather Point",
+      "credit": "NPS/M. Quinn",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/6C7F2214-CE4D-E366-A283BE0F4E65F83B.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Sunset from Mather Point",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 5,
+      "peakMonths": [
+        4,
+        10
+      ],
+      "headline": "Vast canyon panoramas from the rim",
+      "reason": "Spring and fall are our picks for the South Rim; the inner canyon can be much hotter."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "arches": {
+    "id": "arches",
+    "name": "Arches",
+    "state": "UT",
+    "bestMonths": [
+      3,
+      4,
+      5,
+      9,
+      10
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/arches.jpg",
+    "npsCode": "arch",
+    "reviewedAt": "2026-09-23",
+    "activities": [
+      "Arch viewpoints",
+      "Hiking",
+      "Night-sky viewing",
+      "Stargazing"
+    ],
+    "description": "Explore natural stone arches and other rock formations from viewpoints and trails. The park also provides night-sky activities.",
+    "planningNote": "For 2026, timed-entry reservations are not required for general entry, but congestion can trigger vehicle diversions. Fiery Furnace and campground reservations remain separate requirements.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/arch/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/arch/index.htm"
+      },
+      {
+        "label": "NPS Arches 2026 entrance reservations",
+        "url": "https://www.nps.gov/arch/learn/news/news02182026.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/arch/learn/nature/lightscape.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Arches is an International Dark Sky Park. Check the moon phase and use designated pullouts; avoid driving or walking into fragile areas after dark.",
+    "weatherNote": "Spring and fall are generally milder. Summer heat, cold winters, and large daily temperature changes affect outdoor plans.",
+    "photo": {
+      "title": "Delicate Arch",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7A0B2B-1DD8-B71B-0BE0E26B0740AA6B.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "a stone arch",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        4,
+        10
+      ],
+      "headline": "Delicate Arch & sculpted sandstone",
+      "reason": "Spring and fall are our picks for exposed trails outside the hottest months."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "yosemite": {
+    "id": "yosemite",
+    "name": "Yosemite",
+    "state": "CA",
+    "bestMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "minDays": 3,
+    "thumbnail": "assets/images/parks/yosemite.jpg",
+    "npsCode": "yose",
+    "reviewedAt": "2026-09-23",
+    "activities": [
+      "Valley viewpoints",
+      "Waterfalls",
+      "Hiking",
+      "Stargazing"
+    ],
+    "description": "Yosemite includes waterfalls, granite valleys, meadows, giant sequoias, and high-country wilderness.",
+    "planningNote": "No reservation is required for park entry in 2026. Camping, lodging, wilderness trips, and Half Dome have separate arrangements. Check roads and current conditions before traveling.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist focused on the valley and general sightseeing. Spring suggestions do not imply that Tioga Road, Glacier Point Road, high-country trails, or Half Dome are open. Trip length excludes travel.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/yose/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS Half Dome permits",
+        "url": "https://www.nps.gov/yose/planyourvisit/hdpermits.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/yose/index.htm"
+      },
+      {
+        "label": "NPS Yosemite permits and reservations",
+        "url": "https://www.nps.gov/yose/planyourvisit/permitsandreservations.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/yose/planyourvisit/stargazing.htm"
+      }
+    ],
+    "nightSkyNote": "NPS recommends Tunnel View and El Capitan Meadow in Yosemite Valley. The park is open 24 hours, but high-country roads are seasonal and camping requires a reservation or permit.",
+    "permitNote": "For Half Dome, the preseason lottery is March 1–31. The daily lottery is held two days before the hiking date. These are separate from general park entry; verify the current schedule and cable status before applying.",
+    "weatherNote": "Much of the park can remain snow-covered from late fall through spring. Valley conditions do not indicate that high-country roads are open.",
+    "photo": {
+      "title": "Yosemite Valley from Tunnel View",
+      "credit": "NPS / Cindy Jacoby",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C84CAEC-1DD8-B71B-0BA0EEA50BB40F8B.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Glaciated valley with vertical cliffs.",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 5,
+      "peakMonths": [
+        5,
+        6
+      ],
+      "headline": "Tunnel View, granite cliffs & waterfalls",
+      "reason": "Spring favors valley waterfalls; September favors hiking, with lower waterfall flows."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "rocky-mountain": {
+    "id": "rocky-mountain",
+    "name": "Rocky Mountain",
+    "state": "CO",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/rocky-mountain.jpg",
+    "npsCode": "romo",
+    "reviewedAt": "2026-09-23",
+    "activities": [
+      "Scenic drives",
+      "Hiking",
+      "Wildlife viewing",
+      "Stargazing"
+    ],
+    "description": "Rocky Mountain offers hiking, scenic drives, wildlife viewing, and ranger programs across a wide elevation range.",
+    "planningNote": "In 2026, timed entry applies during certain dates and hours, with a separate reservation option for Bear Lake Road. Check the current windows and which option covers your destination.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/romo/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/romo/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/romo/planyourvisit/astronomy_programs.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      },
+      {
+        "label": "NPS 2026 entry and reservation guidance",
+        "url": "https://home.nps.gov/romo/planyourvisit/timed-entry-permit-system.htm"
+      }
+    ],
+    "nightSkyNote": "NPS offers astronomy programs in Rocky Mountain. Check the current calendar, nighttime road access, and mountain weather.",
+    "weatherNote": "Elevation produces rapid weather changes. Check a forecast for the specific destination, especially for high-elevation routes.",
+    "photo": {
+      "title": "Cub Lake in fall",
+      "credit": "NPS/J.Marino",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/8824D3C2-F84D-A622-C2DE87AC4B9A8BC9.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Cub Lake in fall",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        7,
+        9
+      ],
+      "headline": "Alpine lakes, high roads & elk country",
+      "reason": "Summer suits alpine exploring; September adds fall interest, with early snow possible."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "olympic": {
+    "id": "olympic",
+    "name": "Olympic",
+    "state": "WA",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/olympic.jpg",
+    "npsCode": "olym",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Rainforest walks",
+      "Coastal exploration",
+      "Mountain scenery",
+      "Stargazing"
+    ],
+    "description": "Olympic combines coastal, forest, and mountain ecosystems. Different destinations offer very different experiences.",
+    "planningNote": "No road crosses the park, so allow time to travel around it. Summer is busy; check roads, accommodation, and wilderness-camping arrangements in advance.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/olym/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/olym/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/olym/planyourvisit/nightsky.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "NPS offers night-sky programs in Olympic. Check the current program calendar, cloud cover, and access to the specific viewing area.",
+    "weatherNote": "July through September is generally drier. Mountains, coast, and lowland forests can have different weather on the same day.",
+    "photo": {
+      "title": "Olympic Forest",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7B1A8C-1DD8-B71B-0B15D930BD8214F5.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Large trees and ferns",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        7,
+        8
+      ],
+      "headline": "Rainforest, wild beaches & mountain views",
+      "reason": "Summer is our pick for combining coast, forest and mountains; check tides and access."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "yellowstone": {
+    "id": "yellowstone",
+    "name": "Yellowstone",
+    "state": "ID / MT / WY",
+    "bestMonths": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "minDays": 3,
+    "thumbnail": "assets/images/parks/yellowstone.jpg",
+    "npsCode": "yell",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Geyser basins",
+      "Wildlife viewing",
+      "Scenic drives",
+      "Stargazing"
+    ],
+    "description": "Explore thermal areas, wildlife habitats, and the park's developed visitor areas using its trip-planning resources.",
+    "planningNote": "Off-season visits can mean reduced services and closed roads. Check current road access, stay on thermal-area boardwalks, and follow wildlife-distance and food-storage guidance.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/yell/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/yell/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/yell/planyourvisit/photography.htm"
+      }
+    ],
+    "nightSkyNote": "NPS highlights Yellowstone night skies and hot springs. Stay on boardwalks in thermal areas and follow wildlife safety guidance after dark.",
+    "weatherNote": "Snow is possible in every month. Even summer visits need warm clothing and rain protection.",
+    "photo": {
+      "title": "Grand Prismatic Spring from the overlook",
+      "credit": "NPS / Diane Renkin",
+      "sourceUrl": "https://www.nps.gov/common/uploads/cropped_image/primary/050CD4A5-9C93-3896-6EC74FCD3F6FBB08.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Grand Prismatic Spring, a blue pool surrounded by orange thermal mats, seen from the overlook",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 5,
+      "peakMonths": [
+        6,
+        9
+      ],
+      "headline": "Grand Prismatic, geysers & wildlife",
+      "reason": "June and September are our picks for combining thermal basins and wildlife drives."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "glacier": {
+    "id": "glacier",
+    "name": "Glacier",
+    "state": "MT",
+    "bestMonths": [
+      7,
+      8,
+      9
+    ],
+    "minDays": 3,
+    "thumbnail": "assets/images/parks/glacier.jpg",
+    "npsCode": "glac",
+    "reviewedAt": "2026-09-23",
+    "activities": [
+      "Going-to-the-Sun Road",
+      "Hiking",
+      "Ranger programs",
+      "Stargazing"
+    ],
+    "description": "Glacier offers mountain-road scenery, hiking, boating, and ranger-led activities across several park areas.",
+    "planningNote": "In 2026, park entry does not require a vehicle reservation, but Logan Pass uses ticketed shuttles and time-limited parking. Check road, trail, shuttle, and campground status for your dates.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/glac/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/glac/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/glac/learn/nature/night-sky.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      },
+      {
+        "label": "NPS 2026 entry and reservation guidance",
+        "url": "https://www.nps.gov/glac/planyourvisit/vehicle-reservations2026.htm"
+      }
+    ],
+    "nightSkyNote": "Glacier is an International Dark Sky Park. Check the astronomy program schedule and nighttime road access; mountain weather changes quickly.",
+    "weatherNote": "Summer can bring warm days, but conditions are highly variable. Winter brings substantial snow and cold.",
+    "photo": {
+      "title": "East Side Sunset",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/C1C49B92-9BE9-6A08-F2C851A2A4ACEC8D.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Jagged peaks rise out of a forested valley and an empty road curves off into the distance.",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 5,
+      "peakMonths": [
+        7,
+        8
+      ],
+      "headline": "Alpine lakes & Going-to-the-Sun Road",
+      "reason": "Midsummer is our pick for the alpine road and trails; opening dates depend on snow."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "death-valley": {
+    "id": "death-valley",
+    "name": "Death Valley",
+    "state": "CA / NV",
+    "bestMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/death-valley.jpg",
+    "npsCode": "deva",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Scenic drives",
+      "Camping",
+      "Ranger guidance",
+      "Stargazing"
+    ],
+    "description": "Use the park's visitor guide to select landscapes, roads, and activities suited to your trip.",
+    "planningNote": "Summer heat requires special preparation. Road closures can change access; check the official summer guide and current road information before setting out.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/deva/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/deva/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/deva/night-exploration.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Death Valley is an International Dark Sky Park. NPS suggests sites including Mesquite Flat Sand Dunes and Badwater for night exploration; bring water and check conditions.",
+    "weatherNote": "Valley heat can become extreme by May. Late fall, winter, and spring offer different alternatives to summer heat; check the specific forecast.",
+    "photo": {
+      "title": "Sunset from Zabriskie Point",
+      "credit": "Ronald Gaddis",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/010A933C-95B1-CBCD-D6D64D47D5B81E76.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Sunset from Zabriskie Point",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        2,
+        3
+      ],
+      "headline": "Salt flats, dunes & colorful badlands",
+      "reason": "Cooler months are our picks for exploring exposed desert terrain; bloom years vary."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "acadia": {
+    "id": "acadia",
+    "name": "Acadia",
+    "state": "ME",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/acadia.jpg",
+    "npsCode": "acad",
+    "reviewedAt": "2026-09-23",
+    "activities": [
+      "Hiking",
+      "Biking",
+      "Ranger programs",
+      "Stargazing"
+    ],
+    "description": "Acadia offers hiking, biking, water activities, and ranger programs across several destinations.",
+    "planningNote": "Cadillac Summit Road requires a separate vehicle reservation from May 20 through October 25, 2026; other park areas do not require a vehicle reservation. Park admission is separate.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/acad/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/acad/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/acad/planyourvisit/stargazing.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      },
+      {
+        "label": "NPS 2026 entry and reservation guidance",
+        "url": "https://www.nps.gov/acad/planyourvisit/vehicle_reservations.htm"
+      }
+    ],
+    "nightSkyNote": "NPS recommends Seawall, Jordan Pond, Ocean Path, and Sand Beach. Cadillac Summit vehicle access has reservation and nighttime road restrictions; check the current rules before going.",
+    "weatherNote": "Summer and fall conditions vary widely. Winter is snowy, and rain or cold weather can affect shoulder-season visits.",
+    "photo": {
+      "title": "Sand Beach and Beehive from the Great Head Trail",
+      "credit": "Photo courtesy Emma Forthofer, Friends of Acadia",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/D583EB46-F042-9F2A-FF92F9226DDB037D.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Landscape photo of a wide ocean cove with a sand beach with densely wooded mountains and ridges in t",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        10
+      ],
+      "headline": "Granite coast, Cadillac Mountain & forest",
+      "reason": "Summer suits coastal exploring; October is our pick for foliage, with variable timing."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "joshua-tree": {
+    "id": "joshua-tree",
+    "name": "Joshua Tree",
+    "state": "CA",
+    "bestMonths": [
+      10,
+      11,
+      2,
+      3,
+      4,
+      5
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/joshua-tree.jpg",
+    "npsCode": "jotr",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Nature walks",
+      "Night-sky viewing",
+      "Rock formations",
+      "Stargazing"
+    ],
+    "description": "Explore desert landscapes, rock formations, and destinations such as Skull Rock, Keys View, and Cottonwood Spring.",
+    "planningNote": "Summer is extremely hot, and winter can be cold. There are no grocery stores, restaurants, or lodging inside the park; busy-season weekends and holidays can be congested.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/jotr/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/jotr/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/jotr/planyourvisit/stargazing.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Joshua Tree is an International Dark Sky Park. NPS recommends choosing a safe viewing area away from headlights and checking the moon phase.",
+    "weatherNote": "Spring and fall are generally more comfortable for outdoor activity. Summer is very hot, and winter nights can freeze.",
+    "photo": {
+      "title": "Quail Springs Area at Sunset",
+      "credit": "NPS / Emily Hassell",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/306D0D93-9CCA-76E1-AD48268F8D7A7E3E.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Quail Springs Area at Sunset",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        3,
+        4,
+        11
+      ],
+      "headline": "Desert boulders & Joshua tree silhouettes",
+      "reason": "Spring and fall are our picks for walking and climbing outside summer heat."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "grand-teton": {
+    "id": "grand-teton",
+    "name": "Grand Teton",
+    "state": "WY",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/grand-teton.jpg",
+    "npsCode": "grte",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Hiking",
+      "Lake paddling",
+      "Wildlife viewing",
+      "Stargazing"
+    ],
+    "description": "Trails, lakes, mountain scenery, and ranger programs offer different ways to explore Grand Teton.",
+    "planningNote": "Check seasonal facilities and road conditions. Review bear-safety guidance and arrange permits before overnight backcountry trips.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/grte/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/grte/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/grte/learn/nature/protecting-night-skies.htm"
+      }
+    ],
+    "nightSkyNote": "NPS describes Grand Teton night skies and stargazing. Check weather, wildlife safety, and access before an after-dark visit.",
+    "weatherNote": "Snow and frost are possible in any month. Summer afternoons can bring thunderstorms; spring and fall can alternate between mild days and snow.",
+    "photo": {
+      "title": "The Teton Range",
+      "credit": "NPS Photo/Tobiason",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/769E01AF-98C8-ECA3-7799030A09A7F685.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "The Teton Range",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        9
+      ],
+      "headline": "Jagged peaks reflected in alpine lakes",
+      "reason": "Summer suits lake and mountain trips; September is our pick for autumn landscapes."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "great-smoky-mountains": {
+    "id": "great-smoky-mountains",
+    "name": "Great Smoky Mountains",
+    "state": "NC / TN",
+    "bestMonths": [
+      4,
+      5,
+      6,
+      9,
+      10
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/great-smoky-mountains.jpg",
+    "npsCode": "grsm",
+    "reviewedAt": "2026-09-23",
+    "activities": [
+      "Cades Cove",
+      "Oconaluftee",
+      "Waterfall walks",
+      "Stargazing"
+    ],
+    "description": "The park spans Tennessee and North Carolina, with areas including Cades Cove, Oconaluftee, and Deep Creek.",
+    "planningNote": "A parking tag is required for vehicles parked longer than 15 minutes, subject to park exceptions. Check the official parking guidance and current area closures before arrival.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/grsm/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/grsm/index.htm"
+      },
+      {
+        "label": "NPS Great Smoky Mountains parking tags",
+        "url": "https://www.nps.gov/grsm/planyourvisit/fees.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://home.nps.gov/grsm/learn/nature/dff509-focuspartner1.htm"
+      }
+    ],
+    "nightSkyNote": "NPS describes the park as the region’s best night-sky viewing area. The park is open 24 hours, but secondary roads and facilities may close seasonally.",
+    "weatherNote": "Elevation strongly affects local weather. A clear, warm valley does not ensure similar conditions on a mountain route.",
+    "photo": {
+      "title": "\"Smoke\" Rising From the Mountains",
+      "credit": "Kristina Plaas",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C80EC37-1DD8-B71B-0B87F63E8B030D15.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "\"Smoke\" Rising From the Mountains",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        5,
+        10
+      ],
+      "headline": "Layered mountain ridges & forest trails",
+      "reason": "Spring flowers and fall color make May and October our picks; elevation shifts timing."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "shenandoah": {
+    "id": "shenandoah",
+    "name": "Shenandoah",
+    "state": "VA",
+    "bestMonths": [
+      5,
+      6,
+      9,
+      10
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/shenandoah.jpg",
+    "npsCode": "shen",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Skyline Drive",
+      "Hiking",
+      "Night-sky viewing",
+      "Stargazing"
+    ],
+    "description": "Skyline Drive, hiking, wildlife viewing, and ranger programs are among the ways to experience Shenandoah.",
+    "planningNote": "Select trails and stops using the official activity guide. Check current access, weather, and any activity-specific permits before your visit.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/shen/planyourvisit/things2do.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/shen/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/shen/learn/nature/nightsky.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "NPS highlights Shenandoah night skies and astronomy events. Check the current event schedule and Skyline Drive conditions.",
+    "weatherNote": "Spring can be mild and rainy; summer hot and humid. Fall is cooler, while winter can bring snow and ice.",
+    "photo": {
+      "title": "Driving on Skyline Drive",
+      "credit": "NPS Photo / Neal Lewis",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C80B867-1DD8-B71B-0B328321E4420769.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "A road surrounded by fall foliage turns a curve around a small waterfall.",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        10
+      ],
+      "headline": "Skyline Drive & Blue Ridge overlooks",
+      "reason": "October is our pick for fall landscapes; spring also suits forest walks."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "north-cascades": {
+    "id": "north-cascades",
+    "name": "North Cascades",
+    "state": "WA",
+    "bestMonths": [
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/north-cascades.jpg",
+    "npsCode": "noca",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Forest hiking",
+      "Boating",
+      "Backcountry trips",
+      "Stargazing"
+    ],
+    "description": "The North Cascades park complex offers forest and alpine experiences, boating, and camping.",
+    "planningNote": "Check which part of the park complex your destination is in and how to reach it. Consult the wilderness trip planner and reservation rules before overnight backcountry travel.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/noca/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/noca/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/noca/learn/nature/lightscape.htm"
+      }
+    ],
+    "nightSkyNote": "NPS highlights dark night skies in the North Cascades, including Stehekin Valley. Remote access and seasonal road conditions require advance planning.",
+    "weatherNote": "Mid-summer into September generally offers better access for hiking. Snow can linger into July, and rain and wind remain possible.",
+    "photo": {
+      "title": "Pelton Basin from Cascade Pass",
+      "credit": "NPS Photo/D. Dixon",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7A5CC2-1DD8-B71B-0BC0F615561921EE.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Trees surround the frame with glacier and mountains in the background",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        8
+      ],
+      "headline": "Jagged peaks & alpine wilderness",
+      "reason": "Late summer is our pick for high-country hiking; check trail snow and road access."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "saguaro": {
+    "id": "saguaro",
+    "name": "Saguaro",
+    "state": "AZ",
+    "bestMonths": [
+      11,
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/saguaro.jpg",
+    "npsCode": "sagu",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Scenic loop drives",
+      "Hiking",
+      "Ranger programs",
+      "Stargazing"
+    ],
+    "description": "The Tucson Mountain District lies west of Tucson, and the Rincon Mountain District lies east of the city. Both offer desert landscapes and trails.",
+    "planningNote": "Plan the two districts separately and allow travel time between them. Check safety guidance, weather, and visitor-center conditions before choosing a hike.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/sagu/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/sagu/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/sagu/learn/nature/dark-sky.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "NPS highlights Saguaro night skies. Check the current hours and access rules for the district you plan to visit.",
+    "weatherNote": "Summer heat is intense. Winter is milder, while late-summer rains can cause flash flooding.",
+    "photo": {
+      "title": "Mature saguaro from Hope Camp Trail",
+      "credit": "NPS / T. Wiewel",
+      "sourceUrl": "https://www.nps.gov/sagu/learn/nature/images/saguaro-LA.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "A tall branching saguaro above the cactus-covered desert near Hope Camp Trail",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        3,
+        4
+      ],
+      "headline": "Giant cacti across the Sonoran Desert",
+      "reason": "Cooler months are our picks for desert walks; flowering depends on species and weather."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "everglades": {
+    "id": "everglades",
+    "name": "Everglades",
+    "state": "FL",
+    "bestMonths": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/everglades.jpg",
+    "npsCode": "ever",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Paddling",
+      "Hiking",
+      "Ranger programs",
+      "Stargazing"
+    ],
+    "description": "The park has multiple entrances and destinations, with hiking, paddling, and ranger-led experiences.",
+    "planningNote": "Select your destination before planning transport. Heat and mosquitoes require preparation, and conditions vary with the season.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/ever/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/ever/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/ever/planyourvisit/everglades-night-sky.htm"
+      }
+    ],
+    "nightSkyNote": "NPS recommends independent stargazing and seasonal ranger-led programs, especially in the drier winter season. Bring insect protection and check the program calendar.",
+    "weatherNote": "The dry season generally runs from December into May; wetter conditions prevail during the other part of the year. Prepare for heat and insects.",
+    "photo": {
+      "title": "Cypress Tree Sunrise",
+      "credit": "NPS Photo by Miguel Salas",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/17EC840E-9926-2E09-F2DD47A282915BBB.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Cypress Tree Sunrise",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        1,
+        2,
+        3
+      ],
+      "headline": "Wildlife-rich wetlands & mangrove waterways",
+      "reason": "Dry-season months are our picks for wildlife walks and paddling with less summer heat."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "bryce-canyon": {
+    "id": "bryce-canyon",
+    "name": "Bryce Canyon",
+    "state": "UT",
+    "bestMonths": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/bryce-canyon.jpg",
+    "npsCode": "brca",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Amphitheater viewpoints",
+      "Hiking",
+      "Night-sky viewing",
+      "Stargazing"
+    ],
+    "description": "Bryce Amphitheater and its viewpoints reveal the park's distinctive rock spires, called hoodoos.",
+    "planningNote": "Summer and winter visits require different plans. Check trails, shuttle operation, weather, and current conditions before choosing viewpoints or hikes.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/brca/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/brca/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/brca/planyourvisit/astronomyprograms.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Bryce Canyon is an International Dark Sky Park with astronomy programs. Check the event calendar and weather before making nighttime plans.",
+    "weatherNote": "High elevation brings freezing nights for much of the year. Spring snow and summer thunderstorms can affect trails and travel.",
+    "photo": {
+      "title": "Bryce Amphitheater from Inspiration Point",
+      "credit": "NPS Photo / Peter Densmore",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/61F08520-E14F-18F2-BF5F3D89482631BD.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Bryce Amphitheater from Inspiration Point",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        6,
+        9
+      ],
+      "headline": "A whole amphitheater of orange hoodoos",
+      "reason": "Early summer and September are our picks for rim and canyon walks; nights can be cold."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "great-basin": {
+    "id": "great-basin",
+    "name": "Great Basin",
+    "state": "NV",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/great-basin.jpg",
+    "npsCode": "grba",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Night-sky viewing",
+      "Hiking",
+      "Fishing",
+      "Stargazing"
+    ],
+    "description": "NPS lists stargazing, hiking, and fishing among the park's activities.",
+    "planningNote": "Check weather, road conditions, and current program schedules. Review the official activity guide for reservation requirements before planning a cave visit.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/grba/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/grba/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/grba/planyourvisit/great-basin-stargazing.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Great Basin is an International Dark Sky Park with astronomy programs. Check the park calendar and high-elevation nighttime weather.",
+    "weatherNote": "Valley warmth does not mean high-elevation snow has melted. Summer thunderstorms and cold nights are possible; snow can occur at high elevations year-round.",
+    "photo": {
+      "title": "Wheeler cirque",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/FD29737E-9549-8EF4-90C1076486DE559A.jpeg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Wheeler cirque",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        7,
+        8
+      ],
+      "headline": "Bristlecone pines, peaks & Lehman Caves",
+      "reason": "Summer is our pick for combining alpine walks and caves; high trails depend on snowmelt."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "crater-lake": {
+    "id": "crater-lake",
+    "name": "Crater Lake",
+    "state": "OR",
+    "bestMonths": [
+      7,
+      8,
+      9
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/crater-lake.jpg",
+    "npsCode": "crla",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Lake viewpoints",
+      "Hiking",
+      "Winter recreation",
+      "Stargazing"
+    ],
+    "description": "Lake viewing, hiking, and snow activities offer different experiences. NPS suggests July through October for hiking and winter through spring for snow activities.",
+    "planningNote": "The North Entrance closes seasonally. Roads, visibility, snow, and wildfire smoke can affect a visit; check current conditions and forecasts repeatedly before traveling.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/crla/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/crla/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/crla/planyourvisit/things2do.htm"
+      }
+    ],
+    "nightSkyNote": "NPS lists stargazing among Crater Lake activities. Check road and overlook access, which can vary with snow and season.",
+    "weatherNote": "July through September generally offers warmer, drier weather. Snow or rain can occur in shoulder months, and winter storms may hide the lake.",
+    "photo": {
+      "title": "Wizard Island",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7B227E-1DD8-B71B-0BEECDD24771C381.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Wizard Island",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        8
+      ],
+      "headline": "Deep-blue water & Wizard Island",
+      "reason": "Late summer is our pick for rim exploring; road and trail access can still change."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "isle-royale": {
+    "id": "isle-royale",
+    "name": "Isle Royale",
+    "state": "MI",
+    "bestMonths": [
+      7,
+      8,
+      9
+    ],
+    "minDays": 4,
+    "thumbnail": "assets/images/parks/isle-royale.jpg",
+    "npsCode": "isro",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Island hiking",
+      "Water activities",
+      "Camping",
+      "Stargazing"
+    ],
+    "description": "Isle Royale is a remote Lake Superior island wilderness reached by ferry, seaplane, or private boat.",
+    "planningNote": "Weather affects transport to and from the island. Check operating seasons, transport schedules, and overnight arrangements before committing to your dates.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/isro/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/isro/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/isro/"
+      }
+    ],
+    "nightSkyNote": "NPS identifies the park’s dark skies as a setting for stars and aurora. Overnight access requires ferry or seaplane planning; check operating season and weather.",
+    "weatherNote": "Weather affects both island activities and the journey there and back. Check forecasts with transport schedules rather than relying on the month alone.",
+    "photo": {
+      "title": "Aerial View of Belle Harbor",
+      "credit": "NPS Photo / Paul Brown",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7AC355-1DD8-B71B-0B9C2F07853F39F1.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Aerial View of Belle Harbor",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        7,
+        8
+      ],
+      "headline": "Remote island trails & Lake Superior",
+      "reason": "Midsummer is our pick for an island trip; reserve transport and allow for weather."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "big-bend": {
+    "id": "big-bend",
+    "name": "Big Bend",
+    "state": "TX",
+    "bestMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
+    "minDays": 3,
+    "thumbnail": "assets/images/parks/big-bend.jpg",
+    "npsCode": "bibe",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Ranger programs",
+      "Backcountry trips",
+      "Night-sky viewing",
+      "Stargazing"
+    ],
+    "description": "Big Bend offers desert scenery, cultural sites, and backcountry experiences, including river trips and camping.",
+    "planningNote": "November through April is a busy period. Summer heat and remoteness require preparation; verify facilities and access rather than assuming every area is open.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/bibe/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/bibe/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/bibe/planyourvisit/stargazing.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "Big Bend is an International Dark Sky Park. Clear, moonless nights can reveal the Milky Way; check nighttime access and conditions for your chosen area.",
+    "weatherNote": "Summer heat starts early and varies with elevation. Fall and winter are generally milder but can still freeze.",
+    "photo": {
+      "title": "Santa Elena Canyon",
+      "credit": "NPS / B. Trester",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/8AEFBCCC-0C9E-92DD-5E2B311EC6DA0339.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Santa Elena Canyon",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        2,
+        3,
+        11
+      ],
+      "headline": "Santa Elena Canyon & the Chisos Mountains",
+      "reason": "Cooler months are our picks for combining desert and mountain exploring."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "biscayne": {
+    "id": "biscayne",
+    "name": "Biscayne",
+    "state": "FL",
+    "bestMonths": [
+      12,
+      1,
+      2,
+      3,
+      4
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/biscayne.jpg",
+    "npsCode": "bisc",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Water-based exploration",
+      "Elliott Key",
+      "Wildlife watching"
+    ],
+    "description": "Most of Biscayne is water. Elliott Key offers camping, wildlife watching, and a hiking trail.",
+    "planningNote": "Plan transport and marine conditions before selecting an island visit. NPS describes winter as milder with fewer insects for Elliott Key, but conditions on the water still vary.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/bisc/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/bisc/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Winters are generally mild and dry, but fronts can bring wind. Summers are hot and humid with thunderstorms and tropical-storm risk.",
+    "photo": {
+      "title": "Boca Chita Key",
+      "credit": "NPS photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C870533-1DD8-B71B-0B70CFF5EF6538F1.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Downtown Miami in background.",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        2,
+        3,
+        4
+      ],
+      "headline": "Coral reefs & island waters",
+      "reason": "Our cooler-season picks suit island visits; reef trips depend on wind and sea conditions."
+    },
+    "nightSkyResearch": {
+      "status": "insufficient-evidence",
+      "reason": "Evidence limited: island camping exists, but no park-specific NPS stargazing recommendation found",
+      "sourceUrl": "https://www.nps.gov/bisc/planyourvisit/fees.htm",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "dry-tortugas": {
+    "id": "dry-tortugas",
+    "name": "Dry Tortugas",
+    "state": "FL",
+    "bestMonths": [
+      4,
+      5,
+      6
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/dry-tortugas.jpg",
+    "npsCode": "drto",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Fort Jefferson",
+      "Snorkeling",
+      "Boat trips",
+      "Stargazing"
+    ],
+    "description": "The park combines the history of Fort Jefferson with reefs and marine landscapes.",
+    "planningNote": "There is no road access. Arrange a boat or seaplane, prepare for rough seas and limited facilities, and bring food, water, and other supplies appropriate to your trip. Winter is typically windier; summer brings heat, rain, and tropical-storm risk. Check the marine forecast for your travel dates.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial spring to early-summer shortlist for a marine visit, not a guarantee of calm seas or snorkeling visibility. Compare seasonal weather with the NPS guide. Trip length excludes travel.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/drto/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS seasonal weather",
+        "url": "https://www.nps.gov/drto/learn/nature/weather.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/drto/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/drto/learn/nature/lightscape.htm"
+      }
+    ],
+    "nightSkyNote": "NPS recommends camping on Garden Key for an all-night dark-sky experience. Day-trip transport does not provide overnight access; arrange camping and transport ahead.",
+    "weatherNote": "Winter is typically windier with rougher seas. Summer is hot and humid with tropical-storm risk; check the marine forecast for your exact dates.",
+    "photo": {
+      "title": "Aerial view of the Dry Tortugas",
+      "credit": "NPS Photo / Brandon Cintron Gerena",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/118820B9-C5E9-8F61-A13518524D564AE8.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "An aerial view of the Dry Tortugas",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        4,
+        5
+      ],
+      "headline": "Fort Jefferson surrounded by turquoise sea",
+      "reason": "Late spring is our pick between winter winds and summer heat; crossings stay weather-dependent."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "cuyahoga-valley": {
+    "id": "cuyahoga-valley",
+    "name": "Cuyahoga Valley",
+    "state": "OH",
+    "bestMonths": [
+      5,
+      6,
+      9,
+      10
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/cuyahoga-valley.jpg",
+    "npsCode": "cuva",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Towpath Trail",
+      "Hiking",
+      "Scenic railroad",
+      "Stargazing"
+    ],
+    "description": "Hiking, cycling the Towpath Trail, and the scenic railroad are among the park's visitor experiences.",
+    "planningNote": "Check trail closures and rail schedules before planning connections. Weather is variable, and wet conditions can make trails muddy.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/cuva/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/cuva/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://home.nps.gov/cuva/learn/nature/lightscape.htm"
+      }
+    ],
+    "nightSkyNote": "NPS lists specific trailheads and viewpoints for celestial events, including Oak Hill and Pine Hollow. This is suburban-sky observing, not a certified dark-sky claim.",
+    "weatherNote": "Expect changing weather, humid summers, and cold winter conditions. Spring and fall rain can make trails muddy.",
+    "photo": {
+      "title": "Brandywine Falls Viewed from the Upper Boardwalk",
+      "credit": "NPS Photo / D.J. Reiser",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/F82FA0CD-D84B-D131-1A778346760D24FB.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Viewed from above, people stand on a platform near frothy white water falling over a rocky ledge.",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 3,
+      "peakMonths": [
+        5,
+        10
+      ],
+      "headline": "Brandywine Falls & woodland trails",
+      "reason": "Spring and fall are our picks for waterfall walks and forest scenery."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  },
+  "kenai-fjords": {
+    "id": "kenai-fjords",
+    "name": "Kenai Fjords",
+    "state": "AK",
+    "bestMonths": [
+      6,
+      7,
+      8
+    ],
+    "minDays": 2,
+    "thumbnail": "assets/images/parks/kenai-fjords.jpg",
+    "npsCode": "kefj",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Exit Glacier",
+      "Coastal exploration",
+      "Harding Icefield area"
+    ],
+    "description": "Explore coastal landscapes, the Exit Glacier area, and the Harding Icefield area using the official destination guides.",
+    "planningNote": "Check Exit Glacier Road status and other current conditions. Remote terrain, wildlife, and fast-changing weather require preparation suited to your activity.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/kefj/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/kefj/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Cool, rainy days are common in summer and conditions can change quickly. Winter can be much colder.",
+    "photo": {
+      "title": "Northwestern Fiord",
+      "credit": "NPS Photo, S. Rainone",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/BCC539E0-C12C-F7DF-5A919EE253882B5A.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Northwestern Fiord",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        7
+      ],
+      "headline": "Tidewater glaciers & marine wildlife",
+      "reason": "Midsummer is our pick for boat trips and trails; rain and rough seas remain possible."
+    },
+    "nightSkyResearch": {
+      "status": "insufficient-evidence",
+      "reason": "Evidence limited: aurora possible, but no park-specific NPS visitor stargazing guidance found",
+      "sourceUrl": "https://www.nps.gov/kefj/planyourvisit/index.htm",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "white-sands": {
+    "id": "white-sands",
+    "name": "White Sands",
+    "state": "NM",
+    "bestMonths": [
+      3,
+      4,
+      10,
+      11
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/white-sands.jpg",
+    "npsCode": "whsa",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Dune exploration",
+      "Sledding",
+      "Ranger programs"
+    ],
+    "description": "Explore dune landscapes and check the park calendar for ranger programs.",
+    "planningNote": "Check operating hours and current conditions before driving to the park. Do not remove sand or other natural or cultural resources.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/whsa/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/whsa/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Summer can be very hot, spring windy, and winter evenings cold. Fall generally brings milder conditions.",
+    "photo": {
+      "title": "Sunset",
+      "credit": "NPS Photo",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/7CA16410-A412-1F05-2D92EB04EEB27980.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Sunset",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4,
+      "peakMonths": [
+        4,
+        10
+      ],
+      "headline": "Rolling dunes of bright white gypsum",
+      "reason": "Spring and fall are our picks for dune walks outside the hottest months."
+    },
+    "nightSkyResearch": {
+      "status": "not-listed",
+      "reason": "Not listed for routine stargazing: park normally closes around sunset; special evening programs vary",
+      "sourceUrl": "https://home.nps.gov/whsa/planyourvisit/hours.htm",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "wrangell-st.-elias": {
+    "id": "wrangell-st.-elias",
+    "name": "Wrangell-St. Elias",
+    "state": "AK",
+    "bestMonths": [
+      6,
+      7,
+      8
+    ],
+    "minDays": 3,
+    "thumbnail": "assets/images/parks/wrangell-st.-elias.jpg",
+    "npsCode": "wrst",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Kennecott",
+      "Nabesna Road",
+      "Backcountry trips"
+    ],
+    "description": "Visitor areas include Copper Center, McCarthy and Kennecott, Nabesna Road, and the coast near Yakutat.",
+    "planningNote": "Distances between visitor areas are substantial. The coast is reached by plane or boat; check route-specific conditions and services before combining destinations.",
+    "nightSkyListed": null,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/wrst/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/wrst/index.htm"
+      }
+    ],
+    "nightSkyNote": null,
+    "weatherNote": "Conditions vary greatly by location and season. Use the park's detailed weather guidance for the area you intend to visit.",
+    "photo": {
+      "title": "Icy Bay with Mt. St. Elias",
+      "credit": "NPS Photo/ Neal Herbert",
+      "sourceUrl": "https://www.nps.gov/common/uploads/structured_data/3C7AAD63-1DD8-B71B-0BCE10FFD741A687.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Icy Bay with Mt. St. Elias",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [
+        7,
+        8
+      ],
+      "headline": "Vast glaciers & historic Kennecott",
+      "reason": "Summer is our pick for access to this remote mountain landscape; logistics need planning."
+    },
+    "nightSkyResearch": {
+      "status": "insufficient-evidence",
+      "reason": "Evidence limited: night-sky resource documented, but no visitor viewing guidance found",
+      "sourceUrl": "https://www.nps.gov/wrst/planyourvisit/index.htm",
+      "reviewedAt": "2026-09-23"
+    }
+  },
+  "haleakalā": {
+    "id": "haleakalā",
+    "name": "Haleakalā",
+    "state": "HI",
+    "bestMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "minDays": 1,
+    "thumbnail": "assets/images/parks/haleakalā.jpg",
+    "npsCode": "hale",
+    "reviewedAt": "2026-09-22",
+    "activities": [
+      "Summit landscapes",
+      "Hiking",
+      "Coastal landscapes",
+      "Stargazing"
+    ],
+    "description": "Haleakalā offers volcanic summit landscapes, rainforest, and rocky coastline across distinct park areas.",
+    "planningNote": "Sunrise visits require reservation planning. Check the official sunrise page, current conditions, and directions to your chosen district before leaving.",
+    "nightSkyListed": true,
+    "suggestionBasis": "Editorial shortlist for a general outdoor visit. Months are not an NPS ranking, forecast, or guarantee of access. Trip length excludes travel and depends on activities.",
+    "sources": [
+      {
+        "label": "NPS visitor guidance",
+        "url": "https://www.nps.gov/hale/planyourvisit/index.htm"
+      },
+      {
+        "label": "NPS park profile and climate",
+        "url": "https://www.nps.gov/hale/index.htm"
+      },
+      {
+        "label": "NPS night-sky guidance",
+        "url": "https://www.nps.gov/hale/planyourvisit/stargazing.htm"
+      },
+      {
+        "label": "NPS Where to Stargaze directory",
+        "url": "https://www.nps.gov/subjects/nightskies/stargaze.htm"
+      }
+    ],
+    "nightSkyNote": "NPS describes stargazing from the summit district. Check summit weather and access, and bring warm clothing for the high elevation.",
+    "weatherNote": "The summit can be much colder than the coast. Clouds and rain can replace sunshine quickly in either district.",
+    "photo": {
+      "title": "Haleakalā Summit District crater",
+      "credit": "National Park Service (photographer not listed)",
+      "sourceUrl": "https://www.nps.gov/common/uploads/grid_builder/hale/crop16_9/9ECF6F21-C750-62A5-AD4194DDFF8D19DE.jpg",
+      "verifiedAt": "2026-09-22",
+      "alt": "Colorful cinder cones inside Haleakalā crater beneath a blue sky",
+      "position": "50% 50%"
+    },
+    "recommendation": {
+      "experience": 4.5,
+      "peakMonths": [],
+      "headline": "A volcanic summit above the clouds",
+      "reason": "A year-round option with very different summit and coastal conditions; pack for cold at elevation."
+    },
+    "nightSkyReviewedAt": "2026-09-23"
+  }
+}

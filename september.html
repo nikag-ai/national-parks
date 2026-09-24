@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Looking for the best US National Parks to visit in September? Explore our curated guide to find the perfect park for your September adventure." />
-  <meta property="og:title" content="Where to go in September: National Parks Guide | US National Park Finder" />
-  <meta property="og:description" content="Looking for the best US National Parks to visit in September? Explore our curated guide to find the perfect park for your September adventure." />
+  <meta name="description" content="Explore an editorial shortlist of US national parks for September, with official planning sources." />
+  <meta property="og:title" content="Best national parks in September" />
+  <meta property="og:description" content="Explore an editorial shortlist of US national parks for September, with official planning sources." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nationalparkfinder.info/september" />
   <meta property="og:image" content="https://nationalparkfinder.info/national-parks-icon.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <title>Where to go in September: National Parks Guide | US National Park Finder</title>
+  <title>Best national parks in September</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=2.2.0" />
-  <link rel="icon" type="image/png" href="national-parks-icon.png" />
+  <script>try { const saved=localStorage.getItem('theme'); const mode=saved==='dark'||saved==='light'?saved:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'); document.documentElement.dataset.theme=mode; document.documentElement.style.colorScheme=mode; } catch (_) { document.documentElement.dataset.theme='light'; }</script>
+  <link rel="stylesheet" href="style.css?v=6.1.7" />
+  <link rel="icon" type="image/svg+xml" href="/assets/brand-mark.svg" />
   <link rel="apple-touch-icon" href="national-parks-icon.png" />
   <!-- PostHog Analytics -->
   <script>
@@ -45,34 +46,20 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "US National Park Finder",
-    "description": "An interactive data tool to discover and filter the 63 US National Parks by optimal travel month, logistics, temperature, and stargazing conditions.",
+    "name": "National parks by month",
+    "description": "An independent guide to 63 US national parks with editorial month suggestions and source-linked planning notes.",
     "applicationCategory": "TravelApplication",
     "operatingSystem": "All",
     "url": "https://nationalparkfinder.info",
     "image": "https://nationalparkfinder.info/national-parks-icon.png",
     "publisher": {
       "@type": "Organization",
-      "name": "National Park Finder",
+      "name": "National parks by month",
       "logo": {
         "@type": "ImageObject",
         "url": "https://nationalparkfinder.info/national-parks-icon.png"
       }
     }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Dataset",
-    "name": "US National Parks Seasonal and Logistics Data",
-    "description": "Aggregated dataset containing peak travel months, travel durations from major flight hubs, and seasonal temperatures for all 63 US National Parks.",
-    "creator": {
-      "@type": "Organization",
-      "name": "National Park Finder"
-    },
-    "url": "https://nationalparkfinder.info",
-    "license": "https://creativecommons.org/licenses/by/4.0/"
   }
   </script>
   <link rel="canonical" href="https://nationalparkfinder.info/september" />
@@ -183,33 +170,10 @@
       }
     }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What are the best US National Parks to visit in September?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The best parks vary deeply by season. Our National Park Finder automatically filters all 63 parks to show you the ones with optimal weather, manageable crowds, and logistical ease specifically for September."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is September a good time to go stargazing in National Parks?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, but visibility depends on the park. You can explore our data tool to see exact stargazing recommendations for September, accounting for dark skies and local weather patterns."
-        }
-      }
-    ]
-  }
-  </script>
+  <link rel="stylesheet" href="/recommendations.css?v=6.1.7">
+  <link rel="stylesheet" href="/editorial.css?v=6.1.7">
 </head>
-<body>
+<body class="discovery-v5">
   <!-- Premium SVG Symbol Sprite Block -->
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none;" aria-hidden="true">
     <!-- icon-sun -->
@@ -450,8 +414,9 @@
   <!-- Premium Top Navigation Bar -->
   <div class="app-nav" id="app-nav">
     <div class="app-nav-inner">
-      <a class="app-nav-brand" href="/"><img src="national-parks-icon.png" alt="" class="app-nav-logo-img"> ParkFinder</a>
+      <a class="app-nav-brand" href="/" aria-label="National parks home"><svg class="app-nav-mark" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 2.5 5 16h4l-3 5h16l-3-5h4L14 2.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 18v7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>National parks</span></a>
       <div class="app-nav-actions">
+        <details class="collections-menu"><summary aria-label="Collections and preferences">More</summary><div><button onclick="selectSpecialMode('all'); this.closest('details').open=false">All parks</button><button id="saved-nav" onclick="selectSpecialMode('favorites'); this.closest('details').open=false">Saved parks <span id="saved-count">0</span></button><button onclick="selectSpecialMode('visited'); this.closest('details').open=false">Visited parks</button><button onclick="selectSpecialMode('hidden'); this.closest('details').open=false">Hidden parks</button><div class="theme-choices" role="group" aria-label="Appearance"><span>Appearance</span><button data-theme-choice="system" onclick="setThemePreference('system')">Device</button><button data-theme-choice="light" onclick="setThemePreference('light')">Light</button><button data-theme-choice="dark" onclick="setThemePreference('dark')">Dark</button></div><a href="/about.html">About this guide</a></div></details>
         <div id="header-theme-toggle" class="header-theme-toggle" onclick="if (!event.target.closest('#theme-light, #theme-dark')) applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')" role="group" aria-label="Theme switcher">
           <div class="theme-toggle-track">
             <button id="theme-light" class="theme-btn" title="Light Mode" aria-label="Switch to light mode">
@@ -467,7 +432,7 @@
           <svg class="icon"><use href="#icon-share" xlink:href="#icon-share"></use></svg>
           <span class="nav-tooltip">Share</span>
         </button>
-<a id="header-discord-btn" href="https://discord.gg/9pdg6QtWVW" target="_blank" class="app-nav-icon-btn has-tooltip" aria-label="Join Discord">
+<a id="header-discord-btn" href="https://discord.gg/9pdg6QtWVW" target="_blank" rel="noopener noreferrer" class="app-nav-icon-btn has-tooltip" aria-label="Join Discord">
           <svg class="icon"><use href="#icon-message" xlink:href="#icon-message"></use></svg>
           <span class="nav-tooltip">Community</span>
         </a>
@@ -481,170 +446,65 @@
     <button id="share-btn-mobile" class="header-btn share-btn" title="Share App" aria-label="Share App">
       <span class="btn-icon">🔗</span><span class="btn-text">Share</span>
     </button>
-<a id="header-discord-btn-mobile" href="https://discord.gg/9pdg6QtWVW" target="_blank" class="header-btn discord-btn" title="Join Discord" aria-label="Join Discord">
+<a id="header-discord-btn-mobile" href="https://discord.gg/9pdg6QtWVW" target="_blank" rel="noopener noreferrer" class="header-btn discord-btn" title="Join Discord" aria-label="Join Discord">
       <span class="btn-icon">💬</span><span class="btn-text">Join Community</span>
     </a>
   </div>
 
-  <header>
-    <h1>America's national parks, timed perfectly.</h1>
-    <p class="subtitle">An interactive guide to the 63 US National Parks. Select any month to reveal which parks are at their prime for adventure.</p>
-    <h2 class="seo-h2" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Best National Parks to visit in September</h2>
-  </header>
-
-  <div class="search-container">
-    <div class="start-point-wrapper">
-      <span class="start-point-label">From</span>
-      <select id="start-point" class="start-point-select" aria-label="Select starting point">
-        <option value="SFO">SFO</option>
-      </select>
+  <section class="discovery-controls" aria-label="Find a park">
+    <header class="discovery-heading">
+      <h1 id="discovery-title">Best national parks this month</h1>
+      <label class="mobile-month">Month <select id="month-select" aria-label="Choose travel month" onchange="selectMonth(this.value ? Number(this.value) : null, true); syncBrowseURL(); trackAction('month_selected')"><option value="">All months</option></select></label>
+    </header>
+    <nav id="month-bar" aria-label="Month filter">
+      <button class="scroll-arrow hidden" id="scroll-left" aria-label="Scroll left">‹</button>
+      <div class="month-chips"></div>
+      <button class="scroll-arrow hidden" id="scroll-right" aria-label="Scroll right">›</button>
+    </nav>
+      <div class="discovery-toolbar">
+      <div class="search-container">
+        <div class="search-input-wrapper">
+          <input type="text" inputmode="search" id="park-search" class="search-input" placeholder="Search parks or states" aria-label="Search parks">
+          <button id="search-clear" class="search-clear" aria-label="Clear search"><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg></button>
+        </div>
+      </div>
+      <button class="filter-toggle-btn" onclick="toggleFilterPanel()" aria-controls="filter-panel" id="refine-button" aria-expanded="false">Filters</button>
     </div>
-    <div class="search-input-wrapper">
-      <input type="text" id="park-search" class="search-input" placeholder="🔍 Search parks by name or state..." aria-label="Search parks" />
-      <button id="search-clear" class="search-clear" aria-label="Clear search">×</button>
-    </div>
-  </div>
-
-  <!-- Segmented View Tabs -->
-  <div class="view-tabs-container" id="view-tabs-container">
-    <div class="view-tabs">
-      <button class="view-tab active" id="tab-all" data-mode="all">
-        <svg class="icon"><use href="#icon-map" xlink:href="#icon-map"></use></svg>
-        Explore
-      </button>
-      <button class="view-tab" id="tab-favorites" data-mode="favorites">
-        <svg class="icon" style="color: var(--amber); fill: var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg>
-        Favorites
-      </button>
-      <button class="view-tab" id="tab-visited" data-mode="visited">
-        <svg class="icon" style="color: var(--green);"><use href="#icon-check-filled" xlink:href="#icon-check-filled"></use></svg>
-        Visited
-      </button>
-      <button class="view-tab" id="tab-hidden" data-mode="hidden">
-        <svg class="icon"><use href="#icon-eye-off" xlink:href="#icon-eye-off"></use></svg>
-        Hidden
-      </button>
-    </div>
-  </div>
-
-  <!-- Month Filter Label + Bar -->
-  <div class="month-filter-label" id="month-filter-label">Peak Month to Visit</div>
-  <nav id="month-bar" aria-label="Month filter">
-    <button class="scroll-arrow scroll-arrow-left hidden" id="scroll-left" aria-label="Scroll left">‹</button>
-    <div class="month-chips"></div>
-    <button class="scroll-arrow scroll-arrow-right" id="scroll-right" aria-label="Scroll right">›</button>
-  </nav>
+  </section>
 
   <main>
     <div id="stats-bar" class="stats-bar"></div>
     <div id="active-filters" class="active-filters"></div>
     <div id="filter-panel" class="filter-panel hidden"></div>
+    <section id="comparison-panel" class="comparison-panel hidden" aria-label="Park comparison"></section>
     <div id="park-grid" class="park-grid"></div>
     <div id="empty-state" class="empty-state hidden">
       <span class="empty-icon">🗺️</span>
       <p>Select a month above to explore parks</p>
     </div>
-    <!-- SEO-only content: pre-rendered list of parks -->
-    <div id="seo-park-list" style="display:none;" aria-hidden="true">
-      <h3>Optimal National Parks to Visit in September</h3>
-      <ul><li>Acadia</li><li>Arches</li><li>Badlands</li><li>Black Canyon of the Gunnison</li><li>Bryce Canyon</li><li>Canyonlands</li><li>Capitol Reef</li><li>Carlsbad Caverns</li><li>Channel Islands</li><li>Crater Lake</li><li>Cuyahoga Valley</li><li>Gateway Arch</li><li>Glacier</li><li>Grand Canyon</li><li>Grand Teton</li><li>Great Basin</li><li>Great Sand Dunes</li><li>Great Smoky Mountains</li><li>Haleakalā</li><li>Hawaii Volcanoes</li><li>Indiana Dunes</li><li>Isle Royale</li><li>Katmai</li><li>Kings Canyon</li><li>Lassen Volcanic</li><li>Mammoth Cave</li><li>Mesa Verde</li><li>Mount Rainier</li><li>National Park of American Samoa</li><li>North Cascades</li><li>Olympic</li><li>Redwood</li><li>Rocky Mountain</li><li>Sequoia</li><li>Shenandoah</li><li>Theodore Roosevelt</li><li>Voyageurs</li><li>Wind Cave</li><li>Yellowstone</li><li>Yosemite</li><li>Zion</li></ul>
-    </div>
+    <!-- Source-linked planning notes are pre-rendered on park routes. -->
+    <section id="route-guide" class="route-guide"></section>
   </main>
 
   <footer>
-    <div class="footer-seo-links">
-      <p class="footer-seo-title">Browse by Month</p>
-      <div class="seo-links-grid">
-        <a href="january">January</a>
-        <a href="february">February</a>
-        <a href="march">March</a>
-        <a href="april">April</a>
-        <a href="may">May</a>
-        <a href="june">June</a>
-        <a href="july">July</a>
-        <a href="august">August</a>
-        <a href="september">September</a>
-        <a href="october">October</a>
-        <a href="november">November</a>
-        <a href="december">December</a>
-      </div>
-    </div>
-    <p class="footer-disclaimer">Data is approximate — always check <a href="https://recreation.gov" target="_blank">recreation.gov</a> for permits & reservations</p>
-  <div id="all-parks-seo-links" style="display:none;" aria-hidden="true">
-<h3>All US National Parks</h3>
-<ul>
-  <li><a href="/acadia">Acadia</a></li>
-  <li><a href="/arches">Arches</a></li>
-  <li><a href="/badlands">Badlands</a></li>
-  <li><a href="/big-bend">Big Bend</a></li>
-  <li><a href="/biscayne">Biscayne</a></li>
-  <li><a href="/black-canyon-of-the-gunnison">Black Canyon of the Gunnison</a></li>
-  <li><a href="/bryce-canyon">Bryce Canyon</a></li>
-  <li><a href="/canyonlands">Canyonlands</a></li>
-  <li><a href="/capitol-reef">Capitol Reef</a></li>
-  <li><a href="/carlsbad-caverns">Carlsbad Caverns</a></li>
-  <li><a href="/channel-islands">Channel Islands</a></li>
-  <li><a href="/congaree">Congaree</a></li>
-  <li><a href="/crater-lake">Crater Lake</a></li>
-  <li><a href="/cuyahoga-valley">Cuyahoga Valley</a></li>
-  <li><a href="/death-valley">Death Valley</a></li>
-  <li><a href="/denali">Denali</a></li>
-  <li><a href="/dry-tortugas">Dry Tortugas</a></li>
-  <li><a href="/everglades">Everglades</a></li>
-  <li><a href="/gates-of-the-arctic">Gates of the Arctic</a></li>
-  <li><a href="/gateway-arch">Gateway Arch</a></li>
-  <li><a href="/glacier">Glacier</a></li>
-  <li><a href="/glacier-bay">Glacier Bay</a></li>
-  <li><a href="/grand-canyon">Grand Canyon</a></li>
-  <li><a href="/grand-teton">Grand Teton</a></li>
-  <li><a href="/great-basin">Great Basin</a></li>
-  <li><a href="/great-sand-dunes">Great Sand Dunes</a></li>
-  <li><a href="/great-smoky-mountains">Great Smoky Mountains</a></li>
-  <li><a href="/guadalupe-mountains">Guadalupe Mountains</a></li>
-  <li><a href="/haleakalā">Haleakalā</a></li>
-  <li><a href="/hawaii-volcanoes">Hawaii Volcanoes</a></li>
-  <li><a href="/hot-springs">Hot Springs</a></li>
-  <li><a href="/indiana-dunes">Indiana Dunes</a></li>
-  <li><a href="/isle-royale">Isle Royale</a></li>
-  <li><a href="/joshua-tree">Joshua Tree</a></li>
-  <li><a href="/katmai">Katmai</a></li>
-  <li><a href="/kenai-fjords">Kenai Fjords</a></li>
-  <li><a href="/kings-canyon">Kings Canyon</a></li>
-  <li><a href="/kobuk-valley">Kobuk Valley</a></li>
-  <li><a href="/lake-clark">Lake Clark</a></li>
-  <li><a href="/lassen-volcanic">Lassen Volcanic</a></li>
-  <li><a href="/mammoth-cave">Mammoth Cave</a></li>
-  <li><a href="/mesa-verde">Mesa Verde</a></li>
-  <li><a href="/mount-rainier">Mount Rainier</a></li>
-  <li><a href="/national-park-of-american-samoa">National Park of American Samoa</a></li>
-  <li><a href="/new-river-gorge">New River Gorge</a></li>
-  <li><a href="/north-cascades">North Cascades</a></li>
-  <li><a href="/olympic">Olympic</a></li>
-  <li><a href="/petrified-forest">Petrified Forest</a></li>
-  <li><a href="/pinnacles">Pinnacles</a></li>
-  <li><a href="/redwood">Redwood</a></li>
-  <li><a href="/rocky-mountain">Rocky Mountain</a></li>
-  <li><a href="/saguaro">Saguaro</a></li>
-  <li><a href="/sequoia">Sequoia</a></li>
-  <li><a href="/shenandoah">Shenandoah</a></li>
-  <li><a href="/theodore-roosevelt">Theodore Roosevelt</a></li>
-  <li><a href="/virgin-islands">Virgin Islands</a></li>
-  <li><a href="/voyageurs">Voyageurs</a></li>
-  <li><a href="/white-sands">White Sands</a></li>
-  <li><a href="/wind-cave">Wind Cave</a></li>
-  <li><a href="/wrangell-st.-elias">Wrangell-St. Elias</a></li>
-  <li><a href="/yellowstone">Yellowstone</a></li>
-  <li><a href="/yosemite">Yosemite</a></li>
-  <li><a href="/zion">Zion</a></li>
-</ul>
-</div>
+<p class="footer-disclaimer">Independent guide, not affiliated with NPS. <a href="/about.html">Sources, methodology &amp; corrections</a></p>
 </footer>
 
+  <div id="compare-tray" class="compare-tray hidden" aria-label="Selected parks for comparison"></div>
+
+  <dialog id="rating-method-dialog" class="rating-method-dialog" aria-labelledby="rating-method-title">
+    <div class="rating-dialog-head"><h2 id="rating-method-title">How ratings work</h2><button type="button" onclick="closeRatingMethod()" aria-label="Close rating method"><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg></button></div>
+    <p>The stars are our editorial recommendation for a general sightseeing trip, not visitor reviews or an NPS score.</p>
+    <p><strong>With a month selected:</strong> 60% seasonal fit and 40% park experience, rounded to one decimal. Without a month, the score shows park experience alone.</p>
+    <p>Suggested months reflect broad seasonal guidance. Always check current access, weather, and permits for your dates.</p>
+    <a href="/about.html#ratings">Full methodology ↗</a>
+  </dialog>
+
   <!-- Modal -->
-  <div id="park-modal" class="modal hidden">
+  <div id="park-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="park-guide-title">
     <div class="modal-backdrop"></div>
     <div class="modal-content">
-      <button class="modal-close" id="modal-close-btn">&times;</button>
+      <button class="modal-close" id="modal-close-btn" aria-label="Close park guide"><span class="mobile-back">← Back</span><svg class="icon desktop-close" aria-hidden="true"><use href="#icon-close"></use></svg></button>
       <div class="modal-body" id="modal-body">
         <!-- Content injected here -->
       </div>
@@ -652,11 +512,8 @@
   </div>
 
 
-  <script src="data/data-hubs.js"></script>
-  <script src="data/parks-summary.js"></script>
-  <script src="data/parks-seasonal.js"></script>
-  <script src="data/parks-details.js"></script>
-  <script src="data/parks-logistics.js"></script>
-  <script src="app.js?v=2.2.0"></script>
+  <script src="data/parks-summary.js?v=5.1.5"></script>
+  <script src="data/parks-details.js?v=5.1.5"></script>
+  <script src="app.js?v=6.1.7"></script>
 </body>
 </html>

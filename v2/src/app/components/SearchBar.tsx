@@ -1,28 +1,15 @@
-import { Search, SlidersHorizontal, Plane } from "lucide-react";
+import { Search, SlidersHorizontal } from "lucide-react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "./ui/select";
-import { HUBS } from "../data/parks";
-
 interface SearchBarProps {
   searchQuery: string;
   onSearchChange: (query: string) => void;
-  selectedHub: string;
-  onHubChange: (hub: string) => void;
   onFilterClick: () => void;
 }
 
 export function SearchBar({
   searchQuery,
   onSearchChange,
-  selectedHub,
-  onHubChange,
   onFilterClick,
 }: SearchBarProps) {
   return (
@@ -40,26 +27,11 @@ export function SearchBar({
         />
       </div>
 
-      {/* Hub Selector */}
+      {/* Guide button */}
       <div className="flex gap-3">
-        <Select value={selectedHub} onValueChange={onHubChange}>
-          <SelectTrigger className="w-[200px] py-6 bg-card border-2 border-border/50 rounded-2xl">
-            <div className="flex items-center gap-2">
-              <Plane className="w-4 h-4" />
-              <SelectValue />
-            </div>
-          </SelectTrigger>
-          <SelectContent>
-            {HUBS.map(hub => (
-              <SelectItem key={hub.code} value={hub.code}>
-                {hub.name} ({hub.code})
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-
         {/* Filter Button */}
         <Button
+          aria-label="How to use this guide"
           onClick={onFilterClick}
           variant="outline"
           className="px-6 py-6 rounded-2xl border-2 border-border/50 hover:border-primary transition-all"

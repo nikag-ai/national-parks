@@ -1,54 +1,50 @@
-# 🏞️ US National Park Finder: The Ultimate Explorer
+# US National Park Finder
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Play_Now-4a6cf7?style=for-the-badge&logo=vercel)](https://nikag-ai.github.io/national-parks/)
+An independent guide to 63 US national parks, with editorial month suggestions, saved favorites and visited parks, and source-linked NPS planning notes.
 
-**ParkFinder** is a blazing-fast, strictly client-side Single Page Application (SPA) designed to help you intelligently discover, filter, and plan your trips across all **63 US National Parks**. 
+[Visit National Park Finder](https://nationalparkfinder.info/)
 
-Built with zero backend dependencies, it utilizes deeply structured offline data and a powerful Reactivity Engine written entirely in Vanilla JavaScript to provide an instantly responsive, heavily personalized travel planning experience.
+## Content and sources
 
-## ✨ Features
+`data/park-guidance.json` is the shared source of truth for the root application and the React prototype in `v2/`. Each park has a description, activities, planning cautions, qualitative climate notes, source links, review date, and photo credit. Months, suggested days and recommendation stars are editorial choices, not official ratings or predictions. The root guide ranks by 60% seasonal fit and 40% park experience; see the public methodology for the scale. The React prototype shares content and photographs but retains its separate presentation.
 
-* **Complete NPS Dataset**: Comprehensive 2026 data mapping all 63 official parks.
-* **Smart Offline Filtering**: Instantly isolate parks by Best Month, Required Transit Time, Star Ratings (algorithmically scored out of 5), Transit Stops (e.g. Drive/No Flight vs 1-Stop), and Stargazing (`Dark Sky`) capabilities.
-* **Persistent Local State**: Behave like a logged-in user without a database. Every park you explicitly ⭐ Favorite, ✓ Visit, or 🙈 Hide is mapped natively to your browser's `localStorage` and frozen across sessions.
-* **Dynamic Dataset Constraints**: The UI intelligent sliders mathematically bounds themselves to the subset of parks you are currently looking at.
-* **Algorithmic Sorting Engine**: Rank search results iteratively by total `Distance` (Flight Minutes + Drive Minutes from SFO), `Rating`, `Shortest Days required`, or `Stargazing`.
-* **Deep Explanatory Modals**: Click into any card to surface extensive AI-curated metadata including:
-  * Sample 3-5 day itineraries
-  * Safety Warnings (Dos & Donts) and Travel Hacks
-  * Aspirational Quotes representing genuine Reddit Consensus
+The September 22, 2026 audit withdrew unsupported Reddit quotations, sentiment percentages, unsupported popularity/accessibility scores, monthly weather/crowd numbers, and travel-time/flight-stop estimates. Read [the audit](docs/CONTENT-AUDIT.md) and [the public methodology](https://nationalparkfinder.info/about.html) for scope and limitations.
 
-## 🚀 Live Demo
+## Development
 
-You can explore the live, fully interactive application directly here:
-👉 **[https://nikag-ai.github.io/national-parks/](https://nikag-ai.github.io/national-parks/)**
+The production site is served by Cloudflare Pages from the repository root. Pushing `master` triggers an automatic deployment to `nationalparkfinder.info`.
 
-## 💻 Tech Stack Setup
-
-ParkFinder embraces the raw power of the modern browser. No build steps, no complex framework configurations, and no compilation times.
-
-* **HTML5**: Semantic document structuring.
-* **CSS3**: Completely bespoke modern styling architecture utilizing Glassmorphism, smooth CSS gradients, flex-grids, and CSS Grid.
-* **JavaScript (ES6+)**: A robust Vanilla JS state management engine that filters complex datasets and orchestrates real-time virtual DOM template rendering.
-
-### 🏃 Running Locally
-
-1. Clone the repository:
-```bash
-git clone https://github.com/nikag-ai/national-parks.git
-cd national-parks
+```sh
+npm install
+npm start
 ```
 
-2. Open instantly locally:
-```bash
-# MacOS
-open index.html
+After changing a hero photo, run `python3 scripts/build_park_images.py` (requires Pillow) to refresh its lightweight card image.
 
-# Windows
-start index.html
+After editing the canonical data or `index.html`, regenerate all data exports and the 63 park / 12 month pages:
+
+```sh
+python3 scripts/generate_seo_pages.py
+node --test tests/content-audit.test.mjs
 ```
-*(Optionally, spin up a lightweight local server like `npx serve .` or `python3 -m http.server`)*
 
----
+The React prototype imports the same canonical dataset directly:
 
-*Data provided is highly curated but approximate. Always configure specific park availability, seasonal closures, and permit requirements via [recreation.gov](https://recreation.gov) before planning serious travel.*
+```sh
+cd v2
+npm install
+npm run build
+npm run dev
+```
+
+## Content maintenance
+
+- Cite a park-specific NPS page supporting each factual note. Include activity-specific permit sources where needed.
+- Update `reviewedAt` only after checking the facts against the sources. It is a review date, not the date NPS published the page.
+- Keep weather qualitative unless a future dataset includes station, observation period, units, and provenance. Never fill unknown travel times or crowd observations with defaults.
+- Label suggestions separately from facts. Never attribute editorial prose to Reddit or to a visitor without the actual source and quotation.
+- Preserve park IDs and user-facing names unless a migration is provided: saved favorites, visited parks, and hidden parks use those names.
+- Do not hand-edit generated `parks-summary.*`, `parks-details.js`, or route HTML files. Legacy `data.js`, `parks-seasonal.js`, and `parks-logistics.js` are retired empty exports.
+- Photos require a matching park, source URL, title, and credit. Choose recognizable landmarks and landscapes and inspect both wide and mobile crops. Images are historical illustrations, not current conditions.
+
+This project is not affiliated with or endorsed by the National Park Service. Always check official conditions and reservations for your dates.

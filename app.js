@@ -1,13 +1,5 @@
 // ============ Initialization ============
 const PARKS = Object.values(window.PARKS_SUMMARY || {});
-const LOGISTICS = window.PARKS_LOGISTICS || {};
-const MAJOR_HUBS = window.MAJOR_HUBS || [];
-
-function calculateCompositeScore(park) {
-  const score = (park.popularity * 0.4) + (park.uniqueness * 0.4) + (park.sfoAccessibility * 0.2);
-  return Math.max(Math.min((score / 100) * 5, 5), 1);
-}
-PARKS.forEach(p => { p.compositeScore = parseFloat(calculateCompositeScore(p).toFixed(1)); });
 
 const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const MONTH_FULL = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -28,9 +20,7 @@ const STATE_NAMES = {
 
 // ============ State & DOM ============
 let selectedMonth    = null;
-let currentHomeHub   = localStorage.getItem('homeHub') || 'SFO';
 let viewMode         = 'all';
-let sortBy           = 'score';
 let visitedParks     = new Set(JSON.parse(localStorage.getItem('visitedParks')   || '[]'));
 let favoritedParks   = new Set(JSON.parse(localStorage.getItem('favoritedParks') || '[]'));
 let hiddenParks      = new Set(JSON.parse(localStorage.getItem('hiddenParks')    || '[]'));
@@ -43,9 +33,14 @@ let filterState = JSON.parse(localStorage.getItem('filterState')) || {
   flights: [],
   stargazing: false
 };
+// Old travel/rating filters were based on unsupported data.
+filterState = { maxDays: filterState.maxDays ?? null, state: filterState.state || '', stargazing: false };
 function saveFilterState() { localStorage.setItem('filterState', JSON.stringify(filterState)); }
 let showVisited = localStorage.getItem('showVisited') !== 'false';
 let showFilterPanel = false;
+let comparedParks = new Set();
+let comparisonOpen = false;
+let lastListingScroll = 0;
 
 const chipContainer    = document.querySelector('.month-chips');
 const parkSearchInput  = document.getElementById('park-search');
@@ -59,7 +54,6 @@ const modalBody        = document.getElementById('modal-body');
 const filterPanel      = document.getElementById('filter-panel');
 const visitedToggle    = document.getElementById('visited-toggle');
 const toggleWrap       = document.querySelector('.visited-toggle-wrap');
-const startPointSelect = document.getElementById('start-point');
 const scrollLeftBtn    = document.getElementById('scroll-left');
 const scrollRightBtn   = document.getElementById('scroll-right');
 
@@ -92,51 +86,38 @@ if (scrollRightBtn) {
   });
 }
 
-// ============ Logistics Engine ============
-function getTravelTime(park) {
-  const hub = currentHomeHub;
-  const parkId = park.id;
-  
-  if (LOGISTICS[parkId] && LOGISTICS[parkId][hub] !== undefined) {
-    return LOGISTICS[parkId][hub];
-  }
-
-  // Fallback for safety (though matrix should be complete)
-  return 120 + (park.gatewayExtraMinutes || 0);
-}
-
-// Initial filter bounds based on all parks
-let filterBounds = { minDuration: 0, maxDuration: 0, minDays: 0, maxDays: 0 };
+// Unknown travel times must remain unknown, never a made-up fallback.
+function getTravelTime() { return null; }
+let filterBounds = { minDays: 1, maxDays: 1 };
 function initFilterBounds() {
-  if (!PARKS.length) return;
-  const times = PARKS.map(p => getTravelTime(p));
-  filterBounds.minDuration = Math.min(...times);
-  filterBounds.maxDuration = Math.max(...times);
-  filterBounds.minDays = Math.min(...PARKS.map(p => p.minDays || 1));
-  filterBounds.maxDays = Math.max(...PARKS.map(p => p.minDays || 1));
-
-  // Auto-correct filterState if it's now out of range
-  if (filterState.maxDuration === null || filterState.maxDuration < filterBounds.minDuration) {
-    filterState.maxDuration = filterBounds.maxDuration;
-    saveFilterState();
-  }
+  filterBounds.minDays = Math.min(...PARKS.map(p => p.minDays));
+  filterBounds.maxDays = Math.max(...PARKS.map(p => p.minDays));
 }
 initFilterBounds();
 // ============ Theme Selection & Dynamic Styles ============
-let currentTheme = localStorage.getItem('theme') || 'dark';
-const applyTheme = (theme) => {
-  document.documentElement.setAttribute('data-theme', theme);
-  localStorage.setItem('theme', theme);
-  
-  // Desktop theme buttons
-  document.getElementById('theme-light')?.classList.toggle('active', theme === 'light');
-  document.getElementById('theme-dark')?.classList.toggle('active', theme === 'dark');
-};
-window.applyTheme = applyTheme;
-applyTheme(currentTheme);
-
-document.getElementById('theme-light')?.addEventListener('click', () => applyTheme('light'));
-document.getElementById('theme-dark')?.addEventListener('click', () => applyTheme('dark'));
+const deviceTheme = window.matchMedia?.('(prefers-color-scheme: dark)');
+function themePreference() { const saved=localStorage.getItem('theme'); return saved==='dark'||saved==='light' ? saved : 'system'; }
+function updateThemeUI() {
+  const preference=themePreference();
+  const theme=preference==='system' ? (deviceTheme?.matches ? 'dark' : 'light') : preference;
+  document.documentElement.setAttribute('data-theme',theme);
+  document.documentElement.style.colorScheme=theme;
+  document.getElementById('theme-light')?.classList.toggle('active',theme==='light');
+  document.getElementById('theme-dark')?.classList.toggle('active',theme==='dark');
+  document.querySelectorAll('[data-theme-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.themeChoice===preference)));
+}
+function setThemePreference(preference) {
+  if (!['system','light','dark'].includes(preference)) return;
+  if(preference==='system') localStorage.removeItem('theme'); else localStorage.setItem('theme',preference);
+  updateThemeUI();
+}
+const applyTheme = setThemePreference;
+window.applyTheme=applyTheme;
+window.setThemePreference=setThemePreference;
+updateThemeUI();
+deviceTheme?.addEventListener?.('change',()=>{ if(themePreference()==='system') updateThemeUI(); });
+document.getElementById('theme-light')?.addEventListener('click',()=>setThemePreference('light'));
+document.getElementById('theme-dark')?.addEventListener('click',()=>setThemePreference('dark'));
 
 // Dynamic styles injection for modern SVG icons, modal toolbar layout, and mobile bottom sheet drawer
 const dynamicStyles = document.createElement('style');
@@ -470,19 +451,10 @@ dynamicStyles.textContent = `
     vertical-align: middle !important;
   }
 `;
-document.head.appendChild(dynamicStyles);
+document.head.insertBefore(dynamicStyles, document.querySelector('link[href*="recommendations.css"]'));
 
 // ============ Search ============
 let searchQuery      = '';
-let minTempFilter    = 0;
-let maxTempFilter    = 110;
-
-function getParkHighTemp(parkId, month) {
-  const data = window.PARKS_SEASONAL?.[parkId]?.[month];
-  if (!data || !data.temp || data.temp === 'N/A') return null;
-  const match = data.temp.match(/(\d+)°F/);
-  return match ? parseInt(match[1]) : null;
-}
 const searchContainer = document.querySelector('.search-container');
 if (parkSearchInput) {
   parkSearchInput.addEventListener('input', (e) => {
@@ -584,20 +556,6 @@ function init() {
   setupSearchInputEmoji();
   renderChips();
   
-  // Populate Hubs Dropdown
-  if (startPointSelect) {
-    startPointSelect.innerHTML = MAJOR_HUBS.map(hub => 
-      `<option value="${hub.code}" ${hub.code === currentHomeHub ? 'selected' : ''}>${hub.code}</option>`
-    ).join('');
-    
-    startPointSelect.addEventListener('change', (e) => {
-      currentHomeHub = e.target.value;
-      localStorage.setItem('homeHub', currentHomeHub);
-      initFilterBounds(); // Re-calculate bounds for the new hub
-      renderParks();
-    });
-  }
-
   if (visitedToggle) {
     visitedToggle.checked = showVisited;
     visitedToggle.addEventListener('change', () => { 
@@ -609,11 +567,12 @@ function init() {
   
   // Check URL for month
   const path = window.location.pathname;
-  const match = path.match(/\/([a-z\-]+)(?:\.html)?$/i);
+  const match = path.match(/\/([^/]+)\/?$/);
   let preselectedMonth = null;
   let preselectedPark = null;
   if (match) {
-    const slug = match[1].toLowerCase();
+    let slug;
+    try { slug = decodeURIComponent(match[1]).replace(/\.html$/i, '').toLowerCase(); } catch { slug = match[1].toLowerCase(); }
     const monthIndex = MONTH_FULL.findIndex(m => m.toLowerCase() === slug);
     if (monthIndex !== -1) {
       preselectedMonth = monthIndex + 1;
@@ -622,14 +581,24 @@ function init() {
     }
   }
 
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('month')) {
+    const m = Number(params.get('month'));
+    preselectedMonth = Number.isInteger(m) && m>=1 && m<=12 ? m : null;
+  }
   if (preselectedMonth) {
     selectMonth(preselectedMonth, true);
   } else {
     // Auto-select current month for immediate relevance (especially on mobile)
-    const currentMonth = new Date().getMonth() + 1; // 1-indexed
+    const currentMonth = params.get('month') === 'all' ? null : new Date().getMonth() + 1; // 1-indexed
     selectMonth(currentMonth, true);
   }
 
+  const shared = (params.get('compare') || '').split(',').filter(id=>window.PARKS_SUMMARY[id]).slice(0,3);
+  comparedParks = new Set(shared); comparisonOpen = shared.length >= 2;
+  if (['favorites','visited','hidden'].includes(params.get('view'))) viewMode=params.get('view');
+  renderParks();
+  window.history.replaceState({month:selectedMonth,view:viewMode,compare:[...comparedParks],comparisonOpen},'',window.location.href);
   if (preselectedPark) {
     setTimeout(() => openModal(preselectedPark, true), 50);
   }
@@ -690,6 +659,7 @@ if (mobileMenuToggle && headerActions) {
 
 // ============ Render Chips (months only — special modes moved to view-tabs) ============
 function renderChips() {
+  const all=document.createElement('button'); all.className='month-chip'; all.id='chip-all'; all.textContent='All months'; all.onclick=()=>{selectMonth(null,true);syncBrowseURL()}; chipContainer.appendChild(all);
   // Month chips only (special chips moved to static HTML view-tabs)
   MONTHS.forEach((m, i) => {
     const chip = document.createElement('button');
@@ -699,6 +669,7 @@ function renderChips() {
     chip.setAttribute('aria-label', `Filter by ${MONTH_FULL[i]}`);
     chip.addEventListener('click', () => selectMonth(i + 1));
     chipContainer.appendChild(chip);
+    document.getElementById('month-select')?.insertAdjacentHTML('beforeend',`<option value="${i+1}">${MONTH_FULL[i]}</option>`);
   });
 }
 
@@ -717,36 +688,43 @@ document.querySelectorAll('.view-tab').forEach(tab => {
 });
 
 function selectSpecialMode(mode) {
-  // Clear month chip highlights
-  document.querySelectorAll('.month-chip').forEach(c => c.classList.remove('active'));
-
-  if (viewMode === mode && mode !== 'all') {
-    // Deselect (if you clicked visited/favorites again) → back to all
-    viewMode = 'all';
-    selectedMonth = null;
-    updateViewTabs('all');
-  } else {
-    // Select the new mode
-    viewMode = mode;
-    selectedMonth = null;
-    updateViewTabs(mode);
-  }
-  
-  window.history.pushState({ month: null }, '', '/');
-  document.title = 'US National Park Finder | Explore by Month';
-  
-  // Show/hide visited toggle
-  if (toggleWrap) toggleWrap.style.display = (viewMode === 'visited') ? 'none' : '';
+  viewMode = mode;
+  searchQuery = ''; if (parkSearchInput) parkSearchInput.value = '';
+  searchClearBtn?.classList.remove('visible');
+  updateViewTabs(mode);
+  syncBrowseURL();
   renderParks();
 }
 
+function syncBrowseURL(replace = false) {
+  const url = new URL(window.location.href);
+  url.pathname = selectedMonth ? '/' + MONTH_FULL[selectedMonth-1].toLowerCase() : '/';
+  url.search = '';
+  if (!selectedMonth) url.searchParams.set('month','all');
+  if (viewMode !== 'all') url.searchParams.set('view',viewMode);
+  if (comparedParks.size) url.searchParams.set('compare',[...comparedParks].join(','));
+  window.history[replace ? 'replaceState' : 'pushState']({month:selectedMonth,view:viewMode,compare:[...comparedParks],comparisonOpen}, '', url.pathname + url.search);
+}
+
+function parkHref(park) {
+  return '/' + encodeURIComponent(park.id) + '?month=' + (selectedMonth || 'all');
+}
+
+function followParkLink(event, id) {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault(); openModal(window.PARKS_SUMMARY[id]);
+}
+
+function trackAction(name, properties = {}) {
+  if (typeof gtag !== 'undefined') gtag('event', name, {month:selectedMonth ? MONTH_FULL[selectedMonth-1] : 'all',...properties});
+}
+
 function selectMonth(month, preventHistory = false) {
-  viewMode = 'all';
-  selectedMonth = selectedMonth === month ? null : month;
+  selectedMonth = !preventHistory && selectedMonth === month ? null : month;
   // Update view tabs — always set Explore as active when selecting a month
-  updateViewTabs('all');
+  updateViewTabs(viewMode);
   // Clear ALL month chips first, then activate the right one
-  document.querySelectorAll('.month-chip').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.month-chip').forEach(c => { const active=c.id === (selectedMonth ? `chip-${selectedMonth}` : 'chip-all'); c.classList.toggle('active',active); c.setAttribute('aria-pressed',String(active)); });
   
   if (selectedMonth) {
     const activeChip = document.getElementById(`chip-${selectedMonth}`);
@@ -763,18 +741,10 @@ function selectMonth(month, preventHistory = false) {
         });
       }, 50);
     }
-    if (!preventHistory) {
-      const ms = MONTH_FULL[selectedMonth - 1].toLowerCase();
-      window.history.pushState({ month: selectedMonth }, '', `/${ms}`);
-      document.title = `Where to go in ${MONTH_FULL[selectedMonth - 1]}: National Parks Guide | US National Park Finder`;
-    }
-  } else {
-    if (!preventHistory) {
-      window.history.pushState({ month: null }, '', '/');
-      document.title = 'US National Park Finder | Explore by Month';
-    }
   }
-  
+  if (!preventHistory) { syncBrowseURL(); trackAction('month_selected'); }
+  const monthSelect = document.getElementById('month-select');
+  if (monthSelect) monthSelect.value = selectedMonth || '';
   if (toggleWrap) toggleWrap.style.display = '';
   renderParks();
 }
@@ -794,62 +764,86 @@ function formatMonths(months) {
   return ranges.map(([s,e]) => s===e ? MONTHS[s-1] : `${MONTHS[s-1]}–${MONTHS[e-1]}`).join(', ');
 }function formatBestMonths(months) { return formatMonths(months); }
 
-function formatCrowdLevel(score) {
-  if (!score) return '';
-  let html = '<div class="modal-crowd-icons">';
-  for (let i = 1; i <= 5; i++) {
-    html += `<span class="crowd-icon ${i <= score ? 'active' : ''}"><svg class="icon"><use href="#icon-user" xlink:href="#icon-user"></use></svg></span>`;
-  }
-  html += '</div>';
-  return html;
-}
-
-function renderStars(count) {
-  const full = Math.floor(count), half = (count % 1) >= 0.3;
-  let s = '';
-  for (let i = 0; i < full; i++) {
-    s += `<svg class="icon star-icon" style="color: var(--amber); fill: var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg>`;
-  }
-  if (half) {
-    s += `<svg class="icon star-icon" style="color: var(--amber); fill: var(--amber);"><use href="#icon-star-half" xlink:href="#icon-star-half"></use></svg>`;
-  }
-  return s;
-}
-
-function parseAirport(str) {
-  if (!str) return { code: '', detail: '' };
-  const firstSpace = str.indexOf(' ');
-  if (firstSpace === -1) return { code: str, detail: '' };
-  return { code: str.slice(0, firstSpace), detail: str.slice(firstSpace).trim() };
-}
-
 function sortParks(parks) {
   return [...parks].sort((a, b) => {
-    const aFav = favoritedParks.has(a.name) ? 1 : 0;
-    const bFav = favoritedParks.has(b.name) ? 1 : 0;
-    // Favorites always float to top
-    if (bFav !== aFav) return bFav - aFav;
-
-    if (sortBy === 'distance') {
-      return getTravelTime(a) - getTravelTime(b);
-    } else if (sortBy === 'days') {
-      return (a.minDays || 99) - (b.minDays || 99);
-    } else if (sortBy === 'stargazing') {
-      // Note: stargazing info moved to details, using composite as fallback for summary
-      return b.compositeScore - a.compositeScore;
-    }
-    // default: score
-    return b.compositeScore - a.compositeScore;
+    const difference = recommendationFor(b).score - recommendationFor(a).score;
+    if (difference) return difference;
+    return a.name.localeCompare(b.name);
   });
 }
 
+// Editorial judgments, never a visitor-review aggregate or a live conditions score.
+function recommendationFor(park, month = selectedMonth) {
+  const r = park.recommendation;
+  const seasonal = !month ? null : r.peakMonths.includes(month) ? 5 : park.bestMonths.includes(month) ? 4 : 2;
+  return {
+    score: seasonal == null ? r.experience : Math.round((seasonal * 0.6 + r.experience * 0.4) * 10) / 10,
+    seasonal,
+    label: seasonal === 5 ? 'Standout month' : seasonal === 4 ? 'Good month to go' : seasonal === 2 ? 'Special-interest season' : 'Year-round inspiration'
+  };
+}
+
+function scoreStars(score) {
+  return `<span class="recommendation-stars" aria-hidden="true"><span>★★★★★</span><span class="filled-stars" style="width:${score / 5 * 100}%">★★★★★</span></span>`;
+}
+
+function showRatingMethod() {
+  const dialog = document.getElementById('rating-method-dialog');
+  const trigger = document.querySelector('.rating-method');
+  if (!dialog || !trigger) return;
+  if (dialog.open) { closeRatingMethod(); return; }
+  dialog.show();
+  trigger.setAttribute('aria-expanded', 'true');
+  const rect = trigger.getBoundingClientRect();
+  const width = dialog.getBoundingClientRect().width;
+  const height = dialog.getBoundingClientRect().height;
+  const left = Math.max(16, Math.min(rect.right - width, window.innerWidth - width - 16));
+  const below = rect.bottom + 10;
+  const top = below + height <= window.innerHeight - 16 ? below : Math.max(16, rect.top - height - 10);
+  dialog.style.left = `${left}px`;
+  dialog.style.top = `${top}px`;
+  document.addEventListener('pointerdown', dismissRatingMethodOutside);
+  document.addEventListener('keydown', dismissRatingMethodOnEscape);
+}
+
+function closeRatingMethod() {
+  const dialog = document.getElementById('rating-method-dialog');
+  if (dialog?.open) dialog.close();
+  document.querySelector('.rating-method')?.setAttribute('aria-expanded', 'false');
+  document.removeEventListener('pointerdown', dismissRatingMethodOutside);
+  document.removeEventListener('keydown', dismissRatingMethodOnEscape);
+}
+
+function dismissRatingMethodOutside(event) {
+  if (!event.target.closest('#rating-method-dialog, .rating-method')) closeRatingMethod();
+}
+
+function dismissRatingMethodOnEscape(event) {
+  if (event.key === 'Escape') closeRatingMethod();
+}
 
 // ============ Filter Logic ============
 function toggleFilterPanel() {
   const panel = document.getElementById('filter-panel');
   showFilterPanel = !showFilterPanel;
   panel?.classList.toggle('hidden', !showFilterPanel);
-  if (showFilterPanel) renderFilterUI();
+  document.getElementById('refine-button')?.setAttribute('aria-expanded',String(showFilterPanel));
+  if (showFilterPanel) {
+    renderFilterUI();
+    document.addEventListener('pointerdown', dismissFilterPanelOutside);
+    document.addEventListener('keydown', dismissFilterPanelOnEscape);
+  } else {
+    document.removeEventListener('pointerdown', dismissFilterPanelOutside);
+    document.removeEventListener('keydown', dismissFilterPanelOnEscape);
+  }
+}
+
+function dismissFilterPanelOutside(event) {
+  if (!event.target.closest('#filter-panel, #refine-button')) toggleFilterPanel();
+}
+
+function dismissFilterPanelOnEscape(event) {
+  if (event.key === 'Escape') toggleFilterPanel();
 }
 
 function updateFilterBounds(baseParks) {
@@ -858,13 +852,7 @@ function updateFilterBounds(baseParks) {
   // causes "random" filters to appear when switching months.
 }
 
-function getFlightType(park) {
-  if (!park.flight || park.flight.toLowerCase().includes('drive') || park.flight.toLowerCase().includes('ferry') || park.flight.toLowerCase().includes('boat')) return 'no-flight';
-  const f = park.flight.toLowerCase();
-  if (f.includes('direct')) return 'direct';
-  if (f.includes('1 stop')) return '1-stop';
-  return '2-stops';
-}
+
 
 function renderFilterChips() {
   const container = document.getElementById('active-filters');
@@ -874,7 +862,7 @@ function renderFilterChips() {
   const chips = [];
   
   if (searchQuery) {
-    chips.push({ label: `<svg class="icon"><use href="#icon-search" xlink:href="#icon-search"></use></svg> "${searchQuery}"`, onClear: () => { 
+    chips.push({ label: `<svg class="icon"><use href="#icon-search" xlink:href="#icon-search"></use></svg> "${escapeHtml(searchQuery)}"`, onClear: () => {
       if (parkSearchInput) parkSearchInput.value = ''; 
       searchQuery = ''; 
       if (searchClearBtn) searchClearBtn.classList.remove('visible');
@@ -882,15 +870,12 @@ function renderFilterChips() {
     } });
   }
   
-  if (selectedMonth) {
-    chips.push({ label: `<svg class="icon"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg> ${MONTH_FULL[selectedMonth-1]}`, onClear: () => selectMonth(null) });
-  }
   
   if (viewMode !== 'all') {
     const labels = { 
-      favorites: '<svg class="icon" style="color:var(--amber); fill:var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg> Favorites', 
-      visited: '<svg class="icon" style="color:var(--green);"><use href="#icon-check-filled" xlink:href="#icon-check-filled"></use></svg> Visited Only', 
-      hidden: '<svg class="icon"><use href="#icon-eye-off" xlink:href="#icon-eye-off"></use></svg> Hidden' 
+      favorites: '<svg class="icon" aria-hidden="true"><use href="#icon-heart"></use></svg> Saved',
+      visited: '<svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Visited',
+      hidden: '<svg class="icon" aria-hidden="true"><use href="#icon-eye-off"></use></svg> Hidden'
     };
     chips.push({ label: labels[viewMode], onClear: () => selectSpecialMode('all') });
   }
@@ -904,44 +889,12 @@ function renderFilterChips() {
     } });
   }
 
-  if (filterState.minRating > 0) {
-    chips.push({ label: `<svg class="icon" style="color:var(--amber); fill:var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg> ${filterState.minRating}+ Stars`, onClear: () => setFilterValue('minRating', 0) });
-  }
-  
   if (filterState.stargazing) {
-    chips.push({ label: '<svg class="icon"><use href="#icon-telescope" xlink:href="#icon-telescope"></use></svg> Stargazing', onClear: () => setFilterValue('stargazing', false) });
+    chips.push({ label: '<svg class="icon"><use href="#icon-telescope" xlink:href="#icon-telescope"></use></svg> NPS night-sky destination', onClear: () => setFilterValue('stargazing', false) });
   }
   
-  if (filterState.minDays > filterBounds.minDays) {
-    chips.push({ label: `<svg class="icon"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg> Min ${filterState.minDays} Days`, onClear: () => setFilterValue('minDays', filterBounds.minDays) });
-  }
-
-  if (filterState.maxDuration < filterBounds.maxDuration) {
-    chips.push({ label: `<svg class="icon"><use href="#icon-clock" xlink:href="#icon-clock"></use></svg> Max ${Math.floor(filterState.maxDuration/60)}h ${filterState.maxDuration%60}m`, onClear: () => setFilterValue('maxDuration', filterBounds.maxDuration) });
-  }
-
-  filterState.flights.forEach(f => {
-    const labels = { 
-      'no-flight': '<svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg> Drive', 
-      'direct': '<svg class="icon"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg> Direct', 
-      '1-stop': '<svg class="icon"><use href="#icon-stop" xlink:href="#icon-stop"></use></svg> 1 Stop', 
-      '2-stops': '<svg class="icon"><use href="#icon-stop" xlink:href="#icon-stop"></use></svg> 2+ Stops' 
-    };
-    chips.push({ label: labels[f], onClear: () => toggleFlightFilter(f) });
-  });
-
-  if (minTempFilter > 0 || maxTempFilter < 110) {
-    chips.push({ label: `<svg class="icon"><use href="#icon-thermometer" xlink:href="#icon-thermometer"></use></svg> ${minTempFilter}°F - ${maxTempFilter}°F`, onClear: () => {
-      minTempFilter = 0; 
-      maxTempFilter = 110;
-      const tMin = document.getElementById('temp-min');
-      const tMax = document.getElementById('temp-max');
-      if (tMin) tMin.value = "0";
-      if (tMax) tMax.value = "110";
-      // Update logic and re-render
-      updateTempFilterLogic(true);
-    }});
-  }
+  if (filterState.maxDays) chips.push({label:`Up to ${filterState.maxDays} days in park`,onClear:()=>setFilterValue('maxDays',null)});
+  if (filterState.state) chips.push({label:escapeHtml(STATE_NAMES[filterState.state] || filterState.state),onClear:()=>setFilterValue('state','')});
 
   if (chips.length === 0) {
     container.style.display = 'none';
@@ -952,7 +905,7 @@ function renderFilterChips() {
   chips.forEach(chip => {
     const div = document.createElement('div');
     div.className = 'filter-chip';
-    div.innerHTML = `<span>${chip.label}</span><button class="chip-remove" aria-label="Remove filter">×</button>`;
+    div.innerHTML = `<span>${chip.label}</span><button class="chip-remove" aria-label="Remove filter"><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg></button>`;
     div.querySelector('.chip-remove').onclick = (e) => {
       e.stopPropagation();
       chip.onClear();
@@ -961,53 +914,20 @@ function renderFilterChips() {
   });
 }
 
-function getFlightType(park) {
-  if (currentHomeHub === park.gatewayHub) {
-    return park.gatewayExtraMinutes <= 120 ? 'no-flight' : 'direct';
-  }
-  return '1-stop';
-}
+
 
 function applyFilters(baseParks) {
-  return baseParks.filter(p => {
-    // Duration
-    const travelTime = getTravelTime(p);
-    if (filterState.maxDuration !== null && travelTime > filterState.maxDuration) return false;
-    // Days Range (Min required)
-    if (filterState.minDays !== null && (p.minDays || 1) < filterState.minDays) return false;
-    // Rating
-    if (filterState.minRating > 0 && p.compositeScore < filterState.minRating) return false;
-    // Stargazing
-    if (filterState.stargazing && !p.stargazing) return false;
-    
-    // Flight Types
-    if (filterState.flights.length > 0) {
-      const type = getFlightType(p);
-      if (!filterState.flights.includes(type)) return false;
-    }
-
-    // Temperature Filter
-    if (selectedMonth && (minTempFilter > 0 || maxTempFilter < 110)) {
-      const highTemp = getParkHighTemp(p.id, selectedMonth);
-      if (highTemp === null || highTemp < minTempFilter || highTemp > maxTempFilter) return false;
-    }
-
-    return true;
-  });
+  return baseParks.filter(p =>
+    (filterState.maxDays == null || p.minDays <= filterState.maxDays) &&
+    (!filterState.state || p.state.split(' / ').includes(filterState.state)) &&
+    (!filterState.stargazing || p.stargazing));
 }
 
 function resetFilters() {
-  filterState = { maxDuration: filterBounds.maxDuration, minDays: filterBounds.minDays, maxDays: filterBounds.maxDays, minRating: 0, flights: [], stargazing: false };
-  minTempFilter = 0;
-  maxTempFilter = 110;
-  const tMin = document.getElementById('temp-min');
-  const tMax = document.getElementById('temp-max');
-  if (tMin) tMin.value = "0";
-  if (tMax) tMax.value = "110";
-  // Sync UI and trigger re-render
-  syncTempSliderTrack();
+  filterState = { maxDays: null, state: '', stargazing: false };
   saveFilterState();
   renderParks();
+  renderFilterUI();
 }
 
 function setFilterValue(key, val, shouldRender=true) {
@@ -1018,149 +938,38 @@ function setFilterValue(key, val, shouldRender=true) {
     renderParks();
   }
 }
-function toggleFlightFilter(type) {
-  if (filterState.flights.includes(type)) filterState.flights = filterState.flights.filter(t => t!==type);
-  else filterState.flights.push(type);
-  saveFilterState(); renderParks();
-}
-
 function renderFilterUI() {
   if (!showFilterPanel) return;
   filterPanel.classList.remove('hidden');
-  
   filterPanel.innerHTML = `
-    <div class="filter-header">
-      <h3>Refine Results</h3>
-      <div style="display:flex; gap:12px;">
-        <button class="clear-filters-btn" onclick="resetFilters()">Clear All</button>
-        <button class="filter-close-x" onclick="toggleFilterPanel()" aria-label="Close filters">×</button>
-      </div>
+    <div class="filter-header"><h3>Filters</h3>
+      <button class="clear-filters-btn" onclick="resetFilters()">Clear filters</button>
+      <button class="filter-close-x" onclick="toggleFilterPanel()" aria-label="Close filters"><svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg></button>
     </div>
     <div class="filter-body">
-      
-      <div class="filter-col">
-        <label>Total Travel Time: <= ${Math.round((filterState.maxDuration||filterBounds.maxDuration)/60)}h ${(filterState.maxDuration||filterBounds.maxDuration)%60}m</label>
-        <input type="range" min="${filterBounds.minDuration}" max="${filterBounds.maxDuration}" step="30" value="${filterState.maxDuration||filterBounds.maxDuration}" 
-          onchange="setFilterValue('maxDuration', parseInt(this.value))"
-          oninput="this.previousElementSibling.innerText = 'Total Travel Time: <= ' + Math.floor(this.value/60) + 'h ' + (this.value%60) + 'm'">
-        
-        <label style="margin-top:16px;">Suggested Days: &ge; ${filterState.minDays||filterBounds.minDays} days</label>
-        <input type="range" min="${filterBounds.minDays}" max="${filterBounds.maxDays}" step="1" value="${filterState.minDays||filterBounds.minDays}" 
-             onchange="setFilterValue('minDays', parseInt(this.value))"
-             oninput="this.previousElementSibling.innerText = 'Suggested Days: &ge; ' + this.value + ' days'">
-
-        ${selectedMonth ? `
-        <div class="filter-group" style="margin-top:24px;">
-          <div class="filter-header">
-            <label>Temperature: <span id="temp-range-label" style="color:var(--amber); font-weight:bold;">${minTempFilter}°F - ${maxTempFilter}°F</span></label>
-          </div>
-          <div class="temp-slider-wrapper" style="margin-top:8px;">
-            <div class="slider-track" id="slider-track"></div>
-            <input type="range" id="temp-min" min="0" max="110" value="${minTempFilter}" step="1" oninput="updateTempFilterLogic(true)" onmousedown="this.style.zIndex=10" onmouseup="this.style.zIndex=2" ontouchstart="this.style.zIndex=10" ontouchend="this.style.zIndex=2">
-            <input type="range" id="temp-max" min="0" max="110" value="${maxTempFilter}" step="1" oninput="updateTempFilterLogic(false)" onmousedown="this.style.zIndex=10" onmouseup="this.style.zIndex=2" ontouchstart="this.style.zIndex=10" ontouchend="this.style.zIndex=2">
-          </div>
-          <div class="filter-hint" style="font-size:11px; margin-top:12px;">Filters parks for ${MONTH_FULL[selectedMonth-1]}</div>
-        </div>
-        ` : '<div class="filter-hint" style="margin-top:24px;">Select a month to filter by temperature</div>'}
+      <div class="filter-field">
+        <label for="days-budget">Trip length</label>
+        <select id="days-budget" onchange="setFilterValue('maxDays',this.value ? Number(this.value) : null)"><option value="">Any trip length</option>${[1,2,3,4,7].map(d=>`<option value="${d}" ${filterState.maxDays===d?'selected':''}>Up to ${d} day${d===1?'':'s'}</option>`).join('')}</select>
       </div>
-
-      <div class="filter-col">
-        <label>Star Rating</label>
-        <div class="pill-group">
-          <button class="pill ${filterState.minRating===0?'active':''}" onclick="setFilterValue('minRating', 0)">Any</button>
-          <button class="pill ${filterState.minRating===3?'active':''}" onclick="setFilterValue('minRating', 3)">3+ Stars</button>
-          <button class="pill ${filterState.minRating===4?'active':''}" onclick="setFilterValue('minRating', 4)">4+ Stars</button>
-        </div>
-
-        <label style="margin-top:20px;">Features</label>
-        <label class="check-label">
-          <input type="checkbox" ${filterState.stargazing ? 'checked':''} onchange="setFilterValue('stargazing', this.checked)">
-          <svg class="icon" style="margin-right: 4px;"><use href="#icon-telescope" xlink:href="#icon-telescope"></use></svg> Stargazing Recommended
-        </label>
+      <div class="filter-field">
+        <label for="state-filter">State or territory</label>
+        <select id="state-filter" onchange="setFilterValue('state',this.value)"><option value="">Anywhere</option>${[...new Set(PARKS.flatMap(p=>p.state.split(' / ')))].sort((a,b)=>(STATE_NAMES[a]||a).localeCompare(STATE_NAMES[b]||b)).map(st=>`<option value="${st}" ${filterState.state===st?'selected':''}>${STATE_NAMES[st]||st}</option>`).join('')}</select>
       </div>
-
-      <div class="filter-col">
-        <label>Transit Stops (From SFO)</label>
-        <div class="pill-group-vertical">
-          <button class="pill ${filterState.flights.includes('no-flight')?'active':''}" onclick="toggleFlightFilter('no-flight')"><svg class="icon" style="margin-right:6px;"><use href="#icon-car" xlink:href="#icon-car"></use></svg>Drive / No Flight</button>
-          <button class="pill ${filterState.flights.includes('direct')?'active':''}" onclick="toggleFlightFilter('direct')"><svg class="icon" style="margin-right:6px;"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg>Direct Flight</button>
-          <button class="pill ${filterState.flights.includes('1-stop')?'active':''}" onclick="toggleFlightFilter('1-stop')"><svg class="icon" style="margin-right:6px;"><use href="#icon-stop" xlink:href="#icon-stop"></use></svg>1 Stop</button>
-          <button class="pill ${filterState.flights.includes('2-stops')?'active':''}" onclick="toggleFlightFilter('2-stops')"><svg class="icon" style="margin-right:6px;"><use href="#icon-stop" xlink:href="#icon-stop"></use></svg>2+ Stops</button>
-        </div>
-
-        <label style="margin-top:20px;">Visibility</label>
-        <label class="check-label">
-          <input type="checkbox" id="visited-toggle-filter" ${showVisited ? 'checked' : ''} onchange="toggleVisitedFilterGlobal(this.checked)">
-          Show Visited Parks
-        </label>
-      </div>
-
+      <label class="filter-option"><input type="checkbox" ${filterState.stargazing ? 'checked' : ''} onchange="setFilterValue('stargazing', this.checked)"><span>NPS night-sky parks</span></label>
+      <label class="filter-option"><input type="checkbox" ${showVisited ? 'checked' : ''} onchange="toggleVisitedFilterGlobal(this.checked)"><span>Show visited parks</span></label>
     </div>
-  `;
-  syncTempSliderTrack();
-  initSliderTouchHandlers();
+    <p class="filter-footnote">Suggested days exclude travel. Check NPS for current night access.</p>`;
 }
 
-function initSliderTouchHandlers() {
-  const tempMin = document.getElementById('temp-min');
-  const tempMax = document.getElementById('temp-max');
-  const wrapper = document.querySelector('.temp-slider-wrapper');
-  if (!tempMin || !tempMax || !wrapper) return;
-
-  wrapper.addEventListener('touchstart', (e) => {
-    const rect = wrapper.getBoundingClientRect();
-    const touchX = e.touches[0].clientX - rect.left;
-    const pct = touchX / rect.width;
-    const clickedVal = pct * 110;
-
-    const distMin = Math.abs(clickedVal - parseFloat(tempMin.value));
-    const distMax = Math.abs(clickedVal - parseFloat(tempMax.value));
-
-    if (distMin < distMax) {
-      tempMin.style.zIndex = '10';
-      tempMax.style.zIndex = '2';
-    } else {
-      tempMax.style.zIndex = '10';
-      tempMin.style.zIndex = '2';
-    }
-  }, { passive: true });
-}
-
-function updateTempFilterLogic(isMin) {
-  const tMin = document.getElementById('temp-min');
-  const tMax = document.getElementById('temp-max');
-  if (!tMin || !tMax) return;
-
-  let min = parseInt(tMin.value);
-  let max = parseInt(tMax.value);
-
-  if (min > max - 2) {
-    if (isMin) tMin.value = (max - 2).toString();
-    else tMax.value = (min + 2).toString();
-    min = parseInt(tMin.value);
-    max = parseInt(tMax.value);
-  }
-
-  minTempFilter = min;
-  maxTempFilter = max;
-  const label = document.getElementById('temp-range-label');
-  if (label) label.textContent = `${min}°F - ${max}°F`;
-  syncTempSliderTrack();
-  renderParks();
-}
-
-function syncTempSliderTrack() {
-  const track = document.getElementById('slider-track');
-  if (track) {
-    const p1 = (minTempFilter / 110) * 100;
-    const p2 = (maxTempFilter / 110) * 100;
-    track.style.background = `linear-gradient(to right, #334155 ${p1}%, #fbbf24 ${p1}%, #fbbf24 ${p2}%, #334155 ${p2}%)`;
-  }
-}
-
-// ============ Render Parks ============
-
+let parkListObserver = null;
 function renderParks() {
+  closeRatingMethod();
+  parkListObserver?.disconnect();
+  updateRouteGuide();
+  const title = viewMode==='favorites' ? 'Your saved parks' : viewMode==='visited' ? 'Your visited parks' : viewMode==='hidden' ? 'Hidden parks' : selectedMonth ? 'Best parks in ' + MONTH_FULL[selectedMonth-1] : 'Explore all national parks';
+  document.getElementById('discovery-title').textContent = title;
+  document.getElementById('saved-count').textContent = favoritedParks.size;
+  document.getElementById('saved-nav').setAttribute('aria-pressed',String(viewMode==='favorites'));
   parkGrid.innerHTML = '';
   statsBar.innerHTML = '';
 
@@ -1188,7 +997,7 @@ function renderParks() {
   } else if (selectedMonth) {
     parks = PARKS.filter(p => p.bestMonths.includes(selectedMonth) && !hiddenParks.has(p.name));
     if (!showVisited) parks = parks.filter(p => !visitedParks.has(p.name));
-    modeLabel = `${parks.length} parks ideal in <strong>${MONTH_FULL[selectedMonth - 1]}</strong>`;
+    modeLabel = `${parks.length} parks suggested for <strong>${MONTH_FULL[selectedMonth - 1]}</strong>`;
   } else {
     emptyState.classList.remove('hidden');
     return;
@@ -1216,33 +1025,24 @@ function renderParks() {
   parks = applyFilters(parks);
   // renderFilterUI(); // REMOVED: Re-rendering full UI here kills slider focus/continuity
   
-  if (parks.length !== rawCount || searchQuery) {
-    modeLabel = `Showing ${parks.length} of ${rawCount} parks`;
-  }
+  modeLabel = `${parks.length} park${parks.length===1?'':'s'}${viewMode==='favorites' ? ' saved on this browser' : selectedMonth && viewMode==='all' ? ' to consider' : ''}`;
   
   renderFilterChips();
   // ---------------------
 
-  emptyState.classList.add('hidden');
-
-// Stats bar
-  statsBar.innerHTML = `
-    <div style="display:flex; align-items:center; gap: 16px;">
-      <span class="count">${modeLabel}</span>
-      <button class="filter-toggle-btn ${parks.length !== rawCount ? 'has-active-filters' : ''}" onclick="toggleFilterPanel()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"></path></svg>
-        Filters
-      </button>
-    </div>
-    <div class="sort-controls">
-      <span class="sort-label">Sort:</span>
-      <button class="sort-btn ${sortBy==='score'    ? 'sort-active':''}" onclick="setSort('score')"><svg class="icon" style="margin-right:4px; color:var(--amber); fill:var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg>Rating</button>
-      <button class="sort-btn ${sortBy==='distance' ? 'sort-active':''}" onclick="setSort('distance')"><svg class="icon" style="margin-right:4px;"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg>Distance</button>
-      <button class="sort-btn ${sortBy==='days'     ? 'sort-active':''}" onclick="setSort('days')"><svg class="icon" style="margin-right:4px;"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg>Days</button>
-      <button class="sort-btn ${sortBy==='stargazing'?'sort-active':''}" onclick="setSort('stargazing')"><svg class="icon" style="margin-right:4px;"><use href="#icon-telescope" xlink:href="#icon-telescope"></use></svg>Stargazing</button>
-    </div>
-  `;
-
+  emptyState.classList.toggle('hidden', parks.length > 0);
+  if (!parks.length) {
+    const excluded = searchQuery ? PARKS.filter(p => p.name.toLowerCase().includes(searchQuery) && !parks.includes(p)).slice(0,3) : [];
+    const freshShortlist = viewMode === 'favorites' && favoritedParks.size === 0;
+    const freshVisited = viewMode === 'visited' && visitedParks.size === 0;
+    const freshHidden = viewMode === 'hidden' && hiddenParks.size === 0;
+    const emptyTitle = freshShortlist ? 'Your shortlist starts here' : freshVisited ? 'No visited parks yet' : freshHidden ? 'No hidden parks' : excluded.length ? 'No matching parks here' : viewMode === 'favorites' ? 'No saved parks match these filters' : 'No parks match these filters';
+    const emptyHelp = freshShortlist ? 'Tap the heart on any park to save it for later.' : freshVisited ? 'Mark parks you have explored to keep track of your travels.' : freshHidden ? 'Parks you hide will appear here.' : excluded.length ? 'These parks are outside your current results.' : 'Try another month or clear your filters.';
+    const emptyIcon = freshShortlist ? '#icon-heart' : freshVisited ? '#icon-check' : '#icon-search';
+    emptyState.innerHTML = `<div class="empty-state-inner"><span class="empty-symbol" aria-hidden="true"><svg class="icon"><use href="${emptyIcon}"></use></svg></span><h2>${emptyTitle}</h2><p>${emptyHelp}</p>${excluded.map(p=>`<div class="search-recovery"><strong>${escapeHtml(p.name)}</strong><span>${selectedMonth && !p.bestMonths.includes(selectedMonth) ? 'Outside our '+MONTH_FULL[selectedMonth-1]+' shortlist, which does not mean it is closed.' : 'Excluded by your current filters or collection.'}</span><a href="${parkHref(p)}" onclick="followParkLink(event,'${p.id}')">View ${escapeHtml(p.name)} anyway →</a></div>`).join('')}<button class="empty-action" onclick="clearDiscoveryFilters()">${freshShortlist || freshVisited || freshHidden ? 'Browse parks':'Show all parks'} <span aria-hidden="true">→</span></button></div>`;
+  }
+  statsBar.innerHTML = `<span class="count" aria-live="polite">${modeLabel}</span><button type="button" class="rating-method" aria-haspopup="dialog" aria-controls="rating-method-dialog" aria-expanded="false" onclick="showRatingMethod()">Rating method ↗</button>`;
+  renderComparison();
   const sorted = sortParks(parks);
   const isMobile = window.innerWidth <= 600;
 
@@ -1254,7 +1054,7 @@ function renderParks() {
     const end = Math.min(loadedCount + BATCH_SIZE, sorted.length);
     for (let idx = loadedCount; idx < end; idx++) {
       const park = sorted[idx];
-      const isHero = (selectedMonth && idx === 0 && viewMode === 'all');
+      const rating = recommendationFor(park);
 
       const isVisited  = visitedParks.has(park.name);
       const isFavorite = favoritedParks.has(park.name);
@@ -1269,21 +1069,13 @@ function renderParks() {
     if (isMobile) cardClass += ' park-card-compact';
 
     card.className = cardClass;
-    const stagger = isMobile ? 0.02 : 0.04;
-    card.style.animationDelay = `${idx * stagger}s`;
-    card.addEventListener('click', () => openModal(park));
+    card.dataset.parkId = park.id;
+    card.addEventListener('click', event => { if (!event.target.closest('a,button,input,label,select')) openModal(park); });
 
-    const travelTime = getTravelTime(park);
-    const hrs = Math.floor(travelTime / 60);
-    const mins = travelTime % 60;
-    const timeStr = hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`;
-
-    const seasonalInfo = window.PARKS_SEASONAL?.[park.id]?.[selectedMonth];
 
     card.innerHTML = `
       <div class="card-media">
-        <img src="${park.thumbnail}" alt="${park.name}" class="card-thumbnail card-img" loading="lazy">
-        ${isHero ? `<div class="floating-hero-badge"><svg class="icon" style="margin-right:4px;"><use href="#icon-trophy" xlink:href="#icon-trophy"></use></svg>Top Pick for ${MONTH_FULL[selectedMonth - 1]}</div>` : ''}
+        <img src="${park.cardThumbnail}?v=4" alt="${escapeHtml(park.photo.alt)}" style="object-position:${park.photo.position}" class="card-thumbnail card-img" loading="${idx < 3 ? 'eager' : 'lazy'}">
         <button class="card-action-btn card-favorite-btn ${isFavorite ? 'active-heart' : ''}" 
           onclick="toggleFavorite('${park.name}', event)"
           data-tooltip="${isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}"
@@ -1293,36 +1085,16 @@ function renderParks() {
       </div>
 
       <div class="card-body">
-        <div class="card-title-row">
-          <h3 class="park-name">${park.name}<span class="park-state-inline">, ${park.state}</span></h3>
-          <span class="card-rating">
-            <svg class="icon star-icon"><use href="#icon-star" xlink:href="#icon-star"></use></svg>
-            <span class="rating-num">${park.compositeScore}</span>
-          </span>
-        </div>
-
+        <div class="card-eyebrow">${escapeHtml(park.state.split(' / ').map(st=>STATE_NAMES[st.trim()] || st).join(' · '))}</div>
+        <div class="card-title-row"><h3 class="park-name"><a class="park-open" href="${parkHref(park)}" onclick="followParkLink(event,'${park.id}')">${escapeHtml(park.name)}</a></h3><span class="card-rating" aria-label="Editorial rating ${rating.score.toFixed(1)} out of 5${selectedMonth ? ' for ' + MONTH_FULL[selectedMonth-1] : ''}">★ ${rating.score.toFixed(1)}</span></div>
+        <p class="card-hook">${escapeHtml(park.recommendation.headline)}</p>
         <div class="card-meta-row">
-          <span class="card-pill">${park.minDays} Day${park.minDays > 1 ? 's' : ''} Min</span>
-          ${park.topActivity ? `<span class="card-pill card-pill-activity">${park.topActivity}</span>` : ''}
-          ${(() => {
-            const h = currentHomeHub;
-            const d = park.driveTimes?.[h];
-            if (d && d <= 360) {
-              return `
-                <span class="card-pill card-pill-transit">
-                  <svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg>
-                  ${timeStr}
-                </span>
-              `;
-            }
-            return `
-              <span class="card-pill card-pill-transit">
-                <svg class="icon"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg>
-                ${timeStr} (${park.gatewayHub})
-              </span>
-            `;
-          })()}
+          <span class="card-pill">${park.minDays} day${park.minDays > 1 ? 's' : ''} suggested</span>
+          <span class="season-pill ${rating.seasonal === 5 ? 'season-standout' : ''}">${selectedMonth ? rating.label : formatMonths(park.bestMonths)}</span>
         </div>
+        <p class="card-reason">${escapeHtml(park.recommendation.reason)}</p>
+        <p class="card-planning"><strong>Plan ahead:</strong> ${escapeHtml(planningPreview(park))}</p>
+        <div class="card-bottom"><a class="card-explore" href="${parkHref(park)}" onclick="followParkLink(event,'${park.id}')">View park →</a><button class="compare-toggle" aria-pressed="${comparedParks.has(park.id)}" aria-label="Compare ${escapeHtml(park.name)}" onclick="toggleCompare('${park.id}')">${comparedParks.has(park.id)?'✓ Selected':'+ Compare'}</button></div>
       </div>
     `;
 
@@ -1355,13 +1127,9 @@ function renderParks() {
         }
       }
     }, { rootMargin: '200px' });
+    parkListObserver = observer;
     observer.observe(sentinel);
   }
-}
-
-function setSort(mode) {
-  sortBy = mode;
-  renderParks();
 }
 
 // ============ Modal Accessibility Tree Toggle ============
@@ -1369,8 +1137,9 @@ function updateAriaHidden() {
   const isParkModalOpen = modal && !modal.classList.contains('hidden');
   const anyOpen = isParkModalOpen;
   
-  const wrappers = document.querySelectorAll('header, .search-container, #month-bar, main, footer');
+  const wrappers = document.querySelectorAll('.discovery-controls, #compare-tray, .app-nav, .header-actions, header, .search-container, .view-tabs-container, .month-filter-label, #month-bar, main, footer');
   wrappers.forEach(el => {
+    el.inert = anyOpen;
     if (anyOpen) {
       el.setAttribute('aria-hidden', 'true');
     } else {
@@ -1380,16 +1149,20 @@ function updateAriaHidden() {
 }
 
 // ============ Modal ============
+let lastOpenedParkId = null;
 function openModal(park, preventHistory = false) {
   const details = window.PARKS_DETAILS?.[park.id];
   if (!details) return;
 
   if (!preventHistory) {
-    window.history.pushState({ modal: park.id, prevMonth: selectedMonth }, '', `/${park.id}`);
-    document.title = `${park.name} National Park | US National Park Finder`;
+    window.history.pushState({ modal: park.id, prevMonth: selectedMonth,view:viewMode,compare:[...comparedParks] }, '', parkHref(park));
+    document.title = `${park.name} National Park`;
   }
-  if (typeof gtag !== 'undefined') gtag('event', 'park_modal_opened', { park_name: park.name, park_id: park.id, month: selectedMonth ? MONTH_FULL[selectedMonth - 1] : 'all' });
+  if ((modal.classList.contains('hidden') || lastOpenedParkId !== park.id) && typeof gtag !== 'undefined') gtag('event', 'park_modal_opened', { park_name: park.name, park_id: park.id, month: selectedMonth ? MONTH_FULL[selectedMonth - 1] : 'all' });
 
+  const wasClosed = modal.classList.contains('hidden');
+  if (wasClosed) lastListingScroll = window.scrollY;
+  lastOpenedParkId = park.id;
   document.body.classList.add('modal-open');
   modal.classList.remove('hidden');
   updateAriaHidden();
@@ -1397,380 +1170,126 @@ function openModal(park, preventHistory = false) {
   const isVisited  = visitedParks.has(park.name);
   const isFavorite = favoritedParks.has(park.name);
   const isHidden   = hiddenParks.has(park.name);
-  const starStr    = renderStars(park.compositeScore);
-  const scorePct   = (park.compositeScore / 5) * 100;
-
-  const activitiesHtml  = (details.topActivities||[]).map(a => `<span class="activity-tag">${a}</span>`).join('');
-  const itineraryHtml   = (details.itinerary||[]).map(i => `<div class="itinerary-step"><strong>${i.day}</strong><p>${i.plan}</p></div>`).join('');
-  const hacksHtml       = (details.travelHacks||[]).map(h => `<div class="hack-item"><svg class="icon"><use href="#icon-lightbulb" xlink:href="#icon-lightbulb"></use></svg><span>${h}</span></div>`).join('');
-  const dos             = (details.dosAndDonts||[]).filter(i => i.type==="do");
-  const donts           = (details.dosAndDonts||[]).filter(i => i.type==="dont");
-  const dosHtml         = dos.map(d => `<div class="do-item">${d.text}</div>`).join('');
-  const dontsHtml       = donts.map(d => `<div class="dont-item">${d.text}</div>`).join('');
-  const funFactsHtml    = (details.funFacts||[]).map(f => `<div class="fun-fact-item"><svg class="icon"><use href="#icon-target" xlink:href="#icon-target"></use></svg><span>${f}</span></div>`).join('');
-
-  const seasonalInfo = window.PARKS_SEASONAL?.[park.id]?.[selectedMonth];
-  const monthNameFn  = selectedMonth ? MONTH_FULL[selectedMonth - 1] : null;
-
-  const redditPostsHtml = (details.redditPosts||[]).map(p => `
-    <div class="reddit-post-card">
-      <div class="reddit-post-top">
-        <span class="reddit-post-sub">${p.sub}</span>
-        <span class="reddit-post-icon"><svg class="icon"><use href="#icon-comment" xlink:href="#icon-comment"></use></svg></span>
-      </div>
-      <div class="reddit-post-title">${p.title}</div>
-      ${p.quote ? `<div class="reddit-post-quote">${p.quote}</div>` : ''}
-    </div>
-  `).join('');
-
-  const links = details.links || {};
-  const linkIconMap = {
-    nps: '#icon-nps',
-    wikipedia: '#icon-wikipedia',
-    reddit: '#icon-reddit',
-    guide: '#icon-map',
-    lodging: '#icon-bed',
-    dining: '#icon-utensils',
-    activities: '#icon-hiking',
-    conditions: '#icon-shield-alert',
-    roadConditions: '#icon-shield-alert'
-  };
-  const linkLabelMap = {
-    nps: 'NPS Official',
-    wikipedia: 'Wikipedia',
-    reddit: 'Reddit Advice',
-    guide: 'Field Guide',
-    lodging: 'Lodging Options',
-    dining: 'Dining Guide',
-    activities: 'Top Activities',
-    conditions: 'Road Conditions',
-    roadConditions: 'Road Conditions'
-  };
-
-  const linksHtml = `<div class="resource-links">
-    ${Object.entries(links).map(([key, url]) => {
-      const icon = linkIconMap[key] || '#icon-link';
-      const label = linkLabelMap[key] || (key.charAt(0).toUpperCase() + key.slice(1));
-      return `
-        <a href="${url}" target="_blank" class="resource-link resource-link-${key}">
-          <svg class="icon"><use href="${icon}" xlink:href="${icon}"></use></svg>
-          <span>${label}</span>
-        </a>
-      `;
-    }).join('')}
-  </div>`;
-
-  const travelTime = getTravelTime(park);
-  const hrs = Math.floor(travelTime / 60);
-  const mins = travelTime % 60;
-  const timeStr = hrs > 0 ? `${hrs}h ${mins}m` : `${mins}m`;
-
+  updateRouteGuide(park);
+  const esc = escapeHtml;
+  const sources = details.sources.map(source => `<li><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.label)}</a></li>`).join('');
+  const rating = recommendationFor(park);
+  const monthName = selectedMonth ? MONTH_FULL[selectedMonth-1] : null;
+  const r = park.recommendation;
   modalBody.innerHTML = `
-    <!-- Hero Banner with rounded corners, dark gradient, and action buttons overlay -->
-    <div class="modal-hero-banner" style="background-image: url('assets/images/parks/${park.id}.jpg')">
+    <div class="modal-hero-banner guide-hero">
+      <img class="guide-hero-image" src="${esc(park.thumbnail)}?v=4" alt="${esc(details.photo.alt)}" style="object-position:${details.photo.position}">
       <div class="modal-hero-overlay"></div>
       <div class="modal-hero-actions">
-        <button class="modal-icon-btn ${isFavorite ? 'active-heart' : ''}" 
-          onclick="toggleFavorite('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
-          data-tooltip="${isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}">
-          <svg class="icon"><use href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}" xlink:href="${isFavorite ? '#icon-heart-filled' : '#icon-heart'}"></use></svg>
-        </button>
-        <button class="modal-icon-btn ${isVisited ? 'active-tick' : ''}" 
-          onclick="toggleVisited('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
-          data-tooltip="${isVisited ? 'Unmark as Visited' : 'Mark as Visited'}">
-          <svg class="icon"><use href="${isVisited ? '#icon-check-filled' : '#icon-check'}" xlink:href="${isVisited ? '#icon-check-filled' : '#icon-check'}"></use></svg>
-        </button>
-        <button class="modal-icon-btn ${isHidden ? 'active-hide' : ''}" 
-          onclick="toggleHidden('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'])"
-          data-tooltip="${isHidden ? 'Unhide Park' : 'Hide Park'}">
-          <svg class="icon"><use href="${isHidden ? '#icon-eye-off' : '#icon-eye'}" xlink:href="${isHidden ? '#icon-eye-off' : '#icon-eye'}"></use></svg>
-        </button>
+        <button class="modal-icon-btn ${isFavorite ? 'active-heart' : ''}" onclick="toggleFavorite('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'], true)" data-tooltip="${isFavorite ? 'Remove from saved' : 'Save park'}" aria-label="${isFavorite ? 'Remove from saved' : 'Save park'}"><svg class="icon"><use href="#icon-heart"></use></svg></button>
+        <button class="modal-icon-btn ${isVisited ? 'active-tick' : ''}" onclick="toggleVisited('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'], true)" data-tooltip="${isVisited ? 'Mark as not visited' : 'Mark visited'}" aria-label="${isVisited ? 'Mark as not visited' : 'Mark visited'}"><svg class="icon"><use href="#icon-check"></use></svg></button>
+        <button class="modal-icon-btn ${isHidden ? 'active-hide' : ''}" onclick="toggleHidden('${park.name}', event); openModal(window.PARKS_SUMMARY['${park.id}'], true)" data-tooltip="${isHidden ? 'Show park again' : 'Hide park'}" aria-label="${isHidden ? 'Show park again' : 'Hide park'}"><svg class="icon"><use href="#icon-eye-off"></use></svg></button>
+      </div>
+      <div class="guide-hero-title">
+        <span class="guide-kicker">${esc(park.state.split(' / ').map(st=>STATE_NAMES[st.trim()] || st).join(' · '))} · National Park</span>
+        <h2 class="modal-title" id="park-guide-title">${esc(park.name)}</h2>
+        <p>${esc(r.headline)}</p>
       </div>
     </div>
-
-    <div class="modal-body-container">
-      <div class="modal-header-v2">
-        <h2 class="modal-title">
-          ${isFavorite ? '<svg class="icon star-icon" style="color: var(--amber); fill: var(--amber);"><use href="#icon-star" xlink:href="#icon-star"></use></svg> ' : ''}${park.name} <span class="modal-state-inline">${park.state}</span>
-        </h2>
+    <div class="modal-body-container recommendation-guide">
+      <div class="guide-snapshot">
+        <div class="snapshot-rating"><span class="snapshot-label">${monthName ? esc(monthName) + ' pick' : 'Our recommendation'}</span><div><strong>★ ${rating.score.toFixed(1)}<small>/5</small></strong></div><span class="snapshot-caption">Editorial rating</span></div>
+        <div><span class="snapshot-label">Plan for</span><strong>${park.minDays} day${park.minDays===1?'':'s'}</strong><span class="snapshot-caption">Suggested time in the park</span></div>
+        <div><span class="snapshot-label">${monthName ? 'Seasonal fit' : 'When to go'}</span><strong class="snapshot-season">${monthName ? rating.label : formatMonths(park.bestMonths)}</strong><span class="snapshot-caption">${monthName ? esc(monthName) + ' · general sightseeing' : 'Our suggested months'}</span></div>
       </div>
-
-      <!-- Segmented Mobile Tabbed Navigation -->
-      <div class="mobile-tabs-bar">
-        <button class="mobile-tab-btn active" onclick="switchMobileTab('overview', event)">Overview</button>
-        <button class="mobile-tab-btn" onclick="switchMobileTab('itinerary', event)">Itinerary</button>
-        <button class="mobile-tab-btn" onclick="switchMobileTab('tips', event)">Tips & Advice</button>
-      </div>
-
-      <div class="modal-grid-layout active-tab-overview">
-        <!-- Main Column (Left/Primary Info) -->
-        <div class="modal-main-col">
-          ${details.seasonalVerdict ? `
-          <div class="modal-section seasonal-verdict-container" data-tab="overview">
-            <div class="seasonal-verdict-grid">
-              ${details.seasonalVerdict.best ? `
-              <div class="best-col">
-                <div class="seasonal-best-label"><svg class="icon"><use href="#icon-feature-lights" xlink:href="#icon-feature-lights"></use></svg> Seasonal Best</div>
-                <div class="seasonal-verdict-text">${details.seasonalVerdict.best}</div>
-              </div>` : ''}
-              ${details.seasonalVerdict.avoid ? `
-              <div class="caution-col">
-                <div class="seasonal-caution-label"><svg class="icon"><use href="#icon-warning" xlink:href="#icon-warning"></use></svg> Seasonal Caution</div>
-                <div class="seasonal-verdict-text">${details.seasonalVerdict.avoid}</div>
-              </div>` : ''}
-            </div>
-          </div>` : ''}
-
-          <div class="modal-section" data-tab="tips">
-            <h3 class="modal-section-title"><svg class="icon"><use href="#icon-feature-lights" xlink:href="#icon-feature-lights"></use></svg> Top Activities</h3>
-            <div class="activities-list">${activitiesHtml}</div>
-          </div>
-
-          ${seasonalInfo && selectedMonth ? `
-          <div class="monthly-banner" data-tab="overview">
-            <div class="monthly-banner-header"><svg class="icon"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg> Visiting in ${MONTH_FULL[selectedMonth-1]}</div>
-            <div class="monthly-metrics">
-              <div class="monthly-metric">
-                <span class="label">Average Temp</span>
-                <span class="value">${seasonalInfo.temp}</span>
-              </div>
-              <div class="monthly-metric">
-                <span class="label">Crowd Level</span>
-                <div style="display:flex; align-items:center; gap:10px; margin-top:4px;">
-                  ${formatCrowdLevel(seasonalInfo.crowdScore)}
-                  <span style="font-size:0.8rem; opacity:0.8; font-weight:600; text-transform:uppercase;">${(() => {
-                    const s = seasonalInfo.crowdScore;
-                    if (s <= 1) return 'Peaceful';
-                    if (s <= 2) return 'Moderate';
-                    if (s <= 3) return 'Busy';
-                    if (s <= 4) return 'Very Busy';
-                    return 'Extreme';
-                  })()}</span>
-                </div>
-              </div>
-            </div>
-            <div class="reddit-sentiment" style="margin-top:12px;">
-              <div class="reddit-sentiment-header">r/NationalParks Advice for ${MONTH_FULL[selectedMonth-1]}</div>
-              <blockquote>"${seasonalInfo.reddit}"</blockquote>
-            </div>
-          </div>` : ''}
-
-          ${(dosHtml||dontsHtml) ? `
-          <div class="modal-section" data-tab="tips">
-            <h3 class="modal-section-title"><svg class="icon"><use href="#icon-check-filled" xlink:href="#icon-check-filled"></use></svg> Dos & Don'ts</h3>
-            <div class="dos-donts-grid">
-              ${dosHtml ? `
-              <div class="dos-col">
-                <h4><svg class="icon" style="color:var(--green);"><use href="#icon-check" xlink:href="#icon-check"></use></svg> Do</h4>
-                <div class="dos-list">${dosHtml}</div>
-              </div>` : ''}
-              ${dontsHtml ? `
-              <div class="donts-col">
-                <h4><svg class="icon" style="color:var(--rose);"><use href="#icon-close" xlink:href="#icon-close"></use></svg> Don't</h4>
-                <div class="donts-list">${dontsHtml}</div>
-              </div>` : ''}
-            </div>
-          </div>` : ''}
-
-          <div class="modal-section" data-tab="itinerary">
-            <h3 class="modal-section-title"><svg class="icon"><use href="#icon-map" xlink:href="#icon-map"></use></svg> Sample Itinerary</h3>
-            <div style="margin-top:16px;">${itineraryHtml}</div>
-          </div>
-
-          ${redditPostsHtml ? `
-          <div class="modal-section" data-tab="tips">
-            <h3 class="modal-section-title"><svg class="icon"><use href="#icon-comment" xlink:href="#icon-comment"></use></svg> Reddit Community Advice</h3>
-            <div class="reddit-posts-list">${redditPostsHtml}</div>
-          </div>` : ''}
+      <div class="guide-columns">
+        <div class="guide-main">
+          <div class="guide-primary-actions"><button onclick="toggleFavorite('${park.name}',event); openModal(window.PARKS_SUMMARY['${park.id}'],true)">${isFavorite?'♥ Saved':'♡ Save park'}</button><a href="${esc(details.sources[0].url)}" target="_blank" rel="noopener noreferrer" onclick="trackAction('official_planning_clicked',{park_id:'${park.id}'})">Official planning ↗</a><a href="https://www.reddit.com/search/?q=${encodeURIComponent(park.name + ' National Park')}" target="_blank" rel="noopener noreferrer" onclick="trackAction('reddit_discussions_clicked',{park_id:'${park.id}'})">Discuss on Reddit ↗</a></div>
+          <section class="guide-panel guide-verdict"><span class="guide-kicker">THE SHORT VERSION</span><h3>${monthName ? 'Why consider it in ' + esc(monthName) : 'Why go'}</h3><p>${esc(r.reason)}</p>${rating.seasonal === 2 ? '<p class="season-caution">Outside our general sightseeing shortlist this month. Check activity-specific access before choosing your dates.</p>' : ''}</section>
+          <section class="guide-panel"><h3><svg class="icon"><use href="#icon-map"></use></svg> What you’ll come for</h3><p>${esc(details.description)}</p><div class="guide-activities">${details.activities.map(a=>`<span>${esc(a)}</span>`).join('')}</div></section>
+          <section class="guide-panel guide-planning"><h3><svg class="icon"><use href="#icon-lightbulb"></use></svg> Know before you go</h3><p>${esc(details.planningNote)}</p>${details.permitNote ? `<details class="guide-disclosure"><summary>Half Dome permits</summary><p>${esc(details.permitNote)}</p></details>` : ''}<a class="official-guide-link" href="${esc(details.sources[0].url)}" target="_blank" rel="noopener noreferrer">Open the official NPS guide ↗</a></section>
         </div>
-
-        <!-- Sidebar Column (Right/Secondary Info) -->
-        <div class="modal-sidebar-col">
-          <!-- Ratings Card -->
-          <div class="modal-sidebar-card rating-card" data-tab="overview">
-            <h4 class="sidebar-card-title">Ratings & Score</h4>
-            <div class="modal-rating-detail-v2">
-              <div class="rating-radial-row">
-                <div class="radial-gauge-container">
-                  <div class="gauge-composite-num">${park.compositeScore}</div>
-                  <div class="gauge-label">Score</div>
-                </div>
-                <div class="star-display-block">
-                  <div class="modal-star-row">${starStr}</div>
-                  <div class="composite-score">Pop: ${park.popularity} | Unique: ${park.uniqueness}</div>
-                </div>
-              </div>
-              <div class="score-bar-bg"><div class="score-bar-fill" style="width:${scorePct}%"></div></div>
-            </div>
-          </div>
-
-          <!-- Travel Logistics Card -->
-          <div class="modal-sidebar-card logistics-card" data-tab="overview">
-            <h4 class="sidebar-card-title">Travel Logistics</h4>
-            <div class="logistic-rows-container">
-              ${(() => {
-                const h = currentHomeHub;
-                const d = park.driveTimes?.[h];
-                if (d && d <= 360) {
-                  return `
-                    <div class="logistic-row">
-                      <svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg>
-                      <div>
-                        <div class="logistic-val">${timeStr} Drive</div>
-                        <div class="logistic-lbl">from ${h}</div>
-                      </div>
-                    </div>`;
-                }
-                const flight = travelTime - (park.gatewayExtraMinutes || 0);
-                const fH = Math.floor(flight / 60); const fM = flight % 60;
-                const fStr = fH > 0 ? `${fH}h ${fM}m` : `${fM}m`;
-                const gH = Math.floor(park.gatewayExtraMinutes/60);
-                const gM = park.gatewayExtraMinutes%60;
-                const gStr = gH > 0 ? `${gH}h ${gM}m` : `${gM}m`;
-                return `
-                  <div class="logistic-row">
-                    <svg class="icon"><use href="#icon-plane" xlink:href="#icon-plane"></use></svg>
-                    <div>
-                      <div class="logistic-val">Fly to ${park.gatewayHub}</div>
-                      <div class="logistic-lbl">${fStr} flight</div>
-                    </div>
-                  </div>
-                  <div class="logistic-row">
-                    <svg class="icon"><use href="#icon-car" xlink:href="#icon-car"></use></svg>
-                    <div>
-                      <div class="logistic-val">${gStr} Drive</div>
-                      <div class="logistic-lbl">from airport</div>
-                    </div>
-                  </div>
-                  <div class="logistic-total">
-                    <strong>Total travel:</strong> ${timeStr} from ${h}
-                  </div>`;
-              })()}
-              <div class="logistic-row duration-row">
-                <svg class="icon"><use href="#icon-calendar" xlink:href="#icon-calendar"></use></svg>
-                <div>
-                  <div class="logistic-val">Min ${park.minDays} Days Recommended</div>
-                  <div class="logistic-lbl">Ideal visit duration</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Sun & Stars Card -->
-          <div class="modal-sidebar-card sun-stars-card" data-tab="overview">
-            <h4 class="sidebar-card-title"><svg class="icon"><use href="#icon-sunset" xlink:href="#icon-sunset"></use></svg> Sun & Stars</h4>
-            <div class="sun-sunset-text">${details.sunriseSunset}</div>
-            ${details.stargazing ? `
-            <div class="stargazing-mini-card">
-              <div class="stargazing-mini-header">
-                <svg class="icon"><use href="#icon-telescope" xlink:href="#icon-telescope"></use></svg>
-                <span>Stargazing: ${details.stargazing.isFriendly?'Highly Recommended':'Limited'}</span>
-              </div>
-              <p class="stargazing-spots"><strong>Spots:</strong> ${details.stargazing.spots}</p>
-              <p class="stargazing-desc">${details.stargazing.description}</p>
-            </div>` : ''}
-          </div>
-
-          <!-- Fun Facts Card -->
-          ${funFactsHtml ? `
-          <div class="modal-sidebar-card collapsible-card collapsed" id="card-fun-facts" data-tab="tips">
-            <div class="sidebar-card-header" onclick="toggleSidebarCard('card-fun-facts')">
-              <h4 class="sidebar-card-title"><svg class="icon"><use href="#icon-info" xlink:href="#icon-info"></use></svg> Fun Facts</h4>
-              <span class="chevron-arrow">▾</span>
-            </div>
-            <div class="sidebar-card-body">
-              <div class="fun-facts-list">${funFactsHtml}</div>
-            </div>
-          </div>` : ''}
-
-          <!-- Travel Hacks Card -->
-          ${hacksHtml ? `
-          <div class="modal-sidebar-card collapsible-card collapsed" id="card-travel-hacks" data-tab="tips">
-            <div class="sidebar-card-header" onclick="toggleSidebarCard('card-travel-hacks')">
-              <h4 class="sidebar-card-title"><svg class="icon"><use href="#icon-backpack" xlink:href="#icon-backpack"></use></svg> Travel Hacks</h4>
-              <span class="chevron-arrow">▾</span>
-            </div>
-            <div class="sidebar-card-body">
-              <div class="hacks-list">${hacksHtml}</div>
-            </div>
-          </div>` : ''}
-
-          <!-- Resources Links -->
-          <div class="modal-sidebar-card resources-card" data-tab="overview">
-            <h4 class="sidebar-card-title"><svg class="icon"><use href="#icon-link" xlink:href="#icon-link"></use></svg> Resources</h4>
-            ${linksHtml}
-          </div>
-        </div>
+        <aside class="guide-aside">
+          <section class="guide-panel guide-calendar"><h3><svg class="icon"><use href="#icon-calendar"></use></svg> Choose your month</h3><div class="guide-months">${MONTHS.map((m,i)=>`<button class="${r.peakMonths.includes(i+1) ? 'peak' : park.bestMonths.includes(i+1) ? 'suggested' : ''} ${selectedMonth===i+1?'selected':''}" aria-label="View ${esc(park.name)} in ${MONTH_FULL[i]}" aria-pressed="${selectedMonth===i+1}" onclick="setModalMonth('${park.id}',${i+1})">${m}</button>`).join('')}</div><p class="calendar-key"><span class="key-peak"></span> Standout <span class="key-good"></span> Good option</p><p class="guide-small">Tap a month to compare its rating.</p><details class="guide-disclosure"><summary>Weather &amp; seasonal access</summary><p>${esc(details.weatherNote)}</p><p class="guide-small">${esc(details.suggestionBasis)}</p></details></section>
+          <section class="guide-panel guide-score"><h3>About this rating</h3><p class="guide-small">Our recommendation for a general sightseeing trip, based on seasonal fit and distinctive park experiences.</p><details class="guide-disclosure"><summary>How this score works</summary><div class="score-breakdown"><span>Seasonal fit · 60%</span><strong>${rating.seasonal == null ? 'Choose a month' : rating.seasonal + '/5'}</strong><span>Park experience · 40%</span><strong>${r.experience}/5</strong></div><p class="guide-small">Both are editorial judgments informed by NPS descriptions and seasonal guidance. ${monthName ? 'Weighted score rounded to one decimal.' : 'Without a month, we show the park-experience score alone.'} This is not a visitor-review average. Equal scores sort alphabetically.</p><a href="/about.html#ratings" target="_blank" rel="noopener">Full rating method ↗</a></details></section>
+          ${details.nightSkyNote ? `<details class="guide-panel guide-disclosure"><summary>After dark</summary><p>${esc(details.nightSkyNote)}</p><p class="guide-small">NPS night-sky source checked ${esc(details.nightSkyReviewedAt)}. Check current access and conditions.</p></details>` : ''}
+        </aside>
       </div>
-    </div>
-  `;
+      <details class="guide-panel guide-disclosure guide-sources"><summary>Sources, photo credit &amp; last checked</summary><p class="guide-small">Planning notes checked ${esc(details.reviewedAt)}. Check NPS for current conditions and rules. Suggested trip lengths are editorial starting points and exclude travel.</p><ul class="source-links">${sources}</ul><p class="guide-small">Photo: ${esc(details.photo.title)}. ${esc(details.photo.credit)}. <a href="${esc(details.photo.sourceUrl)}" target="_blank" rel="noopener noreferrer">Source image ↗</a></p><p class="guide-small">Independent guide. Not affiliated with the National Park Service.</p></details>
+    </div>`;
+  if (wasClosed) {
+    modal.querySelector('.modal-content').scrollTop = 0;
+    modalCloseBtn.focus({preventScroll:true});
+  }
 }
 
-// Global helper for mobile tab switches
-window.switchMobileTab = function(tabName, event) {
-  if (event) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-  
-  // Update button active classes
-  document.querySelectorAll('.mobile-tab-btn').forEach(btn => btn.classList.remove('active'));
-  if (event && event.currentTarget) {
-    event.currentTarget.classList.add('active');
-  } else {
-    const btns = document.querySelectorAll('.mobile-tab-btn');
-    btns.forEach(btn => {
-      if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${tabName}'`)) {
-        btn.classList.add('active');
-      }
-    });
-  }
+function setModalMonth(id, month) {
+  trackAction('detail_month_changed',{park_id:id,selected_month:month});
+  selectMonth(month, true);
+  history.replaceState({modal:id,prevMonth:month,view:viewMode,compare:[...comparedParks]},'',parkHref(window.PARKS_SUMMARY[id]));
+  openModal(window.PARKS_SUMMARY[id], true);
+  modalBody.querySelector('.guide-months .selected').focus({preventScroll:true});
+}
 
-  // Update layout container class to toggle visibility
-  const grid = document.querySelector('.modal-grid-layout');
-  if (grid) {
-    grid.className = `modal-grid-layout active-tab-${tabName}`;
-  }
+function updateRouteGuide(park = null) {
+  const el = document.getElementById('route-guide');
+  const details = park && window.PARKS_DETAILS[park.id];
+  let title = 'National parks by month';
+  let description = 'Explore 63 US national parks with editorial month suggestions and source-linked NPS planning notes.';
+  if (details) {
+    title = `${park.name} planning guide`;
+    description = details.description;
+    if (el) el.innerHTML = viewMode === 'all' ? `<h2>${escapeHtml(park.name)} planning guide</h2><p>${escapeHtml(details.description)}</p><p>${escapeHtml(details.planningNote)}</p>${details.permitNote ? `<p>${escapeHtml(details.permitNote)}</p>` : ''}<p>${escapeHtml(details.weatherNote)}</p><p>Planning notes checked ${details.reviewedAt}. Conditions and rules can change.</p><ul>${details.sources.map(s=>`<li><a href="${escapeHtml(s.url)}">${escapeHtml(s.label)}</a></li>`).join('')}</ul>` : '';
+  } else if (selectedMonth && viewMode === 'all') {
+    const month = MONTH_FULL[selectedMonth-1];
+    title = `Best national parks in ${month}`;
+    description = `Explore an editorial shortlist of US national parks for ${month}, with official planning sources.`;
+    if (el) el.innerHTML = '';
+  } else if (el) el.innerHTML = '';
+  document.title = title;
+  document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
+  document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
+  const canonical = 'https://nationalparkfinder.info' + window.location.pathname;
+  document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonical);
+  document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonical);
+}
 
-  // Scroll details back to top on tab switch
-  const modalContent = document.querySelector('.modal-content');
-  if (modalContent) {
-    modalContent.scrollTop = 0;
-  }
-};
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
+}
 
 function closeModal(preventHistory = false) {
   modal.classList.add('hidden');
   document.body.classList.remove('modal-open');
   updateAriaHidden();
+  const previousCard = [...parkGrid.querySelectorAll('.park-card')].find(card => card.dataset.parkId === lastOpenedParkId);
+  (previousCard?.querySelector('.park-open') || parkSearchInput)?.focus({preventScroll:true});
   
-  if (preventHistory !== true) {
-    if (selectedMonth) {
-      const ms = MONTH_FULL[selectedMonth - 1].toLowerCase();
-      window.history.pushState({ month: selectedMonth }, '', `/${ms}`);
-      document.title = `Where to go in ${MONTH_FULL[selectedMonth - 1]}: National Parks Guide | US National Park Finder`;
-    } else {
-      window.history.pushState({ month: null }, '', '/');
-      document.title = 'US National Park Finder | Explore by Month';
-    }
-  }
+  if (preventHistory !== true) syncBrowseURL();
+  window.scrollTo({top:lastListingScroll,behavior:'instant'});
+  updateRouteGuide();
 }
 
 modalCloseBtn.addEventListener('click', () => closeModal(false));
 modal.addEventListener('click', e => { if (e.target===modal||e.target.classList.contains('modal-backdrop')) closeModal(false); });
-document.addEventListener('keydown', e => { if (e.key==='Escape'&&!modal.classList.contains('hidden')) closeModal(false); });
+document.addEventListener('keydown', e => {
+  if (modal.classList.contains('hidden')) return;
+  if (e.key === 'Escape') closeModal(false);
+  if (e.key === 'Tab') {
+    const focusable = [...modal.querySelectorAll('button, a[href], summary')].filter(el => el.getClientRects().length);
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+  }
+});
 
 window.addEventListener('popstate', (e) => {
-  if (e.state && e.state.modal) {
-    const park = window.PARKS_SUMMARY[e.state.modal];
-    if (park) openModal(park, true);
+  const state=e.state || {};
+  comparedParks=new Set((state.compare || []).filter(id=>window.PARKS_SUMMARY[id]).slice(0,3));
+  comparisonOpen=Boolean(state.comparisonOpen);
+  viewMode=state.view || 'all';
+  if (state.modal) {
+    selectedMonth=state.prevMonth ?? null;
+    renderParks();
+    const park=window.PARKS_SUMMARY[state.modal]; if(park) openModal(park,true);
   } else {
-    closeModal(true);
-    if (e.state && e.state.month) {
-      selectMonth(e.state.month, true);
-    } else {
-      selectMonth(null, true);
-    }
+    closeModal(true); selectMonth(state.month ?? null,true);
   }
 });
 
@@ -1780,28 +1299,7 @@ init();
 const shareBtn = document.getElementById('share-btn');
 const shareBtnMobile = document.getElementById('share-btn-mobile');
 
-async function handleShare() {
-  const shareData = {
-    title: 'National Park Finder',
-    text: 'Check out this awesome interactive US National Park Finder!',
-    url: window.location.href
-  };
-
-  if (typeof gtag !== 'undefined') gtag('event', 'share_clicked', { method: navigator.share ? 'native_share' : 'clipboard', url: window.location.href });
-
-  try {
-    if (navigator.share) {
-      await navigator.share(shareData);
-    } else {
-      await navigator.clipboard.writeText(shareData.url);
-      showToast('📋 Link copied to clipboard!');
-    }
-  } catch (err) {
-    if (err.name !== 'AbortError') {
-      console.error('Share failed:', err);
-    }
-  }
-}
+async function handleShare() { await shareURL(window.location.href,'National parks by month','share_completed'); }
 
 function showToast(message) {
   let toast = document.querySelector('.toast-container');
@@ -1834,3 +1332,69 @@ window.toggleSidebarCard = function(id) {
     card.classList.toggle('collapsed');
   }
 };
+
+// A short excerpt of the same sourced planning note used in the guide.
+function planningPreview(park) {
+  const note = window.PARKS_DETAILS[park.id]?.planningNote || '';
+  return note.match(/^.*?[.!?](?:\s|$)/)?.[0].trim() || note;
+}
+function clearDiscoveryFilters() {
+  searchQuery=''; parkSearchInput.value=''; searchClearBtn.classList.remove('visible');
+  filterState={maxDays:null,state:'',stargazing:false}; saveFilterState(); viewMode='all';
+  selectMonth(null,true); syncBrowseURL(); renderFilterUI();
+}
+function toggleCompare(id) {
+  if (!window.PARKS_SUMMARY[id]) return;
+  if (comparedParks.has(id)) comparedParks.delete(id);
+  else if (comparedParks.size < 3) comparedParks.add(id);
+  else return showToast('Compare up to 3 parks. Remove one to add another.');
+  if (comparedParks.size<2) comparisonOpen=false;
+  syncBrowseURL(true); renderParks();
+  parkGrid.querySelector(`[data-park-id="${id}"] .compare-toggle`)?.focus({preventScroll:true});
+  trackAction('comparison_changed',{park_count:comparedParks.size});
+}
+function clearComparison() { comparedParks.clear(); comparisonOpen=false; syncBrowseURL(true); renderParks(); }
+function showComparison() {
+  comparisonOpen=!comparisonOpen; syncBrowseURL(true); renderComparison();
+  if(comparisonOpen) document.getElementById('comparison-title')?.focus();
+}
+function renderComparison() {
+  const parks=[...comparedParks].map(id=>window.PARKS_SUMMARY[id]).filter(Boolean);
+  const tray=document.getElementById('compare-tray'), panel=document.getElementById('comparison-panel');
+  tray.classList.toggle('hidden',!parks.length);
+  document.body.classList.toggle('has-comparison',!!parks.length);
+  tray.innerHTML=parks.length ? `<span>${parks.length}/3 parks selected</span><button onclick="showComparison()" ${parks.length<2?'disabled':''}>${comparisonOpen?'Close comparison':'Compare parks'}</button><button onclick="clearComparison()">Clear</button>` : '';
+  panel.classList.toggle('hidden',!comparisonOpen || parks.length<2);
+  panel.innerHTML=comparisonOpen && parks.length>=2 ? `<div class="comparison-heading"><div><h2 id="comparison-title" tabindex="-1">Compare ${selectedMonth?MONTH_FULL[selectedMonth-1]+' picks':'parks'}</h2><p>Editorial ratings · suggested time excludes travel</p></div><button onclick="shareComparison()">Share comparison ↗</button></div><div class="comparison-grid" style="--columns:${parks.length}">${parks.map(p=>{const r=recommendationFor(p);return `<article><h3><a href="${parkHref(p)}" onclick="followParkLink(event,'${p.id}')">${escapeHtml(p.name)}</a></h3><p>★ ${r.score.toFixed(1)}/5 · ${escapeHtml(r.label)}</p><dl><dt>Suggested time</dt><dd>${p.minDays} day${p.minDays===1?'':'s'}</dd><dt>Why go</dt><dd>${escapeHtml(p.recommendation.reason)}</dd><dt>Plan ahead</dt><dd>${escapeHtml(window.PARKS_DETAILS[p.id].planningNote)}</dd></dl><button onclick="toggleCompare('${p.id}')" aria-label="Remove ${escapeHtml(p.name)} from comparison">Remove</button></article>`}).join('')}</div>` : '';
+}
+async function shareComparison() {
+  const url=new URL(selectedMonth?'/'+MONTH_FULL[selectedMonth-1].toLowerCase():'/',location.origin);
+  if(!selectedMonth) url.searchParams.set('month','all');
+  url.searchParams.set('compare',[...comparedParks].join(','));
+  await shareURL(url.href,'Compare national parks','comparison_shared');
+}
+async function shareURL(url,title,eventName) {
+  try {
+    if(navigator.share) await navigator.share({title,url});
+    else { await navigator.clipboard.writeText(url); showToast('Link copied'); }
+    trackAction(eventName,{method:navigator.share?'native_share':'clipboard'});
+  } catch(error) { if(error.name!=='AbortError') showToast('Could not share. Copy the address from your browser.'); }
+}
+
+// Menus dismiss like transient UI, including for keyboard users.
+const collectionsMenu = document.querySelector('.collections-menu');
+document.addEventListener('click', event => {
+  if (collectionsMenu?.open && !collectionsMenu.contains(event.target)) collectionsMenu.open = false;
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && collectionsMenu?.open) {
+    collectionsMenu.open = false;
+    collectionsMenu.querySelector('summary').focus();
+  }
+});
+collectionsMenu?.addEventListener('focusout', event => {
+  if (event.relatedTarget && !collectionsMenu.contains(event.relatedTarget)) collectionsMenu.open = false;
+});
+collectionsMenu?.addEventListener('click', event => {
+  if (event.target.closest('button,a')) collectionsMenu.open = false;
+});

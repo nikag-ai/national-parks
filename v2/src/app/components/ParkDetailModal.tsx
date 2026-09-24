@@ -1,14 +1,12 @@
-import { X, Heart, MapPin, Star, Plane, Thermometer, Calendar, TrendingUp, MessageCircle } from "lucide-react";
+import { X, Heart, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "./ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import type { Park } from "../data/parks";
 import { MONTHS } from "../data/parks";
 
 interface ParkDetailModalProps {
   park: Park | null;
   onClose: () => void;
-  selectedHub: string;
   isFavorite: boolean;
   isVisited: boolean;
   onToggleFavorite: () => void;
@@ -18,7 +16,6 @@ interface ParkDetailModalProps {
 export function ParkDetailModal({
   park,
   onClose,
-  selectedHub,
   isFavorite,
   isVisited,
   onToggleFavorite,
@@ -26,7 +23,6 @@ export function ParkDetailModal({
 }: ParkDetailModalProps) {
   if (!park) return null;
 
-  const flightTime = park.flightTime[selectedHub as keyof typeof park.flightTime];
 
   return (
     <AnimatePresence>
@@ -58,6 +54,7 @@ export function ParkDetailModal({
             <Button
               variant="secondary"
               size="icon"
+              aria-label="Close park details"
               onClick={onClose}
               className="absolute top-6 right-6 rounded-full shadow-lg backdrop-blur-sm"
             >
@@ -69,6 +66,7 @@ export function ParkDetailModal({
               <Button
                 variant="secondary"
                 size="icon"
+                aria-label="Toggle favorite"
                 onClick={onToggleFavorite}
                 className="rounded-full shadow-lg backdrop-blur-sm"
               >
@@ -77,6 +75,7 @@ export function ParkDetailModal({
               <Button
                 variant="secondary"
                 size="icon"
+                aria-label="Toggle visited"
                 onClick={onToggleVisited}
                 className="rounded-full shadow-lg backdrop-blur-sm"
               >
@@ -98,170 +97,30 @@ export function ParkDetailModal({
                     {park.state}
                   </p>
                 </div>
-                <div className="bg-accent text-accent-foreground px-6 py-3 rounded-2xl flex items-center gap-2 shadow-lg">
-                  <Star className="w-5 h-5 fill-current" />
-                  <span className="text-2xl" style={{ fontFamily: 'var(--font-sans)' }}>
-                    {park.compositeScore}
-                  </span>
-                </div>
               </div>
             </div>
           </div>
 
           {/* Content Section */}
           <div className="overflow-y-auto max-h-[50vh] p-8">
-            {/* Quick Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              <div className="bg-muted/50 rounded-2xl p-4">
-                <div className="flex items-center gap-2 text-muted-foreground mb-2">
-                  <Plane className="w-4 h-4" />
-                  <span className="text-xs" style={{ fontFamily: 'var(--font-sans)' }}>Flight Time</span>
-                </div>
-                <p className="text-xl" style={{ fontFamily: 'var(--font-sans)' }}>
-                  {flightTime}h
-                </p>
-              </div>
-
-              <div className="bg-muted/50 rounded-2xl p-4">
-                <div className="flex items-center gap-2 text-muted-foreground mb-2">
-                  <Thermometer className="w-4 h-4" />
-                  <span className="text-xs" style={{ fontFamily: 'var(--font-sans)' }}>Temp Range</span>
-                </div>
-                <p className="text-xl" style={{ fontFamily: 'var(--font-sans)' }}>
-                  {park.temperature.min}°-{park.temperature.max}°F
-                </p>
-              </div>
-
-              <div className="bg-muted/50 rounded-2xl p-4">
-                <div className="flex items-center gap-2 text-muted-foreground mb-2">
-                  <Calendar className="w-4 h-4" />
-                  <span className="text-xs" style={{ fontFamily: 'var(--font-sans)' }}>Best Months</span>
-                </div>
-                <p className="text-xs" style={{ fontFamily: 'var(--font-sans)' }}>
-                  {park.bestMonths.map(m => MONTHS[m].slice(0, 3)).join(", ")}
-                </p>
-              </div>
-
-              <div className="bg-muted/50 rounded-2xl p-4">
-                <div className="flex items-center gap-2 text-muted-foreground mb-2">
-                  <TrendingUp className="w-4 h-4" />
-                  <span className="text-xs" style={{ fontFamily: 'var(--font-sans)' }}>Sentiment</span>
-                </div>
-                <p className="text-xl text-green-600" style={{ fontFamily: 'var(--font-sans)' }}>
-                  {park.redditSentiment.positive}%
-                </p>
-              </div>
-            </div>
-
-            {/* Description */}
-            <p className="text-lg text-muted-foreground mb-8" style={{ fontFamily: 'var(--font-sans)' }}>
-              {park.description}
-            </p>
-
-            {/* Tabbed Content */}
-            <Tabs defaultValue="itinerary" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-6">
-                <TabsTrigger value="itinerary">3-Day Itinerary</TabsTrigger>
-                <TabsTrigger value="hacks">Pro Hacks</TabsTrigger>
-                <TabsTrigger value="sentiment">Community</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="itinerary" className="space-y-6">
-                {park.itinerary.map((day) => (
-                  <div key={day.day} className="border-l-4 border-primary pl-6 py-2">
-                    <h3
-                      className="text-xl mb-3"
-                      style={{ fontFamily: 'var(--font-serif)' }}
-                    >
-                      Day {day.day}: {day.title}
-                    </h3>
-                    <ul className="space-y-2">
-                      {day.activities.map((activity, idx) => (
-                        <li
-                          key={idx}
-                          className="text-muted-foreground flex items-start gap-2"
-                          style={{ fontFamily: 'var(--font-sans)' }}
-                        >
-                          <span className="text-primary mt-1">•</span>
-                          {activity}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </TabsContent>
-
-              <TabsContent value="hacks" className="space-y-4">
-                {park.proHacks.map((hack, idx) => (
-                  <div key={idx} className="bg-accent/10 border border-accent/30 rounded-2xl p-5">
-                    <p className="text-foreground" style={{ fontFamily: 'var(--font-sans)' }}>
-                      {hack}
-                    </p>
-                  </div>
-                ))}
-              </TabsContent>
-
-              <TabsContent value="sentiment">
-                <div className="space-y-6">
-                  {/* Sentiment Bars */}
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm text-muted-foreground flex items-center gap-2">
-                          <MessageCircle className="w-4 h-4" />
-                          Positive
-                        </span>
-                        <span className="text-sm" style={{ fontFamily: 'var(--font-sans)' }}>
-                          {park.redditSentiment.positive}%
-                        </span>
-                      </div>
-                      <div className="h-3 bg-muted rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-green-500 rounded-full transition-all"
-                          style={{ width: `${park.redditSentiment.positive}%` }}
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm text-muted-foreground">Neutral</span>
-                        <span className="text-sm" style={{ fontFamily: 'var(--font-sans)' }}>
-                          {park.redditSentiment.neutral}%
-                        </span>
-                      </div>
-                      <div className="h-3 bg-muted rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-yellow-500 rounded-full transition-all"
-                          style={{ width: `${park.redditSentiment.neutral}%` }}
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm text-muted-foreground">Negative</span>
-                        <span className="text-sm" style={{ fontFamily: 'var(--font-sans)' }}>
-                          {park.redditSentiment.negative}%
-                        </span>
-                      </div>
-                      <div className="h-3 bg-muted rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-red-500 rounded-full transition-all"
-                          style={{ width: `${park.redditSentiment.negative}%` }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-muted/50 rounded-2xl p-6">
-                    <p className="text-sm text-muted-foreground" style={{ fontFamily: 'var(--font-sans)' }}>
-                      Sentiment data aggregated from outdoor recreation communities and visitor reviews. High positive sentiment indicates strong visitor satisfaction and memorable experiences.
-                    </p>
-                  </div>
-                </div>
-              </TabsContent>
-            </Tabs>
+            <p className="text-sm text-muted-foreground mb-6">Planning notes checked {park.reviewedAt} against the NPS sources below. Rules and conditions can change.</p>
+            <p className="text-lg mb-6">{park.description}</p>
+            <h2 className="text-xl mb-3">Plan before you go</h2>
+            <p className="mb-4">{park.planningNote}</p>
+            {park.permitNote && <p className="mb-4">{park.permitNote}</p>}
+            <h2 className="text-xl mb-3">Activities to explore</h2>
+            <ul className="mb-6 list-disc pl-6">{park.activities.map(a => <li key={a}>{a}</li>)}</ul>
+            <h2 className="text-xl mb-3">When to consider visiting</h2>
+            <p className="mb-4">{park.weatherNote}</p>
+            <p>{park.bestMonths.map(m => MONTHS[m]).join(', ')}</p>
+            <p className="mb-4 text-muted-foreground">{park.suggestionBasis}</p>
+            <p className="mb-6">{park.minDays} day{park.minDays === 1 ? "" : "s"} suggested in the park (editorial). Shorter visits are possible.</p>
+            <h2 className="text-xl mb-3">After dark</h2>
+            <p className="mb-6">{park.nightSkyNote}</p>
+            <h2 className="text-xl mb-3">Sources &amp; current planning</h2>
+            <ul className="mb-6 space-y-2">{park.sources.map(source => <li key={source.url}><a className="underline" href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>)}</ul>
+            <p className="text-sm mb-4">Photo: {park.photo.title}. {park.photo.credit}. <a href={park.photo.sourceUrl} target="_blank" rel="noopener noreferrer">Source image</a></p>
+            <p className="text-sm text-muted-foreground">Independent guide, not affiliated with the National Park Service. This guide does not provide live weather, traffic, flight schedules, or visitor ratings.</p>
           </div>
         </motion.div>
       </motion.div>

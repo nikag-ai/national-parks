@@ -19,3 +19,6 @@ dist/
 moodboard/
 scratch/
 screenshots/
+
+# Python generator cache
+__pycache__/

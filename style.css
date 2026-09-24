@@ -1534,14 +1534,6 @@ footer a:hover {
   transform: scale(1.05) translateY(-1px) !important;
 }
 
-#chip-all.active {
-  background: linear-gradient(135deg, #6b7280, #9ca3af) !important;
-  border-color: transparent !important;
-  color: #1c2240 !important;
-  box-shadow: 0 4px 20px rgba(107, 114, 128, 0.35) !important;
-  transform: scale(1.05) translateY(-1px) !important;
-}
-
 #chip-hidden.active {
   background: linear-gradient(135deg, #ef4444, #f87171) !important;
   border-color: transparent !important;
@@ -4562,4 +4554,18 @@ input[type="range"]:active::-moz-range-thumb {
 [data-theme="light"] .donts-col {
   background: #fbfbfe;
   border-color: rgba(15, 23, 42, 0.08);
+}
+
+/* Source-linked planning guidance */
+.source-note, .filter-hint { color: var(--text-muted); font-size: .85rem; line-height: 1.65; }
+.reviewed-guide p { line-height: 1.75; margin: 0 0 16px; }
+.source-links { padding-left: 20px; line-height: 1.8; overflow-wrap: anywhere; }
+.source-links a, .source-note a, .route-guide a { color: var(--accent, #8ea9ff); text-decoration: underline; }
+.route-guide { max-width: 1100px; margin: 28px auto; padding: 20px; line-height: 1.7; text-align: left; }
+.route-guide h2 { margin-bottom: 14px; }
+.park-directory ul { columns: 3; list-style: none; padding: 14px 0; }
+.park-directory summary { cursor: pointer; }
+@media (max-width: 600px) {
+  .reviewed-guide .modal-section, .reviewed-guide .modal-sidebar-card { display: block !important; }
+  .park-directory ul { columns: 1; }
 }

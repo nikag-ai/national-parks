@@ -1,0 +1,244 @@
+/* Approved editorial travel presentation for the working discovery experience. */
+:root[data-theme="light"] {
+  --bg:#f7f7f2; --surface:#fff; --surface-hover:#f2f5ef;
+  --text:#202820; --text-dim:#626b63; --text-muted:#626b63;
+  --border:#d8dfd6; --accent:#245d45; --accent-glow:transparent;
+  --season-color:#245d45; --season-bg:#e7eee5;
+  --glass-bg:#fff; --glass-border:#d8dfd6; --shadow-premium:0 2px 10px #17251b09;
+  --card-hover-bg:#fff; --card-bg:#fff; --amber:#245d45;
+}
+:root[data-theme="dark"] {
+  --bg:#161a18; --surface:#202622; --surface-hover:#29332c;
+  --text:#f1f3ed; --text-dim:#b3bdb5; --text-muted:#b3bdb5;
+  --border:#465149; --accent:#b0d4b7; --accent-glow:transparent;
+  --season-color:#b0d4b7; --season-bg:#2d3c32;
+  --glass-bg:#202622; --glass-border:#465149; --shadow-premium:none;
+  --card-hover-bg:#202622; --card-bg:#202622; --amber:#b0d4b7;
+}
+.discovery-v5 { background:var(--bg); color:var(--text); font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; }
+.discovery-v5 .bg-glow { display:none; }
+.discovery-v5 .app-nav { background:var(--bg); border-bottom:1px solid var(--border); box-shadow:none; backdrop-filter:none; }
+.discovery-v5 .app-nav-inner { max-width:1264px; }
+.discovery-v5 .app-nav-brand { color:var(--text); font-size:1.15rem; font-weight:650; letter-spacing:-.035em; }
+.discovery-v5 .app-nav-mark { width:26px; height:26px; margin-right:9px; color:var(--accent); flex:none; }
+.discovery-v5 .app-nav-brand:hover { color:var(--accent); }
+.discovery-v5 .saved-nav,.discovery-v5 .collections-menu summary { background:transparent; border-color:var(--border); border-radius:999px; font-weight:500; }
+.discovery-v5 .saved-nav:hover,.discovery-v5 .collections-menu summary:hover { background:var(--surface-hover); }
+.discovery-v5 .collections-menu > div { width:218px; border-color:var(--border); border-radius:14px; box-shadow:0 14px 32px #0002; padding:8px; }
+.discovery-v5 .collections-menu button,.discovery-v5 .collections-menu a { border-radius:8px; text-decoration:none; font-size:.85rem; }
+.discovery-v5 .collections-menu button:hover,.discovery-v5 .collections-menu a:hover { background:var(--surface-hover); }
+.discovery-v5 .theme-choices { border-block:1px solid var(--border); margin:7px 0; padding:10px 3px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:2px; }
+.discovery-v5 .theme-choices span { grid-column:1/-1; color:var(--text-muted); font-size:.7rem; margin:0 0 4px 7px; }
+.discovery-v5 .theme-choices button { min-height:36px; padding:5px 2px; text-align:center; font-size:.73rem; }
+.discovery-v5 .theme-choices button[aria-pressed="true"] { background:var(--season-bg); color:var(--accent); font-weight:650; }
+.discovery-v5 .discovery-controls { max-width:1264px; padding:28px 32px 0; }
+.discovery-v5 .discovery-heading { margin-bottom:22px; }
+.discovery-v5 .discovery-heading h1 { font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:2.45rem; font-weight:560; line-height:1.13; letter-spacing:-.045em; color:var(--text); background:none; -webkit-text-fill-color:var(--text); }
+.discovery-v5 nav#month-bar { justify-content:flex-start; margin:0 0 18px; }
+.discovery-v5 .month-chips { gap:7px; }
+.discovery-v5 .month-chip { border:1px solid var(--border); border-radius:999px; background:var(--surface); color:var(--text); min-width:43px; padding:0 13px; font-weight:500; box-shadow:none; transform:none; }
+.discovery-v5 .month-chip:hover { background:var(--surface-hover); border-color:var(--accent); transform:none; }
+.discovery-v5 .month-chip.active { background:var(--accent); color:var(--bg); border-color:var(--accent); box-shadow:none; }
+.discovery-v5 .month-chip::before { display:none; }
+.discovery-v5 .discovery-toolbar { gap:12px; }
+.discovery-v5 #park-search,.discovery-v5 #refine-button,.discovery-v5 .mobile-month select { background:var(--surface) !important; color:var(--text) !important; border:1px solid var(--border) !important; border-radius:10px !important; box-shadow:none !important; font-size:.9rem !important; font-weight:500; }
+.discovery-v5 #park-search::placeholder { color:var(--text-muted); opacity:1; }
+.discovery-v5 #park-search { min-height:48px; padding:0 44px 0 16px !important; }
+.discovery-v5 #refine-button { min-height:48px; padding:0 14px; }
+.discovery-v5 #refine-button:hover { border-color:var(--accent) !important; background:var(--surface-hover) !important; }
+.discovery-v5 #stats-bar { max-width:1264px; padding:0 32px; margin:14px auto 18px; align-items:center; }
+.discovery-v5 .active-filters { max-width:1264px; padding:0 32px; }
+.discovery-v5 #stats-bar .count { font-size:.85rem; font-weight:500; }
+.discovery-v5 #stats-bar a { font-size:.75rem; text-decoration:none; }
+.discovery-v5 #stats-bar a:hover { text-decoration:underline; }
+.discovery-v5 .park-grid { max-width:1264px; grid-template-columns:repeat(3,minmax(0,1fr)); gap:26px; padding:0 32px; }
+.discovery-v5 .park-grid .park-card { padding:0; gap:0; overflow:hidden; border:1px solid var(--border); border-radius:16px; background:var(--surface); backdrop-filter:none; box-shadow:0 2px 10px #17251b09; animation:none; opacity:1; transform:none; }
+.discovery-v5 .park-grid .park-card::before { display:none; }
+.discovery-v5 .park-grid .park-card:hover { transform:translateY(-2px); border-color:var(--accent); box-shadow:0 8px 22px #17251b18; }
+.discovery-v5 .park-grid .park-card .card-media { height:210px !important; border-radius:0; aspect-ratio:auto; }
+.discovery-v5 .card-media .card-img { transform:none; }
+.discovery-v5 .park-card:hover .card-img { transform:scale(1.015); }
+.discovery-v5 .card-favorite-btn { background:#ffffffee !important; color:#273e30 !important; border:0 !important; width:40px !important; height:40px !important; top:12px !important; right:12px !important; box-shadow:0 2px 8px #0002; }
+.discovery-v5 .card-favorite-btn.active-heart { color:#245d45 !important; }
+.discovery-v5 .park-grid .park-card .card-body { padding:20px !important; gap:0 !important; }
+.discovery-v5 .card-eyebrow { font-size:.69rem; font-weight:550; letter-spacing:.08em; color:var(--text-muted); margin-bottom:6px; }
+.discovery-v5 .card-title-row { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+.discovery-v5 .park-grid .park-card .park-name { font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:1.45rem !important; font-weight:600 !important; letter-spacing:-.035em; margin:0; }
+.discovery-v5 .card-rating { font-size:.88rem; font-weight:600; color:var(--accent) !important; white-space:nowrap; }
+.discovery-v5 .park-grid .park-card .card-meta-row { display:flex; flex-wrap:wrap; align-items:center; gap:6px !important; margin:9px 0 13px !important; }
+.discovery-v5 .park-grid .park-card .card-pill,.discovery-v5 .park-grid .park-card .season-pill { border:0 !important; background:none !important; color:var(--text-muted) !important; padding:0 !important; font-size:.79rem !important; font-weight:400 !important; }
+.discovery-v5 .park-grid .park-card .season-pill { color:var(--accent) !important; }
+.discovery-v5 .card-meta-row .season-pill::before { content:'·'; color:var(--text-muted); margin-right:6px; }
+.discovery-v5 .card-reason { font-size:.9rem; color:var(--text); line-height:1.52; margin:0 0 16px; }
+.discovery-v5 .card-planning { color:var(--text-muted); font-size:.81rem; line-height:1.55; border-top:1px solid var(--border); padding:14px 0 0; margin:0 0 12px; }
+.discovery-v5 .card-planning strong { color:var(--text-muted); font-weight:550; }
+.discovery-v5 .card-bottom { border:0; padding:0; }
+.discovery-v5 .card-explore { color:var(--accent); font-size:.81rem; font-weight:650; }
+.discovery-v5 .compare-toggle { min-height:44px; border:0; background:none; color:var(--text-muted); font-size:.81rem; }
+.discovery-v5 .compare-toggle:hover { color:var(--accent); background:var(--surface-hover); }
+.discovery-v5 #park-modal .modal-content { background:var(--bg); border:1px solid var(--border); box-shadow:0 24px 80px #0007; }
+.discovery-v5 #park-modal .guide-hero { height:250px; }
+.discovery-v5 #park-modal .guide-hero .modal-title { font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-weight:600; letter-spacing:-.045em; }
+.discovery-v5 .guide-snapshot { border-color:var(--border); }
+.discovery-v5 .guide-snapshot strong,.discovery-v5 .guide-panel h3 { font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; }
+.discovery-v5 .guide-panel { background:var(--surface); border:1px solid var(--border); border-radius:14px; box-shadow:none; }
+.discovery-v5 .guide-verdict { background:var(--season-bg); border-color:var(--border); }
+.discovery-v5 .guide-primary-actions > * { border-color:var(--border); background:var(--surface); color:var(--accent); font-weight:600; }
+.discovery-v5 .guide-primary-actions > *:hover { background:var(--surface-hover); }
+.discovery-v5 .guide-months button { border-color:var(--border); background:var(--surface); }
+.discovery-v5 .guide-months button.peak { background:var(--season-bg); color:var(--accent); border-color:var(--accent); }
+.discovery-v5 .guide-months button.selected { outline-color:var(--accent); }
+.discovery-v5 .guide-snapshot .snapshot-season { color:var(--accent); }
+.discovery-v5 .comparison-panel { max-width:1200px; margin:18px auto 26px; background:var(--bg); border:0; padding:0 32px; }
+.discovery-v5 .comparison-grid { gap:18px; }
+.discovery-v5 .comparison-grid article { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px; }
+.discovery-v5 .comparison-grid dt { color:var(--text); }
+.discovery-v5 .comparison-grid h3 a { color:var(--text); text-decoration:none; }
+.discovery-v5 .comparison-grid h3 a:hover { color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+.discovery-v5 .compare-tray { box-shadow:0 10px 35px #0003; }
+.discovery-v5 .filter-panel,.discovery-v5 .empty-state { background:var(--surface); border-color:var(--border); box-shadow:none; }
+@media(max-width:1000px) {
+ .discovery-v5 .park-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:700px) {
+ .discovery-v5 .app-nav { padding:10px 16px; }
+ .discovery-v5 .discovery-controls { padding:20px 20px 0; }
+ .discovery-v5 .discovery-heading { grid-template-columns:1fr auto; margin-bottom:16px; }
+ .discovery-v5 .discovery-heading h1 { font-size:1.45rem !important; line-height:1.17; }
+ .discovery-v5 .mobile-month select { font-size:.82rem !important; }
+ .discovery-v5 .discovery-toolbar { grid-template-columns:86px minmax(0,1fr); gap:8px; }
+ .discovery-v5 #park-search { min-height:48px; font-size:1rem !important; }
+ .discovery-v5 #refine-button { min-height:44px; font-size:.82rem !important; }
+ .discovery-v5 #stats-bar { padding:0 20px !important; margin:13px auto 16px !important; }
+ .discovery-v5 .active-filters { padding:0 20px !important; }
+ .discovery-v5 #stats-bar .count { font-size:.78rem; }
+ .discovery-v5 #stats-bar a { font-size:.7rem; }
+ .discovery-v5 .park-grid { grid-template-columns:1fr; padding:0 20px; gap:24px; }
+ .discovery-v5 .park-grid .park-card .card-media { height:190px !important; }
+ .discovery-v5 .park-grid .park-card .card-body { padding:18px !important; }
+ .discovery-v5 .park-grid .park-card .park-name { font-size:1.38rem !important; }
+ .discovery-v5 .card-reason { font-size:.89rem; }
+ .discovery-v5 #park-modal .modal-content { border:0; }
+ .discovery-v5 #park-modal .guide-hero { height:190px; }
+ .discovery-v5 .comparison-panel { padding:0 20px; }
+ .discovery-v5 .comparison-grid article { padding:18px; }
+}
+@media(max-width:340px) {
+ .discovery-v5 .discovery-heading { grid-template-columns:1fr; }
+ .discovery-v5 .mobile-month { flex-direction:row; align-items:center; }
+ .discovery-v5 .mobile-month select { width:auto; flex:1; }
+}
+@media(prefers-reduced-motion:reduce) { .discovery-v5 .park-card,.discovery-v5 .park-card .card-img { transition:none; } }
+
+@media(max-width:700px) { .discovery-v5 #refine-button { width:86px; } }
+
+.discovery-v5 .methodology { max-width:780px; padding:42px 24px 70px; }
+.discovery-v5 .methodology h1 { font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:2.4rem; font-weight:560; letter-spacing:-.04em; color:var(--text); -webkit-text-fill-color:var(--text); }
+.discovery-v5 .methodology h2 { font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-weight:600; color:var(--text); }
+.discovery-v5 .methodology p { color:var(--text-muted); line-height:1.7; }
+.discovery-v5 .methodology a { color:var(--accent); }
+.discovery-v5 .methodology td,.discovery-v5 .methodology th { border-color:var(--border); }
+@media(max-width:700px) { .discovery-v5 .methodology { padding:25px 20px 60px; } .discovery-v5 .methodology h1 { font-size:1.85rem; } }
+.discovery-v5 .card-title-row .park-name { min-width:0; overflow-wrap:anywhere; }
+.discovery-v5 .card-title-row .card-rating { flex-shrink:0; }
+
+/* Calm, action-linked motion and aligned controls. */
+.discovery-v5 .rating-method { border:0; background:none; padding:7px 0; color:var(--text-muted); font:inherit; font-size:.75rem; cursor:pointer; }
+.discovery-v5 .rating-method:hover { color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+.discovery-v5 #route-guide:empty { display:none; }
+.discovery-v5 footer { padding:24px 20px 28px; }
+.discovery-v5 .footer-disclaimer { border:0; padding:0; margin:0; }
+.discovery-v5 main { position:relative; }
+.discovery-v5 #filter-panel { position:absolute; top:48px; right:max(32px,calc((100vw - 1264px)/2 + 32px)); z-index:40; width:min(520px,calc(100% - 64px)); max-width:none; margin:0; padding:16px; border-radius:14px; backdrop-filter:none; box-shadow:0 18px 48px #0002; transition:none; animation:guide-enter 190ms cubic-bezier(.2,.8,.2,1); }
+.discovery-v5 #filter-panel .filter-header { display:grid; grid-template-columns:1fr auto 32px; gap:10px; margin:0 0 14px; padding:0 0 12px; border-bottom:1px solid var(--border); }
+.discovery-v5 #filter-panel .filter-header h3 { font-family:inherit; font-size:1rem; font-weight:650; letter-spacing:-.02em; }
+.discovery-v5 #filter-panel .clear-filters-btn { padding:4px 0; color:var(--text-muted); font:inherit; font-size:.75rem; text-decoration:none; }
+.discovery-v5 #filter-panel .clear-filters-btn:hover { color:var(--accent); text-decoration:underline; }
+.discovery-v5 #filter-panel .filter-close-x { width:32px; height:32px; display:grid; place-items:center; padding:0; background:var(--surface); border:1px solid var(--border); color:var(--text); transform:none; }
+.discovery-v5 #filter-panel .filter-close-x:hover { background:var(--surface-hover); border-color:var(--accent); color:var(--accent); transform:none; }
+.discovery-v5 #filter-panel .filter-close-x .icon { width:15px; height:15px; }
+.discovery-v5 #filter-panel .filter-body { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px 14px; }
+.discovery-v5 #filter-panel .filter-field { display:flex; flex-direction:column; gap:6px; min-width:0; }
+.discovery-v5 #filter-panel .filter-field label { color:var(--text-muted); font-size:.75rem; font-weight:600; line-height:1.25; }
+.discovery-v5 #filter-panel select { width:100%; min-height:40px; padding:0 9px; font-size:.83rem; }
+.discovery-v5 #filter-panel .filter-option { min-height:30px; display:flex; align-items:center; gap:8px; color:var(--text); font-size:.81rem; line-height:1.25; cursor:pointer; }
+.discovery-v5 #filter-panel .filter-option input { flex:none; width:17px; height:17px; margin:0; accent-color:var(--accent); }
+.discovery-v5 #filter-panel .filter-footnote { margin:10px 0 0; color:var(--text-muted); font-size:.7rem; line-height:1.4; }
+.discovery-v5 .park-grid .park-card { transition:border-color 180ms ease,box-shadow 180ms ease,transform 180ms ease; }
+.discovery-v5 .park-grid .card-img { transition:transform 200ms ease !important; }
+.discovery-v5 .month-chip,.discovery-v5 .card-favorite-btn { transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease,box-shadow 160ms ease,transform 160ms ease; }
+.discovery-v5 #park-modal .modal-content { animation:guide-enter 190ms cubic-bezier(.2,.8,.2,1); }
+@keyframes guide-enter { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+.discovery-v5 .rating-method-dialog { position:fixed; inset:auto; margin:0; z-index:5000; width:min(460px,calc(100vw - 32px)); max-height:calc(100dvh - 32px); overflow:auto; padding:24px; border:1px solid var(--border); border-radius:16px; background:var(--surface); color:var(--text); box-shadow:0 24px 70px #0004; animation:guide-enter 190ms cubic-bezier(.2,.8,.2,1); }
+.discovery-v5 .rating-dialog-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px; }
+.discovery-v5 .rating-dialog-head h2 { margin:0; font-size:1.25rem; letter-spacing:-.03em; }
+.discovery-v5 .rating-dialog-head button { width:36px; height:36px; flex:none; display:grid; place-items:center; padding:0; border:1px solid var(--border); border-radius:50%; background:var(--surface); color:var(--text); cursor:pointer; }
+.discovery-v5 .rating-dialog-head button .icon { width:17px; height:17px; }
+.discovery-v5 .rating-dialog-head button:hover { background:var(--surface-hover); border-color:var(--accent); }
+.discovery-v5 .rating-method-dialog p { margin:0 0 13px; line-height:1.55; color:var(--text-dim); font-size:.9rem; }
+.discovery-v5 .rating-method-dialog strong { color:var(--text); }
+.discovery-v5 .rating-method-dialog a { color:var(--accent); font-weight:600; font-size:.88rem; }
+.discovery-v5 .guide-primary-actions { flex-wrap:wrap; }
+.discovery-v5 #chip-all.active { background:var(--accent); border-color:var(--accent); color:var(--bg); box-shadow:none; transform:none; }
+.discovery-v5 .collections-menu #saved-nav { display:flex; justify-content:space-between; align-items:center; }
+.discovery-v5 .collections-menu #saved-nav[aria-pressed="true"] { background:var(--surface-hover); color:var(--accent); }
+.discovery-v5 #saved-count { min-width:22px; padding:2px 6px; border-radius:999px; background:var(--surface-hover); color:var(--text-muted); font-size:.72rem; text-align:center; }
+.discovery-v5 .filter-chip { box-shadow:none; padding:7px 11px; border-radius:999px; }
+.discovery-v5 .filter-chip .icon { width:15px; height:15px; color:var(--text-muted); fill:none; }
+.discovery-v5 .filter-chip .chip-remove { width:20px; height:20px; color:var(--text-muted); }
+.discovery-v5 .filter-chip .chip-remove .icon { width:13px; height:13px; }
+.discovery-v5 .search-clear .icon { width:16px; height:16px; }
+.discovery-v5 #park-modal .modal-close { display:flex; align-items:center; justify-content:center; padding:0; }
+.discovery-v5 #park-modal .modal-close .desktop-close { width:18px; height:18px; }
+.discovery-v5 .discovery-toolbar .search-container { flex:1 1 auto; min-width:0; }
+.discovery-v5 .discovery-toolbar #refine-button { flex:none; }
+.discovery-v5 .park-grid .park-card.park-favorite { border:2px solid var(--accent) !important; box-shadow:0 0 0 2px var(--season-bg),0 6px 20px #17251b17 !important; }
+.discovery-v5 .park-grid .park-card.park-favorite:hover { box-shadow:0 0 0 2px var(--season-bg),0 10px 26px #17251b22 !important; }
+.discovery-v5 #park-modal .guide-hero .modal-hero-actions .modal-icon-btn { width:42px; height:42px; background:rgba(15,30,24,.75) !important; border:1px solid rgba(255,255,255,.72) !important; color:#fff !important; box-shadow:0 2px 10px #0005; }
+.discovery-v5 #park-modal .guide-hero .modal-hero-actions .modal-icon-btn:hover,
+.discovery-v5 #park-modal .guide-hero .modal-hero-actions .modal-icon-btn:focus-visible { background:#fff !important; color:#173c2b !important; border-color:#fff !important; transform:translateY(-2px); }
+.discovery-v5 #park-modal .guide-hero .modal-hero-actions .modal-icon-btn:focus-visible { outline:2px solid #fff; outline-offset:3px; }
+.discovery-v5 #park-modal .guide-hero .modal-hero-actions .modal-icon-btn.active-heart,
+.discovery-v5 #park-modal .guide-hero .modal-hero-actions .modal-icon-btn.active-tick,
+.discovery-v5 #park-modal .guide-hero .modal-hero-actions .modal-icon-btn.active-hide { background:#d8eee0 !important; color:#174c35 !important; border-color:#fff !important; }
+.discovery-v5 #park-modal .guide-hero .modal-hero-actions .modal-icon-btn:is(.active-heart,.active-tick,.active-hide):is(:hover,:focus-visible) { background:#fff !important; color:#173c2b !important; box-shadow:0 0 0 2px #fff8,0 4px 14px #0005; }
+.discovery-v5 #park-modal .guide-hero .modal-hero-actions .modal-icon-btn.active-heart .icon { fill:currentColor; stroke:currentColor; }
+.discovery-v5 #park-modal .guide-hero .modal-hero-actions .modal-icon-btn.active-tick .icon,
+.discovery-v5 #park-modal .guide-hero .modal-hero-actions .modal-icon-btn.active-hide .icon { fill:none; stroke:currentColor; }
+@media(hover:hover) {
+ .discovery-v5 .park-grid .card-favorite-btn::after { top:calc(100% + 8px); bottom:auto; left:auto; right:0; transform:translateY(-4px); }
+ .discovery-v5 .park-grid .card-favorite-btn:hover::after,
+ .discovery-v5 .park-grid .card-favorite-btn:focus-visible::after { opacity:1; visibility:visible; transform:translateY(0); }
+ .discovery-v5 #park-modal .modal-hero-actions .modal-icon-btn::after { top:calc(100% + 8px); bottom:auto; left:50%; right:auto; transform:translateX(-50%) translateY(-4px); }
+ .discovery-v5 #park-modal .modal-hero-actions .modal-icon-btn:hover::after,
+ .discovery-v5 #park-modal .modal-hero-actions .modal-icon-btn:focus-visible::after { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+}
+.discovery-v5 .empty-state { width:calc(100% - 64px); max-width:1200px; margin:12px auto 64px; padding:46px 24px; border:1px solid var(--border); border-radius:18px; background:var(--surface); }
+.discovery-v5 .empty-state-inner { max-width:440px; margin:auto; }
+.discovery-v5 .empty-symbol { width:44px; height:44px; margin:0 auto 18px; display:grid; place-items:center; border:1px solid var(--border); border-radius:14px; background:var(--surface-hover); color:var(--accent); }
+.discovery-v5 .empty-symbol .icon { width:20px; height:20px; }
+.discovery-v5 .empty-state h2 { margin:0 0 8px; color:var(--text); font-size:1.35rem; font-weight:600; letter-spacing:-.035em; }
+.discovery-v5 .empty-state p { margin:0 0 22px; color:var(--text-muted); font-size:.9rem; line-height:1.5; }
+.discovery-v5 .empty-action { display:inline-flex; align-items:center; justify-content:center; gap:14px; min-height:44px; padding:10px 18px; border:1px solid var(--accent); border-radius:10px; background:var(--accent); color:var(--bg); font:inherit; font-size:.88rem; font-weight:600; cursor:pointer; transition:opacity 160ms ease,transform 160ms ease; }
+.discovery-v5 .empty-action:hover { opacity:.9; transform:translateY(-1px); }
+.discovery-v5 .empty-action:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+@media(max-width:700px) {
+ .discovery-v5 .discovery-toolbar { display:grid; grid-template-columns:minmax(0,1fr) 76px; align-items:center; gap:8px; }
+ .discovery-v5 .discovery-toolbar .search-container { grid-column:1; width:auto; min-width:0; flex-basis:auto; }
+ .discovery-v5 #park-search { height:44px; min-height:44px; font-size:16px !important; }
+ .discovery-v5 #refine-button { width:76px; height:44px; min-height:44px; padding:0 8px; display:grid; place-items:center; line-height:1; font-size:.82rem !important; }
+ .discovery-v5 #park-modal .guide-hero .modal-hero-actions .modal-icon-btn { width:44px; height:44px; }
+ .discovery-v5 #filter-panel { position:relative; top:auto; right:auto; width:calc(100% - 40px); margin:0 20px 18px; padding:14px; }
+ .discovery-v5 #filter-panel .filter-body { gap:11px 10px; }
+ .discovery-v5 #filter-panel .filter-option { grid-column:1/-1; min-height:28px; }
+ .discovery-v5 .empty-state { width:calc(100% - 40px); padding:38px 20px; }
+ .discovery-v5 .compare-toggle,.discovery-v5 #compare-tray,.discovery-v5 #comparison-panel { display:none !important; }
+ .discovery-v5.has-comparison { padding-bottom:0; }
+ .discovery-v5 .rating-method { font-size:.7rem; }
+}
+@media(hover:none) { .discovery-v5 .park-grid .park-card:hover { transform:none; } .discovery-v5 .park-card:hover .card-img { transform:none; } }
+@media(prefers-reduced-motion:reduce) {
+ .discovery-v5 #park-modal .modal-content,.discovery-v5 .rating-method-dialog,.discovery-v5 #filter-panel { animation:none !important; }
+ .discovery-v5 .park-grid .park-card,.discovery-v5 .park-grid .card-img,.discovery-v5 .month-chip,.discovery-v5 .card-favorite-btn,.discovery-v5 #filter-panel,.discovery-v5 .empty-action { transition:none !important; }
+ .discovery-v5 .park-grid .park-card:hover,.discovery-v5 .park-card:hover .card-img { transform:none; }
+}

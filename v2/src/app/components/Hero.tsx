@@ -1,4 +1,6 @@
 import { motion } from "motion/react";
+import { parks } from "../data/parks";
+const heroPark = parks.find(p => p.id === "yosemite")!;
 
 export function Hero() {
   return (
@@ -13,12 +15,13 @@ export function Hero() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1579112047870-11fa9ae0686c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3NlbWl0ZSUyMHZhbGxleSUyMGRyYW1hdGljJTIwbGFuZHNjYXBlfGVufDF8fHx8MTc3NjI0MzgxM3ww&ixlib=rb-4.1.0&q=80&w=1080')`,
+            backgroundImage: `url('${heroPark.image}')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/40 to-background" />
       </motion.div>
 
+      <a href={heroPark.photo.sourceUrl} target="_blank" rel="noopener noreferrer" className="absolute top-4 right-4 z-10 text-xs text-white bg-black/50 rounded px-2 py-1">Photo: {heroPark.photo.credit}</a>
       {/* Content */}
       <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
         <motion.div
@@ -36,7 +39,7 @@ export function Hero() {
             className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto"
             style={{ fontFamily: 'var(--font-sans)' }}
           >
-            Discover America's most breathtaking national parks based on when you want to go and where you're coming from
+            Discover America's most breathtaking national parks with editorial month suggestions and source-linked planning notes
           </p>
         </motion.div>
 

@@ -1,0 +1,262 @@
+/* Recommendation-first presentation. Shared with generated month and park pages. */
+:root { --text-muted: #adb6c8; --season-color: #8fe2b1; --season-bg: rgba(106,205,145,.1); }
+[data-theme="light"] { --text-muted: #536174; --season-color: #176a40; --season-bg: #edf7f0; }
+header h1 { line-height:1.12; letter-spacing:-.04em; background:none; -webkit-text-fill-color:var(--text); }
+header .hero-accent { color:var(--accent); -webkit-text-fill-color:var(--accent); }
+header .subtitle { max-width:590px; color:var(--text-muted); line-height:1.65; margin:16px auto 0; }
+#stats-bar { gap:16px; flex-wrap:wrap; }
+#ranking-note { position:relative; z-index:1; max-width:1400px; padding:0 24px; font-size:.8rem; color:var(--text-muted); line-height:1.6; margin:0 auto 14px; }
+#ranking-note a { color:var(--text); text-underline-offset:3px; margin-left:5px; white-space:nowrap; }
+.sort-controls { flex-wrap:wrap; }
+.sort-btn { min-height:36px; }
+.park-grid .park-card { background:var(--surface); border:1px solid var(--border); box-shadow:0 8px 26px rgba(0,0,0,.07); }
+.park-grid .park-card:hover { border-color:var(--accent); }
+.park-grid .park-card .card-media { height:210px !important; }
+.park-grid .park-card .card-body { padding:20px !important; gap:10px !important; }
+.park-grid .park-card .park-name { font-size:1.45rem !important; white-space:normal !important; line-height:1.2; }
+.park-open { font:inherit; color:inherit; text-align:left; background:none; border:none; cursor:pointer; }
+.park-open:focus-visible { outline:2px solid var(--accent); outline-offset:5px; border-radius:3px; }
+.card-eyebrow { font-size:.69rem; letter-spacing:.1em; text-transform:uppercase; font-weight:600; color:var(--text-muted); }
+.recommendation-badge { position:absolute; top:14px; left:14px; background:#f1d493; color:#302313; border:1px solid rgba(255,255,255,.4); padding:7px 11px; border-radius:7px; font-size:.72rem; font-weight:700; box-shadow:0 2px 12px #0002; }
+.card-rating { display:flex; align-items:center; gap:8px; font-size:.9rem; }
+.card-rating > span:last-child { font-size:.72rem; color:var(--text-muted); }
+.recommendation-stars { position:relative; display:inline-block; width:max-content; font-size:1rem; line-height:1; letter-spacing:2px; color:var(--text-muted); white-space:nowrap; }
+.recommendation-stars .filled-stars { position:absolute; left:0; top:0; overflow:hidden; color:#e6b653; }
+[data-theme="light"] .recommendation-stars .filled-stars { color:#92640c; }
+.card-hook { color:var(--text); font-size:.9rem; line-height:1.5; }
+.park-grid .park-card .card-meta-row { gap:7px !important; margin:2px 0 !important; }
+.park-grid .park-card .card-pill, .season-pill { color:var(--text-muted) !important; background:var(--surface-hover) !important; border:1px solid var(--border) !important; border-radius:6px !important; padding:5px 8px !important; font-size:.7rem !important; line-height:1.4; }
+.park-grid .park-card .season-standout { background:var(--season-bg) !important; color:var(--season-color) !important; }
+.card-reason { font-size:.8rem; color:var(--text-muted); line-height:1.6; margin:1px 0 4px; }
+.card-explore { border-top:1px solid var(--border); padding-top:13px; margin-top:auto; display:flex; justify-content:space-between; color:var(--accent); font-size:.77rem; font-weight:600; }
+#park-modal .modal-content { max-width:1060px; padding:0; }
+#park-modal .guide-hero { height:340px; border-radius:0; }
+.guide-hero-image { position:absolute; width:100%; height:100%; object-fit:cover; inset:0; }
+#park-modal .guide-hero .modal-hero-overlay { background:linear-gradient(180deg,rgba(4,10,14,.12) 25%,rgba(4,10,14,.85) 100%); }
+#park-modal .guide-hero .modal-hero-actions { top:18px; right:76px; bottom:auto; gap:8px; }
+.guide-hero-title { position:absolute; bottom:28px; left:32px; right:24px; color:white; }
+.guide-kicker { display:block; font-size:.68rem; font-weight:700; letter-spacing:.14em; line-height:1.5; }
+#park-modal .guide-hero .modal-title { color:#fff; font-family:Outfit,Inter,sans-serif; font-size:3rem; line-height:1.1; margin:8px 0; letter-spacing:-.03em; }
+.guide-hero-title p { font-size:.98rem; color:#f0f3f7; line-height:1.5; }
+#park-modal .recommendation-guide { padding:0 32px 28px; }
+.guide-snapshot { display:grid; grid-template-columns:1fr .85fr 1.35fr; border-bottom:1px solid var(--border); margin-bottom:24px; padding:22px 0; }
+.guide-snapshot > div { display:flex; flex-direction:column; justify-content:center; gap:8px; padding:0 22px; border-right:1px solid var(--border); }
+.guide-snapshot > div:first-child { padding-left:0; }
+.guide-snapshot > div:last-child { border:0; padding-right:0; }
+.snapshot-label { font-size:.7rem; color:var(--text-muted); }
+.guide-snapshot strong { font-size:1.5rem; font-weight:700; font-family:Outfit,Inter,sans-serif; line-height:1.1; }
+.guide-snapshot strong small { font-size:.8rem; margin-left:2px; color:var(--text-muted); font-weight:400; }
+.snapshot-rating > div { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+.snapshot-caption { font-size:.68rem; color:var(--text-muted); line-height:1.4; }
+.guide-snapshot .snapshot-season { color:var(--season-color); font-size:1.17rem; }
+.guide-columns { display:grid; grid-template-columns:1.5fr 1fr; gap:22px; align-items:start; }
+.guide-main, .guide-aside { display:flex; flex-direction:column; gap:18px; min-width:0; }
+.guide-panel { border:1px solid var(--border); border-radius:14px; padding:22px; background:var(--surface); }
+.guide-panel h3 { font-size:1rem; margin:0 0 12px; display:flex; align-items:center; gap:8px; font-family:Outfit,Inter,sans-serif; line-height:1.3; }
+.guide-panel h3 svg { color:var(--accent); flex-shrink:0; }
+.guide-panel p { font-size:.88rem; line-height:1.75; color:var(--text-muted); margin:0 0 12px; }
+.guide-panel p:last-child { margin-bottom:0; }
+.guide-panel a { color:var(--accent); text-underline-offset:3px; }
+.guide-verdict { background:var(--season-bg); border-color:color-mix(in srgb,var(--season-color) 25%,transparent); }
+.guide-verdict .guide-kicker { color:var(--season-color); margin-bottom:8px; }
+.guide-verdict h3 { font-size:1.3rem; }
+.guide-verdict p { color:var(--text); }
+.guide-activities { display:flex; flex-wrap:wrap; gap:7px; }
+.guide-activities span { font-size:.73rem; color:var(--text); padding:6px 9px; background:var(--surface-hover); border:1px solid var(--border); border-radius:6px; }
+.guide-planning { border-left:3px solid var(--accent); }
+.official-guide-link { display:block; font-size:.82rem; font-weight:600; padding-top:12px; border-top:1px solid var(--border); margin-top:16px; }
+.guide-months { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+.guide-months button { border:1px solid var(--border); background:var(--surface-hover); color:var(--text-muted); font-family:inherit; font-size:.76rem; border-radius:7px; min-height:35px; cursor:pointer; }
+.guide-months button.peak { background:var(--season-bg); color:var(--season-color); border-color:color-mix(in srgb,var(--season-color) 45%,transparent); font-weight:700; }
+.guide-months button.suggested { color:var(--text); border-bottom:3px solid var(--text-muted); }
+.guide-months button.selected { outline:2px solid var(--accent); outline-offset:1px; }
+.guide-panel .calendar-key { display:flex; align-items:center; gap:5px; font-size:.67rem; margin:12px 0 6px; }
+.calendar-key span { display:inline-block; width:8px; height:8px; border-radius:2px; margin-left:8px; }
+.calendar-key span:first-child { margin-left:0; }
+.key-peak { background:var(--season-color); }.key-good { background:var(--text-muted); }
+.guide-panel .guide-small { font-size:.75rem; line-height:1.65; }
+.guide-disclosure { font-size:.8rem; }
+.guide-disclosure summary { cursor:pointer; font-weight:600; line-height:1.5; color:var(--text); }
+.guide-disclosure summary::marker { color:var(--accent); }
+.guide-disclosure[open] > summary { margin-bottom:14px; }
+.guide-disclosure p { font-size:.8rem; margin:12px 0; }
+.guide-score .guide-disclosure, .guide-calendar .guide-disclosure { margin-top:14px; border-top:1px solid var(--border); padding-top:13px; }
+.score-breakdown { display:grid; grid-template-columns:1fr auto; gap:10px; font-size:.75rem; color:var(--text-muted); }
+.score-breakdown strong { color:var(--text); }
+.guide-sources { margin-top:22px; background:transparent; }
+.guide-sources .source-links { font-size:.8rem; margin:12px 0; }
+@media(max-width:900px) {
+  .guide-columns { grid-template-columns:1fr; }
+  .guide-aside { display:grid; grid-template-columns:1fr 1fr; align-items:start; }
+  .guide-aside > details { grid-column:1/-1; }
+}
+@media(max-width:600px) {
+  body > header { display:block !important; padding:12px 16px 8px !important; }
+  body > header h1 { font-size:1.5rem !important; }
+  header .subtitle { font-size:.86rem; max-width:340px; margin-top:12px; }
+  #stats-bar > div:first-child { justify-content:space-between; width:100%; gap:8px !important; }
+  #stats-bar .sort-controls { width:100%; gap:5px; }
+  #stats-bar .sort-label { display:none; }
+  #stats-bar .sort-btn { font-size:.7rem; flex:1; padding:6px 8px; white-space:nowrap; }
+  #stats-bar .sort-btn:first-of-type { flex:1.35; }
+  #ranking-note { font-size:.7rem; margin:0 auto 12px; padding:0 16px; }
+  .park-grid .park-card .card-media { height:195px !important; }
+  .park-grid .park-card .card-body { padding:17px !important; }
+  .park-grid .park-card .park-name { font-size:1.45rem !important; }
+  #park-modal .guide-hero { height:275px; }
+  .guide-hero-title { left:20px; right:20px; bottom:22px; }
+  #park-modal .guide-hero .modal-title { font-size:2.3rem; }
+  .guide-hero-title p { font-size:.84rem; }
+  #park-modal .guide-hero .modal-hero-actions { top:16px; right:67px; }
+  #park-modal .recommendation-guide { padding:0 16px 24px; }
+  .guide-snapshot { grid-template-columns:1fr .75fr; gap:18px 0; padding:20px 0; margin-bottom:18px; }
+  .guide-snapshot > div { padding:0 0 0 16px; }
+  .guide-snapshot > div:nth-child(2) { border:0; }
+  .guide-snapshot > div:last-child { grid-column:1/-1; border-top:1px solid var(--border); padding:16px 0 0; }
+  .guide-snapshot > div:last-child .snapshot-label { display:none; }
+  .guide-snapshot > div:last-child { flex-direction:row; justify-content:space-between; align-items:center; gap:10px; }
+  .guide-snapshot .snapshot-season { font-size:.94rem; }
+  .guide-snapshot > div:last-child .snapshot-caption { text-align:right; max-width:130px; }
+  .guide-panel { padding:18px; border-radius:12px; }
+  .guide-panel p { font-size:.86rem; }
+  .guide-aside { display:flex; }
+  .guide-columns, .guide-main, .guide-aside { gap:15px; }
+  .guide-verdict h3 { font-size:1.2rem; }
+}
+@media(min-width:601px) {
+  header { max-width:1000px; padding-top:22px; }
+  header h1 { font-size:2.6rem; }
+  header h1 br { display:none; }
+  header .hero-accent::before { content:' '; white-space:pre; }
+  header .subtitle { max-width:760px; font-size:.95rem; margin-top:10px; }
+}
+@media(prefers-reduced-motion:reduce) { .park-grid .park-card, .park-grid .card-thumbnail { animation:none !important; transition:none !important; } }
+.methodology { max-width:800px; padding:32px 24px 60px; }
+.methodology h1 { margin:24px 0; }
+.methodology h2 { font-size:1.3rem; margin:30px 0 12px; }
+.methodology p { margin-bottom:14px; color:var(--text-muted); }
+.methodology table { border-collapse:collapse; font-size:.85rem; margin:20px 0; }
+.methodology td, .methodology th { border:1px solid var(--border); padding:12px; text-align:left; vertical-align:top; }
+
+/* Compact discovery layout for phones and wide screens. */
+.discovery-v5 .hidden { display:none !important; }
+.discovery-v5 .discovery-controls { max-width:1400px; margin:0 auto; padding:20px 24px 0; }
+.discovery-v5 .discovery-heading { display:flex; align-items:center; justify-content:space-between; max-width:none; padding:0; margin:0 0 14px; text-align:left; }
+.discovery-v5 .discovery-heading h1 { font-size:2rem; margin:0; }
+.discovery-v5 .mobile-month { display:none; }
+.discovery-v5 nav#month-bar { position:static; overflow:visible; backdrop-filter:none; -webkit-backdrop-filter:none; padding:4px 0; margin:0 0 14px; border:0; background:none; }
+.discovery-v5 .month-chips { justify-content:flex-start; padding:4px; gap:8px; flex-wrap:wrap; }
+.discovery-v5 .month-chip { min-height:42px; }
+.discovery-v5 .discovery-toolbar { display:flex; gap:10px; align-items:center; }
+.discovery-v5 .search-container { margin:0; padding:0; max-width:none; flex:1; min-width:0; }
+.discovery-v5 .search-input-wrapper { width:100%; }
+.discovery-v5 #park-search { height:44px; padding:0 38px 0 14px; }
+.discovery-v5 button,.discovery-v5 select,.discovery-v5 .collections-menu summary { font-family:inherit; }
+.discovery-v5 .discovery-toolbar select,.discovery-v5 .mobile-month select,.discovery-v5 .filter-section select { min-height:44px; border:1px solid var(--border); border-radius:8px; background:var(--surface); color:var(--text); padding:0 10px; max-width:100%; }
+.discovery-v5 #refine-button { min-height:44px; padding:0 14px; margin:0; }
+.discovery-v5 #stats-bar { margin:12px auto; padding:0 24px; min-height:24px; justify-content:space-between; font-size:.8rem; }
+.discovery-v5 #stats-bar a { color:var(--text-muted); }
+.discovery-v5 #active-filters:empty { display:none; }
+.discovery-v5 .app-nav-actions { display:flex; align-items:center; gap:10px; }
+.discovery-v5 .saved-nav,.discovery-v5 .collections-menu summary { min-height:44px; display:flex; align-items:center; gap:7px; padding:0 10px; border:1px solid var(--border); border-radius:8px; color:var(--text); background:var(--surface); cursor:pointer; font-size:.8rem; }
+.discovery-v5 .collections-menu { position:relative; }
+.discovery-v5 .collections-menu > div { position:absolute; right:0; top:48px; width:210px; padding:8px; background:var(--surface); border:1px solid var(--border); border-radius:10px; box-shadow:0 8px 24px #0004; z-index:100; }
+.discovery-v5 .collections-menu button,.discovery-v5 .collections-menu a { display:block; width:100%; min-height:44px; padding:12px; background:none; color:var(--text); border:0; text-align:left; font-size:.85rem; }
+.discovery-v5 .app-nav-actions > :not(.saved-nav):not(.collections-menu) { display:none !important; }
+.discovery-v5 .park-grid .park-card .card-media { height:155px !important; }
+.discovery-v5 .park-grid .park-card .card-body { padding:16px !important; gap:7px !important; }
+.discovery-v5 .park-grid .park-card .park-name { font-size:1.4rem !important; }
+.discovery-v5 .park-open { text-decoration:none; }
+.discovery-v5 .card-hook { display:none; }
+.discovery-v5 .card-reason,.discovery-v5 .card-planning { font-size:.82rem; line-height:1.5; margin:0; color:var(--text-muted); }
+.discovery-v5 .card-planning strong { color:var(--text); font-weight:500; }
+.discovery-v5 .card-bottom { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:auto; border-top:1px solid var(--border); padding-top:6px; }
+.discovery-v5 .card-explore { min-height:44px; align-items:center; padding:0; border:0; margin:0; text-decoration:none; }
+.discovery-v5 .compare-toggle,.discovery-v5 .guide-primary-actions > *, .discovery-v5 .comparison-panel button,.discovery-v5 .compare-tray button { min-height:44px; border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:8px; padding:8px 12px; cursor:pointer; font-size:.8rem; }
+.discovery-v5 .compare-toggle[aria-pressed=true] { border-color:var(--accent); color:var(--accent); }
+.discovery-v5 .guide-primary-actions { display:flex; gap:10px; }
+.discovery-v5 .guide-primary-actions > * { display:flex; align-items:center; justify-content:center; text-decoration:none; flex:1; }
+.discovery-v5 #park-modal .guide-hero { height:220px; }
+.discovery-v5 .guide-snapshot { padding:16px 0; margin-bottom:16px; }
+.discovery-v5 .mobile-back { display:none; }
+.discovery-v5 .guide-months button { min-height:44px; }
+.discovery-v5 :focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.discovery-v5 .compare-tray { position:fixed; bottom:16px; left:50%; transform:translateX(-50%); z-index:90; display:flex; gap:10px; align-items:center; background:var(--surface); border:1px solid var(--border); padding:10px 16px; border-radius:12px; box-shadow:0 6px 30px #0005; font-size:.85rem; }
+.discovery-v5 .compare-tray button:disabled { opacity:.5; cursor:default; }
+.discovery-v5.has-comparison { padding-bottom:90px; }
+.discovery-v5 .comparison-panel { margin:16px 24px 24px; padding:20px; border:1px solid var(--border); border-radius:14px; background:var(--surface); }
+.discovery-v5 .comparison-heading { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:20px; }
+.discovery-v5 .comparison-heading p { color:var(--text-muted); font-size:.8rem; margin-top:8px; }
+.discovery-v5 .comparison-grid { display:grid; grid-template-columns:repeat(var(--columns),minmax(0,1fr)); gap:24px; }
+.discovery-v5 .comparison-grid article { min-width:0; }
+.discovery-v5 .comparison-grid h3 a { color:var(--text); }
+.discovery-v5 .comparison-grid p,.discovery-v5 .comparison-grid dd { font-size:.85rem; line-height:1.6; color:var(--text-muted); margin:8px 0 16px; }
+.discovery-v5 .comparison-grid dt { font-size:.75rem; font-weight:600; }
+.discovery-v5 .search-suggestion { display:block; padding:14px; margin:10px auto; max-width:500px; color:var(--text); border:1px solid var(--border); border-radius:10px; }
+@media(max-width:600px) {
+ .discovery-v5 .app-nav { padding:8px 12px; min-height:60px; }
+ .discovery-v5 .app-nav-actions { gap:6px; }
+ .discovery-v5 .discovery-controls { padding:12px 16px 0; }
+ .discovery-v5 .discovery-heading { display:block; margin:0 0 10px; }
+ .discovery-v5 .discovery-heading h1 { font-size:1.35rem; line-height:1.25; margin-bottom:8px; }
+ .discovery-v5 .mobile-month { display:flex; align-items:center; gap:10px; font-size:.8rem; color:var(--text-muted); }
+ .discovery-v5 .mobile-month select { flex:1; min-height:40px; }
+ .discovery-v5 #month-bar { display:none; }
+ .discovery-v5 .discovery-toolbar { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+ .discovery-v5 .discovery-toolbar .search-container { grid-column:1/-1; width:100%; }
+ .discovery-v5 #park-search { font-size:16px; padding-left:10px; }
+ .discovery-v5 #refine-button { padding:0 8px; font-size:.75rem; }
+ .discovery-v5 #stats-bar { padding:0 16px; margin:10px 0; font-size:.72rem; gap:6px; }
+ .discovery-v5 .park-grid .park-card .card-media { height:145px !important; }
+ .discovery-v5 .park-grid .park-card .card-body { padding:14px !important; }
+ .discovery-v5 #park-modal { padding:0 !important; }
+ .discovery-v5 #park-modal .modal-content { width:100%; height:100dvh; max-height:100dvh; margin:0; border:0; border-radius:0; }
+ .discovery-v5 #park-modal .guide-hero { height:180px; }
+ .discovery-v5 .guide-hero-title { bottom:16px; left:16px; right:16px; }
+ .discovery-v5 #park-modal .guide-hero .modal-title { font-size:2rem; }
+ .discovery-v5 .guide-hero-title p { font-size:.8rem; }
+ .discovery-v5 #park-modal .modal-close { left:12px; right:auto; top:12px; width:auto; min-width:65px; padding:0 10px; border-radius:8px; font-size:.85rem; }
+ .discovery-v5 .mobile-back { display:inline; }
+ .discovery-v5 .desktop-close { display:none; }
+ .discovery-v5 #park-modal .guide-hero .modal-hero-actions { right:12px; top:12px; }
+ .discovery-v5 .guide-snapshot { padding:12px 0; gap:10px 0; margin-bottom:12px; }
+ .discovery-v5 .guide-snapshot > div { gap:5px; }
+ .discovery-v5 .guide-snapshot > div:last-child { padding-top:10px; }
+ .discovery-v5 .guide-snapshot > div:last-child .snapshot-caption { max-width:none; }
+ .discovery-v5 .guide-snapshot strong { font-size:1.2rem; }
+ .discovery-v5 .guide-snapshot .snapshot-season { font-size:.85rem; }
+ .discovery-v5 .guide-panel { padding:16px; }
+ .discovery-v5 .guide-columns,.discovery-v5 .guide-main { gap:12px; }
+ .discovery-v5 .comparison-panel { margin:12px 16px; padding:16px; }
+ .discovery-v5 .comparison-heading { align-items:flex-start; flex-direction:column; }
+ .discovery-v5 .comparison-grid { grid-template-columns:1fr; }
+ .discovery-v5 .comparison-grid article + article { border-top:1px solid var(--border); padding-top:20px; }
+ .discovery-v5 .compare-tray { bottom:8px; width:calc(100% - 16px); gap:6px; padding:8px; justify-content:space-between; font-size:.75rem; }
+}
+.discovery-v5 .discovery-heading { display:flex !important; }
+.discovery-v5 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.discovery-v5 .search-icon-svg { display:none; }
+.discovery-v5 #park-search { padding-left:14px !important; border-radius:8px; width:100%; }
+.discovery-v5 .search-input-wrapper { margin:0; }
+.discovery-v5 #stats-bar > div:first-child { width:auto; }
+@media(max-width:600px) {
+ .discovery-v5 .discovery-heading { display:grid !important; grid-template-columns:1fr auto; gap:10px; }
+ .discovery-v5 .discovery-heading h1 { font-size:1.2rem; margin:0; }
+ .discovery-v5 .mobile-month { flex-direction:column; align-items:flex-start; gap:2px; font-size:.65rem; }
+ .discovery-v5 .mobile-month select { width:114px; min-height:38px; font-size:.8rem; padding:0 6px; }
+}
+.discovery-v5 .discovery-heading { padding:0 !important; }
+.discovery-v5 .search-container { padding:0 !important; margin:0 !important; }
+.discovery-v5 .month-chips { mask-image:none; -webkit-mask-image:none; }
+.discovery-v5 #filter-panel select { min-height:44px; padding:8px; border:1px solid var(--border); border-radius:8px; background:var(--surface); color:var(--text); font:inherit; }
+.discovery-v5 .search-recovery { display:flex; flex-direction:column; gap:12px; margin:16px auto; padding:20px; max-width:520px; border:1px solid var(--border); border-radius:12px; }
+.discovery-v5 .search-recovery a { color:var(--accent); }
+@media(max-width:600px) {
+ .discovery-v5 .discovery-heading h1 { font-size:1.2rem !important; }
+ .discovery-v5 #stats-bar { flex-direction:row; align-items:center; }
+ .discovery-v5 #park-search { font-size:16px !important; }
+}
+@media(max-width:600px) {
+ .discovery-v5 #park-modal .modal-close { right:auto !important; top:12px !important; left:12px !important; width:76px !important; height:44px !important; }
+ .discovery-v5 #park-modal .modal-icon-btn { width:44px; height:44px; }
+}
