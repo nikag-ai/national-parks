@@ -598,6 +598,7 @@ function init() {
   comparedParks = new Set(shared); comparisonOpen = shared.length >= 2;
   if (['favorites','visited','hidden'].includes(params.get('view'))) viewMode=params.get('view');
   renderParks();
+  if (shared.length >= 2) trackAction('comparison_link_opened', {park_count:shared.length});
   window.history.replaceState({month:selectedMonth,view:viewMode,compare:[...comparedParks],comparisonOpen},'',window.location.href);
   if (preselectedPark) {
     setTimeout(() => openModal(preselectedPark, true), 50);
@@ -1228,6 +1229,8 @@ function setModalMonth(id, month) {
 
 function updateRouteGuide(park = null) {
   const el = document.getElementById('route-guide');
+  const monthGuide = document.getElementById('month-guide');
+  if (monthGuide?.dataset.month) monthGuide.hidden = !(viewMode === 'all' && selectedMonth === Number(monthGuide.dataset.month));
   const details = park && window.PARKS_DETAILS[park.id];
   let title = 'National parks by month';
   let description = 'Explore 63 US national parks with editorial month suggestions and source-linked NPS planning notes.';
@@ -1238,7 +1241,7 @@ function updateRouteGuide(park = null) {
   } else if (selectedMonth && viewMode === 'all') {
     const month = MONTH_FULL[selectedMonth-1];
     title = `Best national parks in ${month}`;
-    description = `Explore an editorial shortlist of US national parks for ${month}, with official planning sources.`;
+    description = month === 'November' ? 'Compare Saguaro, Death Valley, and Mammoth Cave for a November trip, with honest trip-length tradeoffs and official park planning links.' : `Explore an editorial shortlist of US national parks for ${month}, with official planning sources.`;
     if (el) el.innerHTML = '';
   } else if (el) el.innerHTML = '';
   document.title = title;

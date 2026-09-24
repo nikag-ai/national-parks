@@ -28,6 +28,8 @@ python3 scripts/generate_seo_pages.py
 node --test tests/content-audit.test.mjs
 ```
 
+Seasonal decision guides live in `content/months/` and are inserted into their matching generated month pages by the same generator. Keep factual claims linked to current NPS guidance and update the review note when checking them.
+
 The React prototype imports the same canonical dataset directly:
 
 ```sh

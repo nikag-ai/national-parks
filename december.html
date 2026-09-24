@@ -171,7 +171,7 @@
     }
   </style>
   <link rel="stylesheet" href="/recommendations.css?v=6.1.7">
-  <link rel="stylesheet" href="/editorial.css?v=6.1.7">
+  <link rel="stylesheet" href="/editorial.css?v=6.1.8">
 </head>
 <body class="discovery-v5">
   <!-- Premium SVG Symbol Sprite Block -->
@@ -453,7 +453,7 @@
 
   <section class="discovery-controls" aria-label="Find a park">
     <header class="discovery-heading">
-      <h1 id="discovery-title">Best national parks this month</h1>
+      <h1 id="discovery-title">Best parks in December</h1>
       <label class="mobile-month">Month <select id="month-select" aria-label="Choose travel month" onchange="selectMonth(this.value ? Number(this.value) : null, true); syncBrowseURL(); trackAction('month_selected')"><option value="">All months</option></select></label>
     </header>
     <nav id="month-bar" aria-label="Month filter">
@@ -477,6 +477,7 @@
     <div id="active-filters" class="active-filters"></div>
     <div id="filter-panel" class="filter-panel hidden"></div>
     <section id="comparison-panel" class="comparison-panel hidden" aria-label="Park comparison"></section>
+    <section id="month-guide" class="month-guide"></section>
     <div id="park-grid" class="park-grid"></div>
     <div id="empty-state" class="empty-state hidden">
       <span class="empty-icon">🗺️</span>
@@ -514,6 +515,6 @@
 
   <script src="data/parks-summary.js?v=5.1.5"></script>
   <script src="data/parks-details.js?v=5.1.5"></script>
-  <script src="app.js?v=6.1.7"></script>
+  <script src="app.js?v=6.1.8"></script>
 </body>
 </html>

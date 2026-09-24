@@ -146,6 +146,32 @@
 .discovery-v5 .rating-method { border:0; background:none; padding:7px 0; color:var(--text-muted); font:inherit; font-size:.75rem; cursor:pointer; }
 .discovery-v5 .rating-method:hover { color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
 .discovery-v5 #route-guide:empty { display:none; }
+.discovery-v5 #month-guide:empty,.discovery-v5 #month-guide[hidden] { display:none; }
+.discovery-v5 .month-guide { max-width:1200px; margin:18px auto 28px; padding:24px 32px; border:1px solid var(--border); border-radius:16px; background:var(--surface); }
+.discovery-v5 .month-guide-kicker { margin:0 0 8px; color:var(--accent); font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.discovery-v5 .month-guide h2 { margin:0 0 10px; color:var(--text); font-size:1.55rem; line-height:1.25; letter-spacing:-.035em; }
+.discovery-v5 .month-guide-heading > p:last-child { max-width:740px; margin:0; color:var(--text-muted); font-size:.9rem; line-height:1.6; }
+.discovery-v5 .month-guide-picks { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:22px; }
+.discovery-v5 .month-guide-picks article { min-width:0; padding:18px; border:1px solid var(--border); border-radius:12px; }
+.discovery-v5 .month-guide-time { margin:0 0 8px; color:var(--text-muted); font-size:.72rem; font-weight:600; }
+.discovery-v5 .month-guide h3 { margin:0 0 10px; font-size:1.13rem; letter-spacing:-.025em; }
+.discovery-v5 .month-guide h3 a { color:var(--text); }
+.discovery-v5 .month-guide-picks article > p:not(.month-guide-time) { margin:0 0 12px; color:var(--text-muted); font-size:.84rem; line-height:1.55; }
+.discovery-v5 .month-guide-picks article > p:last-child { margin-bottom:0; }
+.discovery-v5 .month-guide a { text-underline-offset:3px; }
+.discovery-v5 .month-guide-caution strong { color:var(--text); font-weight:650; }
+.discovery-v5 .month-guide-actions { display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-top:20px; font-size:.83rem; }
+.discovery-v5 .month-guide-actions a { color:var(--accent); }
+.discovery-v5 .month-guide-actions .month-guide-primary { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:10px 16px; border-radius:9px; background:var(--accent); color:var(--bg); text-decoration:none; font-weight:650; }
+.discovery-v5 .month-guide-note { margin:16px 0 0; color:var(--text-muted); font-size:.72rem; line-height:1.5; }
+@media(max-width:700px) {
+ .discovery-v5 .month-guide { margin:14px 16px 22px; padding:20px; }
+ .discovery-v5 .month-guide h2 { font-size:1.3rem; }
+ .discovery-v5 .month-guide-picks { grid-template-columns:1fr; gap:10px; margin-top:18px; }
+ .discovery-v5 .month-guide-picks article { padding:16px; }
+ .discovery-v5 .month-guide-actions { align-items:stretch; flex-direction:column; gap:12px; }
+ .discovery-v5 .month-guide-actions .month-guide-primary { justify-content:center; }
+}
 .discovery-v5 footer { padding:24px 20px 28px; }
 .discovery-v5 .footer-disclaimer { border:0; padding:0; margin:0; }
 .discovery-v5 main { position:relative; }
@@ -232,8 +258,7 @@
  .discovery-v5 #filter-panel .filter-body { gap:11px 10px; }
  .discovery-v5 #filter-panel .filter-option { grid-column:1/-1; min-height:28px; }
  .discovery-v5 .empty-state { width:calc(100% - 40px); padding:38px 20px; }
- .discovery-v5 .compare-toggle,.discovery-v5 #compare-tray,.discovery-v5 #comparison-panel { display:none !important; }
- .discovery-v5.has-comparison { padding-bottom:0; }
+ .discovery-v5.has-comparison { padding-bottom:90px; }
  .discovery-v5 .rating-method { font-size:.7rem; }
 }
 @media(hover:none) { .discovery-v5 .park-grid .park-card:hover { transform:none; } .discovery-v5 .park-card:hover .card-img { transform:none; } }
