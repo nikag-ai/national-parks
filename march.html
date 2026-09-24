@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
   <script>try { const saved=localStorage.getItem('theme'); const mode=saved==='dark'||saved==='light'?saved:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'); document.documentElement.dataset.theme=mode; document.documentElement.style.colorScheme=mode; } catch (_) { document.documentElement.dataset.theme='light'; }</script>
   <link rel="stylesheet" href="style.css?v=6.1.7" />
-  <link rel="icon" type="image/svg+xml" href="/assets/brand-mark.svg" />
+  <link rel="icon" type="image/svg+xml" href="assets/brand-mark.svg" />
   <link rel="apple-touch-icon" href="national-parks-icon.png" />
   <!-- PostHog Analytics -->
   <script>
@@ -172,8 +172,8 @@
       }
     }
   </style>
-  <link rel="stylesheet" href="/recommendations.css?v=6.1.7">
-  <link rel="stylesheet" href="/editorial.css?v=6.1.8">
+  <link rel="stylesheet" href="recommendations.css?v=6.1.7">
+  <link rel="stylesheet" href="editorial.css?v=6.1.8">
 </head>
 <body class="discovery-v5">
   <!-- Premium SVG Symbol Sprite Block -->
@@ -416,9 +416,9 @@
   <!-- Premium Top Navigation Bar -->
   <div class="app-nav" id="app-nav">
     <div class="app-nav-inner">
-      <a class="app-nav-brand" href="/" aria-label="National parks home"><svg class="app-nav-mark" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 2.5 5 16h4l-3 5h16l-3-5h4L14 2.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 18v7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>National parks</span></a>
+      <a class="app-nav-brand" href="./" aria-label="National parks home"><svg class="app-nav-mark" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 2.5 5 16h4l-3 5h16l-3-5h4L14 2.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 18v7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>National parks</span></a>
       <div class="app-nav-actions">
-        <details class="collections-menu"><summary aria-label="Collections and preferences">More</summary><div><button onclick="selectSpecialMode('all'); this.closest('details').open=false">All parks</button><button id="saved-nav" onclick="selectSpecialMode('favorites'); this.closest('details').open=false">Saved parks <span id="saved-count">0</span></button><button onclick="selectSpecialMode('visited'); this.closest('details').open=false">Visited parks</button><button onclick="selectSpecialMode('hidden'); this.closest('details').open=false">Hidden parks</button><div class="theme-choices" role="group" aria-label="Appearance"><span>Appearance</span><button data-theme-choice="system" onclick="setThemePreference('system')">Device</button><button data-theme-choice="light" onclick="setThemePreference('light')">Light</button><button data-theme-choice="dark" onclick="setThemePreference('dark')">Dark</button></div><a href="/about.html">About this guide</a></div></details>
+        <details class="collections-menu"><summary aria-label="Collections and preferences">More</summary><div><button onclick="selectSpecialMode('all'); this.closest('details').open=false">All parks</button><button id="saved-nav" onclick="selectSpecialMode('favorites'); this.closest('details').open=false">Saved parks <span id="saved-count">0</span></button><button onclick="selectSpecialMode('visited'); this.closest('details').open=false">Visited parks</button><button onclick="selectSpecialMode('hidden'); this.closest('details').open=false">Hidden parks</button><div class="theme-choices" role="group" aria-label="Appearance"><span>Appearance</span><button data-theme-choice="system" onclick="setThemePreference('system')">Device</button><button data-theme-choice="light" onclick="setThemePreference('light')">Light</button><button data-theme-choice="dark" onclick="setThemePreference('dark')">Dark</button></div><a href="about.html">About this guide</a></div></details>
         <div id="header-theme-toggle" class="header-theme-toggle" onclick="if (!event.target.closest('#theme-light, #theme-dark')) applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')" role="group" aria-label="Theme switcher">
           <div class="theme-toggle-track">
             <button id="theme-light" class="theme-btn" title="Light Mode" aria-label="Switch to light mode">
@@ -487,25 +487,25 @@
 <div class="month-guide-picks">
   <article>
     <p class="month-guide-time">Two park days · South Florida</p>
-    <h3><a href="/everglades?month=3">Everglades</a></h3>
+    <h3><a href="./everglades?month=3">Everglades</a></h3>
     <p>Choose it for wetlands and wildlife viewing. March falls in the park's dry season, when NPS reports milder weather, fewer mosquitoes, and abundant wildlife.</p>
     <p class="month-guide-caution"><strong>Plan ahead:</strong> The park has several distant entrances. Use the <a href="https://www.nps.gov/ever/planyourvisit/dryseason.htm" target="_blank" rel="noopener noreferrer" onclick="trackAction('official_planning_clicked',{park_id:'everglades'})">NPS dry-season guide</a> to choose an area and activity.</p>
   </article>
   <article>
     <p class="month-guide-time">Two park days · Southwest Utah</p>
-    <h3><a href="/zion?month=3">Zion</a></h3>
+    <h3><a href="./zion?month=3">Zion</a></h3>
     <p>Choose it for canyon scenery and a longer walking trip. Spring brings warming days, but March can be busy and cold at night; snowmelt may close the Narrows.</p>
     <p class="month-guide-caution"><strong>Plan ahead:</strong> Check <a href="https://www.nps.gov/zion/planyourvisit/seasons.htm" target="_blank" rel="noopener noreferrer" onclick="trackAction('official_planning_clicked',{park_id:'zion'})">NPS spring guidance</a> and current trail and shuttle conditions before picking hikes.</p>
   </article>
   <article>
     <p class="month-guide-time">One park day · Tucson, Arizona</p>
-    <h3><a href="/saguaro?month=3">Saguaro</a></h3>
+    <h3><a href="./saguaro?month=3">Saguaro</a></h3>
     <p>Choose it for a compact Sonoran Desert trip with cactus landscapes and scenic walks. Its east and west districts are about 30 miles apart, so one day calls for a selective plan.</p>
     <p class="month-guide-caution"><strong>Plan ahead:</strong> Check the <a href="https://www.nps.gov/sagu/planyourvisit/index.htm" target="_blank" rel="noopener noreferrer" onclick="trackAction('official_planning_clicked',{park_id:'saguaro'})">NPS district guide</a>. Bloom timing varies with species and weather.</p>
   </article>
 </div>
 <div class="month-guide-actions">
-  <a class="month-guide-primary" href="/march?compare=everglades,zion,saguaro" onclick="trackAction('seasonal_guide_compare_clicked',{guide_month:'March'})">Compare these three parks <span aria-hidden="true">↗</span></a>
+  <a class="month-guide-primary" href="./march?compare=everglades,zion,saguaro" onclick="trackAction('seasonal_guide_compare_clicked',{guide_month:'March'})">Compare these three parks <span aria-hidden="true">↗</span></a>
   <a href="#park-grid">Explore all March options</a>
 </div>
 <p class="month-guide-note">Editorial suggestions reviewed September 2026. Trip lengths are days in the park and exclude travel. Check each park's official conditions, weather, and access for your dates.</p>
@@ -520,7 +520,7 @@
   </main>
 
   <footer>
-<p class="footer-disclaimer">Independent guide, not affiliated with NPS. <a href="/about.html">Sources, methodology &amp; corrections</a></p>
+<p class="footer-disclaimer">Independent guide, not affiliated with NPS. <a href="about.html">Sources, methodology &amp; corrections</a></p>
 </footer>
 
   <div id="compare-tray" class="compare-tray hidden" aria-label="Selected parks for comparison"></div>
@@ -530,7 +530,7 @@
     <p>The stars are our editorial recommendation for a general sightseeing trip, not visitor reviews or an NPS score.</p>
     <p><strong>With a month selected:</strong> 60% seasonal fit and 40% park experience, rounded to one decimal. Without a month, the score shows park experience alone.</p>
     <p>Suggested months reflect broad seasonal guidance. Always check current access, weather, and permits for your dates.</p>
-    <a href="/about.html#ratings">Full methodology ↗</a>
+    <a href="about.html#ratings">Full methodology ↗</a>
   </dialog>
 
   <!-- Modal -->
@@ -547,6 +547,6 @@
 
   <script src="data/parks-summary.js?v=5.1.5"></script>
   <script src="data/parks-details.js?v=5.1.5"></script>
-  <script src="app.js?v=6.1.10"></script>
+  <script src="app.js?v=6.1.11"></script>
 </body>
 </html>

@@ -3,6 +3,10 @@ const PARKS = Object.values(window.PARKS_SUMMARY || {});
 
 const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const MONTH_FULL = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+// The script's directory is the site root on Cloudflare and the project path on GitHub Pages.
+const appScriptUrl = document.currentScript?.src || document.querySelector('script[src^="app.js"]')?.src;
+const SITE_BASE_PATH = new URL('.', appScriptUrl || location.href).pathname.replace(/\/$/, '');
+function sitePath(path) { return SITE_BASE_PATH + path; }
 
 const STATE_NAMES = {
   "AK": "Alaska", "AL": "Alabama", "AR": "Arkansas", "AZ": "Arizona", "CA": "California", 
@@ -699,7 +703,7 @@ function selectSpecialMode(mode) {
 
 function syncBrowseURL(replace = false) {
   const url = new URL(window.location.href);
-  url.pathname = selectedMonth ? '/' + MONTH_FULL[selectedMonth-1].toLowerCase() : '/';
+  url.pathname = sitePath(selectedMonth ? '/' + MONTH_FULL[selectedMonth-1].toLowerCase() : '/');
   url.search = '';
   if (!selectedMonth) url.searchParams.set('month','all');
   if (viewMode !== 'all') url.searchParams.set('view',viewMode);
@@ -708,7 +712,7 @@ function syncBrowseURL(replace = false) {
 }
 
 function parkHref(park) {
-  return '/' + encodeURIComponent(park.id) + '?month=' + (selectedMonth || 'all');
+  return sitePath('/' + encodeURIComponent(park.id)) + '?month=' + (selectedMonth || 'all');
 }
 
 function followParkLink(event, id) {
@@ -1218,7 +1222,7 @@ function openModal(park, preventHistory = false) {
         </div>
         <aside class="guide-aside">
           <section class="guide-panel guide-calendar"><h3><svg class="icon"><use href="#icon-calendar"></use></svg> Choose your month</h3><div class="guide-months">${MONTHS.map((m,i)=>`<button class="${r.peakMonths.includes(i+1) ? 'peak' : park.bestMonths.includes(i+1) ? 'suggested' : ''} ${selectedMonth===i+1?'selected':''}" aria-label="View ${esc(park.name)} in ${MONTH_FULL[i]}" aria-pressed="${selectedMonth===i+1}" onclick="setModalMonth('${park.id}',${i+1})">${m}</button>`).join('')}</div><p class="calendar-key"><span class="key-peak"></span> Standout <span class="key-good"></span> Good option</p><p class="guide-small">Tap a month to compare its rating.</p><details class="guide-disclosure"><summary>Weather &amp; seasonal access</summary><p>${esc(details.weatherNote)}</p><p class="guide-small">${esc(details.suggestionBasis)}</p></details></section>
-          <section class="guide-panel guide-score"><h3>About this rating</h3><p class="guide-small">Our recommendation for a general sightseeing trip, based on seasonal fit and distinctive park experiences.</p><details class="guide-disclosure"><summary>How this score works</summary><div class="score-breakdown"><span>Seasonal fit · 60%</span><strong>${rating.seasonal == null ? 'Choose a month' : rating.seasonal + '/5'}</strong><span>Park experience · 40%</span><strong>${r.experience}/5</strong></div><p class="guide-small">Both are editorial judgments informed by NPS descriptions and seasonal guidance. ${monthName ? 'Weighted score rounded to one decimal.' : 'Without a month, we show the park-experience score alone.'} This is not a visitor-review average. Equal scores sort alphabetically.</p><a href="/about.html#ratings" target="_blank" rel="noopener">Full rating method ↗</a></details></section>
+          <section class="guide-panel guide-score"><h3>About this rating</h3><p class="guide-small">Our recommendation for a general sightseeing trip, based on seasonal fit and distinctive park experiences.</p><details class="guide-disclosure"><summary>How this score works</summary><div class="score-breakdown"><span>Seasonal fit · 60%</span><strong>${rating.seasonal == null ? 'Choose a month' : rating.seasonal + '/5'}</strong><span>Park experience · 40%</span><strong>${r.experience}/5</strong></div><p class="guide-small">Both are editorial judgments informed by NPS descriptions and seasonal guidance. ${monthName ? 'Weighted score rounded to one decimal.' : 'Without a month, we show the park-experience score alone.'} This is not a visitor-review average. Equal scores sort alphabetically.</p><a href="${sitePath('/about.html#ratings')}" target="_blank" rel="noopener">Full rating method ↗</a></details></section>
           ${details.nightSkyNote ? `<details class="guide-panel guide-disclosure"><summary>After dark</summary><p>${esc(details.nightSkyNote)}</p><p class="guide-small">NPS night-sky source checked ${esc(details.nightSkyReviewedAt)}. Check current access and conditions.</p></details>` : ''}
         </aside>
       </div>
@@ -1263,7 +1267,8 @@ function updateRouteGuide(park = null) {
   document.querySelector('meta[name="description"]')?.setAttribute('content', description);
   document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
   document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
-  const canonical = 'https://nationalparkfinder.info' + window.location.pathname;
+  const canonicalPath = window.location.pathname.slice(SITE_BASE_PATH.length) || '/';
+  const canonical = 'https://nationalparkfinder.info' + canonicalPath;
   document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonical);
   document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonical);
 }
@@ -1386,7 +1391,7 @@ function renderComparison() {
   panel.innerHTML=comparisonOpen && parks.length>=2 ? `<div class="comparison-heading"><div><h2 id="comparison-title" tabindex="-1">Compare ${selectedMonth?MONTH_FULL[selectedMonth-1]+' picks':'parks'}</h2><p>Editorial ratings · suggested time excludes travel</p></div><button onclick="shareComparison()">Share comparison ↗</button></div><div class="comparison-grid" style="--columns:${parks.length}">${parks.map(p=>{const r=recommendationFor(p);return `<article><h3><a href="${parkHref(p)}" onclick="followParkLink(event,'${p.id}')">${escapeHtml(p.name)}</a></h3><p>★ ${r.score.toFixed(1)}/5 · ${escapeHtml(r.label)}</p><dl><dt>Suggested time</dt><dd>${p.minDays} day${p.minDays===1?'':'s'}</dd><dt>Why go</dt><dd>${escapeHtml(p.recommendation.reason)}</dd><dt>Plan ahead</dt><dd>${escapeHtml(window.PARKS_DETAILS[p.id].planningNote)}</dd></dl><button onclick="toggleCompare('${p.id}')" aria-label="Remove ${escapeHtml(p.name)} from comparison">Remove</button></article>`}).join('')}</div>` : '';
 }
 async function shareComparison() {
-  const url=new URL(selectedMonth?'/'+MONTH_FULL[selectedMonth-1].toLowerCase():'/',location.origin);
+  const url=new URL(sitePath(selectedMonth?'/'+MONTH_FULL[selectedMonth-1].toLowerCase():'/'),location.origin);
   if(!selectedMonth) url.searchParams.set('month','all');
   url.searchParams.set('compare',[...comparedParks].join(','));
   await shareURL(url.href,'Compare national parks','comparison_shared');

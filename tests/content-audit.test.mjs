@@ -175,10 +175,30 @@ test('generated pages expose factual source content and no hidden FAQ claims', (
   assert.ok(d.querySelector('#route-guide').textContent.includes(p.planningNote));
   assert.equal(d.querySelector('link[rel=canonical]').href,'https://nationalparkfinder.info/'+encodeURI(id));
   assert.ok(d.querySelector('script[src="data/parks-details.js?v=5.1.5"]'));
-  assert.ok(d.querySelector('link[href="/recommendations.css?v=6.1.7"]'));
+  assert.ok(d.querySelector('link[href="recommendations.css?v=6.1.7"]'));
   assert.doesNotMatch(read(id+'.html'),/FAQPage|"@type": "Dataset"|manageable crowds|exact stargazing|genuine Reddit/);
   dom.window.close();
  }
+});
+
+test('project-path hosting keeps styles and navigation inside the site', () => {
+ const dom=load('/national-parks/september');const w=dom.window;
+ assert.equal(w.document.querySelector('link[href^="editorial.css"]').href,'https://example.test/national-parks/editorial.css?v=6.1.8');
+ assert.equal(w.document.querySelector('.app-nav-brand').href,'https://example.test/national-parks/');
+ w.selectMonth(11);
+ assert.equal(w.location.pathname,'/national-parks/november');
+ assert.match(w.document.querySelector('.park-open').href,/^https:\/\/example\.test\/national-parks\/[^/]+\?month=11$/);
+ dom.window.close();
+});
+
+test('root hosting keeps its existing asset and navigation paths', () => {
+ const dom=load('/september');const w=dom.window;
+ assert.equal(w.document.querySelector('link[href^="editorial.css"]').href,'https://example.test/editorial.css?v=6.1.8');
+ assert.equal(w.document.querySelector('.app-nav-brand').href,'https://example.test/');
+ w.selectMonth(11);
+ assert.equal(w.location.pathname,'/november');
+ assert.match(w.document.querySelector('.park-open').href,/^https:\/\/example\.test\/[^/]+\?month=11$/);
+ dom.window.close();
 });
 
 test('special-character HTML route and navigation summaries stay aligned', async () => {
