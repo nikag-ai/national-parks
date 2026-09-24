@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore an editorial shortlist of US national parks for March, with official planning sources." />
+  <meta name="description" content="Compare Everglades, Zion, and Saguaro for a March trip, with dry-season, spring-canyon, and short-desert options plus official planning links." />
   <meta property="og:title" content="Best national parks in March" />
-  <meta property="og:description" content="Explore an editorial shortlist of US national parks for March, with official planning sources." />
+  <meta property="og:description" content="Compare Everglades, Zion, and Saguaro for a March trip, with dry-season, spring-canyon, and short-desert options plus official planning links." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nationalparkfinder.info/march" />
-  <meta property="og:image" content="https://nationalparkfinder.info/national-parks-icon.png" />
+  <meta property="og:image" content="https://nationalparkfinder.info/assets/march-share.png" />
+  <meta property="og:image:alt" content="Compare Everglades, Zion, and Saguaro for a March trip" />
   <meta name="twitter:card" content="summary_large_image" />
   <title>Best national parks in March</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -477,7 +478,37 @@
     <div id="active-filters" class="active-filters"></div>
     <div id="filter-panel" class="filter-panel hidden"></div>
     <section id="comparison-panel" class="comparison-panel hidden" aria-label="Park comparison"></section>
-    <section id="month-guide" class="month-guide"></section>
+    <section id="month-guide" class="month-guide" data-month="3"><div class="month-guide-heading">
+  <p class="month-guide-kicker">A March trip, three ways</p>
+  <h2>Which national park fits your March plans?</h2>
+  <p>March can mean dry-season wildlife, spring canyon scenery, or a short desert visit. Pick the kind of trip you want, then check current conditions before booking.</p>
+</div>
+<div class="month-guide-picks">
+  <article>
+    <p class="month-guide-time">Two park days · South Florida</p>
+    <h3><a href="/everglades?month=3">Everglades</a></h3>
+    <p>Choose it for wetlands and wildlife viewing. March falls in the park's dry season, when NPS reports milder weather, fewer mosquitoes, and abundant wildlife.</p>
+    <p class="month-guide-caution"><strong>Plan ahead:</strong> The park has several distant entrances. Use the <a href="https://www.nps.gov/ever/planyourvisit/dryseason.htm" target="_blank" rel="noopener noreferrer" onclick="trackAction('official_planning_clicked',{park_id:'everglades'})">NPS dry-season guide</a> to choose an area and activity.</p>
+  </article>
+  <article>
+    <p class="month-guide-time">Two park days · Southwest Utah</p>
+    <h3><a href="/zion?month=3">Zion</a></h3>
+    <p>Choose it for canyon scenery and a longer walking trip. Spring brings warming days, but March can be busy and cold at night; snowmelt may close the Narrows.</p>
+    <p class="month-guide-caution"><strong>Plan ahead:</strong> Check <a href="https://www.nps.gov/zion/planyourvisit/seasons.htm" target="_blank" rel="noopener noreferrer" onclick="trackAction('official_planning_clicked',{park_id:'zion'})">NPS spring guidance</a> and current trail and shuttle conditions before picking hikes.</p>
+  </article>
+  <article>
+    <p class="month-guide-time">One park day · Tucson, Arizona</p>
+    <h3><a href="/saguaro?month=3">Saguaro</a></h3>
+    <p>Choose it for a compact Sonoran Desert trip with cactus landscapes and scenic walks. Its east and west districts are about 30 miles apart, so one day calls for a selective plan.</p>
+    <p class="month-guide-caution"><strong>Plan ahead:</strong> Check the <a href="https://www.nps.gov/sagu/planyourvisit/index.htm" target="_blank" rel="noopener noreferrer" onclick="trackAction('official_planning_clicked',{park_id:'saguaro'})">NPS district guide</a>. Bloom timing varies with species and weather.</p>
+  </article>
+</div>
+<div class="month-guide-actions">
+  <a class="month-guide-primary" href="/march?compare=everglades,zion,saguaro" onclick="trackAction('seasonal_guide_compare_clicked',{guide_month:'March'})">Compare these three parks <span aria-hidden="true">↗</span></a>
+  <a href="#park-grid">Explore all March options</a>
+</div>
+<p class="month-guide-note">Editorial suggestions reviewed September 2026. Trip lengths are days in the park and exclude travel. Check each park's official conditions, weather, and access for your dates.</p>
+</section>
     <div id="park-grid" class="park-grid"></div>
     <div id="empty-state" class="empty-state hidden">
       <span class="empty-icon">🗺️</span>
@@ -515,6 +546,6 @@
 
   <script src="data/parks-summary.js?v=5.1.5"></script>
   <script src="data/parks-details.js?v=5.1.5"></script>
-  <script src="app.js?v=6.1.8"></script>
+  <script src="app.js?v=6.1.9"></script>
 </body>
 </html>

@@ -1241,7 +1241,11 @@ function updateRouteGuide(park = null) {
   } else if (selectedMonth && viewMode === 'all') {
     const month = MONTH_FULL[selectedMonth-1];
     title = `Best national parks in ${month}`;
-    description = month === 'November' ? 'Compare Saguaro, Death Valley, and Mammoth Cave for a November trip, with honest trip-length tradeoffs and official park planning links.' : `Explore an editorial shortlist of US national parks for ${month}, with official planning sources.`;
+    const monthDescriptions = {
+      March: 'Compare Everglades, Zion, and Saguaro for a March trip, with dry-season, spring-canyon, and short-desert options plus official planning links.',
+      November: 'Compare Saguaro, Death Valley, and Mammoth Cave for a November trip, with honest trip-length tradeoffs and official park planning links.'
+    };
+    description = monthDescriptions[month] || `Explore an editorial shortlist of US national parks for ${month}, with official planning sources.`;
     if (el) el.innerHTML = '';
   } else if (el) el.innerHTML = '';
   document.title = title;

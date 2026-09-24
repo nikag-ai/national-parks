@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Choose a national park for March</title>
+  <desc id="desc">Compare two days in Everglades, two days in Zion, and a one-day Saguaro visit.</desc>
+  <rect width="1200" height="630" fill="#f6f7f3"/>
+  <path d="M0 495c160-38 262-39 394 12 130 51 240 75 414-5 139-64 268-63 392-20v148H0Z" fill="#e5ede5"/>
+  <path d="M0 549c204-47 350-27 478 25 170 70 276 16 403-18 132-35 220-23 319 7v67H0Z" fill="#d6e5d7"/>
+  <g fill="none" stroke="#215744" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m71 52 15-25 15 25M65 68l21-34 21 34M86 39v43"/>
+  </g>
+  <text x="130" y="61" fill="#173d31" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700">National parks</text>
+  <text x="64" y="145" fill="#215744" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700" letter-spacing="3">PLAN BY MONTH</text>
+  <text x="60" y="226" fill="#1b2923" font-family="Arial,Helvetica,sans-serif" font-size="62" font-weight="700">Which park fits your</text>
+  <text x="60" y="298" fill="#1b2923" font-family="Arial,Helvetica,sans-serif" font-size="62" font-weight="700">March trip?</text>
+  <g font-family="Arial,Helvetica,sans-serif">
+    <rect x="60" y="346" width="334" height="154" rx="18" fill="#ffffff" stroke="#cddbd1" stroke-width="2"/>
+    <rect x="414" y="346" width="334" height="154" rx="18" fill="#ffffff" stroke="#cddbd1" stroke-width="2"/>
+    <rect x="768" y="346" width="372" height="154" rx="18" fill="#ffffff" stroke="#cddbd1" stroke-width="2"/>
+    <text x="82" y="388" fill="#597066" font-size="20" font-weight="700">2 PARK DAYS · FLORIDA</text>
+    <text x="82" y="438" fill="#1b2923" font-size="35" font-weight="700">Everglades</text>
+    <text x="82" y="470" fill="#465c51" font-size="21">Dry-season wildlife</text>
+    <text x="436" y="388" fill="#597066" font-size="20" font-weight="700">2 PARK DAYS · UTAH</text>
+    <text x="436" y="438" fill="#1b2923" font-size="35" font-weight="700">Zion</text>
+    <text x="436" y="470" fill="#465c51" font-size="21">Spring canyon scenery</text>
+    <text x="790" y="388" fill="#597066" font-size="20" font-weight="700">1 PARK DAY · ARIZONA</text>
+    <text x="790" y="438" fill="#1b2923" font-size="35" font-weight="700">Saguaro</text>
+    <text x="790" y="470" fill="#465c51" font-size="21">Cactus landscapes</text>
+    <text x="62" y="585" fill="#215744" font-size="26" font-weight="700">nationalparkfinder.info/march</text>
+    <text x="1120" y="585" fill="#465c51" font-size="19" text-anchor="end">Check NPS conditions</text>
+  </g>
+</svg>

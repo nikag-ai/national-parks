@@ -10,7 +10,12 @@ ROOT = Path(__file__).resolve().parent.parent
 MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December']
 ORIGIN = 'https://nationalparkfinder.info'
 MONTH_DESCRIPTIONS = {
+    'March': 'Compare Everglades, Zion, and Saguaro for a March trip, with dry-season, spring-canyon, and short-desert options plus official planning links.',
     'November': 'Compare Saguaro, Death Valley, and Mammoth Cave for a November trip, with honest trip-length tradeoffs and official park planning links.',
+}
+MONTH_SHARE_IMAGES = {
+    'march': ('march-share.png', 'Compare Everglades, Zion, and Saguaro for a March trip'),
+    'november': ('november-share.png', 'Compare Saguaro, Death Valley, and Mammoth Cave for a November trip'),
 }
 
 def generate_pages():
@@ -25,8 +30,9 @@ def generate_pages():
         result = re.sub(r'<link rel="canonical" href="[^"]*" />', f'<link rel="canonical" href="{ORIGIN}/{quote(slug)}" />', result)
         if slug in {month.lower() for month in MONTHS}:
             result = result.replace('<h1 id="discovery-title">Best national parks this month</h1>', f'<h1 id="discovery-title">Best parks in {slug.capitalize()}</h1>')
-        if slug == 'november':
-            result = result.replace(f'{ORIGIN}/national-parks-icon.png" />', f'{ORIGIN}/assets/november-share.png" />\n  <meta property="og:image:alt" content="Compare Saguaro, Death Valley, and Mammoth Cave for a November trip" />', 1)
+        if slug in MONTH_SHARE_IMAGES:
+            image, alt = MONTH_SHARE_IMAGES[slug]
+            result = result.replace(f'{ORIGIN}/national-parks-icon.png" />', f'{ORIGIN}/assets/{image}" />\n  <meta property="og:image:alt" content="{escape(alt, quote=True)}" />', 1)
         result = result.replace('<section id="route-guide" class="route-guide"></section>', f'<section id="route-guide" class="route-guide">{content}</section>')
         if month_guide:
             month_number = MONTHS.index(slug.capitalize()) + 1
