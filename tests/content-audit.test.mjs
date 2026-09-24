@@ -283,6 +283,21 @@ test('shared comparison round trips month and IDs without replacing favorites',a
  w.clearComparison();assert.equal(w.document.querySelector('#compare-tray').classList.contains('hidden'),true);
  dom.window.close();
 });
+test('useful planning is recorded once per tab session after a deliberate planning action',()=>{
+ const dom=load('/november');const w=dom.window;
+ const events=[];w.gtag=(...args)=>events.push(args);
+ w.trackAction('comparison_link_opened',{park_count:3});
+ w.trackAction('park_favorited_toggled',{action:'unfavorited'});
+ assert.equal(events.filter(e=>e[1]==='useful_planning').length,0);
+ w.trackAction('official_planning_clicked',{park_id:'saguaro'});
+ w.trackAction('comparison_changed',{park_count:2});
+ w.trackAction('park_favorited_toggled',{action:'favorited'});
+ const useful=events.filter(e=>e[1]==='useful_planning');
+ assert.equal(useful.length,1);
+ assert.equal(useful[0][2].triggering_action,'official_planning_clicked');
+ assert.equal(w.sessionStorage.getItem('npf_useful_planning'),'1');
+ dom.window.close();
+});
 test('search offers a known park outside the selected season and time budget uses a maximum',()=>{
  const dom=load('/november'); const w=dom.window;
  const input=w.document.querySelector('#park-search');input.value='Yosemite';input.dispatchEvent(new w.Event('input'));

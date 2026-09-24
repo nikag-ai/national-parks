@@ -507,7 +507,7 @@ function toggleFavorite(parkName, e) {
   if (e) e.stopPropagation();
   const isAdding = !favoritedParks.has(parkName);
   favoritedParks.has(parkName) ? favoritedParks.delete(parkName) : favoritedParks.add(parkName);
-  if (typeof gtag !== 'undefined') gtag('event', 'park_favorited_toggled', { park_name: parkName, action: isAdding ? 'favorited' : 'unfavorited' });
+  trackAction('park_favorited_toggled', { park_name: parkName, action: isAdding ? 'favorited' : 'unfavorited' });
   saveFavorites(); closeAllMenus(); renderParks();
 }
 
@@ -717,7 +717,18 @@ function followParkLink(event, id) {
 }
 
 function trackAction(name, properties = {}) {
-  if (typeof gtag !== 'undefined') gtag('event', name, {month:selectedMonth ? MONTH_FULL[selectedMonth-1] : 'all',...properties});
+  if (typeof gtag === 'undefined') return;
+  gtag('event', name, {month:selectedMonth ? MONTH_FULL[selectedMonth-1] : 'all',...properties});
+  const usefulAction = name === 'comparison_changed' ||
+    name === 'seasonal_guide_compare_clicked' ||
+    name === 'official_planning_clicked' ||
+    (name === 'park_favorited_toggled' && properties.action === 'favorited');
+  if (!usefulAction) return;
+  try {
+    if (sessionStorage.getItem('npf_useful_planning')) return;
+    sessionStorage.setItem('npf_useful_planning', '1');
+  } catch (_) { /* Still record the action if session storage is unavailable. */ }
+  gtag('event', 'useful_planning', {month:selectedMonth ? MONTH_FULL[selectedMonth-1] : 'all',triggering_action:name});
 }
 
 function selectMonth(month, preventHistory = false) {
