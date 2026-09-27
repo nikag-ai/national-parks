@@ -723,7 +723,7 @@ function followParkLink(event, id) {
 function trackAction(name, properties = {}) {
   if (typeof gtag === 'undefined') return;
   gtag('event', name, {month:selectedMonth ? MONTH_FULL[selectedMonth-1] : 'all',...properties});
-  const usefulAction = name === 'comparison_changed' ||
+  const usefulAction = (name === 'comparison_changed' && properties.park_count >= 2) ||
     name === 'seasonal_guide_compare_clicked' ||
     name === 'official_planning_clicked' ||
     (name === 'park_favorited_toggled' && properties.action === 'favorited');
@@ -1188,7 +1188,7 @@ function openModal(park, preventHistory = false) {
   const isHidden   = hiddenParks.has(park.name);
   updateRouteGuide(park);
   const esc = escapeHtml;
-  const sources = details.sources.map(source => `<li><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.label)}</a></li>`).join('');
+  const sources = details.sources.map(source => `<li><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer" onclick="trackAction('official_planning_clicked',{park_id:'${park.id}'})">${esc(source.label)}</a></li>`).join('');
   const rating = recommendationFor(park);
   const monthName = selectedMonth ? MONTH_FULL[selectedMonth-1] : null;
   const r = park.recommendation;
@@ -1218,7 +1218,7 @@ function openModal(park, preventHistory = false) {
           <div class="guide-primary-actions"><button onclick="toggleFavorite('${park.name}',event); openModal(window.PARKS_SUMMARY['${park.id}'],true)">${isFavorite?'♥ Saved':'♡ Save park'}</button><a href="${esc(details.sources[0].url)}" target="_blank" rel="noopener noreferrer" onclick="trackAction('official_planning_clicked',{park_id:'${park.id}'})">Official planning ↗</a><a href="https://www.reddit.com/search/?q=${encodeURIComponent(park.name + ' National Park')}" target="_blank" rel="noopener noreferrer" onclick="trackAction('reddit_discussions_clicked',{park_id:'${park.id}'})">Discuss on Reddit ↗</a></div>
           <section class="guide-panel guide-verdict"><span class="guide-kicker">THE SHORT VERSION</span><h3>${monthName ? 'Why consider it in ' + esc(monthName) : 'Why go'}</h3><p>${esc(r.reason)}</p>${rating.seasonal === 2 ? '<p class="season-caution">Outside our general sightseeing shortlist this month. Check activity-specific access before choosing your dates.</p>' : ''}</section>
           <section class="guide-panel"><h3><svg class="icon"><use href="#icon-map"></use></svg> What you’ll come for</h3><p>${esc(details.description)}</p><div class="guide-activities">${details.activities.map(a=>`<span>${esc(a)}</span>`).join('')}</div></section>
-          <section class="guide-panel guide-planning"><h3><svg class="icon"><use href="#icon-lightbulb"></use></svg> Know before you go</h3><p>${esc(details.planningNote)}</p>${details.permitNote ? `<details class="guide-disclosure"><summary>Half Dome permits</summary><p>${esc(details.permitNote)}</p></details>` : ''}<a class="official-guide-link" href="${esc(details.sources[0].url)}" target="_blank" rel="noopener noreferrer">Open the official NPS guide ↗</a></section>
+          <section class="guide-panel guide-planning"><h3><svg class="icon"><use href="#icon-lightbulb"></use></svg> Know before you go</h3><p>${esc(details.planningNote)}</p>${details.permitNote ? `<details class="guide-disclosure"><summary>Half Dome permits</summary><p>${esc(details.permitNote)}</p></details>` : ''}<a class="official-guide-link" href="${esc(details.sources[0].url)}" target="_blank" rel="noopener noreferrer" onclick="trackAction('official_planning_clicked',{park_id:'${park.id}'})">Open the official NPS guide ↗</a></section>
         </div>
         <aside class="guide-aside">
           <section class="guide-panel guide-calendar"><h3><svg class="icon"><use href="#icon-calendar"></use></svg> Choose your month</h3><div class="guide-months">${MONTHS.map((m,i)=>`<button class="${r.peakMonths.includes(i+1) ? 'peak' : park.bestMonths.includes(i+1) ? 'suggested' : ''} ${selectedMonth===i+1?'selected':''}" aria-label="View ${esc(park.name)} in ${MONTH_FULL[i]}" aria-pressed="${selectedMonth===i+1}" onclick="setModalMonth('${park.id}',${i+1})">${m}</button>`).join('')}</div><p class="calendar-key"><span class="key-peak"></span> Standout <span class="key-good"></span> Good option</p><p class="guide-small">Tap a month to compare its rating.</p><details class="guide-disclosure"><summary>Weather &amp; seasonal access</summary><p>${esc(details.weatherNote)}</p><p class="guide-small">${esc(details.suggestionBasis)}</p></details></section>
@@ -1252,7 +1252,7 @@ function updateRouteGuide(park = null) {
   if (details) {
     title = `${park.name} planning guide`;
     description = details.description;
-    if (el) el.innerHTML = viewMode === 'all' ? `<h2>${escapeHtml(park.name)} planning guide</h2><p>${escapeHtml(details.description)}</p><p>${escapeHtml(details.planningNote)}</p>${details.permitNote ? `<p>${escapeHtml(details.permitNote)}</p>` : ''}<p>${escapeHtml(details.weatherNote)}</p><p>Planning notes checked ${details.reviewedAt}. Conditions and rules can change.</p><ul>${details.sources.map(s=>`<li><a href="${escapeHtml(s.url)}">${escapeHtml(s.label)}</a></li>`).join('')}</ul>` : '';
+    if (el) el.innerHTML = viewMode === 'all' ? `<h2>${escapeHtml(park.name)} planning guide</h2><p>${escapeHtml(details.description)}</p><p>${escapeHtml(details.planningNote)}</p>${details.permitNote ? `<p>${escapeHtml(details.permitNote)}</p>` : ''}<p>${escapeHtml(details.weatherNote)}</p><p>Planning notes checked ${details.reviewedAt}. Conditions and rules can change.</p><ul>${details.sources.map(s=>`<li><a href="${escapeHtml(s.url)}" onclick="trackAction('official_planning_clicked',{park_id:'${park.id}'})">${escapeHtml(s.label)}</a></li>`).join('')}</ul>` : '';
   } else if (selectedMonth && viewMode === 'all') {
     const month = MONTH_FULL[selectedMonth-1];
     title = `Best national parks in ${month}`;

@@ -308,8 +308,10 @@ test('useful planning is recorded once per tab session after a deliberate planni
  const events=[];w.gtag=(...args)=>events.push(args);
  w.trackAction('comparison_link_opened',{park_count:3});
  w.trackAction('park_favorited_toggled',{action:'unfavorited'});
+ w.trackAction('comparison_changed',{park_count:1});
  assert.equal(events.filter(e=>e[1]==='useful_planning').length,0);
- w.trackAction('official_planning_clicked',{park_id:'saguaro'});
+ w.openModal(w.PARKS_SUMMARY.saguaro);
+ w.eval(w.document.querySelector('.official-guide-link').getAttribute('onclick'));
  w.trackAction('comparison_changed',{park_count:2});
  w.trackAction('park_favorited_toggled',{action:'favorited'});
  const useful=events.filter(e=>e[1]==='useful_planning');
