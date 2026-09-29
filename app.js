@@ -728,11 +728,8 @@ function trackAction(name, properties = {}) {
     name === 'official_planning_clicked' ||
     (name === 'park_favorited_toggled' && properties.action === 'favorited');
   if (!usefulAction) return;
-  try {
-    if (sessionStorage.getItem('npf_useful_planning')) return;
-    sessionStorage.setItem('npf_useful_planning', '1');
-  } catch (_) { /* Still record the action if session storage is unavailable. */ }
-  gtag('event', 'useful_planning', {month:selectedMonth ? MONTH_FULL[selectedMonth-1] : 'all',triggering_action:name});
+  // Emit actions; GA session metrics provide deduplication across tabs and returns.
+  gtag('event', 'useful_planning', {month:selectedMonth ? MONTH_FULL[selectedMonth-1] : 'all',triggering_action:name,measurement_version:'2'});
 }
 
 function selectMonth(month, preventHistory = false) {

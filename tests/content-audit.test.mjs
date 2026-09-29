@@ -303,9 +303,10 @@ test('shared comparison round trips month and IDs without replacing favorites',a
  w.clearComparison();assert.equal(w.document.querySelector('#compare-tray').classList.contains('hidden'),true);
  dom.window.close();
 });
-test('useful planning is recorded once per tab session after a deliberate planning action',()=>{
+test('useful planning records every deliberate action without suppressing return sessions',()=>{
  const dom=load('/november');const w=dom.window;
  const events=[];w.gtag=(...args)=>events.push(args);
+ w.sessionStorage.setItem('npf_useful_planning','1');
  w.trackAction('comparison_link_opened',{park_count:3});
  w.trackAction('park_favorited_toggled',{action:'unfavorited'});
  w.trackAction('comparison_changed',{park_count:1});
@@ -315,9 +316,10 @@ test('useful planning is recorded once per tab session after a deliberate planni
  w.trackAction('comparison_changed',{park_count:2});
  w.trackAction('park_favorited_toggled',{action:'favorited'});
  const useful=events.filter(e=>e[1]==='useful_planning');
- assert.equal(useful.length,1);
+ assert.equal(useful.length,3);
  assert.equal(useful[0][2].triggering_action,'official_planning_clicked');
- assert.equal(w.sessionStorage.getItem('npf_useful_planning'),'1');
+ assert.ok(useful.every(e=>e[2].measurement_version==='2'));
+ assert.equal(w.sessionStorage.getItem('npf_useful_planning'),'1'); // Old tabs cannot suppress new actions.
  dom.window.close();
 });
 test('search offers a known park outside the selected season and time budget uses a maximum',()=>{

@@ -25,10 +25,12 @@ After editing the canonical data or `index.html`, regenerate all data exports an
 
 ```sh
 python3 scripts/generate_seo_pages.py
-node --test tests/content-audit.test.mjs
+node --test tests/*.test.mjs
 ```
 
 Seasonal decision guides live in `content/months/` and are inserted into their matching generated month pages by the same generator. Keep factual claims linked to current NPS guidance and update the review note when checking them.
+
+Local and preview sites do not load production analytics. Before QA on a public host, enable the persistent creator opt-out described in [analytics operations](docs/ANALYTICS.md).
 
 The React prototype imports the same canonical dataset directly:
 
